@@ -405,3 +405,28 @@ Stage Summary:
 - Situs kini BERTEMa CERAH penuh (light mode premium): putih-lavender + aksen ungu-biru, nyaman di mata, kontras WCAG, semua 124 tampilan + landing section + Oracle chat + footer konsisten.
 - Identitas brand ungu-biru tetap kental lewat gradien judul, CTA, badge, dan aksen; WhatsApp tetap hijau.
 - Repo & ZIP siap push GitHub -> Vercel (proses deploy tetap zero-config).
+
+---
+Task ID: 8
+Agent: Z.ai Code (main orchestrator)
+Task: Permintaan user — "Oracle hanya untuk VVIP member, jangan tampilkan di website depan" — sembunyikan Oracle dari situs publik, jadikan lounge eksklusif dengan kode akses.
+
+Work Log:
+- Hapus OracleChat dari app shell (src/components/site/app.tsx): situs publik 124 tampilan kini 0 elemen Oracle (terverifikasi browser).
+- Modul keamanan src/lib/vvip.ts: expectedVvipCode() dari env VVIP_ACCESS_CODE (bawaan TOP-VVIP-2026) + perbandingan timingSafeEqual (panjang beda tetap membakar waktu supaya panjang kode tidak bocor).
+- API baru POST /api/vvip (src/app/api/vvip/route.ts): verifikasi kode gerbang; 400 tanpa kode, 403 kode salah + jeda 700ms anti brute-force, 200 + tier VVIP bila cocok; case-insensitive.
+- API /api/oracle diperkuat: wajib header x-vvip-code server-side — 403 + pesan WhatsApp resmi bila tidak cocok; tanpa kode pun ditolak.
+- src/components/site/pages/vvip.tsx (baru): lounge dark premium (zinc-950 + glow violet/indigo/blue, noise overlay) — badge "AREA EKSKLUSIF MEMBER VVIP", judul Oracle gradien, kartu kode (input mono uppercase tracking, tombol gradien, error shake via framer-motion key errorTick), tautan "Ajukan kandidatur via WhatsApp" bagi non-member. Setelah lolos: badge "AKSES VVIP AKTIF" (crown), heading "Selamat datang di Lounge Oracle", chip keunggulan, OracleChat embedded, tombol "Keluar dari sesi VVIP". Auto re-verifikasi kode tersimpan saat mount (kode rotate → gerbang menutup lagi). Layout anti-luapan: container tanpa justify-center, gerbang pakai my-auto.
+- oracle-chat.tsx refactor: props embedded (panel inline tanpa FAB, tanpa tombol tutup, header "Akses VVIP aktif"), getVvipCode() dari sessionStorage topkonsultan_vvip_code, header x-vvip-code dikirim tiap pesan, penanganan 403 (pesan minta kode terbaru), tinggi embedded h-[min(620px,62svh)] agar muat viewport.
+- Rute diskret "/vvip" didaftarkan di app.tsx (judul "Member Lounge") — TIDAK ditautkan dari navbar/footer/sitemap: hanya dibagikan personal via WhatsApp.
+- FAQ disesuaikan: kutipan kini menyebut Oracle menunggu di lounge Member VVIP (janji publik konsisten, tanpa bocor URL).
+- Dokumen: DEPLOY.md bagian 4 direvisi + bagian 4b baru (alamat lounge, kode bawaan, cara rotasi, keamanan, cara memberi akses); README ID+EN (fitur Oracle = Eksklusif VVIP, tabel env + VVIP_ACCESS_CODE); .env.example dibuat dan di-un-ignore (.gitignore: .env* + !.env.example).
+- E2E curl: oracle tanpa kode 403; oracle kode salah 403; oracle kode benar 200 (jawaban AI penuh sandbox); /api/vvip salah 403 / benar 200.
+- E2E Agent Browser: homepage 0 elemen Oracle; #/vvip gerbang render desktop+mobile (390px) elegan; kode salah → alert "Kode akses tidak dikenal"; kode benar → lounge + chat; chat kirim pesan → vonis Oracle muncul; tombol Keluar → gerbang kembali + sessionStorage null. Screenshot: download/verify-vvip-gate.png, verify-vvip-reject.png, verify-vvip-lounge3.png, verify-vvip-chat.png, verify-vvip-mobile-gate.png.
+- eslint + tsc bersih; commit 3e5645f (11 file, +539/-117).
+
+Stage Summary:
+- Oracle AI resmi jadi layanan EKSKLUSIF Member VVIP: hilang dari seluruh situs publik, hanya bisa diakses lewat URL diskret situs/#/vvip + kode akses yang diverifikasi di server.
+- Kode akses bawaan TOP-VVIP-2026; rotasi kapan pun via env VVIP_ACCESS_CODE di Vercel (kode lama langsung mati, tanpa deploy ulang).
+- Sesi member berakhir otomatis saat tab ditutup (sessionStorage) — aman di perangkat bersama; API tetap menolak 403 walau UI dilewati.
+- Kepada member: pemilik situs cukup kirim WhatsApp pribadi berisi alamat #/vvip + kode.
