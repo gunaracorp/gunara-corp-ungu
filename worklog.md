@@ -459,3 +459,29 @@ Stage Summary:
 - Keamanan: sandi CEO HMAC cookie 8 jam, kode member terverifikasi server, setiap login/penolakan tercatat; suspend = kode langsung mati.
 - Kredensial bawaan (ganti di production): ADMIN_PASSWORD=TOP-CEO-2026, VVIP_ACCESS_CODE=TOP-VVIP-2026.
 - Lokal = SQLite persisten; Vercel tanpa DB = memori (Panel menampilkan status sumber data; permanen via Vercel Postgres opsional).
+
+---
+Task ID: 10
+Agent: Z.ai Code (main orchestrator)
+Task: Permintaan user — "buatkan halaman yang belum ada halamannya, dan buatkan berstandard internasional" — audit tautan vs rute, identifikasi 6 halaman yang hilang dibanding situs firma konsultan internasional, bangun semuanya.
+
+Work Log:
+- Audit menyeluruh: semua href#/ + Link to= + tautan dinamis template literal dipetakan vs switch rute app.tsx — hasil: 0 tautan rusak; "halaman yang belum ada" = halaman standar firma internasional (McKinsey/Deloitte/PwC) yang belum dibuat.
+- 2 PDF bermerek dibuat via scripts/make-download-pdfs.py (ReportLab, band ungu, footer kontak resmi): public/downloads/checklist-pendirian-pt-2026.pdf (26 titik krusial + tabel durasi) & peta-jalan-perizinan-oss-rba-2026.pdf (skema risiko + 6 tahap + 5 kesalahan mahal); keduanya terverifikasi 2 halaman per dokumen.
+- src/components/site/pages/leadership.tsx (baru): PageHero + kartu pendiri full-width (foto asli), grid eksekutif + mitra senior (13 pimpinan dari data/leadership), StatBand, piagam tata kelola 4 pilar (Satu jawaban tanpa ego, Putusan berpijak bukti, Honor berbasis keberhasilan, Kerahasiaan berlapis), mekanisme penunjukan Mitra Utama 4 gerbang, kutipan Adrian Voss, kredensial lembaga.
+- offices.tsx (baru): kartu kantor pusat dengan Google Maps embed (iframe) + petunjuk arah (maps/dir), 3 kartu kantor lain dari data/offices, protokol kunjungan 3 kartu, catatan klien luar Jawa/190 negara, OfficeClocks dipakai ulang, CTABand kustom "Tidak perlu ke kantor untuk memulai".
+- newsroom.tsx (baru): rilis utama Oracle VVIP (foto menara-top.jpg) + 4 rilis arsip dengan foto asli (akreditasi PPIU, BPW, hq.png, akreditasi kanwil Jatim) + tombol "Minta rilis lengkap" (mailto dengan subjek), lembar fakta 8 baris dalam dl grid + StatBand, media kit 3 kartu (logo.svg unduh asli + lembar fakta + aset foto via email), kebijakan pers 3 kartu, kontak pers resmi.
+- resources.tsx (baru): 2 kartu unduhan PDF resmi (tag Terpopuler/Baru, download attribute), pustaka 3 rak (Perizinan & Regulasi, Strategi & Operasi, Templat Dokumen) dengan tombol minta via WA per rak, alur permintaan dokumen 3 langkah, cross-sell Wawasan + Oracle Dispatch, jaminan mutu 3 kartu.
+- responsibility.tsx (baru): StatBand dampak (25 tahun, 4/kuartal pro bono, 0 kasus etika), 4 pilar (Integritas, UMKM, Pendidikan, Lingkungan), 3 komitmen lintas penugasan, program Gerbang Sah (pro bono UMKM per kuartal, CTA WA) & Jalur Magang Akademi Dewan (CTA karier), kanal integritas email langsung ke Direktur Utama.
+- sitemap.tsx (baru): indeks lengkap seluruh rute publik (~80 tautan) dalam masonry columns-1/2/3 — Firma (9), 12 layanan, 8 kategori + 36 detail perizinan (dikelompokkan per kategori dengan note instansi+kompleksitas), Dewan + filter, 12 industri, wawasan, pusat sumber daya, bantuan, hukum; navigasi cepat berjangkar scroll-mt-28; rute privat (vvip/member/admin) sengaja tidak dicantumkan.
+- Integrasi: app.tsx (6 import + 6 TITLES + 6 case), footer.tsx (FIRM_LINKS 9 item: +Pimpinan, Tanggung Jawab, Kantor Kami; LEGAL_LINKS 7 item: +Sumber Daya, Ruang Media, Peta Situs), about.tsx (CTA "Kenali seluruh jajaran pimpinan" di bawah grid leadership), contact.tsx (tautan "4 kantor resmi & arah" di breadcrumb rail).
+- Perbaikan kualitas lintas situs: 94 kelas Tailwind tidak valid text-slate-9000 (tidak menghasilkan utilitas apa pun; render mewarisi slate-900) diganti text-slate-900 di 32 file — render identik, kini valid; ditemukan saat audit standar internasional.
+- QA: eslint 10 file baru/ubah = bersih; tsc src = 0 error; bun run build produksi sukses; curl smoke test 6 rute HTTP 200 + kedua PDF terunduh (8.8KB/7.2KB); E2E agent-browser: hero leadership desktop, mitra senior dengan potret, offices full+mid2x+mobile 390px, newsroom mid, resources mid, responsibility mid, sitemap mid+mobile; celah kosong pada screenshot full-page terkonfirmasi artefak animasi whileInView (bukan bug — konten ter-render saat scroll).
+- Dokumen: README.md ID+EN baris fitur baru "Halaman Standar Internasional" / "International-Standard Pages".
+- Commit 0a77ae3 (43 file, +2562/-100).
+
+Stage Summary:
+- Situs kini memiliki 6 halaman publik yang lazim dimiliki firma konsultan berstandar internasional: Leadership & Tata Kelola, Kantor Kami (dengan peta & protokol), Ruang Media (rilis pers + media kit), Pusat Sumber Daya (2 PDF resmi bermerek), Tanggung Jawab & Dampak, dan Peta Situs lengkap ~80 tautan.
+- Semua halaman memakai primitif desain situs (PageHero, Reveal, TiltCard, glass, gradien violet-biru), responsif penuh, aksesibel (aria-label, dl/dt/dd, semantic section), dan berbahasa Indonesia baku dengan suara brand konsisten.
+- 94 kelas CSS mati diperbaiki di 32 file — kualitas kode naik tanpa regresi visual.
+- Footer kini memuat seluruh halaman baru; about & contact saling menautkan ke leadership & offices.
