@@ -430,3 +430,32 @@ Stage Summary:
 - Kode akses bawaan TOP-VVIP-2026; rotasi kapan pun via env VVIP_ACCESS_CODE di Vercel (kode lama langsung mati, tanpa deploy ulang).
 - Sesi member berakhir otomatis saat tab ditutup (sessionStorage) — aman di perangkat bersama; API tetap menolak 403 walau UI dilewati.
 - Kepada member: pemilik situs cukup kirim WhatsApp pribadi berisi alamat #/vvip + kode.
+
+---
+Task ID: 9
+Agent: Z.ai Code (main orchestrator)
+Task: Permintaan user (CEO TOP Konsultan) — buat admin dashboard untuk CEO dan dashboard untuk member-member.
+
+Work Log:
+- Prisma: tambah model VvipMember (name/email/phone/company/tier VVIP|GOLD|PLATINUM/code unique/status/notes/validUntil/lastAccessAt), VvipAccessLog (memberId/name/codeMasked/action login|denied/detail), kolom status (new|read|replied) di ContactMessage; db push sukses.
+- src/lib/store.ts (baru): mem bersama (contacts/subscribers/members/logs) untuk fallback tanpa DB + helper generateUniqueCode (format TOP-<TIER>-XXXX-XXXX, charset tanpa I/O/0/1), findMemberByCode (DB dulu → mem), membershipActive, logAccess, maskCode, memberPublic.
+- src/lib/admin-auth.ts (baru): ADMIN_PASSWORD (bawaan TOP-CEO-2026), cookie top_admin HttpOnly bertanda HMAC-SHA256 atas expiry (8 jam) — stateless, tahan cold-start, rotasi sandi mematikan sesi lama; perbandingan timing-safe; isAdmin(req).
+- API admin (semua dijaga isAdmin): /api/admin/login (POST/DELETE), /api/admin/data (GET agregat statistik+tiket+subscriber+member+log, DB → mem), /api/admin/members (POST daftar+kode otomatis, PATCH suspend/activate/tier/validUntil, DELETE), /api/admin/contacts (PATCH status, DELETE), /api/admin/subscribers (DELETE).
+- API member: /api/member/profile (header x-vvip-code) → profil member + tiket yang cocok via email member; kode utama env diarahkan ke lounge (kind:"primary"); membership suspend/expired → 403 dengan pesan ramah.
+- /api/vvip diperluas: cek kode member aktif dulu → log login (detail tier), lalu kode utama env, selain itu tolak 403 + log "denied" (percobaan hacker tercatat); /api/oracle menerima kode member aktif selain kode utama.
+- contact & newsletter route dipindah ke mem bersama → tiket/subscriber dari publik langsung terlihat di Panel CEO meski tanpa DB.
+- Halaman #/admin: login dark premium ("Khusus CEO") + dashboard 5 tab — Ringkasan (4 stat card + brief & akses terbaru), Tiket Brief (badge status, tandai dibaca/dibalas, mailto balas, hapus), Member VVIP (form pendaftaran + panel "KODE PERSONAL TERBIT" dengan tombol salin & template pesan WhatsApp, tangguhkan/aktifkan/cabut), Newsletter (hapus), Log Akses (MASUK/DITOLAK). Peringatan kuning jika ADMIN_PASSWORD masih bawaan; badge status sumber data ("database persisten"/"mode memori").
+- Halaman #/member: gerbang kode personal → kartu keanggotaan (nama, tier badge, masa berlaku, perusahaan), CTA "Buka Lounge Oracle" (auto-unlock via sessionStorage) + "Jalur Prioritas WhatsApp", daftar hak istimewa, tiket brief milik member, tombol keluar sesi. Kode utama env → pesan "tim inti" + tautan lounge.
+- app.tsx: rute diskret "/member" & "/admin" (judul dinamis), tidak ditautkan dari nav publik; lounge #/vvip dapat tautan "Dashboard member".
+- Fix lint react-hooks/set-state-in-effect: defer setState via setTimeout(0) di effect admin & member (pola rAF-defer preseden codebase).
+- E2E curl: login salah 403 / benar 200+cookie; data tanpa cookie 403; buat member (TOP-GOLD-YNXG-ES6S) → gerbang 200 tier GOLD → profil 200 → oracle 200; kode hacker 403.
+- E2E browser: login CEO → dashboard (7 tiket, 1 member, 5 newsletter, log akses tercatat); daftarkan "Dewi Lestari" tier PLATINUM via UI → kode TOP-PLAT-67XB-AWEQ terbit; login member dengan kode itu → kartu keanggotaan + hak istimewa; "Buka Lounge Oracle" → lounge auto-terbuka; kirim brief dengan email Dewi → tiket muncul di dashboard-nya (TOP-MVBD0S7L); admin mobile 390px rapi; homepage tetap 0 elemen Oracle; dev.log bersih.
+- Dokumen: DEPLOY.md bagian 4c (tabel ruang privat, kemampuan panel, keamanan berlapis, catatan jujur memori vs SQLite), README ID+EN (fitur Panel CEO + Dashboard Member, env ADMIN_PASSWORD), .env.example.
+- eslint + tsc bersih; commit 0c95658 (21 file, +2195/-38).
+
+Stage Summary:
+- Panel CEO #/admin: satu tempat mengendalikan tiket, member, newsletter, log — kode personal member terbit & bisa disalin langsung untuk dikirim via WhatsApp.
+- Dashboard Member #/member: member melihat identitas, hak istimewa, tiket miliknya, dan masuk Oracle satu ketukan.
+- Keamanan: sandi CEO HMAC cookie 8 jam, kode member terverifikasi server, setiap login/penolakan tercatat; suspend = kode langsung mati.
+- Kredensial bawaan (ganti di production): ADMIN_PASSWORD=TOP-CEO-2026, VVIP_ACCESS_CODE=TOP-VVIP-2026.
+- Lokal = SQLite persisten; Vercel tanpa DB = memori (Panel menampilkan status sumber data; permanen via Vercel Postgres opsional).
