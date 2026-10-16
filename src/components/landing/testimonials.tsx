@@ -21,7 +21,7 @@ export default function Testimonials() {
 
   return (
     <section
-      className="relative border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative border-t border-slate-200 py-24 sm:py-28"
       aria-label="Testimoni klien"
     >
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -83,7 +83,7 @@ export default function Testimonials() {
             >
               <ChevronLeft className="h-5 w-5" aria-hidden="true" />
             </button>
-            <div className="flex gap-2.5" role="tablist" aria-label="Pilih testimoni">
+            <div className="flex gap-1" role="tablist" aria-label="Pilih testimoni">
               {TESTIMONIALS.map((t, i) => (
                 <button
                   key={t.name}
@@ -92,12 +92,16 @@ export default function Testimonials() {
                   aria-selected={i === idx}
                   aria-label={`Testimoni dari ${t.name}`}
                   onClick={() => setIdx(i)}
-                  className={`h-2 rounded-full transition-all duration-400 ${
-                    i === idx
-                      ? "w-8 bg-gradient-to-r from-violet-600 to-blue-600"
-                      : "w-2 bg-zinc-700 hover:bg-zinc-500"
-                  }`}
-                />
+                  className="group flex h-6 w-6 items-center justify-center"
+                >
+                  <span
+                    className={`h-2 rounded-full transition-all duration-400 ${
+                      i === idx
+                        ? "w-8 bg-gradient-to-r from-violet-600 to-blue-600"
+                        : "w-2 bg-zinc-700 group-hover:bg-zinc-500"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
             <button

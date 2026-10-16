@@ -6,7 +6,7 @@ export default function Results() {
   return (
     <section
       id="results"
-      className="relative scroll-mt-20 border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative scroll-mt-20 border-t border-slate-200 py-24 sm:py-28"
       aria-label="Hasil studi kasus"
     >
       <div

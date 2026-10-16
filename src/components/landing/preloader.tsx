@@ -1,78 +1,72 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+/**
+ * Preloader CSS-murni — overlay intro yang menyembunyikan dirinya sendiri.
+ *
+ * Mengapa bukan framer-motion + setInterval seperti sebelumnya?
+ * Chrome mengabaikan elemen LCP yang tertutup overlay opaque, sehingga LCP
+ * menunggu preloader pergi. Dengan interval JS, kepergian itu tergantung
+ * main-thread (di-throttle CPU saat load) — LCP terhambat ±2.5 dtk.
+ * Kini progress bar & exit digerakkan CSS keyframe di compositor thread:
+ * overlay pasti hilang ±1.15 dtk tanpa peduli seberapa sibuk JS.
+ * JS hanya bertugas melepas simpul dari DOM setelahnya (kebersihan DOM).
+ */
+
+import { useEffect, useLayoutEffect, useState } from "react";
 import { LogoMark } from "./logo";
-import { EASE } from "./motion";
+
+const SEEN_KEY = "topkonsultan_preloader_seen";
 
 export default function Preloader() {
-  const [progress, setProgress] = useState(0);
-  const [done, setDone] = useState(false);
+  const [gone, setGone] = useState(false);
 
-  useEffect(() => {
-    const start = performance.now();
-    const DURATION = 1250;
-    const id = window.setInterval(() => {
-      const p = Math.min(100, Math.round(((performance.now() - start) / DURATION) * 100));
-      setProgress(p);
-      if (p >= 100) {
-        window.clearInterval(id);
-        window.setTimeout(() => setDone(true), 320);
-      }
-    }, 40);
-    return () => window.clearInterval(id);
+  // Kunjungan kedua dst. dalam satu sesi: lewati total — sebelum paint.
+  // Harus sinkron di useLayoutEffect (bukan initializer useState): SSR tidak
+  // punya sessionStorage, sehingga pembacaan di initializer akan memicu
+  // hydration mismatch.
+  useLayoutEffect(() => {
+    let seen = false;
+    try {
+      seen = !!sessionStorage.getItem(SEEN_KEY);
+      if (!seen) sessionStorage.setItem(SEEN_KEY, "1");
+    } catch {
+      /* storage non-aktif — preloader tetap tampil normal */
+    }
+    if (seen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- skip pre-paint, lihat komentar di atas
+      setGone(true);
+    }
   }, []);
 
+  useEffect(() => {
+    const id = window.setTimeout(() => setGone(true), 2400);
+    return () => window.clearTimeout(id);
+  }, []);
+
+  if (gone) return null;
+
   return (
-    <AnimatePresence>
-      {!done && (
-        <motion.div
-          key="preloader"
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-7 bg-white"
-          exit={{
-            y: "-100%",
-            borderBottomLeftRadius: "50% 10%",
-            borderBottomRightRadius: "50% 10%",
-            transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
-          }}
-          aria-hidden="true"
-        >
-          <motion.div
-            initial={{ scale: 0.4, opacity: 0, rotate: -30 }}
-            animate={{ scale: 1, opacity: 1, rotate: 0 }}
-            transition={{ duration: 0.8, ease: EASE }}
-          >
-            <LogoMark className="h-20 w-20 drop-shadow-[0_0_30px_rgba(139,92,246,0.45)]" />
-          </motion.div>
+    <div
+      className="preloader-veil fixed inset-0 z-[100] flex flex-col items-center justify-center gap-7 bg-white"
+      aria-hidden="true"
+    >
+      <div className="preloader-mark">
+        <LogoMark className="h-20 w-20 drop-shadow-[0_0_30px_rgba(139,92,246,0.45)]" />
+      </div>
 
-          <div className="overflow-hidden">
-            <motion.p
-              initial={{ y: "120%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.7, delay: 0.25, ease: EASE }}
-              className="font-display text-lg font-bold tracking-[0.4em] text-slate-900"
-            >
-              TOP KONSULTAN
-            </motion.p>
-          </div>
+      <p className="intro-fade-up font-display text-lg font-bold tracking-[0.4em] text-slate-900">
+        TOP KONSULTAN
+      </p>
 
-          <div className="flex w-60 flex-col items-center gap-3">
-            <div className="h-px w-full overflow-hidden bg-slate-100">
-              <div
-                className="h-full bg-gradient-to-r from-violet-300 via-indigo-500 to-indigo-600 transition-[width] duration-100 ease-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <span className="text-xs font-semibold tracking-[0.35em] text-violet-700">
-              {progress}%
-            </span>
-          </div>
+      <div className="flex w-60 flex-col items-center gap-3">
+        <div className="h-px w-full overflow-hidden bg-slate-100">
+          <div className="preloader-bar h-full bg-gradient-to-r from-violet-300 via-indigo-500 to-indigo-600" />
+        </div>
+      </div>
 
-          <p className="text-[10px] uppercase tracking-[0.42em] text-slate-400">
-            Menghadirkan 46 Dewan Pakar
-          </p>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      <p className="text-[10px] uppercase tracking-[0.42em] text-slate-400">
+        Menghadirkan 46 Dewan Pakar
+      </p>
+    </div>
   );
 }

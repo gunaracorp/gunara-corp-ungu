@@ -107,65 +107,48 @@ export function PageHero({
         className="grid-bg absolute inset-0 [mask-image:radial-gradient(ellipse_75%_70%_at_50%_25%,black_25%,transparent_80%)]"
         aria-hidden="true"
       />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute inset-0"
+      <div
+        className="intro-fade absolute inset-0"
         aria-hidden="true"
       >
         <div className="absolute -top-24 left-[8%] h-72 w-72 rounded-full bg-violet-600/15 blur-[120px]" />
         <div className="absolute right-[5%] top-10 h-80 w-80 rounded-full bg-violet-600/10 blur-[130px]" />
-      </motion.div>
+      </div>
 
       <div
         className={`relative z-10 mx-auto flex max-w-5xl flex-col px-4 sm:px-6 ${alignCls}`}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: EASE }}
-        >
+        <div className="intro-fade">
           <Breadcrumb items={crumbs} />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.08, ease: EASE }}
-        >
+        <div className="intro-fade-up" style={{ animationDelay: "0.08s" }}>
           <span className="inline-flex items-center gap-2.5 rounded-full border border-violet-300 bg-violet-600/[0.07] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-violet-700">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             {eyebrow}
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 22 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.16, ease: EASE }}
-          className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+        <h1
+          className="intro-rise mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl"
+          style={{ animationDelay: "0.08s" }}
         >
           {title}
-        </motion.h1>
+        </h1>
 
         {sub ? (
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.26, ease: EASE }}
-            className="mt-5 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg"
+          <p
+            className="intro-rise mt-5 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg"
+            style={{ animationDelay: "0.16s" }}
           >
             {sub}
-          </motion.p>
+          </p>
         ) : null}
 
         {meta && meta.length > 0 ? (
-          <motion.ul
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.36, ease: EASE }}
-            className="mt-7 flex flex-wrap justify-center gap-2.5"
+          <ul
+            className="intro-fade-up mt-7 flex flex-wrap justify-center gap-2.5"
+            style={{ animationDelay: "0.3s" }}
           >
             {meta.map((m) => (
               <li
@@ -176,7 +159,7 @@ export function PageHero({
                 {m}
               </li>
             ))}
-          </motion.ul>
+          </ul>
         ) : null}
 
         {children ? (

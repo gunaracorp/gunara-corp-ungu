@@ -12,7 +12,7 @@ const COLUMNS = [
 export default function Comparison() {
   return (
     <section
-      className="relative border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative border-t border-slate-200 py-24 sm:py-28"
       aria-label="Perbandingan melawan para pemimpin industri"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

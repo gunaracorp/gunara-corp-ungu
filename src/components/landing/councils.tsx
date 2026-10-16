@@ -18,7 +18,7 @@ export default function Councils() {
   return (
     <section
       id="councils"
-      className="relative scroll-mt-20 overflow-hidden border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative scroll-mt-20 overflow-hidden border-t border-slate-200 py-24 sm:py-28"
       aria-label="46 Dewan Pakar"
     >
       <div

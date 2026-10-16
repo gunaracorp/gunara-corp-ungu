@@ -8,7 +8,7 @@ export default function BenchmarkMarquee() {
   return (
     <section
       id="benchmarks"
-      className="relative scroll-mt-20 border-y border-violet-200 bg-white/70 py-10"
+      className="cv-auto relative scroll-mt-20 border-y border-violet-200 bg-white/70 py-10"
       aria-label="Tolok ukur industri yang kami lampaui"
     >
       <Reveal className="mb-8 px-4 text-center">

@@ -95,6 +95,16 @@ Situs ini dibangun *search-engine-first* tanpa perlu setup tambahan:
 
 Langkah aktifkan Search Console: daftar di [search.google.com/search-console](https://search.google.com/search-console) → pilih metode **HTML tag** → salin isi `content="…"` ke env `GOOGLE_SITE_VERIFICATION` di Vercel → redeploy → kirim `sitemap.xml`.
 
+### ✦ Performa Terverifikasi Lighthouse
+
+Diaudit dengan Lighthouse 13 terhadap build produksi (emulasi Moto G Power):
+
+- **Aksesibilitas 100 · Best Practices 100 · SEO 100** di semua halaman
+- **Core Web Vitals nyata** (throttling DevTools 4× CPU): LCP 2,3 dtk · CLS 0 · TBT ±400 ms — skor Performa 85
+- Optimasi terpasang: intro hero & PageHero digerakkan CSS murni (kandidat LCP ter-paint sejak frame pertama), preloader menyembunyikan dirinya sendiri via compositor (±1,15 dtk, kebal main-thread), 26 view SPA di-*code-split* per chunk (`next/dynamic`, SSR tetap jalan), 13 section bawah lipatan pakai `content-visibility`, dan pemuatan JS awal dipangkas ±50%
+
+Ulangi audit kapan saja: `bash scripts/lh-audit.sh / mobile` (butuh build produksi berjalan di port 3000).
+
 ### ✦ Menjalankan Lokal
 
 ```bash
@@ -197,6 +207,16 @@ This site is *search-engine-first* out of the box — no extra setup needed:
 - **Branded social image** — a 1200×630 violet-blue gradient `/opengraph-image` rendered automatically for every page
 
 To activate Search Console: register at [search.google.com/search-console](https://search.google.com/search-console) → choose the **HTML tag** method → paste the `content="…"` value into the `GOOGLE_SITE_VERIFICATION` env on Vercel → redeploy → submit `sitemap.xml`.
+
+### ✦ Lighthouse-Verified Performance
+
+Audited with Lighthouse 13 against a production build (Moto G Power emulation):
+
+- **Accessibility 100 · Best Practices 100 · SEO 100** across all pages
+- **Real Core Web Vitals** (DevTools 4× CPU throttling): LCP 2.3 s · CLS 0 · TBT ±400 ms — Performance score 85
+- Built-in optimizations: hero & PageHero intros driven by pure CSS (LCP candidate paints from the very first frame), a self-hiding compositor-driven preloader (±1.15 s, immune to main-thread jams), 26 SPA views code-split per chunk (`next/dynamic`, SSR intact), `content-visibility` on 13 below-the-fold sections, and ±50% smaller initial JS payload
+
+Re-run the audit anytime: `bash scripts/lh-audit.sh / mobile` (needs a production build running on port 3000).
 
 ### ✦ Run Locally
 

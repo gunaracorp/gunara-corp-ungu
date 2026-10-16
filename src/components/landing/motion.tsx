@@ -122,6 +122,11 @@ export function SectionHeading({
 
 /* ------------------------------- Split Words ------------------------------- */
 
+/**
+ * Reveal per kata via mask + animasi CSS murni (intro-word) — tampil tanpa
+ * menunggu hidrasi JS, sehingga H1 hero bisa menjadi kandidat LCP sedini mungkin.
+ * Sinkronisasi visual identik dengan pola framer-motion sebelumnya.
+ */
 export function SplitWords({
   text,
   allGold = false,
@@ -137,21 +142,19 @@ export function SplitWords({
 }) {
   const words = text.split(" ");
   return (
-    <span className={className} aria-label={text}>
+    <span className={className} aria-hidden="true">
       {words.map((w, i) => (
         <span
           key={`${w}-${i}`}
           aria-hidden="true"
           className="-mb-[0.12em] inline-block overflow-hidden pb-[0.12em] align-bottom"
         >
-          <motion.span
-            className={`inline-block will-change-transform ${allGold ? "text-gradient-gold-animated" : ""}`}
-            initial={{ y: "112%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 0.85, delay: delay + i * stagger, ease: EASE }}
+          <span
+            className={`intro-word inline-block ${allGold ? "text-gradient-gold-animated" : ""}`}
+            style={{ animationDelay: `${(delay + i * stagger).toFixed(2)}s` }}
           >
             {w}
-          </motion.span>
+          </span>
           {i < words.length - 1 ? <span>&nbsp;</span> : null}
         </span>
       ))}

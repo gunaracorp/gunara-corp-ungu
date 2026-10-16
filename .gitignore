@@ -60,4 +60,4 @@ server.log
 /tool-results/
 /agent-ctx/
 /examples/
-db/*.db-journal
+db/*.db-journallhserver/

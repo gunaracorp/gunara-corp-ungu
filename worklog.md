@@ -519,3 +519,36 @@ Stage Summary:
 - Sitemap otomatis 133 URL + robots dinamis melindungi API & ruang privat; gambar sosial bermerek dirender otomatis untuk semua halaman.
 - Dua bug produksi berat ditemukan & dibereskan saat QA: NoFallbackError (dynamicParams=false + metadata di not-found) dan og:image localhost (file-convention) — keduanya didokumentasikan di kode agar tidak diulang.
 - Langkah user tinggal 5 menit: verifikasi Search Console (env GOOGLE_SITE_VERIFICATION) + submit sitemap.xml (panduan DEPLOY.md 5b).
+
+---
+Task ID: 12
+Agent: Z.ai Code (main orchestrator)
+Task: Verifikasi Lighthouse/Performance terhadap build produksi — temukan akar masalah metrik buruk, perbaiki, dan audit ulang.
+
+Work Log:
+- Setup: matikan dev server, rebuild produksi standalone (build:standalone), server di port 3000 via scripts/ensure-server.sh (pola anti "sandbox membunuh background server"); install lighthouse 13.5 global; scripts/lh-audit.sh + lh-summary.js + lh-dig.js + lh-trace-lcp.js (persist, bisa dipakai ulang).
+- Baseline (mobile, lantern): Home Perf 57 (LCP 4,54s, TBT 976ms, SI 5,7s), FAQ 76, /perizinan/pendirian-pt 77; SEO & BP sudah 100.
+- Forensik 3 trace mentah (--save-assets) menyingkap akar masalah berlapis:
+  1. Elemen LCP dikunci animasi masuk framer-motion (badge delay 1,45s, H1 1,55–2,01s, paragraf 2,35s) → render delay 3.614ms padahal TTFB 19ms.
+  2. Chrome mencatat kandidat LCP saat animasi OPACITY elemen BERAKHIR — bukan saat mulai. Bukti: badge (delay 0,05+0,8s) → kandidat 2.141ms; paragraf (0,36+0,8s) → 2.444ms. Persis delay+durasi.
+  3. Preloader opaque menutup layar; kandidat LCP #1 = teks preloader; konten hero di bawahnya tidak dihitung sampai overlay pergi (exit bergantung interval JS 40ms yang ikut di-throttle).
+- Perbaikan:
+  1. globals.css: keyframes intro-fade/-fade-up/-rise/-word + utilitas cv-auto (content-visibility: auto, contain-intrinsic-size 720px) + preloader CSS (bar/mark/veil).
+  2. hero.tsx + SplitWords (motion.tsx): intro digerakkan CSS murni; elemen LCP-kritis (badge, H1, paragraf) pakai intro-rise/intro-word TRANSFORM-SAJA (tanpa fade) → ter-paint sejak frame pertama; delay 1,45–3,3s dipangkas ke 0,05–0,9s; typewriter mulai 600ms.
+  3. PageHero (site/ui.tsx): breadcrumb/eyebrow/H1/sub/meta CSS intro (H1+sub pakai intro-rise) — berlaku ke ±29 halaman.
+  4. preloader.tsx: CSS-murni — progress bar & exit via keyframe compositor (opacity+transform, visibility hidden di 1,15s), kebal long-task; hanya kunjungan pertama per sesi (sessionStorage, useLayoutEffect pre-paint; komentar anti hydration-mismatch); unmount DOM via JS 2,4s.
+  5. app.tsx: 26 view SPA → next/dynamic per chunk (loading placeholder min-h-[60svh]; SSR tetap jalan karena dynamic ssr default); HAPUS import mati COUNCIL_PROFILES (±50KB dari bundle awal) + `void profile` di case default.
+  6. cv-auto pada 13 section below-fold homepage (marquee…global).
+  7. A11y 85→100: aria-label terlarang di span SplitWords (→ aria-hidden + sr-only text di H1 hero); ul>div>li invalid di about.tsx (Reveal memindah ul); tombol dot h-2 (testimonials) → hit area 24×24 dengan span dot; label-content-name-mismatch (ariaLabel logo navbar + aria-label kartu councils dihapus, teks terlihat jadi nama aksen); kontras footer slate-400→slate-600 (2 titik).
+  8. README (ID+EN): bagian "Performa Terverifikasi Lighthouse / Lighthouse-Verified Performance".
+- Kesalahan proses yang ditemukan & diperbaiki saat QA: audit kedua ternyata mengukur server LAMA (fuser gagal bunuh bun; HTML lama + chunk baru = 500 di 7 chunk → skor palsu tinggi). ensure-server.sh kini pkill standalone/server.js + fuser. Juga: Chrome agent-browser tertinggal hidup mengotori run (TBT 3×) → selalu agent-browser close + pkill sebelum audit.
+- Hasil akhir (lantern, mobile): Perf 57→75, A11y 85→100, BP 100, SEO 100; TBT 976→539ms; SI 5,7→2,94s; CLS 0; unused JS 134→73KB; build 144 halaman sukses; tsc & eslint bersih; sanity SEO utuh (/faq title SSR benar, sitemap 133 loc).
+- PENTING untuk dibaca ulang nanti: lantern (simulasi PSI) melaporkan LCP 3,5–3,7s PADAHAL trace mentah menunjukkan LCP teramati 373ms dan breakdown lantern sendiri menghitung render delay elemen LCP hanya 358ms — angka lantern mengantre di belakang tugas hidrasi (artefak model, terkenal untuk pola animated-LCP). Ukuran paling jujur: throttling DevTools nyata (4× CPU) → LCP 2,3s (= FCP), TBT 380ms, Perf 85. Jangan mengganggu CSS intro lagi demi angka lantern.
+- E2E pasca-refactor dynamic(): nav SPA FAQ ✓ (10 accordion), detail perizinan ✓ (h1 benar), gerbang VVIP ✓ (input+teks), 404 ✓; chunk 200 semua; verifikasi visual hero (download/verify-perf-hero.png) — design utuh.
+
+Stage Summary:
+- Skor kategorik sempurna: Accessibility 100, Best Practices 100, SEO 100 (semua halaman); Performance mobile 75 / desktop 50 (lantern) dengan metrik nyata LCP 2,3s & CLS 0 (kategori "good").
+- Akar masalah LCP bukan jaringan/font/server — melainkan (a) animasi opacity menahan kandidat LCP sampai berakhir, (b) preloader opaque menutup kandidat. Keduanya kini CSS compositor-driven + transform-only pada elemen LCP. Pelajaran ini terdokumentasi di komentar kode & worklog agar tidak diulang.
+- Bundle awal ringan ±50%: 26 view jadi chunk terpisah, 50KB data mati dibuang; sisa "unused JS" 73KB didominasi react-dom/framer (wajar).
+- Tools audit permanen: scripts/ensure-server.sh, lh-audit.sh, lh-summary.js, lh-dig.js, lh-trace-lcp.js; hasil JSON di lighthouse/ (di-gitignore).
+- Lanjutan opsional bila mau dorong lantern >90: migrasi LazyMotion (m.* + domAnimation, ~30 file) & lazy-mount section homepage (risiko CLS di jaringan nyata — butuh pengukuran ulang).

@@ -7,6 +7,7 @@
  */
 
 import { useEffect } from "react";
+import dynamic from "next/dynamic";
 import { useRoute, useScrollTopOnRoute } from "@/lib/router";
 import {
   ROUTE_TITLES,
@@ -19,7 +20,6 @@ import {
 } from "@/lib/seo";
 import { slugify } from "@/data/extended-types";
 import { COUNCILS, SERVICES } from "@/data/content";
-import { COUNCIL_PROFILES } from "@/data/council-profiles";
 import { INDUSTRIES } from "@/data/industries";
 import { INSIGHTS } from "@/data/insights";
 import { PERIZINAN } from "@/data/perizinan";
@@ -28,34 +28,46 @@ import Footer from "@/components/landing/footer";
 import Preloader from "@/components/landing/preloader";
 import ScrollProgress from "@/components/landing/scroll-progress";
 import WhatsAppFloat from "@/components/landing/whatsapp-float";
-import NotFoundPage from "@/components/site/pages/not-found";
 import HomePage from "@/components/site/pages/home";
-import AboutPage from "@/components/site/pages/about";
-import ServicesPage from "@/components/site/pages/services";
-import ServiceDetailPage from "@/components/site/pages/service-detail";
-import CouncilsPage from "@/components/site/pages/councils";
-import CouncilDetailPage from "@/components/site/pages/council-detail";
-import IndustriesPage from "@/components/site/pages/industries";
-import IndustryDetailPage from "@/components/site/pages/industry-detail";
-import InsightsPage from "@/components/site/pages/insights";
-import InsightDetailPage from "@/components/site/pages/insight-detail";
-import PerizinanPage from "@/components/site/pages/perizinan";
-import PerizinanDetailPage from "@/components/site/pages/perizinan-detail";
-import CareersPage from "@/components/site/pages/careers";
-import MethodPage from "@/components/site/pages/method";
-import ResultsPage from "@/components/site/pages/results";
-import ContactPage from "@/components/site/pages/contact";
-import LegalPage from "@/components/site/pages/legal";
-import FaqPage from "@/components/site/pages/faq";
-import LeadershipPage from "@/components/site/pages/leadership";
-import OfficesPage from "@/components/site/pages/offices";
-import NewsroomPage from "@/components/site/pages/newsroom";
-import ResourcesPage from "@/components/site/pages/resources";
-import ResponsibilityPage from "@/components/site/pages/responsibility";
-import SitemapPage from "@/components/site/pages/sitemap";
-import VvipPage from "@/components/site/pages/vvip";
-import AdminPage from "@/components/site/pages/admin";
-import MemberPage from "@/components/site/pages/member";
+
+/*
+ * Code-splitting: hanya HomePage + NotFound yang eager — semua view lain
+ * dipecah per-chunk (next/dynamic, SSR tetap jalan) supaya bundle awal
+ * ringan: JS evaluation & TBT turun drastis di seluruh situs.
+ * Data slug (PERIZINAN/INSIGHTS/...) tetap di sini karena lookup routing
+ * harus sinkron untuk paritas SSR.
+ */
+const DynamicLoading = () => <div className="min-h-[60svh]" aria-hidden="true" />;
+const dyn = (loader: () => Promise<{ default: React.ComponentType<any> }>) =>
+  dynamic(loader, { loading: DynamicLoading });
+
+const NotFoundPage = dyn(() => import("@/components/site/pages/not-found"));
+const AboutPage = dyn(() => import("@/components/site/pages/about"));
+const ServicesPage = dyn(() => import("@/components/site/pages/services"));
+const ServiceDetailPage = dyn(() => import("@/components/site/pages/service-detail"));
+const CouncilsPage = dyn(() => import("@/components/site/pages/councils"));
+const CouncilDetailPage = dyn(() => import("@/components/site/pages/council-detail"));
+const IndustriesPage = dyn(() => import("@/components/site/pages/industries"));
+const IndustryDetailPage = dyn(() => import("@/components/site/pages/industry-detail"));
+const InsightsPage = dyn(() => import("@/components/site/pages/insights"));
+const InsightDetailPage = dyn(() => import("@/components/site/pages/insight-detail"));
+const PerizinanPage = dyn(() => import("@/components/site/pages/perizinan"));
+const PerizinanDetailPage = dyn(() => import("@/components/site/pages/perizinan-detail"));
+const CareersPage = dyn(() => import("@/components/site/pages/careers"));
+const MethodPage = dyn(() => import("@/components/site/pages/method"));
+const ResultsPage = dyn(() => import("@/components/site/pages/results"));
+const ContactPage = dyn(() => import("@/components/site/pages/contact"));
+const LegalPage = dyn(() => import("@/components/site/pages/legal"));
+const FaqPage = dyn(() => import("@/components/site/pages/faq"));
+const LeadershipPage = dyn(() => import("@/components/site/pages/leadership"));
+const OfficesPage = dyn(() => import("@/components/site/pages/offices"));
+const NewsroomPage = dyn(() => import("@/components/site/pages/newsroom"));
+const ResourcesPage = dyn(() => import("@/components/site/pages/resources"));
+const ResponsibilityPage = dyn(() => import("@/components/site/pages/responsibility"));
+const SitemapPage = dyn(() => import("@/components/site/pages/sitemap"));
+const VvipPage = dyn(() => import("@/components/site/pages/vvip"));
+const AdminPage = dyn(() => import("@/components/site/pages/admin"));
+const MemberPage = dyn(() => import("@/components/site/pages/member"));
 
 const BASE_TITLE = "PT TOP KONSULTAN INTERNASIONAL — Konsultasi & Perizinan Terlengkap di Dunia";
 
@@ -198,8 +210,6 @@ export default function SiteApp({ initialPath }: { initialPath?: string }) {
         title = `Panel CEO — ${SITE_NAME}`;
         break;
       default: {
-        const profile = COUNCIL_PROFILES[0];
-        void profile;
         view = <NotFoundPage />;
         title = `Halaman Tidak Ditemukan — ${SITE_NAME}`;
       }

@@ -64,7 +64,7 @@ function useTypewriter(words: string[]) {
       }
     };
 
-    timer = window.setTimeout(tick, 1400);
+    timer = window.setTimeout(tick, 600);
     return () => window.clearTimeout(timer);
   }, [words]);
 
@@ -196,7 +196,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.82 }}
           animate={{ opacity: 0.24, scale: 1 }}
-          transition={{ duration: 1.7, delay: 1.45, ease: EASE }}
+          transition={{ duration: 1.2, delay: 0.5, ease: EASE }}
         >
           <Mandala />
         </motion.div>
@@ -207,28 +207,25 @@ export default function Hero() {
         style={{ y: yContent, opacity: fade }}
         className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.45, ease: EASE }}
-        >
+        <div className="intro-rise" style={{ animationDelay: "0.05s" }}>
           <span className="inline-flex items-center gap-2.5 rounded-full border border-violet-300 bg-violet-600/[0.07] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-violet-700">
             <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
             EST. 2001 — TASIKMALAYA · JAKARTA · MELAYANI 190 NEGARA
           </span>
-        </motion.div>
+        </div>
 
         <h1 className="mt-7 font-display text-[11.5vw] font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl">
-          <SplitWords text="Satu Gerbang untuk" delay={1.55} className="block text-slate-900" />
-          <SplitWords text="Segala Izin dan" delay={1.78} className="block text-slate-900" />
-          <SplitWords text="Kejayaan Bisnis Anda" delay={2.01} allGold className="block" />
+          <span className="sr-only">
+            Satu Gerbang untuk Segala Izin dan Kejayaan Bisnis Anda
+          </span>
+          <SplitWords text="Satu Gerbang untuk" delay={0.12} className="block text-slate-900" />
+          <SplitWords text="Segala Izin dan" delay={0.2} className="block text-slate-900" />
+          <SplitWords text="Kejayaan Bisnis Anda" delay={0.28} allGold className="block" />
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 2.35, ease: EASE }}
-          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg"
+        <p
+          className="intro-rise mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg"
+          style={{ animationDelay: "0.3s" }}
         >
           Konsultan &amp; perizinan terlengkap di dunia — 46 Dewan Pakar internasional
           dengan 6.900 tahun pengalaman gabungan menuntaskan semua kebutuhan bisnis
@@ -236,13 +233,11 @@ export default function Hero() {
           <span className="font-semibold text-slate-700">
             dari pendirian PT hingga penguasaan pasar di 190 negara.
           </span>
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 2.55, ease: EASE }}
-          className="mt-4 text-sm tracking-wide text-slate-900"
+        <p
+          className="intro-fade mt-4 text-sm tracking-wide text-slate-900"
+          style={{ animationDelay: "0.48s" }}
           aria-live="off"
         >
           Sedang menuntaskan:{" "}
@@ -250,13 +245,11 @@ export default function Hero() {
           <span className="animate-blink font-semibold text-violet-600" aria-hidden="true">
             ▍
           </span>
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 2.7, ease: EASE }}
-          className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+        <div
+          className="intro-fade-up mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          style={{ animationDelay: "0.56s" }}
         >
           <a
             href="#/contact"
@@ -280,13 +273,11 @@ export default function Hero() {
           >
             Jelajahi 36 Izin
           </a>
-        </motion.div>
+        </div>
 
-        <motion.ul
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 2.88, ease: EASE }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-2.5"
+        <ul
+          className="intro-fade-up mt-10 flex flex-wrap items-center justify-center gap-2.5"
+          style={{ animationDelay: "0.68s" }}
         >
           {HERO_CHIPS.map(({ Icon, label }) => (
             <li
@@ -297,15 +288,13 @@ export default function Hero() {
               {label}
             </li>
           ))}
-        </motion.ul>
+        </ul>
       </motion.div>
 
       {/* Scroll cue */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 3.3 }}
-        className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2"
+      <div
+        className="intro-fade absolute bottom-7 left-1/2 z-10 -translate-x-1/2"
+        style={{ animationDelay: "0.9s" }}
       >
         <a
           href="#benchmarks"
@@ -317,7 +306,7 @@ export default function Hero() {
             <span className="h-2 w-1 animate-bounce rounded-full bg-current" aria-hidden="true" />
           </span>
         </a>
-      </motion.div>
+      </div>
     </section>
   );
 }

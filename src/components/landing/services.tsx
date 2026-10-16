@@ -6,7 +6,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative scroll-mt-20 overflow-hidden border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative scroll-mt-20 overflow-hidden border-t border-slate-200 py-24 sm:py-28"
       aria-label="Layanan"
     >
       <div

@@ -129,7 +129,6 @@ export default function CouncilsPage({ initialFilter }: { initialFilter: string 
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: Math.min(i * 0.03, 0.5), ease: EASE }}
               className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/50 hover:bg-slate-50 hover:shadow-[0_16px_44px_-18px_rgba(139,92,246,0.2)]"
-              aria-label={`Buka Dewan ${c.name}`}
             >
               <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-violet-300 bg-violet-50 text-violet-600 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <c.icon className="h-5 w-5" aria-hidden="true" />

@@ -3,7 +3,7 @@ import { Counter, Reveal, SectionHeading } from "./motion";
 
 export default function Stats() {
   return (
-    <section className="relative py-24 sm:py-28" aria-label="Angka-angka kunci">
+    <section className="cv-auto relative py-24 sm:py-28" aria-label="Angka-angka kunci">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Dalam Angka"

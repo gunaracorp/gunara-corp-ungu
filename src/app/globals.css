@@ -271,17 +271,137 @@ body {
   .page-enter {
     animation: page-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
+
+  /*
+   * Intro animasi murni CSS — konten above-fold tampil & beranimasi TANPA
+   * menunggu hidrasi framer-motion (LCP tercatat sejak paint pertama).
+   * `backwards` menjaga elemen tersembunyi selama animation-delay.
+   */
+  .intro-fade {
+    animation: intro-fade 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .intro-fade-up {
+    animation: intro-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  /*
+   * Varian LCP-safe: animasi TRANSFORM SAJA (tanpa fade). Chrome mencatat
+   * kandidat LCP saat animasi opacity elemen berakhir — elemen yang selalu
+   * opaque (hanya bergeser) tercatat sebagai LCP sejak paint pertama.
+   */
+  .intro-rise {
+    animation: intro-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+  .intro-word {
+    animation: intro-word 0.85s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  /*
+   * Lewati render & style untuk section jauh di bawah liputan layar
+   * (hemat Style & Layout di halaman panjang; browser merender saat mendekat).
+   */
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
+  }
 }
 
 @keyframes page-enter {
   from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-fade {
+  from {
     opacity: 0;
-    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes intro-word {
+  from {
+    transform: translateY(112%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------- Preloader ------------------------------- */
+
+@keyframes preloader-bar {
+  from {
+    width: 8%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.preloader-bar {
+  animation: preloader-bar 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes preloader-mark {
+  from {
+    transform: scale(0.4) rotate(-30deg);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+.preloader-mark {
+  animation: preloader-mark 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/*
+ * Overlay preloader menyembunyikan dirinya sendiri lewat keyframe di
+ * compositor thread (opacity + transform) — kebal long-task main-thread.
+ * `forwards` memastikan tetap tersembunyi sampai JS melepas simpulnya.
+ */
+@keyframes preloader-veil {
+  0%,
+  78% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+.preloader-veil {
+  animation: preloader-veil 1.15s cubic-bezier(0.76, 0, 0.24, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

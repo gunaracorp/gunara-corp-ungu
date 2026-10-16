@@ -44,7 +44,7 @@ export default function Agencies() {
   return (
     <section
       id="instansi"
-      className="relative scroll-mt-20 border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative scroll-mt-20 border-t border-slate-200 py-24 sm:py-28"
       aria-label="Jaringan instansi pemerintah yang dihadapi dalam pengurusan izin"
     >
       <div

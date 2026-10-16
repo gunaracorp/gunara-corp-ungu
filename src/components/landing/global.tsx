@@ -5,7 +5,7 @@ import { Reveal, SectionHeading } from "./motion";
 export default function GlobalReach() {
   return (
     <section
-      className="relative overflow-hidden border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative overflow-hidden border-t border-slate-200 py-24 sm:py-28"
       aria-label="Jangkauan global"
     >
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">

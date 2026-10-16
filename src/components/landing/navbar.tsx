@@ -63,7 +63,7 @@ export default function Navbar() {
         className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Navigasi utama"
       >
-        <Link to="/" className="group flex items-center gap-3" ariaLabel="PT TOP KONSULTAN INTERNASIONAL — beranda">
+        <Link to="/" className="group flex items-center gap-3">
           <LogoMark className="h-9 w-9 transition-transform duration-700 group-hover:rotate-[360deg]" />
           <Wordmark />
         </Link>

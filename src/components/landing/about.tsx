@@ -4,7 +4,7 @@ import { Reveal, SectionHeading, TiltCard } from "./motion";
 
 export default function About() {
   return (
-    <section id="about" className="relative scroll-mt-20 py-24 sm:py-28" aria-label="Tentang PT TOP Konsultan Internasional">
+    <section id="about" className="cv-auto relative scroll-mt-20 py-24 sm:py-28" aria-label="Tentang PT TOP Konsultan Internasional">
       {/* ambient glow */}
       <div
         className="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-violet-600/[0.07] blur-[130px]"
@@ -25,19 +25,22 @@ export default function About() {
             sub="Di mana firma lain menyusun tim proyek, kami menyatukan 46 Dewan Pakar internasional yang berdeliberasi sebagai satu pikiran: satu jawaban terpadu dari 46 disiplin — strategi hulu hingga eksekusi hilir, dan perizinan end-to-end untuk bisnis Anda."
           />
 
-          <ul className="mt-9 space-y-4">
-            {ABOUT_POINTS.map((p, i) => (
-              <Reveal key={p} delay={0.1 + i * 0.07}>
-                <li className="flex items-start gap-3 text-[15px] leading-relaxed text-slate-600">
+          <Reveal className="mt-9" delay={0.1}>
+            <ul className="space-y-4">
+              {ABOUT_POINTS.map((p) => (
+                <li
+                  key={p}
+                  className="flex items-start gap-3 text-[15px] leading-relaxed text-slate-600"
+                >
                   <CheckCircle2
                     className="mt-0.5 h-5 w-5 shrink-0 text-violet-600"
                     aria-hidden="true"
                   />
                   {p}
                 </li>
-              </Reveal>
-            ))}
-          </ul>
+              ))}
+            </ul>
+          </Reveal>
 
           <Reveal delay={0.4}>
             <blockquote className="mt-10 border-l-2 border-violet-500/60 pl-5">

@@ -16,7 +16,7 @@ export default function Methodology() {
   return (
     <section
       id="method"
-      className="relative scroll-mt-20 overflow-hidden border-t border-slate-200 py-24 sm:py-28"
+      className="cv-auto relative scroll-mt-20 overflow-hidden border-t border-slate-200 py-24 sm:py-28"
       aria-label="Metode Oracle"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

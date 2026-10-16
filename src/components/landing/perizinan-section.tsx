@@ -14,7 +14,7 @@ import { LinkButton } from "@/components/site/ui";
 
 export default function PerizinanSection() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-28" aria-label="Gerbang Perizinan">
+    <section className="cv-auto relative overflow-hidden py-24 sm:py-28" aria-label="Gerbang Perizinan">
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-72 w-[640px] -translate-x-1/2 rounded-full bg-violet-600/[0.06] blur-[130px]"
         aria-hidden="true"

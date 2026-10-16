@@ -178,7 +178,7 @@ export default function Footer() {
                   )}
                 </button>
               </div>
-              <p className="mt-2 text-[11px] leading-relaxed text-slate-400">
+              <p className="mt-2 text-[11px] leading-relaxed text-slate-600">
                 Satu kirim per bulan. Nol derau. Tanpa pelacak — lihat{" "}
                 <Link to="/cookies" className="text-slate-900 underline decoration-violet-400/40 underline-offset-2 hover:text-violet-600">
                   Kebijakan Cookie
@@ -312,7 +312,7 @@ export default function Footer() {
 
       <div className="border-t border-slate-200">
         <div
-          className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-slate-400 sm:flex-row sm:px-6 lg:px-8"
+          className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-slate-600 sm:flex-row sm:px-6 lg:px-8"
           style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}
         >
           <p>© {year} {BRAND.legal}. Seluruh masa depan dilindungi.</p>
