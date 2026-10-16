@@ -81,7 +81,7 @@ export default function LegalPage({ docId }: { docId: "privacy" | "terms" | "coo
                 className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:border-violet-500/50"
               >
                 <span>
-                  <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+                  <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
                     Doktrin lainnya
                   </span>
                   <span className="mt-1 block font-display text-base font-bold text-slate-900">

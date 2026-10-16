@@ -38,7 +38,7 @@ export default function Comparison() {
                 <tr className="border-b border-slate-200">
                   <th
                     scope="col"
-                    className="p-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-9000"
+                    className="p-5 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-900"
                   >
                     Dimensi
                   </th>
@@ -56,7 +56,7 @@ export default function Comparison() {
                         {c.us && <Crown className="mr-1.5 -mt-1 inline h-4 w-4" aria-hidden="true" />}
                         {c.head}
                       </span>
-                      <span className="mt-1 block text-[11px] font-medium text-slate-9000">
+                      <span className="mt-1 block text-[11px] font-medium text-slate-900">
                         {c.tag}
                       </span>
                     </th>
@@ -78,9 +78,9 @@ export default function Comparison() {
                     <td className="bg-violet-600/[0.07] p-5">
                       <span className="text-sm font-bold text-violet-600">{row.omni}</span>
                     </td>
-                    <td className="p-5 text-sm text-slate-9000">{row.mck}</td>
-                    <td className="p-5 text-sm text-slate-9000">{row.goo}</td>
-                    <td className="p-5 text-sm text-slate-9000">{row.uni}</td>
+                    <td className="p-5 text-sm text-slate-900">{row.mck}</td>
+                    <td className="p-5 text-sm text-slate-900">{row.goo}</td>
+                    <td className="p-5 text-sm text-slate-900">{row.uni}</td>
                   </tr>
                 ))}
               </tbody>

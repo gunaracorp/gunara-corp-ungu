@@ -242,7 +242,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.55, ease: EASE }}
-          className="mt-4 text-sm tracking-wide text-slate-9000"
+          className="mt-4 text-sm tracking-wide text-slate-900"
           aria-live="off"
         >
           Sedang menuntaskan:{" "}
@@ -310,7 +310,7 @@ export default function Hero() {
         <a
           href="#benchmarks"
           aria-label="Gulir ke bawah untuk melihat konten"
-          className="flex flex-col items-center gap-2 text-slate-9000 transition-colors hover:text-violet-600"
+          className="flex flex-col items-center gap-2 text-slate-900 transition-colors hover:text-violet-600"
         >
           <span className="text-[10px] font-semibold uppercase tracking-[0.4em]">Gulir</span>
           <span className="flex h-9 w-6 items-start justify-center rounded-full border border-current p-1.5">

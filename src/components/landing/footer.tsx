@@ -11,10 +11,13 @@ import { LogoMark } from "./logo";
 
 const FIRM_LINKS = [
   { to: "/about", label: "Tentang Perusahaan" },
+  { to: "/leadership", label: "Pimpinan & Tata Kelola" },
   { to: "/method", label: "Metode Oracle" },
   { to: "/results", label: "Hasil & Bukti" },
+  { to: "/responsibility", label: "Tanggung Jawab & Dampak" },
   { to: "/insights", label: "Wawasan" },
   { to: "/careers", label: "Karier" },
+  { to: "/offices", label: "Kantor Kami" },
   { to: "/contact", label: "Hubungi Kami" },
 ];
 
@@ -23,6 +26,9 @@ const LEGAL_LINKS = [
   { to: "/terms", label: "Syarat & Ketentuan" },
   { to: "/cookies", label: "Kebijakan Cookie" },
   { to: "/faq", label: "Pertanyaan Umum" },
+  { to: "/resources", label: "Pusat Sumber Daya" },
+  { to: "/newsroom", label: "Ruang Media" },
+  { to: "/sitemap", label: "Peta Situs" },
 ];
 
 const SOCIALS = [
@@ -94,13 +100,13 @@ export default function Footer() {
                 </span>
               </span>
             </Link>
-            <p className="max-w-xs text-sm leading-relaxed text-slate-9000">
+            <p className="max-w-xs text-sm leading-relaxed text-slate-900">
               Konsultan &amp; perizinan terlengkap di dunia — 46 Dewan Pakar internasional dengan
               6.900 tahun pengalaman gabungan. Dari strategi hulu hingga eksekusi hilir, dari NIB
               hingga ekspansi 190 negara.
             </p>
 
-            <address className="flex flex-col gap-2 text-sm not-italic text-slate-9000">
+            <address className="flex flex-col gap-2 text-sm not-italic text-slate-900">
               <a
                 href={BRAND.whatsappHref}
                 target="_blank"
@@ -145,7 +151,7 @@ export default function Footer() {
             <form onSubmit={onSubscribe} className="mt-1" aria-label="Berlangganan Oracle Dispatch">
               <label
                 htmlFor="dispatch-email"
-                className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-9000"
+                className="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-900"
               >
                 Oracle Dispatch
               </label>
@@ -174,7 +180,7 @@ export default function Footer() {
               </div>
               <p className="mt-2 text-[11px] leading-relaxed text-slate-400">
                 Satu kirim per bulan. Nol derau. Tanpa pelacak — lihat{" "}
-                <Link to="/cookies" className="text-slate-9000 underline decoration-violet-400/40 underline-offset-2 hover:text-violet-600">
+                <Link to="/cookies" className="text-slate-900 underline decoration-violet-400/40 underline-offset-2 hover:text-violet-600">
                   Kebijakan Cookie
                 </Link>
                 .
@@ -188,7 +194,7 @@ export default function Footer() {
                   type="button"
                   onClick={() => onSocial(label)}
                   aria-label={`${label} — segera hadir`}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-9000 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
                 >
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -198,7 +204,7 @@ export default function Footer() {
 
           {/* Perusahaan */}
           <nav aria-label="Perusahaan">
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
               Perusahaan
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -214,7 +220,7 @@ export default function Footer() {
 
           {/* Perizinan */}
           <nav aria-label="Perizinan">
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000">
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
               Perizinan
             </h3>
             <ul className="space-y-2.5 text-sm">
@@ -239,7 +245,7 @@ export default function Footer() {
           {/* Layanan + Dewan + Hukum */}
           <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-1">
             <nav aria-label="Layanan">
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000">
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
                 Layanan
               </h3>
               <ul className="space-y-2.5 text-sm">
@@ -263,7 +269,7 @@ export default function Footer() {
 
             <div className="flex flex-col gap-8">
               <nav aria-label="Dewan Pakar">
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000">
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
                   Dewan Pakar
                 </h3>
                 <ul className="space-y-2.5 text-sm">
@@ -286,7 +292,7 @@ export default function Footer() {
               </nav>
 
               <nav aria-label="Hukum">
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000">
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
                   Hukum
                 </h3>
                 <ul className="space-y-2.5 text-sm">

@@ -15,7 +15,7 @@ export default function IndustryDetailPage({ slug }: { slug: string }) {
       <section className="flex min-h-[70vh] items-center justify-center px-4 pt-24 text-center">
         <div>
           <h1 className="font-display text-3xl font-bold text-slate-900">Wilayah tidak ditemukan.</h1>
-          <p className="mt-3 text-sm text-slate-9000">Kami belum memetakan medan ini.</p>
+          <p className="mt-3 text-sm text-slate-900">Kami belum memetakan medan ini.</p>
           <div className="mt-6 flex justify-center">
             <LinkButton to="/industries" withArrow>
               Semua wilayah
@@ -51,7 +51,7 @@ export default function IndustryDetailPage({ slug }: { slug: string }) {
               </span>
             ) : null}
             {industry.enTagline ? (
-              <span className="mb-3 block text-[13px] italic text-slate-9000">
+              <span className="mb-3 block text-[13px] italic text-slate-900">
                 {industry.enTagline}
               </span>
             ) : null}
@@ -214,7 +214,7 @@ export default function IndustryDetailPage({ slug }: { slug: string }) {
             ←
           </span>
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Wilayah sebelumnya
             </span>
             <span className="block font-display text-sm font-bold text-slate-700">{prev.name}</span>
@@ -225,7 +225,7 @@ export default function IndustryDetailPage({ slug }: { slug: string }) {
           className="group flex items-center justify-end gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-right transition-all duration-300 hover:border-violet-500/50"
         >
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Wilayah berikutnya
             </span>
             <span className="block font-display text-sm font-bold text-slate-700">{next.name}</span>

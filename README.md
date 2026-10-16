@@ -51,6 +51,7 @@ Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibang
 | ◈ | **Panel CEO** | Dashboard admin di `#/admin` (kata sandi): kelola tiket brief, daftar member VVIP + kode personal otomatis, newsletter, dan log akses |
 | ◈ | **Dashboard Member VVIP** | Halaman `#/member` dengan kode personal: kartu keanggotaan, tiket milik member, jalan pintas ke Lounge Oracle, jalur WhatsApp prioritas |
 | ◈ | **124 Tampilan Halaman** | Beranda sinematik, katalog 36+ izin (PT/PMA, NIB, BPOM, Halal, SNI, KITAS, PSE, OJK…), 46 profil Dewan Pakar, industri, wawasan, karier, FAQ |
+| ◈ | **Halaman Standar Internasional** | Pimpinan & Tata Kelola `#/leadership`, Kantor Kami `#/offices` (peta & protokol kunjungan), Ruang Media `#/newsroom`, Pusat Sumber Daya `#/resources` (+2 PDF resmi), Tanggung Jawab & Dampak `#/responsibility`, Peta Situs `#/sitemap` |
 | ◈ | **23 Logo Instansi Resmi** | Kemenkumham, BKPM, Kemenkeu, Kemendag, BPOM, OJK, dan lainnya — instansi yang kami hadapi langsung setiap hari |
 | ◈ | **Galeri Akreditasi** | Foto asli penyerahan sertifikat & kartu indikasi PUSAT PERIZINAN.ID |
 | ◈ | **Form Kontak Bertiket** | Setiap brief terbit nomor tiket unik `TOP-XXXXXX` — tidak ada pesan yang hilang |
@@ -137,6 +138,7 @@ The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) 
 | ◈ | **CEO Panel** | Admin dashboard at `#/admin` (password-gated): manage brief tickets, register VVIP members with auto-generated personal codes, newsletter, and access logs |
 | ◈ | **VVIP Member Dashboard** | `#/member` with personal codes: membership card, member-owned tickets, one-tap Oracle Lounge access, priority WhatsApp line |
 | ◈ | **124 Page Views** | Cinematic landing, catalog of 36+ permits (PT/PMA, NIB, BPOM, Halal, SNI, KITAS, PSE, OJK…), 46 Council profiles, industries, insights, careers, FAQ |
+| ◈ | **International-Standard Pages** | Leadership & Governance `#/leadership`, Offices `#/offices` (maps & visit protocol), Newsroom `#/newsroom`, Resource Center `#/resources` (+2 official PDFs), Responsibility & Impact `#/responsibility`, Sitemap `#/sitemap` |
 | ◈ | **23 Official Agency Logos** | Kemenkumham, BKPM, Ministry of Finance, Ministry of Trade, BPOM, OJK and more — the agencies we face directly, every day |
 | ◈ | **Accreditation Gallery** | Real photos of certificate handovers and PUSAT PERIZINAN.ID credentials |
 | ◈ | **Ticketed Contact Form** | Every brief receives a unique `TOP-XXXXXX` ticket number — no message is ever lost |

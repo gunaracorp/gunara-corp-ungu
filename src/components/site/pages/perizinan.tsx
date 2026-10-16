@@ -79,7 +79,7 @@ export default function PerizinanPage({
         <div className="flex flex-col gap-6">
           <div className="relative mx-auto w-full max-w-xl">
             <Search
-              className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-9000"
+              className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-900"
               aria-hidden="true"
             />
             <input
@@ -95,7 +95,7 @@ export default function PerizinanPage({
                 type="button"
                 onClick={() => setQuery("")}
                 aria-label="Bersihkan pencarian"
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-9000 transition-colors hover:text-violet-600"
+                className="absolute right-3.5 top-1/2 -translate-y-1/2 rounded-full p-1 text-slate-900 transition-colors hover:text-violet-600"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -135,7 +135,7 @@ export default function PerizinanPage({
             <p className="text-lg font-semibold text-slate-600">
               Tidak ada izin yang cocok dengan pencarian Anda.
             </p>
-            <p className="max-w-md text-sm text-slate-9000">
+            <p className="max-w-md text-sm text-slate-900">
               Bukan berarti kami tidak bisa — 46 Dewan Pakar menangani izin apa pun di luar katalog.
               Sampaikan kebutuhan Anda, kami petakan jalannya.
             </p>
@@ -191,7 +191,7 @@ export default function PerizinanPage({
                       {p.tagline}
                     </p>
                     <div className="mt-4 flex items-center justify-between border-t border-slate-200 pt-3.5">
-                      <span className="line-clamp-1 text-[11px] font-medium text-slate-9000">{p.agency}</span>
+                      <span className="line-clamp-1 text-[11px] font-medium text-slate-900">{p.agency}</span>
                       <span className="flex items-center gap-1.5 text-[11px] font-semibold text-violet-700">
                         <Clock className="h-3 w-3" aria-hidden="true" />
                         {p.timeline}

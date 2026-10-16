@@ -16,7 +16,7 @@ export default function ServiceDetailPage({ num }: { num: string }) {
       <section className="flex min-h-[70vh] items-center justify-center px-4 pt-24 text-center">
         <div>
           <h1 className="font-display text-3xl font-bold text-slate-900">Praktik tidak ditemukan.</h1>
-          <p className="mt-3 text-sm text-slate-9000">
+          <p className="mt-3 text-sm text-slate-900">
             Ruang dewan tidak memiliki catatan atas praktik ini.
           </p>
           <div className="mt-6 flex justify-center">
@@ -205,7 +205,7 @@ export default function ServiceDetailPage({ num }: { num: string }) {
             ←
           </span>
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Praktik sebelumnya
             </span>
             <span className="block font-display text-sm font-bold text-slate-700">{prev.title}</span>
@@ -216,7 +216,7 @@ export default function ServiceDetailPage({ num }: { num: string }) {
           className="group flex items-center justify-end gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-right transition-all duration-300 hover:border-violet-500/50"
         >
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Praktik berikutnya
             </span>
             <span className="block font-display text-sm font-bold text-slate-700">{next.title}</span>

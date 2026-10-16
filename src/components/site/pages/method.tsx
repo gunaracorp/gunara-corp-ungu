@@ -95,7 +95,7 @@ export default function MethodPage() {
               &ldquo;Kami tidak menjual jam. Kami menjual momen ketika masalah
               Anda berhenti menjadi masalah.&rdquo;
             </p>
-            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000">
+            <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-900">
               <Users className="h-3.5 w-3.5 text-violet-600" aria-hidden="true" />
               Piagam Firma, Pasal VII
             </span>

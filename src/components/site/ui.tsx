@@ -64,12 +64,12 @@ export function Breadcrumb({ items }: { items: { label: string; to?: string }[] 
             {item.to && !last ? (
               <Link
                 to={item.to}
-                className="font-medium text-slate-9000 transition-colors hover:text-violet-600"
+                className="font-medium text-slate-900 transition-colors hover:text-violet-600"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className={last ? "font-semibold text-violet-700" : "font-medium text-slate-9000"}>
+              <span className={last ? "font-semibold text-violet-700" : "font-medium text-slate-900"}>
                 {item.label}
               </span>
             )}
@@ -212,7 +212,7 @@ export function StatBand({
           <span className="font-display text-2xl font-bold text-gradient-gold sm:text-3xl">
             {s.value}
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-9000">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-900">
             {s.label}
           </span>
         </div>

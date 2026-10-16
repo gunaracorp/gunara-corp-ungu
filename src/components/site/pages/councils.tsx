@@ -94,7 +94,7 @@ export default function CouncilsPage({ initialFilter }: { initialFilter: string 
               Cari 46 dewan pakar
             </label>
             <div className="flex items-center gap-3 rounded-full border border-slate-200 bg-white/60 px-5 transition-colors focus-within:border-violet-500/60">
-              <Search className="h-4 w-4 shrink-0 text-slate-9000" aria-hidden="true" />
+              <Search className="h-4 w-4 shrink-0 text-slate-900" aria-hidden="true" />
               <input
                 id="council-search"
                 type="search"
@@ -108,7 +108,7 @@ export default function CouncilsPage({ initialFilter }: { initialFilter: string 
                   type="button"
                   onClick={() => setQuery("")}
                   aria-label="Hapus pencarian"
-                  className="text-slate-9000 transition-colors hover:text-violet-600"
+                  className="text-slate-900 transition-colors hover:text-violet-600"
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -142,10 +142,10 @@ export default function CouncilsPage({ initialFilter }: { initialFilter: string 
                 <h2 className="mt-1 font-display text-[15px] font-bold leading-snug text-slate-900">
                   {c.name}
                 </h2>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-9000">{c.blurb}</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-900">{c.blurb}</p>
                 {chairFor(c.name) ? (
                   <p className="mt-2 text-[11px] font-medium text-slate-400">
-                    Diketuai oleh <span className="text-slate-9000">{chairFor(c.name)}</span>
+                    Diketuai oleh <span className="text-slate-900">{chairFor(c.name)}</span>
                   </p>
                 ) : null}
               </div>
@@ -162,7 +162,7 @@ export default function CouncilsPage({ initialFilter }: { initialFilter: string 
             <p className="font-display text-xl font-bold text-slate-600">
               Tidak ada dewan yang menjawab nama itu.
             </p>
-            <p className="max-w-sm text-sm text-slate-9000">
+            <p className="max-w-sm text-sm text-slate-900">
               Sesuaikan pencarian — atau sampaikan langsung kepada kami, dan kami akan membentuk
               dewan yang belum ada.
             </p>

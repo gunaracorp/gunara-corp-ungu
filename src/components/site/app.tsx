@@ -38,6 +38,12 @@ import ResultsPage from "@/components/site/pages/results";
 import ContactPage from "@/components/site/pages/contact";
 import LegalPage from "@/components/site/pages/legal";
 import FaqPage from "@/components/site/pages/faq";
+import LeadershipPage from "@/components/site/pages/leadership";
+import OfficesPage from "@/components/site/pages/offices";
+import NewsroomPage from "@/components/site/pages/newsroom";
+import ResourcesPage from "@/components/site/pages/resources";
+import ResponsibilityPage from "@/components/site/pages/responsibility";
+import SitemapPage from "@/components/site/pages/sitemap";
 import VvipPage from "@/components/site/pages/vvip";
 import AdminPage from "@/components/site/pages/admin";
 import MemberPage from "@/components/site/pages/member";
@@ -58,6 +64,12 @@ const TITLES: Record<string, string> = {
   "/results": `Hasil & Bukti — ${SUFFIX}`,
   "/contact": `Kontak — ${SUFFIX}`,
   "/faq": `Pertanyaan Umum — ${SUFFIX}`,
+  "/leadership": `Pimpinan & Tata Kelola — ${SUFFIX}`,
+  "/offices": `Kantor Kami — ${SUFFIX}`,
+  "/newsroom": `Ruang Media — ${SUFFIX}`,
+  "/resources": `Pusat Sumber Daya — ${SUFFIX}`,
+  "/responsibility": `Tanggung Jawab & Dampak — ${SUFFIX}`,
+  "/sitemap": `Peta Situs — ${SUFFIX}`,
   "/privacy": `Kebijakan Privasi — ${SUFFIX}`,
   "/terms": `Syarat & Ketentuan — ${SUFFIX}`,
   "/cookies": `Kebijakan Cookie — ${SUFFIX}`,
@@ -162,6 +174,24 @@ export default function SiteApp() {
         break;
       case "faq":
         view = <FaqPage />;
+        break;
+      case "leadership":
+        view = <LeadershipPage />;
+        break;
+      case "offices":
+        view = <OfficesPage />;
+        break;
+      case "newsroom":
+        view = <NewsroomPage />;
+        break;
+      case "resources":
+        view = <ResourcesPage />;
+        break;
+      case "responsibility":
+        view = <ResponsibilityPage />;
+        break;
+      case "sitemap":
+        view = <SitemapPage />;
         break;
       case "privacy":
         view = <LegalPage docId="privacy" />;

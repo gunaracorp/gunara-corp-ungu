@@ -56,7 +56,7 @@ export default function PerizinanSection() {
                   <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">
                     {c.enName}
                   </p>
-                  <p className="mt-2.5 flex-1 text-[13px] leading-relaxed text-slate-9000">{c.desc}</p>
+                  <p className="mt-2.5 flex-1 text-[13px] leading-relaxed text-slate-900">{c.desc}</p>
                   <span className="mt-4 inline-flex items-center gap-1.5 border-t border-slate-200 pt-3.5 text-xs font-bold text-violet-700">
                     {count} jenis izin
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

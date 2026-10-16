@@ -16,7 +16,7 @@ export default function CouncilDetailPage({ name }: { name: string }) {
       <section className="flex min-h-[70vh] items-center justify-center px-4 pt-24 text-center">
         <div>
           <h1 className="font-display text-3xl font-bold text-slate-900">Dewan tidak ditemukan.</h1>
-          <p className="mt-3 text-sm text-slate-9000">
+          <p className="mt-3 text-sm text-slate-900">
             Ruang dewan tidak memiliki catatan atas dewan ini.
           </p>
           <div className="mt-6 flex justify-center">
@@ -72,7 +72,7 @@ export default function CouncilDetailPage({ name }: { name: string }) {
                 <p className="font-display text-lg italic leading-relaxed text-violet-800/90">
                   {profile.signatureMove}
                 </p>
-                <cite className="mt-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-9000 not-italic">
+                <cite className="mt-2 block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-900 not-italic">
                   — Gerakan Khas dewan ini
                 </cite>
               </div>
@@ -92,7 +92,7 @@ export default function CouncilDetailPage({ name }: { name: string }) {
               </h2>
               <p className="mt-2 text-base font-semibold text-slate-900">{profile.chair}</p>
               <p className="text-[13px] text-violet-700">{profile.chairTitle}</p>
-              <p className="mt-4 flex items-center gap-1.5 text-sm text-slate-9000">
+              <p className="mt-4 flex items-center gap-1.5 text-sm text-slate-900">
                 <MapPin className="h-3.5 w-3.5 text-violet-500" aria-hidden="true" />
                 Bersidang di {profile.seat}
               </p>
@@ -164,7 +164,7 @@ export default function CouncilDetailPage({ name }: { name: string }) {
             ←
           </span>
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Dewan sebelumnya
             </span>
             <span className="block font-display text-sm font-bold text-slate-700">{prev.name}</span>
@@ -175,7 +175,7 @@ export default function CouncilDetailPage({ name }: { name: string }) {
           className="group flex items-center justify-end gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-right transition-all duration-300 hover:border-violet-500/50"
         >
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Dewan berikutnya
             </span>
             <span className="block font-display text-sm font-bold text-slate-700">{next.name}</span>

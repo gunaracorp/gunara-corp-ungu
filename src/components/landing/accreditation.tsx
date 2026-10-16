@@ -114,7 +114,7 @@ export default function Accreditation() {
                   <h3 className="font-display text-base font-bold text-slate-900">
                     {p.title}
                   </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-9000">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-900">
                     {p.desc}
                   </p>
                   <span className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-violet-300 bg-violet-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-600">
@@ -147,7 +147,7 @@ export default function Accreditation() {
               <h3 className="mt-6 font-display text-base font-bold text-slate-900">
                 Segel Eksekusi Pusat Perizinan.ID
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-9000">
+              <p className="mt-2 text-sm leading-relaxed text-slate-900">
                 Mitra eksekusi sertifikasi &amp; akreditasi — layanan perizinan
                 penuh sejak 2009, di bawah satu gerbang emas yang sama.
               </p>

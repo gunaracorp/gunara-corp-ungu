@@ -80,7 +80,7 @@ export default function Agencies() {
                 <p className="mt-3 font-display text-[11px] font-bold leading-tight text-zinc-900">
                   {a.name}
                 </p>
-                <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-slate-9000">
+                <p className="mt-1 text-[10px] font-medium uppercase tracking-wide text-slate-900">
                   {a.scope}
                 </p>
               </div>
@@ -91,7 +91,7 @@ export default function Agencies() {
         {/* Perhimpunan profesi — PHI Kwitang & IPHI Pusat */}
         <Reveal delay={0.12}>
           <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-3 rounded-2xl border border-violet-200 bg-violet-600/[0.05] px-6 py-4 text-center">
-            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Terhubung dengan perhimpunan profesi
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-violet-300 bg-white/60 px-4 py-1.5 text-[12px] font-bold text-violet-700">

@@ -69,7 +69,7 @@ export default function OfficeClocks() {
             <span className="font-display text-2xl font-bold tabular-nums text-gradient-gold">
               {wib}
             </span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-9000">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-900">
               Waktu Indonesia Barat
             </span>
           </span>
@@ -103,7 +103,7 @@ export default function OfficeClocks() {
                 {o.country}
               </p>
               <h3 className="font-display text-lg font-bold text-slate-900">{o.city}</h3>
-              <p className="flex items-start gap-1.5 text-[12px] leading-relaxed text-slate-9000">
+              <p className="flex items-start gap-1.5 text-[12px] leading-relaxed text-slate-900">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-violet-600/60" aria-hidden="true" />
                 {o.address}
               </p>

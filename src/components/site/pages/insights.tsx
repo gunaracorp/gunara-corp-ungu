@@ -58,7 +58,7 @@ export default function InsightsPage() {
               </span>
             </div>
             <div className="flex flex-col justify-center gap-4 p-7 sm:p-10">
-              <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+              <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-900">
                 <span className="text-violet-500">{featured.category}</span>
                 <span className="inline-flex items-center gap-1.5">
                   <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
@@ -73,12 +73,12 @@ export default function InsightsPage() {
                 {featured.title}
               </h2>
               {featured.enTitle ? (
-                <p className="-mt-2 text-[12px] font-medium italic text-slate-9000 sm:text-sm">
+                <p className="-mt-2 text-[12px] font-medium italic text-slate-900 sm:text-sm">
                   {featured.enTitle}
                 </p>
               ) : null}
               <p className="text-sm leading-relaxed text-slate-500 sm:text-base">{featured.excerpt}</p>
-              <p className="text-[13px] text-slate-9000">
+              <p className="text-[13px] text-slate-900">
                 <span className="font-semibold text-slate-600">{featured.author.name}</span> ·{" "}
                 {featured.author.role}
               </p>
@@ -131,8 +131,8 @@ export default function InsightsPage() {
                   {ins.enTitle ? (
                     <p className="mt-1 text-[11px] italic text-slate-400">{ins.enTitle}</p>
                   ) : null}
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-9000">{ins.excerpt}</p>
-                  <span className="mt-4 text-[13px] text-slate-9000">
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-900">{ins.excerpt}</p>
+                  <span className="mt-4 text-[13px] text-slate-900">
                     <span className="font-semibold text-slate-600">{ins.author.name}</span>
                   </span>
                 </div>

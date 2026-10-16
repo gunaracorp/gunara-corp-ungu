@@ -66,7 +66,7 @@ export default function Testimonials() {
                   </span>
                   <span className="text-left">
                     <span className="block text-sm font-bold text-slate-900">{current.name}</span>
-                    <span className="block text-xs text-slate-9000">{current.role}</span>
+                    <span className="block text-xs text-slate-900">{current.role}</span>
                   </span>
                 </figcaption>
               </motion.figure>

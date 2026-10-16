@@ -55,7 +55,7 @@ export default function Services() {
                   {s.tags.map((t) => (
                     <li
                       key={t}
-                      className="rounded-full border border-slate-300/70 px-2.5 py-1 text-[11px] font-medium text-slate-9000 transition-colors group-hover:border-violet-300 group-hover:text-violet-700/80"
+                      className="rounded-full border border-slate-300/70 px-2.5 py-1 text-[11px] font-medium text-slate-900 transition-colors group-hover:border-violet-300 group-hover:text-violet-700/80"
                     >
                       {t}
                     </li>

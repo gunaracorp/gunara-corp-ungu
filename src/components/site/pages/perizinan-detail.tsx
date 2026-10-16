@@ -131,7 +131,7 @@ export default function PerizinanDetailPage({ slug }: { slug: string }) {
             const FIcon = f.icon;
             return (
               <div key={f.label} className="flex flex-col gap-2 bg-white/90 px-6 py-6">
-                <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-9000">
+                <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-900">
                   <FIcon className="h-3.5 w-3.5 text-violet-500" aria-hidden="true" />
                   {f.label}
                 </span>
@@ -216,19 +216,19 @@ export default function PerizinanDetailPage({ slug }: { slug: string }) {
             </h2>
             <dl className="mt-4 flex flex-col gap-3.5 text-sm">
               <div className="flex items-start justify-between gap-3">
-                <dt className="text-slate-9000">Instansi</dt>
+                <dt className="text-slate-900">Instansi</dt>
                 <dd className="text-right font-semibold text-slate-700">{item.agency}</dd>
               </div>
               <div className="flex items-start justify-between gap-3">
-                <dt className="text-slate-9000">Estimasi</dt>
+                <dt className="text-slate-900">Estimasi</dt>
                 <dd className="text-right font-semibold text-slate-700">{item.timeline}</dd>
               </div>
               <div className="flex items-start justify-between gap-3">
-                <dt className="text-slate-9000">Berlaku</dt>
+                <dt className="text-slate-900">Berlaku</dt>
                 <dd className="text-right font-semibold text-slate-700">{item.validity}</dd>
               </div>
               <div className="flex items-start justify-between gap-3">
-                <dt className="text-slate-9000">Kompleksitas</dt>
+                <dt className="text-slate-900">Kompleksitas</dt>
                 <dd className="text-right font-semibold text-slate-700">{item.complexity}</dd>
               </div>
             </dl>

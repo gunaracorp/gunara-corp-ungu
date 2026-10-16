@@ -87,7 +87,7 @@ export default function CareersPage() {
                     <span className="font-display text-base font-bold text-slate-900 sm:text-lg">
                       {r.title}
                     </span>
-                    <span className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-slate-9000">
+                    <span className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[12px] text-slate-900">
                       <span className="inline-flex items-center gap-1.5">
                         <BriefcaseBusiness className="h-3.5 w-3.5 text-violet-500" aria-hidden="true" />
                         {r.team}
@@ -128,7 +128,7 @@ export default function CareersPage() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="mt-8 text-center text-sm text-slate-9000">
+          <p className="mt-8 text-center text-sm text-slate-900">
             Tidak ada pintu yang setara jenius Anda?{" "}
             <a
               href="#/contact"

@@ -47,7 +47,7 @@ export default function Results() {
                     aria-hidden="true"
                   />
                 </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-9000">{c.desc}</p>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-900">{c.desc}</p>
                 <span className="mt-5 inline-flex w-fit rounded-full border border-violet-300 bg-violet-50 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-violet-600">
                   {c.tag}
                 </span>

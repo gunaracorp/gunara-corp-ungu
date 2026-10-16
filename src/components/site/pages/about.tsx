@@ -204,7 +204,7 @@ export default function AboutPage() {
                           {l.role}
                         </p>
                         {l.enRole ? (
-                          <p className="mt-0.5 text-xs italic text-slate-9000">{l.enRole}</p>
+                          <p className="mt-0.5 text-xs italic text-slate-900">{l.enRole}</p>
                         ) : null}
                         <Quote className="mt-5 h-5 w-5 text-violet-600/40" aria-hidden="true" />
                         <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-slate-600">
@@ -255,7 +255,7 @@ export default function AboutPage() {
                     </p>
                     <h3 className="mt-1 font-display text-lg font-bold text-slate-900">{l.name}</h3>
                     <p className="mt-0.5 text-[13px] font-medium text-slate-500">{l.role}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-9000">{l.bio}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-900">{l.bio}</p>
                   </div>
                 </article>
               </TiltCard>
@@ -263,6 +263,16 @@ export default function AboutPage() {
             );
           })}
         </div>
+        <Reveal delay={0.1}>
+          <div className="mt-10 flex flex-col items-center gap-3 text-center">
+            <LinkButton to="/leadership" withArrow>
+              Kenali seluruh jajaran pimpinan &amp; tata kelola
+            </LinkButton>
+            <p className="text-xs text-slate-400">
+              Piagam tata kelola, mekanisme penunjukan Mitra Utama, dan profil lengkap para pimpinan firma.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       {/* Values */}
@@ -300,7 +310,7 @@ export default function AboutPage() {
               &ldquo;Beri kami 46 menit. 46 Dewan Pakar akan memberi Anda
               dekade berikutnya.&rdquo;
             </p>
-            <cite className="mt-3 block text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000 not-italic">
+            <cite className="mt-3 block text-xs font-semibold uppercase tracking-[0.25em] text-slate-900 not-italic">
               — Piagam Pendirian, Pasal 1
             </cite>
           </blockquote>

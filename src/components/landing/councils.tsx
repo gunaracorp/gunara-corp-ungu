@@ -103,7 +103,7 @@ export default function Councils() {
                 <h3 className="mt-1 font-display text-[15px] font-bold leading-snug text-slate-900">
                   {c.name}
                 </h3>
-                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-9000">{c.blurb}</p>
+                <p className="mt-1.5 text-[13px] leading-relaxed text-slate-900">{c.blurb}</p>
               </div>
 
               <span className="shrink-0 rounded-full border border-violet-300 bg-violet-50 px-2 py-1 text-[10px] font-bold text-violet-600">

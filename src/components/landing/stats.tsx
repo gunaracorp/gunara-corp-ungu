@@ -30,7 +30,7 @@ export default function Stats() {
                   className="text-gradient-gold block font-display text-4xl font-bold tracking-tight sm:text-5xl"
                 />
                 <p className="mt-2 text-sm font-semibold text-slate-700">{s.label}</p>
-                <p className="mt-1 text-xs leading-relaxed text-slate-9000">{s.caption}</p>
+                <p className="mt-1 text-xs leading-relaxed text-slate-900">{s.caption}</p>
               </div>
             </Reveal>
           ))}

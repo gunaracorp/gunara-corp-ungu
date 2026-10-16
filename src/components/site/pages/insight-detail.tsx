@@ -29,7 +29,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
       <section className="flex min-h-[70vh] items-center justify-center px-4 pt-24 text-center">
         <div>
           <h1 className="font-display text-3xl font-bold text-slate-900">Wawasan tidak ditemukan.</h1>
-          <p className="mt-3 text-sm text-slate-9000">Esai ini belum diterbitkan.</p>
+          <p className="mt-3 text-sm text-slate-900">Esai ini belum diterbitkan.</p>
           <div className="mt-6 flex justify-center">
             <LinkButton to="/insights" withArrow>
               Semua wawasan
@@ -62,7 +62,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
           >
             <a
               href="#/insights"
-              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-slate-9000 transition-colors hover:text-violet-600"
+              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-slate-900 transition-colors hover:text-violet-600"
             >
               <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
               Semua wawasan
@@ -71,11 +71,11 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
               <span className="rounded-full border border-violet-300 bg-violet-600/[0.07] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-violet-700">
                 {insight.category}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-9000">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-900">
                 <CalendarDays className="h-3.5 w-3.5" aria-hidden="true" />
                 {formatDate(insight.date)}
               </span>
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-9000">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-medium text-slate-900">
                 <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
                 Waktu baca {insight.readTime} menit
               </span>
@@ -118,11 +118,11 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
               </span>
               <span>
                 <span className="block font-semibold text-slate-700">{insight.author.name}</span>
-                <span className="block text-[12px] text-slate-9000">{insight.author.role}</span>
+                <span className="block text-[12px] text-slate-900">{insight.author.role}</span>
               </span>
             </p>
             <div className="flex items-center gap-2">
-              <span className="mr-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-9000">
+              <span className="mr-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-900">
                 Berbagi
               </span>
               <a
@@ -130,7 +130,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Berbagi ke X / Twitter"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-9000 transition-all hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-900 transition-all hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
               >
                 <Twitter className="h-4 w-4" aria-hidden="true" />
               </a>
@@ -139,7 +139,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Berbagi ke LinkedIn"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-9000 transition-all hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-900 transition-all hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
               >
                 <Linkedin className="h-4 w-4" aria-hidden="true" />
               </a>
@@ -203,7 +203,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
           {insight.tags.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-slate-300/70 px-3.5 py-1.5 text-[11px] font-medium text-slate-9000"
+              className="rounded-full border border-slate-300/70 px-3.5 py-1.5 text-[11px] font-medium text-slate-900"
             >
               {t}
             </span>
@@ -218,7 +218,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
             Ditulis dari ruang dewan
           </p>
           <p className="mt-2 font-display text-lg font-bold text-slate-900">{insight.author.name}</p>
-          <p className="text-[13px] text-slate-9000">{insight.author.role}</p>
+          <p className="text-[13px] text-slate-900">{insight.author.role}</p>
           <p className="mt-3 text-sm leading-relaxed text-slate-500">
             Diterbitkan di bawah doktrin transparansi ruang dewan — penilaian yang berani
             mencantumkan nama, dalam tradisi Piagam TOP sejak 2001.
@@ -237,7 +237,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
         >
           <ArrowLeft className="h-5 w-5 shrink-0 text-slate-400 transition-colors group-hover:text-violet-600" aria-hidden="true" />
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Wawasan sebelumnya
             </span>
             <span className="block max-w-[240px] truncate font-display text-sm font-bold text-slate-700">
@@ -250,7 +250,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
           className="group flex items-center justify-end gap-3 rounded-2xl border border-slate-200 bg-white p-5 text-right transition-all duration-300 hover:border-violet-500/50"
         >
           <span>
-            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+            <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
               Wawasan berikutnya
             </span>
             <span className="block max-w-[240px] truncate font-display text-sm font-bold text-slate-700">

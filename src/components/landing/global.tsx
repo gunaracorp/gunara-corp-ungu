@@ -36,7 +36,7 @@ export default function GlobalReach() {
           </Reveal>
 
           <Reveal delay={0.3}>
-            <p className="mt-8 flex items-center gap-2.5 text-sm text-slate-9000">
+            <p className="mt-8 flex items-center gap-2.5 text-sm text-slate-900">
               <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" aria-hidden="true" />
               24/7/365 — matahari tak pernah terbenam di atas para Dewan.
             </p>

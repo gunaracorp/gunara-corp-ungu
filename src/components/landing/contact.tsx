@@ -31,7 +31,7 @@ const CONTACT_ROWS = [
 const inputCls =
   "w-full rounded-xl border border-slate-200 bg-white/70 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all duration-300 focus:border-violet-500/70 focus:ring-2 focus:ring-violet-400/20";
 
-const labelCls = "mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-9000";
+const labelCls = "mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-900";
 
 export default function Contact({
   initialRole = null,
@@ -114,7 +114,7 @@ export default function Contact({
                         <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
                       </span>
                       <span>
-                        <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+                        <span className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-900">
                           {label}
                         </span>
                         <span className="block text-sm font-semibold text-slate-900">{value}</span>
@@ -144,7 +144,7 @@ export default function Contact({
 
               {/* Jaringan kantor resmi */}
               <div>
-                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-9000">
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-900">
                   Jaringan kantor resmi
                 </p>
                 <ul className="space-y-2.5">
@@ -153,7 +153,7 @@ export default function Contact({
                       <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-violet-500" aria-hidden="true" />
                       <span>
                         <span className="font-semibold text-slate-700">{a.label}</span>
-                        <span className="block text-[12px] leading-relaxed text-slate-9000">{a.value}</span>
+                        <span className="block text-[12px] leading-relaxed text-slate-900">{a.value}</span>
                       </span>
                     </li>
                   ))}
@@ -170,7 +170,7 @@ export default function Contact({
                     </span>
                       <span>
                         <span className="block text-sm font-bold text-slate-900">{g.title}</span>
-                        <span className="block text-[13px] text-slate-9000">{g.desc}</span>
+                        <span className="block text-[13px] text-slate-900">{g.desc}</span>
                       </span>
                     </li>
                 ))}

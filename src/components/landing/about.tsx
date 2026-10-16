@@ -45,7 +45,7 @@ export default function About() {
                 &ldquo;Berikan kami 46 menit. 46 Dewan Pakar akan memberikan Anda
                 dekade berikutnya.&rdquo;
               </p>
-              <cite className="mt-2 block text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000 not-italic">
+              <cite className="mt-2 block text-xs font-semibold uppercase tracking-[0.25em] text-slate-900 not-italic">
                 — Piagam Pendirian, Pasal 1
               </cite>
             </blockquote>

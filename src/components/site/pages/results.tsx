@@ -37,7 +37,7 @@ export default function ResultsPage() {
             &ldquo;Mereka menjawab dalam 48 jam apa yang tak mampu dijawab
             empat firma konsultan dalam empat tahun.&rdquo;
           </p>
-          <cite className="mt-4 block text-xs font-semibold uppercase tracking-[0.25em] text-slate-9000 not-italic">
+          <cite className="mt-4 block text-xs font-semibold uppercase tracking-[0.25em] text-slate-900 not-italic">
             Putri Maheswari — Ketua Dewan Komisaris, Nusantara Financial Holdings
           </cite>
         </blockquote>
