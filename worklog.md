@@ -485,3 +485,37 @@ Stage Summary:
 - Semua halaman memakai primitif desain situs (PageHero, Reveal, TiltCard, glass, gradien violet-biru), responsif penuh, aksesibel (aria-label, dl/dt/dd, semantic section), dan berbahasa Indonesia baku dengan suara brand konsisten.
 - 94 kelas CSS mati diperbaiki di 32 file — kualitas kode naik tanpa regresi visual.
 - Footer kini memuat seluruh halaman baru; about & contact saling menautkan ke leadership & offices.
+
+---
+Task ID: 11
+Agent: Z.ai Code (main orchestrator)
+Task: Permintaan user — "tolong maksimalkan search optimize engine google" — paket SEO standar internasional menyeluruh.
+
+Work Log:
+- Audit: seluruh halaman SPA hash-router (useSyncExternalStore → hash) → Google hanya melihat 1 halaman; layout punya metadata dasar tanpa metadataBase/canonical/robots-detail; public/robots.txt statis tanpa sitemap; 0 JSON-LD.
+- src/lib/seo.ts (baru): SITE_URL dari NEXT_PUBLIC_SITE_URL (default topkonsultan.web.id), ROUTE_META 20 rute dengan description unik per halaman, judul detail (service/perizinan/council/industry/insight), allPublicPaths + staticParamsList + isKnownSlug, buildRouteMeta (title absolute, canonical, OG/Twitter, keywords, article utk insight).
+- src/lib/seo-ld.ts (baru): builder JSON-LD — Organization (NAP 4 alamat, contactPoint 24/7, areaServed), WebSite (inLanguage id-ID), 3 ProfessionalService (Tasikmalaya I/II, Jakarta), FAQPage (10 FAQ, hanya di /faq sesuai pedoman Google), BreadcrumbList, Service, Service+category instansi (perizinan), Article (insight), ItemList katalog (perizinan/councils/industries); pageLd(slug) komposisi per rute.
+- src/components/seo/json-ld.tsx: renderer <script type="application/ld+json"> dengan escape "<" → \u003c.
+- src/app/[...slug]/page.tsx (baru): catch-all SSR semua rute publik — generateStaticParams 132 path + generateMetadata + pageLd + <SiteApp initialPath>. 404 manual via notFound() + isKnownSlug: dynamicParams=false terbukti memicu "Internal: NoFallbackError" Next 16 yang MENJATUHKAN server standalone (bun & node) saat melayani 404 — dua crash produksi diselidiki & difix; catatan peringatan ditulis di file.
+- lib/router.tsx: parsePathname + useRoute(fallbackPath?) — prioritas hash > fallback SSR > pathname > home; bare anchor ("#benchmarks") tidak lagi memindah halaman (sebelumnya loncat ke home jika diklik dari path URL).
+- app.tsx: SiteApp({initialPath}); TITLES kini turunan ROUTE_TITLES (satu sumber dengan SSR); judul detail pakai helper lib/seo (paritas SSR/SPA); rute diskret vvip/member/admin diberi title eksplisit.
+- layout.tsx: metadataBase, title template, canonical, robots+googleBot (max-image-preview large, max-snippet -1), verification google/bing/yandex via env (bing via other.msvalidate.01 — tipe Verification tak punya kunci bing), manifest, appleWebApp, formatDetection, geo meta, OG id_ID+en_US dengan images eksplisit; JSON-LD global di body.
+- robots.ts (baru): allow semua, disallow /api/ /admin /member /vvip, sitemap + host; public/robots.txt statis dihapus.
+- sitemap.ts (baru): 133 URL (prioritas berbeda per tipe, perizinan detail 0.8 = halaman uang).
+- manifest.ts (baru): PWA — nama legal, theme #7c3aed, icon svg+png.
+- /opengraph-image: MULA-MULA file-convention opengraph-image.tsx — terbukti dibakar "http://localhost:3000" saat build (self-host) walau metadataBase diset → diganti route handler src/app/opengraph-image/route.tsx (ImageResponse 1200×630 gradasi ungu-biru, monogram TOP, 4 statistik, domain) + images eksplisit di layout & buildRouteMeta (insight pakai cover asli + branded); verifikasi ulang: og:image = https://topkonsultan.web.id/opengraph-image di semua halaman.
+- apple-icon.tsx 180×180; twitter-image awalnya re-export file-convention lama (ikut dihapus, kini dari images config).
+- not-found.tsx: SiteApp initialPath="/404" (hydration aman, navbar+footer utuh, tautan SPA jalan) + <meta robots noindex> React-19-hoisted; EKSPOR metadata dari not-found.tsx TERBUKTI memicu NoFallbackError — jangan diekspor.
+- favicon.ico/route.ts: redirect 308 → /icon.svg (habiskan 404 legacy browser).
+- Fix kecil: SERVICE import hilang di seo-ld (tsc), placeholder ogDefaultImages dihapus.
+- QA: tsc bersih (kecuali 2 error lama di skills/), eslint bersih, build sukses 144 halaman statis; curl produksi: robots.txt benar, sitemap 133 loc, /faq (title+canonical+FAQ SSR+FAQPage LD), /perizinan/pendirian-pt (title+canonical+Service LD+h1 SSR), insight (Article+Breadcrumb LD), 404 nyata+noindex, og:image domain produksi di home/detail/insight, manifest 200, apple-icon PNG 200, favicon 308; stress 15 URL (termasuk 4×404 berulang) server hidup, dev.log bersih.
+- E2E browser: /faq path SSR sempurna (title, h1, navbar, breadcrumb visual), nav hash dari path URL → /faq#/councils pindah view tanpa reload, detail perizinan 7 blok JSON-LD, screenshot desktop+mobile 390px (download/verify-seo-*.png); error hidrasi "RedirectErrorBoundary" terkonfirmasi pre-existing (muncul juga di "/" sebelum perubahan) — benign, internal Next 16.
+- Catatan lingkungan: sandbox membunuh background server antar tool-call (bun/node standalone & dev sama) — pola ensure-server dipakai saat verifikasi; bukan bug aplikasi (build Vercel tak terdampak).
+- Dokumen: README (ID+EN) — 3 baris env baru + bagian "SEO Terpasang Otomatis/Built-in SEO" + langkah Search Console; DEPLOY.md bagian 5b "Optimalkan Google (SEO) — ±5 menit" (verifikasi HTML tag, env, submit sitemap, Bing bonus, ekspektasi hasil 1-4 minggu); .env.example blok SEO.
+- Commit a541f2b (18 file, +1220/−63). Push ke GitHub masih menunggu kredensial user (PAT/GitHub Desktop).
+
+Stage Summary:
+- Situs kini search-engine-first: ±135 URL ter-SSR yang bisa di-crawl & diindeks Google (sebelumnya 1 halaman), masing-masing dengan title/description/canonical/OG unik + JSON-LD kaya (peluang rich results: breadcrumb, FAQ, artikel).
+- Sitemap otomatis 133 URL + robots dinamis melindungi API & ruang privat; gambar sosial bermerek dirender otomatis untuk semua halaman.
+- Dua bug produksi berat ditemukan & dibereskan saat QA: NoFallbackError (dynamicParams=false + metadata di not-found) dan og:image localhost (file-convention) — keduanya didokumentasikan di kode agar tidak diulang.
+- Langkah user tinggal 5 menit: verifikasi Search Console (env GOOGLE_SITE_VERIFICATION) + submit sitemap.xml (panduan DEPLOY.md 5b).
