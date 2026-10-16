@@ -78,6 +78,22 @@ Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibang
 | `VVIP_ACCESS_CODE` | Opsional | Kode gerbang lounge `#/vvip` (Oracle). Bawaan: `TOP-VVIP-2026` — rotasi kapan pun tanpa deploy ulang kode |
 | `ADMIN_PASSWORD` | Opsional | Kata sandi Panel CEO (`#/admin`). Bawaan: `TOP-CEO-2026` — **wajib diganti** di production |
 | `DATABASE_URL` | Opsional | Tanpa variabel ini, form, member & log berjalan dengan fallback memori (hilang saat cold-start Vercel) |
+| `NEXT_PUBLIC_SITE_URL` | Opsional | Domain produksi untuk canonical, sitemap & JSON-LD. Bawaan: `https://topkonsultan.web.id` |
+| `GOOGLE_SITE_VERIFICATION` | Opsional | Kode verifikasi Google Search Console (metode *HTML tag*) — kosong = meta dilewati |
+| `BING_SITE_VERIFICATION` | Opsional | Kode verifikasi Bing Webmaster Tools |
+| `YANDEX_SITE_VERIFICATION` | Opsional | Kode verifikasi Yandex Webmaster |
+
+### ✦ SEO Terpasang Otomatis
+
+Situs ini dibangun *search-engine-first* tanpa perlu setup tambahan:
+
+- **~135 URL ter-SSR** — setiap halaman (12 praktik, 36+ izin, 46 dewan, 12 industri, 6 wawasan, dst.) punya URL path nyata (`/perizinan/izin-edar-bpom-pirt`) dengan konten penuh di HTML yang bisa di-crawl Google
+- **Metadata unik per halaman** — title, description, canonical, OpenGraph & Twitter Card otomatis via `src/lib/seo.ts`
+- **Structured data JSON-LD** — Organization, 3 kantor (ProfessionalService), WebSite, Breadcrumb, Service, Article, dan FAQPage siap *rich results*
+- **`/sitemap.xml` + `/robots.txt` dinamis** — sitemap 133 URL ter-generate otomatis; rute privat (admin/member/vvip) & API dilindungi
+- **Gambar sosial bermerek** — `/opengraph-image` 1200×630 gradasi ungu-biru dirender otomatis untuk semua halaman
+
+Langkah aktifkan Search Console: daftar di [search.google.com/search-console](https://search.google.com/search-console) → pilih metode **HTML tag** → salin isi `content="…"` ke env `GOOGLE_SITE_VERIFICATION` di Vercel → redeploy → kirim `sitemap.xml`.
 
 ### ✦ Menjalankan Lokal
 
@@ -165,6 +181,22 @@ The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) 
 | `VVIP_ACCESS_CODE` | Optional | Gate code for the `#/vvip` Oracle lounge. Default: `TOP-VVIP-2026` — rotate anytime without redeploying code |
 | `ADMIN_PASSWORD` | Optional | Password for the CEO Panel (`#/admin`). Default: `TOP-CEO-2026` — **must be changed** in production |
 | `DATABASE_URL` | Optional | Without it, forms, members & logs run on the in-memory fallback (lost on Vercel cold-start) |
+| `NEXT_PUBLIC_SITE_URL` | Optional | Production domain for canonical, sitemap & JSON-LD. Default: `https://topkonsultan.web.id` |
+| `GOOGLE_SITE_VERIFICATION` | Optional | Google Search Console verification code (*HTML tag* method) — empty = meta skipped |
+| `BING_SITE_VERIFICATION` | Optional | Bing Webmaster Tools verification code |
+| `YANDEX_SITE_VERIFICATION` | Optional | Yandex Webmaster verification code |
+
+### ✦ Built-in SEO
+
+This site is *search-engine-first* out of the box — no extra setup needed:
+
+- **~135 SSR URLs** — every page (12 practices, 36+ permits, 46 councils, 12 industries, 6 insights, etc.) gets a real path URL (`/perizinan/izin-edar-bpom-pirt`) with full crawlable HTML content
+- **Unique per-page metadata** — title, description, canonical, OpenGraph & Twitter Card generated automatically via `src/lib/seo.ts`
+- **JSON-LD structured data** — Organization, 3 offices (ProfessionalService), WebSite, Breadcrumb, Service, Article, and FAQPage ready for *rich results*
+- **Dynamic `/sitemap.xml` + `/robots.txt`** — a 133-URL sitemap generated automatically; private routes (admin/member/vvip) & API are protected
+- **Branded social image** — a 1200×630 violet-blue gradient `/opengraph-image` rendered automatically for every page
+
+To activate Search Console: register at [search.google.com/search-console](https://search.google.com/search-console) → choose the **HTML tag** method → paste the `content="…"` value into the `GOOGLE_SITE_VERIFICATION` env on Vercel → redeploy → submit `sitemap.xml`.
 
 ### ✦ Run Locally
 

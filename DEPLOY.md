@@ -115,6 +115,21 @@ Situs ini punya dua ruang privat lagi — keduanya tidak ada di menu publik:
 2. Vercel → proyek → **Settings → Domains** → **Add** → ikuti instruksi DNS (biasanya 2 record: `A` ke `76.76.21.21` dan `CNAME` ke `cname.vercel-dns.com`).
 3. HTTPS aktif otomatis.
 
+## 5b. Optimalkan Google (SEO) — ±5 menit
+
+Situs sudah *search-engine-first* sejak hari pertama: ±135 URL ter-SSR bisa di-crawl Google, metadata unik per halaman, JSON-LD (Organization, 3 kantor, FAQ, artikel), sitemap & robots dinamis, dan gambar sosial bermerek — semuanya otomatis. Yang perlu Anda lakukan hanya mendaftarkan situs ke Google:
+
+1. Buka [search.google.com/search-console](https://search.google.com/search-console) → **Add property** → masukkan domain/URL produksi Anda.
+2. Pilih metode verifikasi **HTML tag**. Google memberi kode seperti `<meta name="google-site-verification" content="abc123..."/>` — **salin hanya isi `content`-nya**.
+3. Vercel → proyek → **Settings → Environment Variables** → tambah:
+   - `GOOGLE_SITE_VERIFICATION` = (isi kode tadi)
+   - *(opsional)* `NEXT_PUBLIC_SITE_URL` = `https://domain-anda.com` bila memakai domain sendiri — memastikan canonical, sitemap & JSON-LD memakai domain final
+4. **Redeploy** (Deployments → Redeploy), lalu di Search Console klik **Verify**.
+5. Masih di Search Console → **Sitemaps** → kirim: `https://domain-anda.com/sitemap.xml`
+6. *(Bonus)* Daftar juga di [Bing Webmaster Tools](https://www.bing.com/webmasters) — bisa impor langsung dari Search Console; kodenya masuk ke env `BING_SITE_VERIFICATION`.
+
+Cara cek hasilnya: setelah 1–4 minggu, pencarian Google `site:domain-anda.com` akan menampilkan puluhan halaman (perizinan, dewan pakar, wawasan, dst.), dan halaman izin bisa muncul sebagai *rich results* dengan breadcrumb.
+
 ## 6. Opsional: Database permanen (±10 menit)
 
 Agar pesan kontak & newsletter tersimpan permanen:

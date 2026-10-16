@@ -2,6 +2,19 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { JsonLd } from "@/components/seo/json-ld";
+import {
+  localBusinessLd,
+  organizationLd,
+  websiteLd,
+} from "@/lib/seo-ld";
+import {
+  BASE_DESCRIPTION,
+  BASE_TITLE,
+  SITE_LEGAL,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -15,16 +28,34 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+/** Kode verifikasi Search Console dst. — set via env, kosong = meta dilewati. */
+const vGoogle = process.env.GOOGLE_SITE_VERIFICATION || undefined;
+const vBing = process.env.BING_SITE_VERIFICATION || undefined;
+const vYandex = process.env.YANDEX_SITE_VERIFICATION || undefined;
+
 export const metadata: Metadata = {
-  title: "PT TOP KONSULTAN INTERNASIONAL — Konsultasi & Perizinan Terlengkap di Dunia",
-  description:
-    "Gerbang tunggal konsultasi & perizinan terlengkap di dunia: pendirian PT/PMA, NIB OSS RBA, BPOM, halal, SNI, KITAS, PSE, OJK, hingga strategi korporat. 46 Dewan Pakar internasional, 6.900 tahun pengalaman gabungan, 190 negara. Layanan global dalam 40+ bahasa.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: BASE_TITLE,
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: BASE_DESCRIPTION,
+  applicationName: SITE_LEGAL,
+  category: "Business Consulting",
+  creator: SITE_LEGAL,
+  publisher: SITE_LEGAL,
+  authors: [{ name: SITE_LEGAL, url: SITE_URL }],
+  generator: "Next.js",
+  referrer: "origin-when-cross-origin",
   keywords: [
     "top konsultan internasional",
     "konsultan perizinan",
     "jasa pengurusan izin usaha",
+    "gerbang perizinan",
     "pendirian PT",
     "pendirian PMA",
+    "pendirian CV",
+    "kantor perwakilan asing",
     "NIB OSS RBA",
     "izin edar BPOM",
     "sertifikasi halal BPJPH",
@@ -33,23 +64,73 @@ export const metadata: Metadata = {
     "RPTKA",
     "PSE Komdigi",
     "izin OJK",
+    "pendaftaran merek",
+    "paten desain hak cipta",
+    "sertifikasi ISO",
     "konsultan bisnis Indonesia",
+    "konsultan Tasikmalaya",
+    "konsultan Jakarta",
     "management consulting Indonesia",
     "market entry Indonesia",
+    "company registration Indonesia",
+    "business license Indonesia",
   ],
-  authors: [{ name: "PT TOP KONSULTAN INTERNASIONAL" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "PT TOP KONSULTAN INTERNASIONAL — Satu Gerbang untuk Segala Izin & Strategi",
-    description:
-      "36+ jenis izin, 12 praktik konsultasi, 46 Dewan Pakar dunia. Dari pendirian PT hingga ekspansi global — pertama di dunia, berakar di Jakarta.",
-    siteName: "PT TOP KONSULTAN INTERNASIONAL",
+    title: BASE_TITLE,
+    description: BASE_DESCRIPTION,
+    url: "/",
+    siteName: SITE_LEGAL,
+    locale: "id_ID",
+    alternateLocale: ["en_US"],
     type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: BASE_TITLE }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PT TOP KONSULTAN INTERNASIONAL — Konsultasi & Perizinan Terlengkap",
-    description:
-      "46 Dewan Pakar. 6.900 tahun pengalaman gabungan. 36+ jenis izin. Satu jawaban absolut.",
+    title: BASE_TITLE,
+    description: BASE_DESCRIPTION,
+    images: ["/opengraph-image"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: vGoogle,
+    yandex: vYandex,
+    other: vBing ? { "msvalidate.01": vBing } : undefined,
+  },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: SITE_NAME,
+  },
+  formatDetection: {
+    telephone: false,
+    address: false,
+    email: false,
+  },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/icon.svg"],
+  },
+  other: {
+    "geo.region": "ID-JB",
+    "geo.placename": "Tasikmalaya, Jakarta",
   },
 };
 
@@ -57,6 +138,7 @@ export const viewport: Viewport = {
   themeColor: "#fafafc",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -69,6 +151,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground`}
       >
+        <JsonLd
+          data={[organizationLd(), websiteLd(), ...localBusinessLd()]}
+        />
         {children}
         <Toaster />
       </body>

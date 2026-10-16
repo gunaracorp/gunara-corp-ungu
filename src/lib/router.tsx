@@ -7,6 +7,9 @@
  * - Works on ANY static host (shared hosting friendly) — no server rewrites
  * - Bare anchors ("#benchmarks") stay native in-page scrolls
  * - Supports query params: "#/councils?filter=Technology%20%26%20AI"
+ * - SEO deep-link: URL path nyata ("/faq", "/perizinan/pendirian-pt") juga
+ *   dikenali — SSR merender konten yang benar untuk Google, lalu SPA
+ *   melanjutkan navigasi hash tanpa reload.
  */
 
 import { useCallback, useEffect, useMemo, useSyncExternalStore, type ReactNode } from "react";
@@ -41,6 +44,17 @@ export function parseHash(raw: string): RouteInfo {
   };
 }
 
+/** URL path nyata → RouteInfo (query sengaja diabaikan: filter tetap jalur hash). */
+export function parsePathname(pathname: string): RouteInfo {
+  const segments = pathname.split("/").filter(Boolean).map(decodeURIComponent);
+  return {
+    path: pathname,
+    segments,
+    query: new URLSearchParams(),
+    target: pathname,
+  };
+}
+
 /** Reactive route state driven by hashchange (hydration-safe) */
 function subscribeRoute(onChange: () => void) {
   window.addEventListener("hashchange", onChange);
@@ -49,9 +63,25 @@ function subscribeRoute(onChange: () => void) {
 const getRouteSnapshot = () => (typeof window === "undefined" ? "" : readHash());
 const getServerRouteSnapshot = () => "";
 
-export function useRoute(): RouteInfo {
+/**
+ * Reactive route state driven by hashchange (hydration-safe).
+ *
+ * Prioritas: 1) hash "#/…"  2) `fallbackPath` (SSR deep-link dari
+ * app/[...slug]/page.tsx — membuat server & client render sama persis)
+ * 3) window.location.pathname (ekor URL nyata)  4) beranda.
+ * Bare anchor ("#benchmarks") TIDAK mengganti halaman — hanya scroll.
+ */
+export function useRoute(fallbackPath?: string): RouteInfo {
   const raw = useSyncExternalStore(subscribeRoute, getRouteSnapshot, getServerRouteSnapshot);
-  return useMemo(() => parseHash(raw), [raw]);
+  return useMemo(() => {
+    if (raw && raw.startsWith("/")) return parseHash(raw);
+    if (fallbackPath) return parseHash(fallbackPath);
+    if (typeof window !== "undefined") {
+      const p = window.location.pathname;
+      if (p && p !== "/") return parsePathname(p);
+    }
+    return parseHash("");
+  }, [raw, fallbackPath]);
 }
 
 /** Programmatic navigation */

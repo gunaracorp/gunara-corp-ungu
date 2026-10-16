@@ -8,6 +8,15 @@
 
 import { useEffect } from "react";
 import { useRoute, useScrollTopOnRoute } from "@/lib/router";
+import {
+  ROUTE_TITLES,
+  SITE_NAME,
+  councilTitle,
+  industryTitle,
+  insightTitle,
+  perizinanTitle,
+  serviceTitle,
+} from "@/lib/seo";
 import { slugify } from "@/data/extended-types";
 import { COUNCILS, SERVICES } from "@/data/content";
 import { COUNCIL_PROFILES } from "@/data/council-profiles";
@@ -49,38 +58,12 @@ import AdminPage from "@/components/site/pages/admin";
 import MemberPage from "@/components/site/pages/member";
 
 const BASE_TITLE = "PT TOP KONSULTAN INTERNASIONAL — Konsultasi & Perizinan Terlengkap di Dunia";
-const SUFFIX = "TOP Konsultan Internasional";
 
-const TITLES: Record<string, string> = {
-  "/": BASE_TITLE,
-  "/about": `Tentang Kami — ${SUFFIX}`,
-  "/services": `12 Praktik Layanan — ${SUFFIX}`,
-  "/perizinan": `Gerbang Perizinan — 36+ Jenis Izin — ${SUFFIX}`,
-  "/councils": `46 Dewan Pakar — ${SUFFIX}`,
-  "/industries": `Industri — ${SUFFIX}`,
-  "/insights": `Wawasan — ${SUFFIX}`,
-  "/careers": `Karier — ${SUFFIX}`,
-  "/method": `Metode Oracle — ${SUFFIX}`,
-  "/results": `Hasil & Bukti — ${SUFFIX}`,
-  "/contact": `Kontak — ${SUFFIX}`,
-  "/faq": `Pertanyaan Umum — ${SUFFIX}`,
-  "/leadership": `Pimpinan & Tata Kelola — ${SUFFIX}`,
-  "/offices": `Kantor Kami — ${SUFFIX}`,
-  "/newsroom": `Ruang Media — ${SUFFIX}`,
-  "/resources": `Pusat Sumber Daya — ${SUFFIX}`,
-  "/responsibility": `Tanggung Jawab & Dampak — ${SUFFIX}`,
-  "/sitemap": `Peta Situs — ${SUFFIX}`,
-  "/privacy": `Kebijakan Privasi — ${SUFFIX}`,
-  "/terms": `Syarat & Ketentuan — ${SUFFIX}`,
-  "/cookies": `Kebijakan Cookie — ${SUFFIX}`,
-  // Rute diskret — tidak ditautkan dari navigasi publik.
-  "/vvip": `Member Lounge — ${SUFFIX}`,
-  "/member": `Dashboard Member VVIP — ${SUFFIX}`,
-  "/admin": `Panel CEO — ${SUFFIX}`,
-};
+/** Judul rute statis — satu sumber dari lib/seo.ts agar paritas dengan SSR. */
+const TITLES: Record<string, string> = { ...ROUTE_TITLES, "/": BASE_TITLE };
 
-export default function SiteApp() {
-  const route = useRoute();
+export default function SiteApp({ initialPath }: { initialPath?: string }) {
+  const route = useRoute(initialPath);
   useScrollTopOnRoute(route.target ?? "");
 
   const [seg1, seg2] = route.segments;
@@ -103,7 +86,7 @@ export default function SiteApp() {
         ) : (
           <ServicesPage />
         );
-        if (service) title = `${service.title} — ${SUFFIX}`;
+        if (service) title = serviceTitle(service);
         break;
       }
       case "perizinan": {
@@ -115,7 +98,7 @@ export default function SiteApp() {
         ) : (
           <PerizinanPage initialCategory={route.query.get("kategori")} />
         );
-        if (item) title = `${item.name} — Gerbang Perizinan — ${SUFFIX}`;
+        if (item) title = perizinanTitle(item);
         break;
       }
       case "councils": {
@@ -129,7 +112,7 @@ export default function SiteApp() {
         ) : (
           <CouncilsPage initialFilter={route.query.get("filter")} />
         );
-        if (council) title = `Dewan ${council.name} — ${SUFFIX}`;
+        if (council) title = councilTitle(council);
         break;
       }
       case "industries": {
@@ -143,7 +126,7 @@ export default function SiteApp() {
         ) : (
           <IndustriesPage />
         );
-        if (industry) title = `${industry.name} — ${SUFFIX}`;
+        if (industry) title = industryTitle(industry);
         break;
       }
       case "insights": {
@@ -157,7 +140,7 @@ export default function SiteApp() {
         ) : (
           <InsightsPage />
         );
-        if (insight) title = `${insight.title} — ${SUFFIX}`;
+        if (insight) title = insightTitle(insight);
         break;
       }
       case "careers":
@@ -204,18 +187,21 @@ export default function SiteApp() {
         break;
       case "vvip":
         view = <VvipPage />;
+        title = `Member Lounge — ${SITE_NAME}`;
         break;
       case "member":
         view = <MemberPage />;
+        title = `Dashboard Member VVIP — ${SITE_NAME}`;
         break;
       case "admin":
         view = <AdminPage />;
+        title = `Panel CEO — ${SITE_NAME}`;
         break;
       default: {
         const profile = COUNCIL_PROFILES[0];
         void profile;
         view = <NotFoundPage />;
-        title = `Halaman Tidak Ditemukan — ${SUFFIX}`;
+        title = `Halaman Tidak Ditemukan — ${SITE_NAME}`;
       }
     }
   }
