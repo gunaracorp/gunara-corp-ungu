@@ -85,6 +85,30 @@ Oracle AI **tidak lagi tampil di website depan** — ia kini menjadi layanan eks
 
 > Simpan kode dengan rapi: selama `VVIP_ACCESS_CODE` tidak diisi di Vercel, kode bawaan `TOP-VVIP-2026` yang dipakai. Segera ganti bila kode bocor.
 
+## 4c. Panel CEO & Dashboard Member (baru)
+
+Situs ini punya dua ruang privat lagi — keduanya tidak ada di menu publik:
+
+| Ruang | Alamat | Untuk siapa | Cara masuk |
+|---|---|---|---|
+| **Panel CEO** | `alamat-situs.com/#/admin` | Anda (pemilik) | Kata sandi — bawaan `TOP-CEO-2026`, ganti lewat env `ADMIN_PASSWORD` |
+| **Dashboard Member** | `alamat-situs.com/#/member` | Setiap member VVIP | Kode personal dari Panel CEO |
+
+**Yang bisa dilakukan dari Panel CEO:**
+- Lihat ringkasan: tiket brief masuk, member aktif, pelanggan newsletter, log akses.
+- Kelola **Tiket Brief**: tandai "dibaca"/"sudah dibalas", balas via email, hapus.
+- Kelola **Member VVIP**: daftarkan member (nama, email, WA, perusahaan, tier VVIP/GOLD/PLATINUM, masa berlaku) → **kode personal terbit otomatis** → tombol salin → kirim ke member via WhatsApp. Bisa menangguhkan, mengaktifkan, atau mencabut keanggotaan.
+- Pantau **Log Akses**: setiap login member yang berhasil dan setiap percobaan kode salah tercatat lengkap dengan waktu.
+
+**Yang dirasakan member** di `#/member`: kartu identitas keanggotaan (nama, tier, masa berlaku), tombol langsung ke Lounge Oracle, jalur WhatsApp prioritas, dan **tiket brief miliknya sendiri** (otomatis cocok dari email member — ia tidak melihat tiket orang lain).
+
+**Keamanan berlapis:**
+1. Kata sandi CEO dikirim setiap login, sesi cookie `HttpOnly` bertanda tangan HMAC berumur 8 jam — mengubah `ADMIN_PASSWORD` otomatis mematikan semua sesi lama.
+2. Kode member diverifikasi **di server** (API menolak 403). Menangguhkan member = kode langsung mati.
+3. Panel menampilkan **peringatan kuning** selama kata sandi masih bawaan — ikuti instruksinya sebelum situs ramai.
+
+> Catatan jujur soal penyimpanan: di lokal semua data persisten (SQLite). Di Vercel tanpa database, data form/member/log disimpan dalam memori server — bertahan selama instance hidup lalu hilang saat cold-start. Supaya permanen di Vercel, aktifkan bagian 6 (Vercel Postgres, ±10 menit). Panel CEO menampilkan status "database persisten" atau "mode memori" di pojok kiri atas — jadi Anda selalu tahu sedang memakai yang mana.
+
 ## 5. Ganti nama domain sendiri (opsional)
 
 1. Beli domain (mis. `topkonsultan.web.id` di registrar Indonesia mana pun).

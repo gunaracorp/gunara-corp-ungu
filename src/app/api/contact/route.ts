@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { mem } from "@/lib/store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -10,18 +11,8 @@ const VALID_TYPES = new Set(["general", "booking", "career", "oracle-escalation"
 /**
  * Engagement log — every brief the Councils receive is persisted via Prisma.
  * If the database is unreachable (e.g. minimal shared hosting), the brief is
- * still accepted into a durable fallback log so the ritual never breaks.
+ * held in the SHARED memory store so the CEO panel still sees it.
  */
-
-const memoryFallback: {
-  id: string;
-  refCode: string;
-  name: string;
-  email: string;
-  challenge: string;
-  type: string;
-  receivedAt: string;
-}[] = [];
 
 export async function POST(req: Request) {
   try {
@@ -86,17 +77,21 @@ export async function POST(req: Request) {
       });
       console.log(`[contact] persisted ${refCode} (${type})`);
     } catch (dbError) {
-      // Shared-hosting fallback: keep the covenant even without a database
-      memoryFallback.push({
+      // Shared-hosting fallback: hold in the shared chamber memory (visible to Panel CEO)
+      mem.contacts.unshift({
         id: refCode,
         refCode,
         name,
         email,
-        challenge,
+        company: company || null,
+        budget: budget || null,
+        role: role || null,
         type,
-        receivedAt: new Date().toISOString(),
+        challenge,
+        status: "new",
+        createdAt: new Date().toISOString(),
       });
-      if (memoryFallback.length > 500) memoryFallback.shift();
+      if (mem.contacts.length > 500) mem.contacts.pop();
       console.warn(`[contact] DB unavailable — ${refCode} held in chamber memory`, dbError);
     }
 
@@ -118,6 +113,6 @@ export async function GET() {
     const total = await db.contactMessage.count();
     return NextResponse.json({ ok: true, total, source: "db" });
   } catch {
-    return NextResponse.json({ ok: true, total: memoryFallback.length, source: "memory" });
+    return NextResponse.json({ ok: true, total: mem.contacts.length, source: "memory" });
   }
 }

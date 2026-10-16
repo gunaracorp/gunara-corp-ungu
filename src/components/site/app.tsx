@@ -39,6 +39,8 @@ import ContactPage from "@/components/site/pages/contact";
 import LegalPage from "@/components/site/pages/legal";
 import FaqPage from "@/components/site/pages/faq";
 import VvipPage from "@/components/site/pages/vvip";
+import AdminPage from "@/components/site/pages/admin";
+import MemberPage from "@/components/site/pages/member";
 
 const BASE_TITLE = "PT TOP KONSULTAN INTERNASIONAL — Konsultasi & Perizinan Terlengkap di Dunia";
 const SUFFIX = "TOP Konsultan Internasional";
@@ -61,6 +63,8 @@ const TITLES: Record<string, string> = {
   "/cookies": `Kebijakan Cookie — ${SUFFIX}`,
   // Rute diskret — tidak ditautkan dari navigasi publik.
   "/vvip": `Member Lounge — ${SUFFIX}`,
+  "/member": `Dashboard Member VVIP — ${SUFFIX}`,
+  "/admin": `Panel CEO — ${SUFFIX}`,
 };
 
 export default function SiteApp() {
@@ -170,6 +174,12 @@ export default function SiteApp() {
         break;
       case "vvip":
         view = <VvipPage />;
+        break;
+      case "member":
+        view = <MemberPage />;
+        break;
+      case "admin":
+        view = <AdminPage />;
         break;
       default: {
         const profile = COUNCIL_PROFILES[0];

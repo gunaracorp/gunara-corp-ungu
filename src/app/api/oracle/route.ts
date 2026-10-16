@@ -126,9 +126,20 @@ async function askSandboxSDK(history: IncomingMsg[]): Promise<string> {
 export async function POST(req: Request) {
   // ── Gerbang VVIP ─────────────────────────────────────────────────────────
   // Oracle adalah layanan eksklusif Member VVIP. Setiap permintaan wajib
-  // membawa header x-vvip-code yang cocok dengan VVIP_ACCESS_CODE (server-side).
+  // membawa header x-vvip-code: kode utama (VVIP_ACCESS_CODE) ATAU kode
+  // personal member aktif yang terdaftar di Panel CEO.
   const providedCode = (req.headers.get("x-vvip-code") ?? "").trim();
-  if (!vvipCodeMatches(providedCode)) {
+  let authorized = vvipCodeMatches(providedCode);
+  if (!authorized) {
+    try {
+      const { findMemberByCode, membershipActive } = await import("@/lib/store");
+      const member = await findMemberByCode(providedCode);
+      authorized = !!member && membershipActive(member);
+    } catch {
+      authorized = false;
+    }
+  }
+  if (!authorized) {
     return NextResponse.json(
       {
         ok: false,

@@ -48,6 +48,8 @@ Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibang
 | | Fitur | Keterangan |
 |---|---|---|
 | ◈ | **Oracle AI — Eksklusif VVIP** | Asisten kecerdasan 46 Dewan Pakar di lounge `#/vvip` (kode akses): menjawab perizinan, bisnis, pajak, strategi dalam bahasa apa pun, 24/7 — tidak tampil di situs publik |
+| ◈ | **Panel CEO** | Dashboard admin di `#/admin` (kata sandi): kelola tiket brief, daftar member VVIP + kode personal otomatis, newsletter, dan log akses |
+| ◈ | **Dashboard Member VVIP** | Halaman `#/member` dengan kode personal: kartu keanggotaan, tiket milik member, jalan pintas ke Lounge Oracle, jalur WhatsApp prioritas |
 | ◈ | **124 Tampilan Halaman** | Beranda sinematik, katalog 36+ izin (PT/PMA, NIB, BPOM, Halal, SNI, KITAS, PSE, OJK…), 46 profil Dewan Pakar, industri, wawasan, karier, FAQ |
 | ◈ | **23 Logo Instansi Resmi** | Kemenkumham, BKPM, Kemenkeu, Kemendag, BPOM, OJK, dan lainnya — instansi yang kami hadapi langsung setiap hari |
 | ◈ | **Galeri Akreditasi** | Foto asli penyerahan sertifikat & kartu indikasi PUSAT PERIZINAN.ID |
@@ -73,7 +75,8 @@ Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibang
 | `AI_BASE_URL` | Opsional | Default `https://api.z.ai/api/paas/v4` — kompatibel semua penyedia OpenAI-compatible |
 | `AI_MODEL` | Opsional | Default `glm-4.6` — alternatif hemat: `glm-4.5-flash` |
 | `VVIP_ACCESS_CODE` | Opsional | Kode gerbang lounge `#/vvip` (Oracle). Bawaan: `TOP-VVIP-2026` — rotasi kapan pun tanpa deploy ulang kode |
-| `DATABASE_URL` | Opsional | Tanpa variabel ini, form & newsletter berjalan dengan fallback memori |
+| `ADMIN_PASSWORD` | Opsional | Kata sandi Panel CEO (`#/admin`). Bawaan: `TOP-CEO-2026` — **wajib diganti** di production |
+| `DATABASE_URL` | Opsional | Tanpa variabel ini, form, member & log berjalan dengan fallback memori (hilang saat cold-start Vercel) |
 
 ### ✦ Menjalankan Lokal
 
@@ -131,6 +134,8 @@ The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) 
 | | Feature | Description |
 |---|---|---|
 | ◈ | **Oracle AI — VVIP Exclusive** | The unified voice of 46 Expert Councils, available in the `#/vvip` members-only lounge (access code): licensing, business, tax and strategy in any language, 24/7 — hidden from the public site |
+| ◈ | **CEO Panel** | Admin dashboard at `#/admin` (password-gated): manage brief tickets, register VVIP members with auto-generated personal codes, newsletter, and access logs |
+| ◈ | **VVIP Member Dashboard** | `#/member` with personal codes: membership card, member-owned tickets, one-tap Oracle Lounge access, priority WhatsApp line |
 | ◈ | **124 Page Views** | Cinematic landing, catalog of 36+ permits (PT/PMA, NIB, BPOM, Halal, SNI, KITAS, PSE, OJK…), 46 Council profiles, industries, insights, careers, FAQ |
 | ◈ | **23 Official Agency Logos** | Kemenkumham, BKPM, Ministry of Finance, Ministry of Trade, BPOM, OJK and more — the agencies we face directly, every day |
 | ◈ | **Accreditation Gallery** | Real photos of certificate handovers and PUSAT PERIZINAN.ID credentials |
@@ -156,7 +161,8 @@ The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) 
 | `AI_BASE_URL` | Optional | Defaults to `https://api.z.ai/api/paas/v4` — works with any OpenAI-compatible provider |
 | `AI_MODEL` | Optional | Defaults to `glm-4.6` — budget option: `glm-4.5-flash` |
 | `VVIP_ACCESS_CODE` | Optional | Gate code for the `#/vvip` Oracle lounge. Default: `TOP-VVIP-2026` — rotate anytime without redeploying code |
-| `DATABASE_URL` | Optional | Without it, forms & newsletter run on the in-memory fallback |
+| `ADMIN_PASSWORD` | Optional | Password for the CEO Panel (`#/admin`). Default: `TOP-CEO-2026` — **must be changed** in production |
+| `DATABASE_URL` | Optional | Without it, forms, members & logs run on the in-memory fallback (lost on Vercel cold-start) |
 
 ### ✦ Run Locally
 

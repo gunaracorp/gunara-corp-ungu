@@ -192,6 +192,13 @@ export default function VvipPage() {
                 <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
                 Ajukan kandidatur via WhatsApp
               </a>
+              {" · "}
+              <a
+                href="#/member"
+                className="font-semibold text-violet-300 transition-colors hover:text-violet-200"
+              >
+                Dashboard member
+              </a>
             </p>
           </motion.div>
         )}

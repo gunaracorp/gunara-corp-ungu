@@ -20,6 +20,7 @@ model ContactMessage {
   role      String?
   type      String   @default("general")
   challenge String
+  status    String   @default("new") // new | read | replied
   createdAt DateTime @default(now())
 }
 
@@ -27,6 +28,34 @@ model NewsletterSubscriber {
   id        String   @id @default(cuid())
   email     String   @unique
   createdAt DateTime @default(now())
+}
+
+/// Member VVIP — dikelola Panel CEO (/#/admin), kode personal untuk Oracle & dashboard.
+model VvipMember {
+  id           String    @id @default(cuid())
+  name         String
+  email        String?
+  phone        String?
+  company      String?
+  tier         String    @default("VVIP") // VVIP | GOLD | PLATINUM
+  code         String    @unique
+  status       String    @default("active") // active | suspended
+  notes        String?
+  validUntil   DateTime?
+  lastAccessAt DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+/// Jejak akses member VVIP (login lounge/dashboard & percobaan ditolak).
+model VvipAccessLog {
+  id         String   @id @default(cuid())
+  memberId   String?
+  name       String?
+  codeMasked String
+  action     String   @default("login") // login | denied
+  detail     String?
+  createdAt  DateTime @default(now())
 }
 
 model User {

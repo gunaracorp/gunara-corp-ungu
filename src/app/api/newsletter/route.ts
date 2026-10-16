@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { mem } from "@/lib/store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -32,8 +33,15 @@ export async function POST(req: Request) {
         create: { email },
       });
     } catch (dbError) {
-      // Graceful degradation — the covenant still feels kept
-      console.warn("[newsletter] DB unavailable, subscription acknowledged loosely", dbError);
+      // Graceful degradation — held in shared memory so the CEO panel still sees it
+      if (!mem.subscribers.some((s) => s.email === email)) {
+        mem.subscribers.unshift({
+          id: `sub-${Date.now().toString(36)}`,
+          email,
+          createdAt: new Date().toISOString(),
+        });
+      }
+      console.warn("[newsletter] DB unavailable, subscription held in chamber memory", dbError);
     }
 
     return NextResponse.json({
