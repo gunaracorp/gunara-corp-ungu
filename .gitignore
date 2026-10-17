@@ -61,3 +61,4 @@ server.log
 /agent-ctx/
 /examples/
 db/*.db-journallhserver/
+lighthouse/

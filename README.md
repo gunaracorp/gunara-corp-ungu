@@ -87,13 +87,28 @@ Website resmi **GUNARA CORPORATION** (Gunara Consultan) — dibangun dengan tekn
 
 Situs ini dibangun *search-engine-first* tanpa perlu setup tambahan:
 
-- **~135 URL ter-SSR** — setiap halaman (12 praktik, 36+ izin, 46 dewan, 12 industri, 6 wawasan, dst.) punya URL path nyata (`/perizinan/izin-edar-bpom-pirt`) dengan konten penuh di HTML yang bisa di-crawl Google
+- **~144 URL ter-SSR** — setiap halaman (12 praktik, 36+ izin, 46 dewan, 12 industri, 6 wawasan, dst.) punya URL path nyata (`/perizinan/izin-edar-bpom-pirt`) dengan konten penuh di HTML yang bisa di-crawl Google
 - **Metadata unik per halaman** — title, description, canonical, OpenGraph & Twitter Card otomatis via `src/lib/seo.ts`
-- **Structured data JSON-LD** — Organization, 3 kantor (ProfessionalService), WebSite, Breadcrumb, Service, Article, dan FAQPage siap *rich results*
-- **`/sitemap.xml` + `/robots.txt` dinamis** — sitemap 133 URL ter-generate otomatis; rute privat (admin/member/vvip) & API dilindungi
-- **Gambar sosial bermerek** — `/opengraph-image` 1200×630 gradasi ungu-biru dirender otomatis untuk semua halaman
+- **Structured data JSON-LD** — Organization, 3 kantor (ProfessionalService), WebSite, Breadcrumb, Service, Article, dan **FAQPage di /faq + di setiap halaman izin** (36 halaman × 5 pertanyaan: waktu proses, syarat, biaya, protokol, masa berlaku) siap *rich results*
+- **`/sitemap.xml` + `/robots.txt` dinamis** — sitemap 144 URL ter-generate otomatis dengan `lastmod` akurat per artikel; rute privat (admin/member/vvip) & API dilindungi
+- **Gambar sosial per halaman** — `/opengraph-image` (beranda) + `/api/og?title=…` (kartu OG dinamis dengan judul tiap halaman, 1200×630)
+- **RSS feed `/feed.xml`** — penemuan artikel baru lebih cepat; terdaftar otomatis di `<head>`
+- **IndexNow `/api/indexnow`** — pemberitahuan instan ke Bing, Yandex, Naver, Seznam & Yep; key verifikasi `public/gunara7f3a9c21b6d4e805.txt`
+- **GA4 opsional** — set `NEXT_PUBLIC_GA_ID` di Vercel, analytics terpasang otomatis (kosong = nol skrip)
 
 Langkah aktifkan Search Console: daftar di [search.google.com/search-console](https://search.google.com/search-console) → pilih metode **HTML tag** → salin isi `content="…"` ke env `GOOGLE_SITE_VERIFICATION` di Vercel → redeploy → kirim `sitemap.xml`.
+
+### ✦ Maksimalkan Peringkat — Checklist Operasional
+
+Dikerjakan sekali setelah deploy, hasilnya bertahan jangka panjang:
+
+1. **Google Search Console** — daftar, verifikasi (env `GOOGLE_SITE_VERIFICATION`), kirim `https://<domain>/sitemap.xml`, lalu gunakan *URL Inspection* → *Request Indexing* untuk 10 halaman uang utama (beranda, /perizinan, pendirian PT, NIB, BPOM, dll.)
+2. **Bing Webmaster Tools** — daftar di [bing.com/webmasters](https://www.bing.com/webmasters) → impor dari Search Console (1 klik) → jalankan `bash scripts/indexnow.sh https://<domain>` untuk ping IndexNow ke seluruh aliansi (Bing/Yandex/Naver/Seznam/Yep)
+3. **Google Business Profile** — daftarkan Kantor Pusat Tasikmalaya di [google.com/business](https://www.google.com/business) (kategori: *Consultant / Business License Consultant*) — ini sinyal lokal terkuat untuk pencarian "konsultan perizinan Tasikmalaya/Jakarta" + muncul di Google Maps
+4. **GA4** — buat property, set env `NEXT_PUBLIC_GA_ID` di Vercel → redeploy (memantau sumber orderan: organik, WA, langsung)
+5. **Backlink awal** — cantumkan tautan situs di profil Google Business, profil LinkedIn perusahaan & Tn. H. Gugun Gunara MBA, direktori IPHI, WhatsApp Business (bio), dan media sosial; minta mitra/klien menautkan situs GUNARA
+6. **Konten rutin** — tambah 1 artikel wawasan per bulan (di `src/data/insights.ts` → otomatis masuk sitemap, RSS, JSON-LD Article)
+7. **Domain & email bila berganti** — ubah env `NEXT_PUBLIC_SITE_URL` (mengubah canonical/sitemap/JSON-LD/OG otomatis) dan `BRAND.email` di `src/data/brand.ts`
 
 ### ✦ Performa Terverifikasi Lighthouse
 

@@ -124,6 +124,99 @@ export function faqPageLd(): LdObject {
   };
 }
 
+/**
+ * FAQ per jenis izin — HANYA dirender pada halaman detail izin terkait,
+ * dengan jawaban yang identik dengan FAQ terlihat di halaman tersebut
+ * (pedoman Google: markup harus mencerminkan konten yang tampak).
+ *
+ * Sumber jawaban murni dari data katalog perizinan (timeline, syarat,
+ * priceNote, protokol, masa berlaku) — bukan teks generik.
+ */
+export function perizinanFaqLd(p: {
+  slug: string;
+  name: string;
+  agency: string;
+  timeline: string;
+  validity: string;
+  priceNote: string;
+  requirements: readonly string[];
+  process: readonly { step: string; text: string }[];
+}): LdObject {
+  const bullets = (items: readonly string[]) =>
+    `<ul>${items.map((s) => `<li>${s}</li>`).join("")}</ul>`;
+
+  const qa: { q: string; a: string }[] = [
+    {
+      q: `Berapa lama proses pengurusan ${p.name}?`,
+      a: `Estimasi waktu pengurusan ${p.name} adalah ${p.timeline}, dihitung sejak dokumen lengkap. GUNARA menyusun peta jalan perizinan dalam 48 jam pertama dan menugaskan satu penanggung jawab bernama sampai izin terbit.`,
+    },
+    {
+      q: `Apa saja persyaratan ${p.name}?`,
+      a: bullets(p.requirements),
+    },
+    {
+      q: `Berapa biaya pengurusan ${p.name}?`,
+      a: `${p.priceNote} Penagihan resmi GUNARA CORPORATION atas nama Senior Konsultan — honor berpijak pada keberhasilan klien.`,
+    },
+    {
+      q: `Bagaimana protokol pengurusan ${p.name} di GUNARA?`,
+      a: bullets(p.process.map((s) => `${s.step}. ${s.text}`)),
+    },
+    {
+      q: `Berapa lama masa berlaku ${p.name} dan di mana izinnya diterbitkan?`,
+      a: `${p.name} diterbitkan oleh ${p.agency} dengan masa berlaku ${p.validity}. GUNARA juga membantu pemantauan jatuh tempo dan pengurusan perpanjangan.`,
+    },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}/perizinan/${p.slug}#faqpage`,
+    mainEntity: qa.map((x) => ({
+      "@type": "Question",
+      name: x.q,
+      acceptedAnswer: { "@type": "Answer", text: x.a },
+    })),
+  };
+}
+
+/** Data FAQ yang sama — dipakai UI (perizinan-detail) agar markup = tampilan. */
+export function perizinanFaqItems(p: {
+  name: string;
+  agency: string;
+  timeline: string;
+  validity: string;
+  priceNote: string;
+  requirements: readonly string[];
+  process: readonly { step: string; text: string }[];
+}): { q: string; a: string[] }[] {
+  return [
+    {
+      q: `Berapa lama proses pengurusan ${p.name}?`,
+      a: [
+        `Estimasi waktu pengurusan ${p.name} adalah ${p.timeline}, dihitung sejak dokumen lengkap. GUNARA menyusun peta jalan perizinan dalam 48 jam pertama dan menugaskan satu penanggung jawab bernama sampai izin terbit.`,
+      ],
+    },
+    { q: `Apa saja persyaratan ${p.name}?`, a: [...p.requirements] },
+    {
+      q: `Berapa biaya pengurusan ${p.name}?`,
+      a: [
+        `${p.priceNote} Penagihan resmi GUNARA CORPORATION atas nama Senior Konsultan — honor berpijak pada keberhasilan klien.`,
+      ],
+    },
+    {
+      q: `Bagaimana protokol pengurusan ${p.name} di GUNARA?`,
+      a: p.process.map((s) => `${s.step}. ${s.text}`),
+    },
+    {
+      q: `Berapa lama masa berlaku ${p.name} dan di mana izinnya diterbitkan?`,
+      a: [
+        `${p.name} diterbitkan oleh ${p.agency} dengan masa berlaku ${p.validity}. GUNARA juga membantu pemantauan jatuh tempo dan pengurusan perpanjangan.`,
+      ],
+    },
+  ];
+}
+
 /** Breadcrumb — di setiap halaman detail. */
 export function breadcrumbLd(
   items: { name: string; path: string }[],
@@ -283,7 +376,13 @@ export function pageLd(slug: string[]): LdObject[] {
   }
   if (seg1 === "perizinan" && seg2) {
     const p = PERIZINAN.find((x) => x.slug === seg2);
-    if (p) return [crumbs("Gerbang Perizinan", p.name), perizinanLd(p)];
+    if (p)
+      return [
+        crumbs("Gerbang Perizinan", p.name),
+        perizinanLd(p),
+        // Rich Result FAQ — jawaban identik dengan FAQ terlihat di halaman.
+        perizinanFaqLd(p),
+      ];
   }
   if (seg1 === "councils" && seg2) {
     const c = COUNCILS.find((x) => slugify(x.name) === seg2);

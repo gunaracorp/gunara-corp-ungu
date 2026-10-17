@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@/components/seo/analytics";
 import { JsonLd } from "@/components/seo/json-ld";
 import {
   localBusinessLd,
@@ -82,6 +83,9 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
   },
   openGraph: {
     title: BASE_TITLE,
@@ -160,6 +164,7 @@ export default function RootLayout({
           data={[organizationLd(), websiteLd(), ...localBusinessLd()]}
         />
         {children}
+        <Analytics />
         <Toaster />
       </body>
     </html>

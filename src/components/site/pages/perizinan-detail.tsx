@@ -20,6 +20,7 @@ import {
   Landmark,
 } from "lucide-react";
 import { PERIZINAN, PERIZINAN_CATEGORIES } from "@/data/perizinan";
+import { perizinanFaqItems } from "@/lib/seo-ld";
 import { Link } from "@/lib/router";
 import { EASE } from "@/components/landing/motion";
 import { Breadcrumb, CTABand, LinkButton, Ornament } from "@/components/site/ui";
@@ -269,6 +270,47 @@ export default function PerizinanDetailPage({ slug }: { slug: string }) {
           </div>
         </aside>
       </div>
+
+      {/* FAQ — sumber FAQPage JSON-LD (markup identik dengan konten ini). */}
+      <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8" aria-label="Pertanyaan umum">
+        <Ornament className="mb-10" />
+        <h2 className="text-center font-display text-2xl font-bold text-slate-900 sm:text-3xl">
+          Pertanyaan Umum <span className="text-gradient-gold">{item.name}</span>
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-slate-500">
+          Jawaban ringkas berdasarkan katalog perizinan resmi GUNARA — untuk kasus
+          spesifik, Senior Konsultan siap memetakan peta jalan Anda dalam 48 jam.
+        </p>
+        <div className="mt-8 flex flex-col gap-3">
+          {perizinanFaqItems(item).map((f) => (
+            <details
+              key={f.q}
+              className="group rounded-2xl border border-slate-200 bg-white/70 transition-colors duration-300 open:border-violet-300 open:bg-violet-50/40"
+            >
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-slate-900 [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <span
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-violet-300 text-violet-600 transition-transform duration-300 group-open:rotate-45"
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+              </summary>
+              <div className="px-5 pb-5">
+                {f.a.length > 1 ? (
+                  <ol className="flex list-decimal flex-col gap-1.5 pl-5 text-sm leading-relaxed text-slate-600">
+                    {f.a.map((line, i) => (
+                      <li key={i}>{line}</li>
+                    ))}
+                  </ol>
+                ) : (
+                  <p className="text-sm leading-relaxed text-slate-600">{f.a[0]}</p>
+                )}
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
 
       {/* Terkait */}
       {related.length > 0 ? (

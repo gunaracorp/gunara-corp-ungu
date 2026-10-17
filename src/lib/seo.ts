@@ -35,6 +35,25 @@ export const OG_IMAGES = [
   { url: "/opengraph-image", width: 1200, height: 630, alt: BASE_TITLE },
 ];
 
+/**
+ * OG image per rute — /api/og merender kartu dengan judul halaman itu sendiri
+ * (CTR lebih tinggi dibanding satu gambar global untuk semua halaman).
+ */
+export function routeOgImages(
+  title: string,
+  kicker: string,
+  description: string,
+) {
+  const params = new URLSearchParams({
+    title,
+    kicker,
+    desc: description.length > 150 ? `${description.slice(0, 147).trimEnd()}…` : description,
+  });
+  return [
+    { url: `/api/og?${params.toString()}`, width: 1200, height: 630, alt: title },
+  ];
+}
+
 /** Absolutkan path menjadi URL produksi. */
 export const abs = (path = "/") =>
   `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
@@ -236,9 +255,9 @@ export function buildRouteMeta(slug: string[]): Metadata {
           description,
           url: path,
           type: "website",
-          images: OG_IMAGES,
+          images: routeOgImages(s.title, "12 Praktik Layanan", description),
         },
-        twitter: { title: serviceTitle(s), description, images: ["/opengraph-image"] },
+        twitter: { title: serviceTitle(s), description, images: [routeOgImages(s.title, "12 Praktik Layanan", description)[0].url] },
       };
     }
   }
@@ -258,9 +277,9 @@ export function buildRouteMeta(slug: string[]): Metadata {
           description,
           url: path,
           type: "website",
-          images: OG_IMAGES,
+          images: routeOgImages(p.name, "Gerbang Perizinan", description),
         },
-        twitter: { title: perizinanTitle(p), description, images: ["/opengraph-image"] },
+        twitter: { title: perizinanTitle(p), description, images: [routeOgImages(p.name, "Gerbang Perizinan", description)[0].url] },
       };
     }
   }
@@ -280,9 +299,9 @@ export function buildRouteMeta(slug: string[]): Metadata {
           description,
           url: path,
           type: "website",
-          images: OG_IMAGES,
+          images: routeOgImages(`Dewan ${c.name}`, "46 Dewan Pakar", description),
         },
-        twitter: { title: councilTitle(c), description, images: ["/opengraph-image"] },
+        twitter: { title: councilTitle(c), description, images: [routeOgImages(`Dewan ${c.name}`, "46 Dewan Pakar", description)[0].url] },
       };
     }
   }
@@ -303,9 +322,9 @@ export function buildRouteMeta(slug: string[]): Metadata {
           description,
           url: path,
           type: "website",
-          images: OG_IMAGES,
+          images: routeOgImages(i.name, "Industri", description),
         },
-        twitter: { title: industryTitle(i), description, images: ["/opengraph-image"] },
+        twitter: { title: industryTitle(i), description, images: [routeOgImages(i.name, "Industri", description)[0].url] },
       };
     }
   }
@@ -338,6 +357,7 @@ export function buildRouteMeta(slug: string[]): Metadata {
   // ── Rute tingkat atas ────────────────────────────────────────────────────
   const meta = ROUTE_META[path];
   if (!meta) return {};
+  const section = meta.title.replace(` — ${SITE_NAME}`, "");
   return {
     title: { absolute: meta.title },
     description: meta.description,
@@ -347,8 +367,12 @@ export function buildRouteMeta(slug: string[]): Metadata {
       description: meta.description,
       url: path,
       type: "website",
-      images: OG_IMAGES,
+      images: routeOgImages(section, SITE_LEGAL, meta.description),
     },
-    twitter: { title: meta.title, description: meta.description, images: ["/opengraph-image"] },
+    twitter: {
+      title: meta.title,
+      description: meta.description,
+      images: [routeOgImages(section, SITE_LEGAL, meta.description)[0].url],
+    },
   };
 }

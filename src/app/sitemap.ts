@@ -1,10 +1,14 @@
 import type { MetadataRoute } from "next";
 import { allPublicPaths, abs } from "@/lib/seo";
+import { INSIGHTS } from "@/data/insights";
 
 /**
- * Sitemap XML lengkap — semua rute publik (~135 URL):
+ * Sitemap XML lengkap — semua rute publik (~144 URL):
  * firma, 12 praktik, 36+ perizinan, 46 dewan, 12 industri, wawasan, dst.
  * Rute privat (vvip/member/admin) sengaja tidak pernah ikut.
+ *
+ * lastModified: artikel wawasan memakai tanggal terbit masing-masing
+ * (sinyal kesegaran akurat), rute lain memakai waktu build.
  */
 
 type Entry = MetadataRoute.Sitemap[number];
@@ -57,6 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const cfg = DETAIL[seg1];
     // Hanya rute detail (bersub-segmen) — rute indeks sudah tercakup di GUNARA.
     if (cfg && path.split("/").length > 2) entries.push(entry(path, cfg[0], cfg[1]));
+  }
+
+  // Artikel wawasan — lastmod akurat dari tanggal terbit (bukan waktu build).
+  for (const i of INSIGHTS) {
+    const path = `/insights/${i.slug}`;
+    if (!entries.some((e) => e.url === abs(path))) continue;
+    const found = entries.find((e) => e.url === abs(path));
+    if (found) found.lastModified = new Date(i.date);
   }
 
   return entries;
