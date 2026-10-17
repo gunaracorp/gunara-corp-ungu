@@ -574,3 +574,26 @@ Stage Summary:
 - Situs kini 100% GUNARA CORPORATION / GUNARA CONSULTAN: setiap halaman, setiap baris telepon (+62 813-1651-6524), penagihan resmi atas nama Tn. H. Gugun Gunara, MBA, klaim 1.524 perusahaan tampil di hero, statistik, OG image, JSON-LD, dan deskripsi Google.
 - PT TOP KONSULTAN INTERNASIONAL tidak lagi muncul di mana pun; alternates SEO kini Gunara; kode VVIP baru GUNARA-VVIP-2026.
 - Komit e3a7ff6. Push GitHub tetap menunggu kredensial user (PAT/GitHub Desktop).
+
+---
+Task ID: 14
+Agent: Z.ai Code (main orchestrator)
+Task: Maksimalkan SEO Google & mesin pencari lain — permintaan eksplisit user untuk dorongan SEO jangka panjang (konteks: butuh orderan).
+
+Work Log:
+- Audit gap atas fondasi Task 13 (144 URL SSG, metadata per-rute, JSON-LD, Lighthouse SEO 100): identifikasi 8 peluang belum dipakai.
+- FAQPage rich result di 36 halaman detail perizinan: builder perizinanFaqLd + perizinanFaqItems (seo-ld.ts, satu sumber untuk markup & tampilan), section FAQ accordion <details> native di perizinan-detail.tsx — 5 pertanyaan per izin (waktu proses, syarat, biaya, protokol, masa berlaku) 100% dari data katalog, markup = konten terlihat (pedoman Google).
+- /api/og (route.tsx, ImageResponse): kartu OG dinamis per rute (?title=&kicker=&desc=, clamp aman) — buildRouteMeta kini memakai routeOgImages() untuk semua detail & rute tingkat atas; beranda tetap /opengraph-image.
+- /feed.xml: RSS 2.0 dari INSIGHTS (dc:creator, guid perma, atom:link self) + alternates.types di layout → discovery otomatis.
+- /api/indexnow: GET (kirim 133 URL) + POST (URL tertentu, filter same-origin) ke api.indexnow.org; key default gunara7f3a9c21b6d4e805 + file verifikasi public/*.txt; scripts/indexnow.sh untuk ping pasca-deploy. Uji nyata: respons 202 dari aliansi.
+- GA4 kondisional (components/seo/analytics.tsx): hanya render bila NEXT_PUBLIC_GA_ID cocok format G-XXX; kosong = nol skrip (Best Practices tetap 100).
+- sitemap.ts: lastmod artikel wawasan dari tanggal terbit (bukan waktu build).
+- .env.example: NEXT_PUBLIC_GA_ID + INDEXNOW_KEY; README: bagian "Maksimalkan Peringkat — Checklist Operasional" 7 langkah (Search Console + request indexing, Bing WMT impor 1-klik + IndexNow, Google Business Profile Tasikmalaya, GA4, backlink awal, konten rutin, rotasi domain).
+- Bug ditemui: clamp() pakai slice pada array (tsc menangkap) → diperbaiki ke slice string; bun run build TIDAK menyalin public/ ke standalone (key file 404) → wajib build:standalone (terdokumentasi di komentar ensure-server).
+- QA: build 146 halaman sukses; curl FAQPage di /perizinan/izin-edar-bpom-pirt = 1, di /faq = 1; og:image per-rute absolut; feed 200 rss+xml; key file 200; GA4 nol tanpa env; sitemap 133 loc + lastmod artikel asli; E2E browser FAQ accordion (5 item, jawaban data asli, screenshot download/verify-seo-faq-*.png); Lighthouse (CHROME_PATH agent-browser chrome): Perizinan A11y 100/BP 100/SEO 100, Beranda SEO 100 tanpa audit gagal; advisory label-content-name-mismatch pre-existing (weight 0).
+
+Stage Summary:
+- 8 lapisan SEO baru aktif: FAQPage×36, OG dinamis×144, RSS, IndexNow (Bing/Yandex/Naver/Seznam/Yep), GA4, lastmod akurat, checklist operasional, key verifikasi.
+- Skor tidak terdegradasi: SEO 100 / A11y 100 / BP 100 di halaman audit.
+- Yang menunggu aksi user pasca-deploy (tinggal ikuti README §Maksimalkan Peringkat): verifikasi Search Console + submit sitemap, Bing WMT + bash scripts/indexnow.sh, Google Business Profile, set NEXT_PUBLIC_GA_ID bila mau.
+- Komit e3163d1. Push GitHub tetap menunggu kredensial user.
