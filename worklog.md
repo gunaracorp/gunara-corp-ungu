@@ -552,3 +552,25 @@ Stage Summary:
 - Bundle awal ringan ±50%: 26 view jadi chunk terpisah, 50KB data mati dibuang; sisa "unused JS" 73KB didominasi react-dom/framer (wajar).
 - Tools audit permanen: scripts/ensure-server.sh, lh-audit.sh, lh-summary.js, lh-dig.js, lh-trace-lcp.js; hasil JSON di lighthouse/ (di-gitignore).
 - Lanjutan opsional bila mau dorong lantern >90: migrasi LazyMotion (m.* + domAnimation, ~30 file) & lazy-mount section homepage (risiko CLS di jaringan nyata — butuh pengukuran ulang).
+
+---
+Task ID: 13
+Agent: Z.ai Code (main orchestrator)
+Task: Rebranding menyeluruh TOP KONSULTAN → GUNARA CORPORATION / GUNARA CONSULTAN — telepon baru +62 813-1651-6524, pimpinan Senior Konsultan Tn. H. Gugun Gunara, MBA, 1.524 perusahaan ditangani, sembunyikan PT TOP KONSULTAN INTERNASIONAL (penagihan ke senior konsultan), full SEO.
+
+Work Log:
+- Audit 150+ file: seluruh jejak "TOP KONSULTAN/PT TOP/telepon lama/kunci sesi" dipetakan via rg.
+- scripts/rebrand-gunara.sh (persist): 10 aturan perl berurutan (frasa spesifik → \bTOP\b generik) atas src + README + DEPLOY + .env.example; nol sisa terverifikasi grep.
+- Hand-fix inti: brand.ts (legal/name/sub/monogram GC/leader/billing/companies "1.524"), seo.ts (SITE_NAME "Gunara Consultan", BASE_DESCRIPTION 1.524, ROUTE_META /about /results /leadership /newsroom), seo-ld.ts (alternateName), layout.tsx keywords Gunara, manifest, apple-icon "GC", opengraph-image (GC + 1.524 + host dari SITE_URL), logo/footer wordmark "CORPORATION".
+- Statistik flagship: STATS + Building2 1.524 (grid lg:grid-cols-5), Counter diformat id-ID → "1.524" & "99,97%", hero paragraph 1.524, footer blurb.
+- Penagihan senior konsultan: baris "Penagihan resmi" di kontak, FACTS Ruang Media ("Pimpinan & penagihan"), klausul baru "Penagihan & Pembayaran" di Syarat & Ketentuan, bio pendiri ditulis ulang.
+- Telepon baru di SEMUA titik: BRAND, JSON-LD, tombol WA (teks "Halo Gunara Consultan"), pesan API vvip/oracle/member, newsroom FACTS, PDF unduhan diregenerasi (scripts/make-download-pdfs.py), banner README.
+- Kode VVIP dirotasi GUNARA-VVIP-2026 (uji curl: kode lama 403, baru 200); tiket GUNARA-…; kunci sessionStorage gunara_*.
+- Dua bug produksi ditemukan saat QA: (1) teks vvip terpotong baris menghasilkan "PT GUNARA CONSULTAN INTERNASIONAL" — diperbaiki; (2) ensure-server.sh menganggap server LAMA "OK" → HTML build lama + chunk baru = 500 pada muat-fresh rute hash (diagnosa via scripts/diag-hash-crash.js + playwright) → flag --restart + verifikasi port bebas; (3) BONUS SEO: public/robots.txt statis sasa scaffold MENIMPA app/robots.ts dinamis di standalone (tanpa Sitemap, /api/ tak dilindungi) — dihapus dari repo & standalone; robots dinamis kini live (Disallow /api/ + Sitemap + Host).
+- QA penuh: tsc & eslint src bersih, build 144 halaman sukses, SSR curl (home/contact/about/faq: title+desc+canonical+JSON-LD+OG Gunara, telepon baru, nol jejak lama), API tests, screenshot E2E hero/stats(1.524)/kontak(penagihan)/vvip/footer.
+- Sengaja dipertahankan: email halo@topkonsultan.web.id & domain default topkonsultan.web.id (mailbox & domain aktif; canonical SEO pecah bila ditukar domain mati) — menunggu domain/email Gunara dari user, tinggal ganti BRAND.email + NEXT_PUBLIC_SITE_URL.
+
+Stage Summary:
+- Situs kini 100% GUNARA CORPORATION / GUNARA CONSULTAN: setiap halaman, setiap baris telepon (+62 813-1651-6524), penagihan resmi atas nama Tn. H. Gugun Gunara, MBA, klaim 1.524 perusahaan tampil di hero, statistik, OG image, JSON-LD, dan deskripsi Google.
+- PT TOP KONSULTAN INTERNASIONAL tidak lagi muncul di mana pun; alternates SEO kini Gunara; kode VVIP baru GUNARA-VVIP-2026.
+- Komit e3a7ff6. Push GitHub tetap menunggu kredensial user (PAT/GitHub Desktop).
