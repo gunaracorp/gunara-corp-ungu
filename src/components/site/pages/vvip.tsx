@@ -3,7 +3,7 @@
 /**
  * Area VVIP — lounge eksklusif Member VVIP untuk mengakses Oracle AI.
  * URL-nya sengaja tidak ditautkan dari navigasi publik; akses dibagikan
- * personal oleh tim TOP bersama kode akses (rotasi via VVIP_ACCESS_CODE).
+ * personal oleh tim GUNARA bersama kode akses (rotasi via VVIP_ACCESS_CODE).
  */
 
 import { motion } from "framer-motion";
@@ -21,7 +21,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { BRAND } from "@/data/brand";
 import OracleChat from "@/components/landing/oracle-chat";
 
-const STORAGE_KEY = "topkonsultan_vvip_code";
+const STORAGE_KEY = "gunara_vvip_code";
 
 type Phase = "checking" | "locked" | "unlocked";
 
@@ -49,7 +49,7 @@ export default function VvipPage() {
       window.sessionStorage.removeItem(STORAGE_KEY);
       setError(
         res.status === 403
-          ? "Kode akses tidak dikenal. Pastikan Anda memakai kode terbaru dari tim TOP."
+          ? "Kode akses tidak dikenal. Pastikan Anda memakai kode terbaru dari tim GUNARA."
           : "Masukkan kode akses VVIP Anda terlebih dahulu."
       );
       setErrorTick((t) => t + 1);
@@ -68,7 +68,7 @@ export default function VvipPage() {
   useEffect(() => {
     const saved = window.sessionStorage.getItem(STORAGE_KEY);
     if (saved) {
-      // Re-verifikasi ke server: kode mungkin sudah di-rotate oleh tim TOP.
+      // Re-verifikasi ke server: kode mungkin sudah di-rotate oleh tim GUNARA.
       void verify(saved);
     } else {
       setPhase("locked");
@@ -125,8 +125,7 @@ export default function VvipPage() {
             </h1>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-zinc-400">
               Suara tersatukan 46 Dewan Pakar — konsultasi tanpa batas 24/7.
-              Hanya untuk tangan terpilih: para Member VVIP PT TOP KONSULTAN
-              INTERNASIONAL.
+              Hanya untuk tangan terpilih: para Member VVIP GUNARA CORPORATION.
             </p>
 
             <motion.div
@@ -144,7 +143,7 @@ export default function VvipPage() {
                   Masukkan Kode Akses VVIP
                 </h2>
                 <p className="mt-1.5 text-[12.5px] leading-relaxed text-zinc-500">
-                  Kode dibagikan personal oleh tim TOP melalui WhatsApp resmi.
+                  Kode dibagikan personal oleh tim GUNARA melalui WhatsApp resmi.
                   Sesi berakhir otomatis saat tab ditutup — aman di perangkat apa pun.
                 </p>
               </div>
@@ -153,7 +152,7 @@ export default function VvipPage() {
                 <input
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
-                  placeholder="TOP-VVIP-XXXX"
+                  placeholder="GUNARA-VVIP-XXXX"
                   aria-label="Kode akses VVIP"
                   autoComplete="off"
                   spellCheck={false}

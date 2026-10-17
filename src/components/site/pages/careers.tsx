@@ -10,7 +10,7 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        eyebrow="Karier di TOP"
+        eyebrow="Karier di GUNARA"
         title={
           <>
             Jenius mencari <span className="text-gradient-gold">jenius.</span>

@@ -145,7 +145,7 @@ export default function SitemapPage() {
             Setiap halaman, <span className="text-gradient-gold">satu peta.</span>
           </>
         }
-        sub="Indeks lengkap situs PT TOP KONSULTAN INTERNASIONAL — dirancang agar tidak ada informasi yang tersembunyi lebih dalam dari satu klik ini."
+        sub="Indeks lengkap situs GUNARA CORPORATION — dirancang agar tidak ada informasi yang tersembunyi lebih dalam dari satu klik ini."
         crumbs={[{ label: "Beranda", to: "/" }, { label: "Peta Situs" }]}
         meta={[
           "9 halaman firma",

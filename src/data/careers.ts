@@ -157,7 +157,7 @@ export const PERKS: Perk[] = [
   {
     icon: Globe2,
     title: "Sepuluh hub, satu paspor",
-    text: "Bekerja dari salah satu sepuluh kedudukan TOP di dunia. Firmanya global; karier Anda juga.",
+    text: "Bekerja dari salah satu sepuluh kedudukan GUNARA di dunia. Firmanya global; karier Anda juga.",
   },
   {
     icon: BrainCircuit,
@@ -166,7 +166,7 @@ export const PERKS: Perk[] = [
   },
   {
     icon: GraduationCap,
-    title: "Akademi TOP",
+    title: "Akademi GUNARA",
     text: "Kurikulum privat — strategi, sains, modal, kedaulatan — diajarkan langsung oleh dewan-dewan. Akses seumur hidup.",
   },
   {

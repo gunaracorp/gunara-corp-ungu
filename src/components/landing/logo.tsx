@@ -20,7 +20,7 @@ export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
         />
         <circle cx="24" cy="3" r="3" fill="#7c3aed" />
       </g>
-      {/* Gateway arch — the TOP gate */}
+      {/* Gateway arch — the Gunara gate */}
       <path
         d="M13 33 L13 22 A11 11 0 0 1 35 22 L35 33"
         stroke="url(#logo-gold)"
@@ -43,10 +43,10 @@ export function Wordmark() {
   return (
     <span className="leading-none">
       <span className="block font-display text-sm font-bold tracking-[0.3em] text-slate-900">
-        TOP KONSULTAN
+        GUNARA CONSULTAN
       </span>
       <span className="mt-1 block text-[9px] font-semibold tracking-[0.5em] text-violet-600">
-        INTERNASIONAL
+        CORPORATION
       </span>
     </span>
   );

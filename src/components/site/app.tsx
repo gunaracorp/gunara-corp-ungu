@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * SiteApp — the whole multi-page PT TOP KONSULTAN INTERNASIONAL experience,
+ * SiteApp — the whole multi-page GUNARA CORPORATION experience,
  * routed by hash so it runs identically on Next.js dev, Node hosting, or
  * plain shared hosting.
  */
@@ -69,7 +69,7 @@ const VvipPage = dyn(() => import("@/components/site/pages/vvip"));
 const AdminPage = dyn(() => import("@/components/site/pages/admin"));
 const MemberPage = dyn(() => import("@/components/site/pages/member"));
 
-const BASE_TITLE = "PT TOP KONSULTAN INTERNASIONAL — Konsultasi & Perizinan Terlengkap di Dunia";
+const BASE_TITLE = "GUNARA CORPORATION — Konsultasi & Perizinan Terlengkap di Dunia";
 
 /** Judul rute statis — satu sumber dari lib/seo.ts agar paritas dengan SSR. */
 const TITLES: Record<string, string> = { ...ROUTE_TITLES, "/": BASE_TITLE };

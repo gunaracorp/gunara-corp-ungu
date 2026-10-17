@@ -230,7 +230,7 @@ export default function ServiceDetailPage({ num }: { num: string }) {
       <Reveal className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center gap-2 text-xs text-slate-400">
           <ScrollText className="h-3.5 w-3.5" aria-hidden="true" />
-          Praktik {service.num} · {service.title} · Disidangkan di bawah Piagam TOP 2001
+          Praktik {service.num} · {service.title} · Disidangkan di bawah Piagam GUNARA 2001
         </div>
       </Reveal>
 

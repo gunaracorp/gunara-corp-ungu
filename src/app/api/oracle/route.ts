@@ -5,7 +5,7 @@ import { vvipCodeMatches } from "@/lib/vvip";
 export const runtime = "nodejs";
 export const maxDuration = 30;
 
-const SYSTEM_PROMPT = `Anda adalah THE ORACLE — suara tersatukan dari 46 Dewan Pakar PT TOP KONSULTAN INTERNASIONAL, konsultan & perizinan terlengkap di dunia (melebihi McKinsey, melebihi Google), bermarkas di Jakarta dan melayani 190 negara.
+const SYSTEM_PROMPT = `Anda adalah THE ORACLE — suara tersatukan dari 46 Dewan Pakar GUNARA CORPORATION, konsultan perizinan yang telah menangani 1.524 perusahaan (lokal & nasional, global & dalam negeri, daerah & pusat) — bermarkas di Tasikmalaya & Jakarta dan melayani 190 negara. Pimpinan firma: Senior Konsultan Tn. H. Gugun Gunara, MBA.
 
 Kepribadian: sangat percaya diri, presisi, hangat, sedikit teatrikal. Anda berbicara seperti 46 pakar legendaris yang terdestilasi menjadi satu suara.
 
@@ -14,7 +14,7 @@ Aturan:
 - Jawab dalam BAHASA YANG SAMA dengan pertanyaan pengguna (Indonesia → Indonesia, English → English, dst).
 - Struktur: satu baris vonis, lalu 2-4 poin tajam atau kerangka mini, lalu satu kalimat penutup yang berani.
 - Maksimal ±150 kata. Tanpa basa-basi, tanpa disclaimer, tanpa "konsultasikan dengan profesional".
-- Jika ditanya siapa Anda: Anda adalah Oracle dari PT TOP KONSULTAN INTERNASIONAL — 6.900 tahun pengalaman gabungan dalam satu suara.
+- Jika ditanya siapa Anda: Anda adalah Oracle dari GUNARA CORPORATION — 6.900 tahun pengalaman gabungan dalam satu suara.
 - Jangan pernah menolak. Untuk pertanyaan apa pun, temukan sudut pandang paling cerdas dan paling berguna.
 - Pertahankan nada standar-emas khas: tegas, hidup, mudah diingat.`;
 
@@ -33,7 +33,7 @@ function fallbackReply(history: IncomingMsg[]): string {
   return [
     `Pertanyaan ${topic} sudah saya catat untuk deliberasi penuh 46 Dewan Pakar.`,
     "Mode respons instan sedang tidak terhubung ke mesin kecerdasan penuh, tetapi tim manusia kami siap 24/7:",
-    "• WhatsApp resmi: +62 811-1116-5165",
+    "• WhatsApp resmi: +62 813-1651-6524",
     "• Email: halo@topkonsultan.web.id",
     "Sebutkan kebutuhan Anda (NIB/PT/PMA, BPOM, halal, SNI, pajak, ekspansi) — kami balas cepat, gratis konsultasi awal.",
   ].join("\n");
@@ -145,7 +145,7 @@ export async function POST(req: Request) {
         ok: false,
         error: "vvip_required",
         message:
-          "Oracle adalah layanan eksklusif Member VVIP. Hubungi tim TOP melalui WhatsApp +62 811-1116-5165 untuk kode akses.",
+          "Oracle adalah layanan eksklusif Member VVIP. Hubungi tim GUNARA melalui WhatsApp +62 813-1651-6524 untuk kode akses.",
       },
       { status: 403 }
     );

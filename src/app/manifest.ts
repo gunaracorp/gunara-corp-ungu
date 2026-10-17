@@ -5,7 +5,7 @@ import { SITE_LEGAL } from "@/lib/seo";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: SITE_LEGAL,
-    short_name: "TOP Konsultan",
+    short_name: "Gunara Consultan",
     description:
       "Satu gerbang konsultasi & perizinan terlengkap di dunia — 46 Dewan Pakar, 36+ jenis izin, 190 negara.",
     start_url: "/",

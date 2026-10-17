@@ -8,7 +8,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     num: "01",
     enName: "Strategy & Transformation",
     overview: [
-      "Strategi di TOP bukan dokumen — melainkan putusan. Praktik Strategi & Transformasi menghimpun dewan Quantum Strategy, Future Foresight, dan Organizational Alchemy untuk memutuskan di mana perusahaan Anda bertaruh, bagaimana cara menang, dan apa yang harus dikorbankan agar bisa hidup. Setiap rekomendasi hadir disertai war-game sepuluh ribu masa depan yang melandasinya.",
+      "Strategi di GUNARA bukan dokumen — melainkan putusan. Praktik Strategi & Transformasi menghimpun dewan Quantum Strategy, Future Foresight, dan Organizational Alchemy untuk memutuskan di mana perusahaan Anda bertaruh, bagaimana cara menang, dan apa yang harus dikorbankan agar bisa hidup. Setiap rekomendasi hadir disertai war-game sepuluh ribu masa depan yang melandasinya.",
       "Lalu kami tetap tinggal. Transformasi kami instrumenisasi seperti penerbangan: nilai terlacak dengan penanggung jawab yang disebut namanya, hak keputusan digambar ulang, dan satu Partner-in-Chief bertanggung jawab hingga perubahan lintasannya terbukti tak terbantahkan di angka Anda sendiri — bukan di slide kami.",
     ],
     capabilities: [

@@ -1,7 +1,7 @@
 import type { Office } from "@/data/extended-types";
 
 /**
- * Empat kantor resmi PT TOP KONSULTAN INTERNASIONAL —
+ * Empat kantor resmi GUNARA CORPORATION —
  * dua kantor Tasikmalaya (pusat), Jakarta (PHI Kwitang),
  * dan perwakilan IPHI Pusat. Semua berbagi zona WIB.
  * Koordinat (x, y) siap dipakai peta jika diperlukan.

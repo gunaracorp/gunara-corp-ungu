@@ -1,5 +1,5 @@
 /**
- * TOP JSON-LD builders — structured data schema.org untuk Google Rich Results.
+ * GUNARA JSON-LD builders — structured data schema.org untuk Google Rich Results.
  * ----------------------------------------------------------------------------
  * Semua builder murni (pure) — aman dipakai di Server Component maupun client.
  * Dirender lewat <JsonLd /> (src/components/seo/json-ld.tsx).
@@ -19,7 +19,7 @@ import { abs, SITE_LEGAL, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 type LdObject = Record<string, unknown>;
 
-const PHONE_INTL = BRAND.phoneHref.replace(/^tel:/, ""); // +6281111165165
+const PHONE_INTL = BRAND.phoneHref.replace(/^tel:/, ""); // +6281316516524
 
 /** Organisasi induk — muncul di seluruh halaman (logo & NAP terlihat di footer). */
 export function organizationLd(): LdObject {
@@ -28,7 +28,7 @@ export function organizationLd(): LdObject {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: SITE_LEGAL,
-    alternateName: [SITE_NAME, "TOP KONSULTAN", "PUSAT PERIZINAN.ID"],
+    alternateName: [SITE_NAME, "GUNARA CONSULTAN", "Gunara Corporation"],
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",

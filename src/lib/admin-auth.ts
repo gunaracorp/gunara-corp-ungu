@@ -6,7 +6,7 @@ import { createHmac, timingSafeEqual } from "crypto";
  * Keamanan praktis: mengubah ADMIN_PASSWORD otomatis mematikan semua sesi lama.
  */
 
-export const DEFAULT_ADMIN_PASSWORD = "TOP-CEO-2026";
+export const DEFAULT_ADMIN_PASSWORD = "GUNARA-CEO-2026";
 const COOKIE_NAME = "top_admin";
 const SESSION_MS = 8 * 60 * 60 * 1000; // 8 jam
 

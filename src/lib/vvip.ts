@@ -8,7 +8,7 @@ import { timingSafeEqual } from "crypto";
  * Bila env tidak diisi, kode default di bawah dipakai (nyaman, tetap aman
  * karena perbandingan dilakukan di server, tidak pernah dikirim ke browser).
  */
-export const DEFAULT_VVIP_CODE = "TOP-VVIP-2026";
+export const DEFAULT_VVIP_CODE = "GUNARA-VVIP-2026";
 
 export function expectedVvipCode(): string {
   return (process.env.VVIP_ACCESS_CODE ?? DEFAULT_VVIP_CODE).trim();

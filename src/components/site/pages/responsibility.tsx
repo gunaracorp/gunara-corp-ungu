@@ -199,7 +199,7 @@ export default function ResponsibilityPage() {
                 </ul>
               </div>
               <a
-                href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo TOP Konsultan, saya pemilik usaha UMKM dan ingin mendaftar program pro bono Gerbang Sah.")}`}
+                href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo Gunara Consultan, saya pemilik usaha UMKM dan ingin mendaftar program pro bono Gerbang Sah.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-auto inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-7 py-3 text-sm font-bold text-white transition-transform duration-300 hover:scale-[1.04] active:scale-95"

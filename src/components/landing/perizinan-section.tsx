@@ -2,7 +2,7 @@
 
 /**
  * Landing section — Gerbang Perizinan: 8 kategori regulasi, satu gerbang.
- * Flagship differentiator PT TOP KONSULTAN INTERNASIONAL.
+ * Flagship differentiator GUNARA CORPORATION.
  */
 
 import { motion } from "framer-motion";

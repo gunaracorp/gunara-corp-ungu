@@ -26,6 +26,11 @@ const CONTACT_ROWS = [
   { Icon: Mail, label: "Email resmi", value: BRAND.email, href: `mailto:${BRAND.email}` },
   { Icon: Phone, label: "Telepon langsung", value: BRAND.phone, href: `tel:${BRAND.phoneHref}` },
   { Icon: MapPin, label: "Kantor pusat — Tasikmalaya I", value: BRAND.address },
+  {
+    Icon: CheckCircle2,
+    label: "Penagihan resmi",
+    value: `Senior Konsultan ${BRAND.leader} — seluruh pembayaran atas nama beliau`,
+  },
 ];
 
 const inputCls =
@@ -70,7 +75,7 @@ export default function Contact({
         setStatus("error");
         return;
       }
-      setEngagementId(data.id ?? "TOP-0000");
+      setEngagementId(data.id ?? "GUNARA-0000");
       setStatus("sent");
       form.reset();
     } catch {

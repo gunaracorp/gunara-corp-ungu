@@ -1,5 +1,5 @@
 /**
- * GERBANG PERIZINAN — PT TOP KONSULTAN INTERNASIONAL
+ * GERBANG PERIZINAN — GUNARA CORPORATION
  * Katalog jasa pengurusan izin terlengkap: 8 kategori, 36 jenis izin.
  * Semua teks naratif dalam Bahasa Indonesia baku; setiap item memiliki
  * pasangan bahasa Inggris (enName/enTagline) untuk klien global.
@@ -150,7 +150,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "A solid, compliant limited company from day one.",
     description: [
       "Perseroan Terbatas adalah kendaraan usaha paling lazim di Indonesia: tanggung jawab pemegang saham terbatas pada saham yang dimiliki, kredibilitasnya tinggi di hadapan bank dan mitra, serta aksesnya penuh ke perizinan berusaha berbasis OSS. Namun pendirian yang ceroboh — susunan pengurus yang rancu, struktur modal tidak jelas, atau anggaran dasar yang tertinggal klausul pentingnya — akan menjadi beban hukum selama bertahun-tahun.",
-      "TOP menyusun akta pendirian bersama notaris mitra pilihan, mengurus pengesahan (SK) ke Kemenkumham melalui sistem AHU, dan menuntaskan NPWP serta NIB hingga perseroan Anda resmi berdiri. Anda menerima paket legalitas lengkap yang siap dipakai membuka rekening, menandatangani kontrak, dan mengajukan izin lanjutan.",
+      "GUNARA menyusun akta pendirian bersama notaris mitra pilihan, mengurus pengesahan (SK) ke Kemenkumham melalui sistem AHU, dan menuntaskan NPWP serta NIB hingga perseroan Anda resmi berdiri. Anda menerima paket legalitas lengkap yang siap dipakai membuka rekening, menandatangani kontrak, dan mengajukan izin lanjutan.",
     ],
     requirements: [
       "KTP & NPWP seluruh pendiri dan pengurus",
@@ -182,7 +182,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The official gateway for foreign capital to own and operate in Indonesia.",
     description: [
       "Hanya PT PMA yang memungkinkan warga negara asing atau badan hukum asing memiliki saham dan beroperasi penuh di Indonesia. Regulasi BKPM menetapkan modal disetor minimal Rp2,5 miliar per pemegang saham dengan rencana investasi total sekurang-kurangnya Rp10 miliar di luar tanah dan bangunan, ditambah sektor usaha yang harus diuji terhadap Daftar Positif Investasi.",
-      "TOP merancang struktur kepemilikan yang sah, memilih kombinasi KBLI dengan porsi saham asing maksimal, dan mengawal seluruh rantai: akta notaris, SK Kemenkumham, NIB OSS, hingga Laporan Kegiatan Penanaman Modal (LKPM) pertama. Anda masuk ke pasar Indonesia dengan fondasi yang diakui BKPM, perbankan, dan mitra global.",
+      "GUNARA merancang struktur kepemilikan yang sah, memilih kombinasi KBLI dengan porsi saham asing maksimal, dan mengawal seluruh rantai: akta notaris, SK Kemenkumham, NIB OSS, hingga Laporan Kegiatan Penanaman Modal (LKPM) pertama. Anda masuk ke pasar Indonesia dengan fondasi yang diakui BKPM, perbankan, dan mitra global.",
     ],
     requirements: [
       "Paspor pemegang saham perorangan atau akta & legalitas badan hukum asing (terlegalisasi)",
@@ -246,7 +246,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "An official market foothold in Indonesia — without commercial transactions.",
     description: [
       "Bagi perusahaan asing yang ingin mengawal distributor, melakukan riset pasar, atau membangun jejaring sebelum berinvestasi penuh, kantor perwakilan adalah instrumen yang tepat. Perwakilan tidak boleh melakukan transaksi dan memperoleh penghasilan di Indonesia, sehingga batas kewenangannya harus dirancang cermat sejak awal.",
-      "TOP menyiapkan surat pernyataan penunjukan kepala perwakilan, legalitas perusahaan induk yang telah dilegalisasi, dan mengurus persetujuan KPPA/BKPM hingga terbit. Dalam hitungan minggu, perwakilan Anda berdiri dengan identitas resmi untuk kegiatan promosi, riset pasar, dan koordinasi distribusi yang sah.",
+      "GUNARA menyiapkan surat pernyataan penunjukan kepala perwakilan, legalitas perusahaan induk yang telah dilegalisasi, dan mengurus persetujuan KPPA/BKPM hingga terbit. Dalam hitungan minggu, perwakilan Anda berdiri dengan identitas resmi untuk kegiatan promosi, riset pasar, dan koordinasi distribusi yang sah.",
     ],
     requirements: [
       "Akta pendirian & dokumen legal perusahaan induk asing (terlegalisasi)",
@@ -278,7 +278,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Rock-solid legal standing for your social mission.",
     description: [
       "Yayasan menjadi wadah hukum bagi kegiatan sosial, keagamaan, dan kemanusiaan dengan harta yang terpisah dari kekayaan pendiri, sementara perkumpulan tepat untuk gerakan kolektif beranggotakan individu. Keduanya menuntut kejelasan organ — pendiri, pembina, pengurus, dan pengawas — agar tata kelolanya lolos uji donor dan regulator.",
-      "TOP menyusun anggaran dasar yang tata kelolanya sehat, mengurus akta notaris hingga pengesahan AHU Kemenkumham, serta menuntaskan NPWP dan akses layanan lanjutan. Anda mendapatkan badan hukum yang kredibel untuk menerima hibah, mengelola program, dan bermitra dengan institusi di dalam maupun luar negeri.",
+      "GUNARA menyusun anggaran dasar yang tata kelolanya sehat, mengurus akta notaris hingga pengesahan AHU Kemenkumham, serta menuntaskan NPWP dan akses layanan lanjutan. Anda mendapatkan badan hukum yang kredibel untuk menerima hibah, mengelola program, dan bermitra dengan institusi di dalam maupun luar negeri.",
     ],
     requirements: [
       "KTP & NPWP pendiri, pembina, pengurus, dan pengawas",
@@ -310,7 +310,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "A prestigious, fully lawful address for your licenses and correspondence.",
     description: [
       "Perizinan, pembukaan rekening, dan kredibilitas komersial seluruhnya bertumpu pada alamat domisili yang sah dan terverifikasi. Kekeliruan memilih penyedia — bangunan tanpa PBG/SLF atau layanan tanpa izin — dapat menggagalkan NIB Anda bahkan mengundang pemeriksaan.",
-      "TOP menghubungkan Anda dengan penyedia virtual office berlisensi di gedung kelas atas yang dokumennya lengkap, mulai dari surat keterangan domisili, perjanjian sewa, hingga foto-foto untuk keperluan OSS. Alamat Anda siap dipakai untuk pendirian badan usaha, perizinan berusaha, hingga pendaftaran merek.",
+      "GUNARA menghubungkan Anda dengan penyedia virtual office berlisensi di gedung kelas atas yang dokumennya lengkap, mulai dari surat keterangan domisili, perjanjian sewa, hingga foto-foto untuk keperluan OSS. Alamat Anda siap dipakai untuk pendirian badan usaha, perizinan berusaha, hingga pendaftaran merek.",
     ],
     requirements: [
       "KTP/paspor penanggung jawab dan dokumen badan usaha (bila sudah berdiri)",
@@ -344,7 +344,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "One identity for your business — and the license to begin.",
     description: [
       "NIB adalah identitas utama setiap pelaku usaha di Indonesia yang diterbitkan melalui sistem OSS Risk-Based Approach (RBA). NIB sekaligus berlaku sebagai izin usaha bagi kegiatan berisiko rendah serta menyatu dengan API dan akses fasilitas kepabeanan. OSS RBA memeringkatkan kegiatan usaha ke dalam empat tingkat risiko — rendah, menengah rendah, menengah tinggi, dan tinggi — yang menentukan dokumen perizinan lanjutan Anda.",
-      "TOP menyusun profil risiko usaha Anda secara akurat, memetakan KBLI beserta kewajiban perizinannya, dan mendaftarkan NIB hingga terbit tanpa kesalahan input. Dengan NIB yang benar sejak awal, seluruh izin turunan, fasilitas logistik, dan kepatuhan pelaporan berjalan mulus.",
+      "GUNARA menyusun profil risiko usaha Anda secara akurat, memetakan KBLI beserta kewajiban perizinannya, dan mendaftarkan NIB hingga terbit tanpa kesalahan input. Dengan NIB yang benar sejak awal, seluruh izin turunan, fasilitas logistik, dan kepatuhan pelaporan berjalan mulus.",
     ],
     requirements: [
       "NPWP badan/perseorangan aktif",
@@ -376,7 +376,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Converting business risk into lawful, audit-ready licenses.",
     description: [
       "Bagi kegiatan usaha berisiko menengah tinggi dan tinggi, NIB saja tidak cukup — Anda memerlukan izin berusaha melalui verifikasi, atau Sertifikat Standar melalui penilaian mandiri dan pernyataan komitmen pemenuhan standar. Kekeliruan memilih jalur atau menyusun pernyataan komitmen dapat berujung pembekuan sementara perizinan.",
-      "TOP memetakan seluruh KBLI Anda terhadap tingkat risikonya, menyusun dokumen verifikasi dan komitmen, serta mengawal proses hingga izin berusaha diterbitkan. Kami juga menyusun kalender kepatuhan pasca-terbit agar kewajiban inspeksi, pelaporan, dan pemenuhan standar tidak pernah terlewat.",
+      "GUNARA memetakan seluruh KBLI Anda terhadap tingkat risikonya, menyusun dokumen verifikasi dan komitmen, serta mengawal proses hingga izin berusaha diterbitkan. Kami juga menyusun kalender kepatuhan pasca-terbit agar kewajiban inspeksi, pelaporan, dan pemenuhan standar tidak pernah terlewat.",
     ],
     requirements: [
       "NIB aktif",
@@ -408,7 +408,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The right codes decide your licenses, taxes, and incentives.",
     description: [
       "KBLI adalah bahasa universal perizinan Indonesia: satu kode yang keliru dapat membuat Anda mengurus izin yang salah, kehilangan hak insentif, atau justru masuk ke sektor yang tertutup bagi modal tertentu. Penetapan skala usaha — mikro, kecil, menengah, atau besar — turut menentukan fasilitas kredit, akses pengadaan, dan kewajiban pelaporan.",
-      "Pakar regulasi TOP membaca model bisnis Anda — bukan sekadar daftar kegiatan — lalu merumuskan kombinasi KBLI dan skala usaha yang optimal untuk hari ini dan ekspansi esok. Hasil pemetaan kami langsung siap dipakai pada OSS, kepatuhan pajak, hingga dokumen tender.",
+      "Pakar regulasi GUNARA membaca model bisnis Anda — bukan sekadar daftar kegiatan — lalu merumuskan kombinasi KBLI dan skala usaha yang optimal untuk hari ini dan ekspansi esok. Hasil pemetaan kami langsung siap dipakai pada OSS, kepatuhan pajak, hingga dokumen tender.",
     ],
     requirements: [
       "Deskripsi kegiatan bisnis (produk/jasa utama & pendukung)",
@@ -440,7 +440,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Indonesian documents recognized worldwide — foreign documents valid at home.",
     description: [
       "Akta, ijazah, surat kuasa, dan legalitas perusahaan yang akan dipakai lintas negara harus melewati legalisasi atau mekanisme Apostille sesuai Konvensi Hague yang telah diratifikasi Indonesia. Antrean, urutan tanda tangan, dan teknik pengurusan yang salah membuat proses berulang — sementara jadwal penandatanganan kontrak lintas negara menunggu.",
-      "TOP mengelola seluruh rantai legalisasi — notaris, Kemenkumham, Kementerian Luar Negeri, hingga kedutaan untuk yurisdiksi non-Apostille — dengan pengambilan dan pengiriman dokumen yang terpantau. Dokumen Anda kembali dalam kondisi siap pakai, sah, dan tak terbantahkan di forum mana pun.",
+      "GUNARA mengelola seluruh rantai legalisasi — notaris, Kemenkumham, Kementerian Luar Negeri, hingga kedutaan untuk yurisdiksi non-Apostille — dengan pengambilan dan pengiriman dokumen yang terpantau. Dokumen Anda kembali dalam kondisi siap pakai, sah, dan tak terbantahkan di forum mana pun.",
     ],
     requirements: [
       "Dokumen asli yang akan dilegalisasi",
@@ -474,7 +474,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Your company's fiscal identity, accurate from the first filing.",
     description: [
       "Tanpa NPWP badan, perusahaan tidak dapat membuka rekening, membayarkan gaji secara sah, mengurus status PKP, maupun menandatangani kontrak pemerintah. Digitalisasi Direktorat Jenderal Pajak menuntut ketelitian data yang semakin tinggi — perbedaan sepele antara akta, NIB, dan NPWP dapat memicu pemblokiran transaksi fiskal.",
-      "TOP mendaftarkan NPWP badan beserta unit cabangnya, mengaktifkan akses portal DJP, dan menyelaraskan seluruh data dengan akta serta NIB. Kredensial, panduan kewajiban, dan jadwal pelaporan diserahkan dalam satu paket yang rapi.",
+      "GUNARA mendaftarkan NPWP badan beserta unit cabangnya, mengaktifkan akses portal DJP, dan menyelaraskan seluruh data dengan akta serta NIB. Kredensial, panduan kewajiban, dan jadwal pelaporan diserahkan dalam satu paket yang rapi.",
     ],
     requirements: [
       "Akta pendirian & SK Kemenkumham",
@@ -506,7 +506,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Unlock input tax credits and enterprise-grade B2B transactions.",
     description: [
       "Status Pengusaha Kena Pajak (PKP) menjadi prasyarat untuk menagih PPN keluaran, mengkreditkan pajak masukan, dan menjadi mitra transaksi korporasi yang menuntut faktur pajak resmi. Pendaftaran kini terhubung dengan aplikasi e-Faktur serta e-In dalam ekosistem digital DJP, sehingga kekeliruan sejak awal langsung terasa pada arus kas.",
-      "TOP menilai kewajiban PKP Anda, menyusun dokumen pengukuhan, dan mengaktifkan sertifikat elektronik beserta aplikasi e-Faktur/e-In hingga siap dipakai. Tim kami juga melatih staf keuangan untuk menerbitkan faktur pajak yang sah dan tertib sejak faktur pertama.",
+      "GUNARA menilai kewajiban PKP Anda, menyusun dokumen pengukuhan, dan mengaktifkan sertifikat elektronik beserta aplikasi e-Faktur/e-In hingga siap dipakai. Tim kami juga melatih staf keuangan untuk menerbitkan faktur pajak yang sah dan tertib sejak faktur pertama.",
     ],
     requirements: [
       "NPWP badan aktif",
@@ -538,7 +538,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "A disciplined tax calendar — zero sanction risk, full focus on business.",
     description: [
       "SPT Masa PPN dan PPh 21 yang terlambat sehari pun memicu denda, sementara SPT Tahunan Badan yang asal-asalan menjadi pintu masuk pemeriksaan pajak. Di era pertukaran data pajak yang makin otomatis dan transparan, kepatuhan pasif bukan lagi pilihan yang aman.",
-      "Tim pajak TOP mengambil alih kalender pajak Anda: merekap transaksi, menghitung dan melaporkan SPT masa tepat waktu, menyusun SPT tahunan yang optimal namun tahan uji, serta mendampingi saat koreksi atau pemeriksaan. Anda menerima laporan bulanan yang rapi sebagai dasar keputusan direksi.",
+      "Tim pajak GUNARA mengambil alih kalender pajak Anda: merekap transaksi, menghitung dan melaporkan SPT masa tepat waktu, menyusun SPT tahunan yang optimal namun tahan uji, serta mendampingi saat koreksi atau pemeriksaan. Anda menerima laporan bulanan yang rapi sebagai dasar keputusan direksi.",
     ],
     requirements: [
       "NPWP & akses portal DJP (sertifikat elektronik)",
@@ -570,7 +570,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Turning your investment plan into fiscal incentives worth hundreds of billions.",
     description: [
       "Pemerintah membuka fasilitas fiskal berskala besar: tax holiday hingga 20 tahun bagi investasi prioritas, tax allowance, serta super deduction 300% untuk kegiatan riset dan 200% untuk vokasi. Mayoritas pelaku usaha melewatkannya karena tidak mengenal kriteria, keliru dalam struktur proses, atau terjebak koordinasi lintas lembaga.",
-      "TOP memetakan kelayakan proyek Anda terhadap seluruh skema insentif, menyusun dokumen permohonan lintas DJP, BKPM, dan kementerian teknis, hingga pengurusan persetujuan fasilitas. Satu persetujuan yang kami amankan dapat bernilai jauh melampaui seluruh biaya pendampingan Anda.",
+      "GUNARA memetakan kelayakan proyek Anda terhadap seluruh skema insentif, menyusun dokumen permohonan lintas DJP, BKPM, dan kementerian teknis, hingga pengurusan persetujuan fasilitas. Satu persetujuan yang kami amankan dapat bernilai jauh melampaui seluruh biaya pendampingan Anda.",
     ],
     requirements: [
       "Profil perusahaan & NPWP badan",
@@ -604,7 +604,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Basic manpower compliance, handled before it becomes expensive.",
     description: [
       "Setiap perusahaan wajib melapor kepada Disnaker (Wajib Lapor Perusahaan) serta mendaftarkan karyawannya ke BPJS Kesehatan dan BPJS Ketenagakerjaan. Kepatuhan ini menjadi cek standar dalam tender, audit investasi, dan inspeksi ketenagakerjaan — dengan sanksi bagi yang lalai.",
-      "TOP menuntaskan Wajib Lapor Online, pendaftaran BPJS beserta pengaktifan program JKK, JKM, JHT, dan JP, serta menyiapkan tagihan bulanan yang akurat. Karyawan Anda terlindungi, dokumen tender Anda lengkap, dan audit ketenagakerjaan Anda bersih.",
+      "GUNARA menuntaskan Wajib Lapor Online, pendaftaran BPJS beserta pengaktifan program JKK, JKM, JHT, dan JP, serta menyiapkan tagihan bulanan yang akurat. Karyawan Anda terlindungi, dokumen tender Anda lengkap, dan audit ketenagakerjaan Anda bersih.",
     ],
     requirements: [
       "NIB / izin usaha",
@@ -636,7 +636,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The lawful foundation before any foreign hire sets foot in Indonesia.",
     description: [
       "Sebelum mengpekerjakan tenaga kerja asing, pemberi kerja wajib menyusun dan memperoleh persetujuan RPTKA dari Kementerian Ketenagakerjaan — memuat posisi, jumlah, kualifikasi, dan alasan perekrutan. Kewajiban Dana Kompensasi Penggunaan Tenaga Kerja Asing (DKP-TKA) berlaku sesuai regulasi terkini, dengan fasilitas keringanan bagi perusahaan yang memenuhi syarat tertentu.",
-      "TOP menyusun RPTKA yang kuat — penjelasan transfer pengetahuan, rencana pendamping tenaga kerja lokal, dan jabatan yang sesuai ketentuan — lalu mengawal proses hingga persetujuan terbit. RPTKA Anda menjadi pintu menuju notifikasi keimigrasian, visa, dan kehadiran pakar asing yang sepenuhnya sah.",
+      "GUNARA menyusun RPTKA yang kuat — penjelasan transfer pengetahuan, rencana pendamping tenaga kerja lokal, dan jabatan yang sesuai ketentuan — lalu mengawal proses hingga persetujuan terbit. RPTKA Anda menjadi pintu menuju notifikasi keimigrasian, visa, dan kehadiran pakar asing yang sepenuhnya sah.",
     ],
     requirements: [
       "NIB, NPWP, dan izin usaha pendukung",
@@ -668,7 +668,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "From work approval to arrival stamp — we stay until your expert lands.",
     description: [
       "Setelah RPTKA disetujui, rantai perizinan berikutnya menuntut presisi: notifikasi keimigrasian sebagai dasar bekerja, VITAS untuk masuk ke Indonesia, konversi menjadi KITAS-ITAS, hingga KITAP bagi tenaga kerja asing jangka panjang. Satu dokumen yang tidak sesuai — misalnya asuransi yang salah standar — dapat menggagalkan jadwal kedatangan yang sudah dipesan.",
-      "TOP mengoordinasikan Kemnaker, Imigrasi, dan pemohon dalam satu lini masa: notifikasi, VITAS, KITAS-ITAS, perpanjangan, hingga pendaftaran di kantor imigrasi setempat. Pakar Anda tiba, bekerja, dan berkembang dengan legalitas yang utuh.",
+      "GUNARA mengoordinasikan Kemnaker, Imigrasi, dan pemohon dalam satu lini masa: notifikasi, VITAS, KITAS-ITAS, perpanjangan, hingga pendaftaran di kantor imigrasi setempat. Pakar Anda tiba, bekerja, dan berkembang dengan legalitas yang utuh.",
     ],
     requirements: [
       "Persetujuan RPTKA aktif",
@@ -700,7 +700,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Lawful internal governance for harmonious industrial relations.",
     description: [
       "Perusahaan dengan tenaga kerja dalam jumlah tertentu wajib memiliki Peraturan Perusahaan, sementara Perjanjian Kerja Bersama menjadi payung hak dan kewajiban bersama serikat pekerja. Pembentukan Forum Komunikasi Bipartit (LKS Bipartit) pun menjadi kewajiban yang sering baru terungkap saat inspeksi tenaga kerja.",
-      "TOP merumuskan dokumen yang menyeimbangkan kepentingan perusahaan dan pekerja serta mencerminkan regulasi ketenagakerjaan terkini, lalu mengawal pengesahan atau pencatatan di Disnaker hingga pembentukan LKS Bipartit. Hasilnya: aturan main yang jelas, risiko sengketa yang tercegah, dan audit ketenagakerjaan yang bersih.",
+      "GUNARA merumuskan dokumen yang menyeimbangkan kepentingan perusahaan dan pekerja serta mencerminkan regulasi ketenagakerjaan terkini, lalu mengawal pengesahan atau pencatatan di Disnaker hingga pembentukan LKS Bipartit. Hasilnya: aturan main yang jelas, risiko sengketa yang tercegah, dan audit ketenagakerjaan yang bersih.",
     ],
     requirements: [
       "Struktur organisasi & daftar karyawan",
@@ -734,7 +734,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Every land investment begins with one truth: spatial conformity.",
     description: [
       "KKPR adalah persetujuan bahwa rencana kegiatan Anda sesuai dengan Rencana Tata Ruang Wilayah — prasyarat hampir seluruh perizinan berusaha berbasis lahan, dari pabrik hingga hotel. Tanpa verifikasi awal, investor dapat membeli lahan yang ternyata berada di kawasan lindung atau tersentuh rencana infrastruktur publik.",
-      "TOP melakukan uji kesesuaian awal sebelum Anda berkomitmen, mengurus KKPR melalui layanan ATR/BPN dan OSS — termasuk jalur penyediaan kawasan bila diperlukan — serta menandai isu pertanahan yang butuh penyelesaian khusus. Keputusan investasi Anda berdiri di atas kepastian, bukan asumsi.",
+      "GUNARA melakukan uji kesesuaian awal sebelum Anda berkomitmen, mengurus KKPR melalui layanan ATR/BPN dan OSS — termasuk jalur penyediaan kawasan bila diperlukan — serta menandai isu pertanahan yang butuh penyelesaian khusus. Keputusan investasi Anda berdiri di atas kepastian, bukan asumsi.",
     ],
     requirements: [
       "Data lahan (letak, luas, koordinat/petak)",
@@ -766,7 +766,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The right environmental scheme for your footprint — from SPPL to full AMDAL.",
     description: [
       "Persetujuan Lingkungan kini menyatu dengan perizinan berusaha: kegiatan berdampak besar menuntut AMDAL, dampak menengah cukup UKL-UPL, dan dampak rendah dinyatakan melalui SPPL. Kesalahan skema — terlalu berat memboroskan waktu, terlalu ringan berisiko dicabut — adalah penyebab utama keterlambatan proyek. Partisipasi publik dan dokumen yang tidak lolos tim penilai menambah beban yang sebenarnya bisa dicegah.",
-      "Pakar lingkungan TOP menyusun kerangka acuan dan dokumen lingkungan yang lolos penilaian, mengoordinasikan konsultasi publik, serta menuntaskan persetujuan hingga terintegrasi di OSS. Komitmen pemantauan lingkungan kami susun sejak awal agar kepatuhan berlanjut sepanjang siklus proyek Anda.",
+      "Pakar lingkungan GUNARA menyusun kerangka acuan dan dokumen lingkungan yang lolos penilaian, mengoordinasikan konsultasi publik, serta menuntaskan persetujuan hingga terintegrasi di OSS. Komitmen pemantauan lingkungan kami susun sejak awal agar kepatuhan berlanjut sepanjang siklus proyek Anda.",
     ],
     requirements: [
       "NIB & KKPR",
@@ -798,7 +798,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The lawful successor to IMB, handled fast on SIMBG.",
     description: [
       "Sejak UU Cipta Kerja, IMB resmi digantikan oleh Persetujuan Bangunan Gedung (PBG) yang diterbitkan melalui sistem SIMBG untuk membangun baru, memperluas, atau mengubah bangunan. Berkas teknis — gambar arsitektur, struktur, dan utilitas — yang tidak sesuai standar menjadi penyebab penolakan paling umum.",
-      "TOP menyiapkan berkas teknis bersama insinyur profesional mitra, mengurus dokumen tanah dan bangunan yang diperlukan, serta memproses pengajuan di SIMBG hingga PBG terbit. Gedung Anda berdiri dengan payung hukum penuh — aman dari penghentian pekerjaan dan sanksi penertiban.",
+      "GUNARA menyiapkan berkas teknis bersama insinyur profesional mitra, mengurus dokumen tanah dan bangunan yang diperlukan, serta memproses pengajuan di SIMBG hingga PBG terbit. Gedung Anda berdiri dengan payung hukum penuh — aman dari penghentian pekerjaan dan sanksi penertiban.",
     ],
     requirements: [
       "KKPR / bukti hak atas tanah",
@@ -830,7 +830,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Proof your building is fit for use — required by banks, insurers, and regulators.",
     description: [
       "Setelah bangunan selesai, Pemerintah Daerah menerbitkan SLF sebagai pernyataan bahwa gedung memenuhi standar teknis keandalan — dari struktur hingga proteksi kebakaran. Perbankan menuntut SLF untuk pembiayaan, asuransi untuk polis, dan operasional seperti hotel serta pabrik tidak dapat berjalan legal tanpa SLF.",
-      "TOP mengoordinasikan pemeriksaan teknis bersama tim pakar, menuntaskan perbaikan yang terindikasi, dan mengurus penerbitan SLF di Pemda hingga dokumen resmi berada di tangan Anda. Jadwal perpanjangan kami catatkan agar keandalan gedung Anda tidak pernah kehilangan payung hukumnya.",
+      "GUNARA mengoordinasikan pemeriksaan teknis bersama tim pakar, menuntaskan perbaikan yang terindikasi, dan mengurus penerbitan SLF di Pemda hingga dokumen resmi berada di tangan Anda. Jadwal perpanjangan kami catatkan agar keandalan gedung Anda tidak pernah kehilangan payung hukumnya.",
     ],
     requirements: [
       "PBG / dokumen perizinan bangunan awal",
@@ -864,7 +864,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Your customs identity, issued in one breath with your NIB.",
     description: [
       "Angka Pengenal Impor/Ekspor (API-U untuk keperluan umum, API-P untuk produsen) menjadi syarat mutlak setiap aktivitas impor, ekspor, dan pengurusan dokumen kepabeanan. Sejak OSS RBA, API diterbitkan menyatu dengan NIB melalui fungsi ganda — namun pemilihan jenis, perubahan data, dan sinkronisasi ke Bea Cukai tetap menjadi titik gagal yang mahal di pelabuhan.",
-      "TOP memastikan API Anda diterbitkan dengan jenis dan KBLI yang benar, menyelesaikan perubahan data di OSS saat kebutuhan usaha bergeser, serta menyinkronkannya dengan akses kepabeanan. Kontainer Anda tidak akan tertahan karena dokumen — itu standar kerja kami.",
+      "GUNARA memastikan API Anda diterbitkan dengan jenis dan KBLI yang benar, menyelesaikan perubahan data di OSS saat kebutuhan usaha bergeser, serta menyinkronkannya dengan akses kepabeanan. Kontainer Anda tidak akan tertahan karena dokumen — itu standar kerja kami.",
     ],
     requirements: [
       "NIB aktif dengan KBLI impor/ekspor",
@@ -896,7 +896,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "From production line to national retail shelves — with the right legal envelope.",
     description: [
       "Pangan olahan tertentu cukup mengantongi PIRT, sementara produk dengan standar wajib, suplemen, obat, dan kosmetik menuntut izin edar (MD) BPOM dengan pengujian laboratorium dan penilaian yang ketat. Label yang tidak sesuai, klaim yang berlebihan, atau berkas teknis yang dangkal adalah penyebab penolakan paling sering di BPOM.",
-      "TOP mengelola seluruh siklus: penentuan jalur yang tepat (PIRT atau MD), penyusunan berkas teknis, koordinasi uji laboratorium mitra, pengajuan resmi, hingga reviu label dan klaim. Produk Anda beredar resmi dan tetap aman karena kalender perpanjangan sudah kami kelola sejak awal.",
+      "GUNARA mengelola seluruh siklus: penentuan jalur yang tepat (PIRT atau MD), penyusunan berkas teknis, koordinasi uji laboratorium mitra, pengajuan resmi, hingga reviu label dan klaim. Produk Anda beredar resmi dan tetap aman karena kalender perpanjangan sudah kami kelola sejak awal.",
     ],
     requirements: [
       "NIB, izin usaha & KBLI pangan/produk terkait",
@@ -928,7 +928,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The halal mandate is here — certify ahead of every deadline.",
     description: [
       "Sesuai PP 42/2024, sertifikasi halal menjadi wajib bagi produk pangan dan minuman sejak 17 Oktober 2024, lalu mengikuti secara bertahap bagi kosmetik serta barang konsumsi pada 2026. Seluruh proses berjalan melalui SiHalal BPJPH dengan auditor halal dan lembaga pemeriksa terkait. Sertifikat halal dari lembaga asing juga harus didaftarkan agar diakui di Indonesia.",
-      "TOP menuntaskan sertifikasi Anda secara menyeluruh: pendaftaran SiHalal, pendampingan penyusunan Sistem Jaminan Produk Halal (SJPH), koordinasi audit lapangan, hingga sertifikat terbit — termasuk pendaftaran sertifikat halal asing. Anda mendapatkan jalur tercepat yang sah tanpa mengganggu lini produksi.",
+      "GUNARA menuntaskan sertifikasi Anda secara menyeluruh: pendaftaran SiHalal, pendampingan penyusunan Sistem Jaminan Produk Halal (SJPH), koordinasi audit lapangan, hingga sertifikat terbit — termasuk pendaftaran sertifikat halal asing. Anda mendapatkan jalur tercepat yang sah tanpa mengganggu lini produksi.",
     ],
     requirements: [
       "NIB & KBLI terkait produk",
@@ -960,7 +960,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The key to mandatory-SNI markets: testing, audit, and certification that holds.",
     description: [
       "Sejumlah kategori produk — dari ban, kabel, hingga alat rumah tangga — hanya boleh beredar dengan Sertifikat Tanda Standar Nasional Indonesia (SNI). Jalurnya menuntut pengujian laboratorium, audit sistem produksi oleh lembaga sertifikasi (LSPro), dan pemantauan berkala yang sering diabaikan hingga produk tertahan di pelabuhan.",
-      "TOP memetakan regulasi SNI yang berlaku bagi produk Anda, menyiapkan pabrik dan dokumen menuju audit LSPro, mengoordinasikan pengujian, serta mengawal sertifikat hingga terbit. Dengan sertifikat yang tertib, produk Anda mengalir mulus di pelabuhan dan rak toko.",
+      "GUNARA memetakan regulasi SNI yang berlaku bagi produk Anda, menyiapkan pabrik dan dokumen menuju audit LSPro, mengoordinasikan pengujian, serta mengawal sertifikat hingga terbit. Dengan sertifikat yang tertib, produk Anda mengalir mulus di pelabuhan dan rak toko.",
     ],
     requirements: [
       "NIB & izin usaha produk terkait",
@@ -992,7 +992,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "The Kemenkes and BPOM pathway for your health and beauty portfolio.",
     description: [
       "Alat kesehatan menuntut izin edar berbasis kelas risiko (AKD/AKL) dari Kementerian Kesehatan, sedangkan kosmetik beredar melalui notifikasi BPOM dengan tata niat dan klaim yang terkendali. Kedua jalur menuntut klasifikasi yang tepat sejak awal — satu perbedaan kelas risiko mengubah seluruh berkas, biaya, dan lini masa.",
-      "TOP mengklasifikasikan produk Anda dengan presisi, menyusun berkas teknis lengkap, mengoordinasikan pengujian dan penunjukan penanggung jawab di Indonesia, hingga izin atau notifikasi terbit. Portofolio Anda beredar legal di apotek, fasilitas kesehatan, dan kanal daring yang menuntut kepatuhan.",
+      "GUNARA mengklasifikasikan produk Anda dengan presisi, menyusun berkas teknis lengkap, mengoordinasikan pengujian dan penunjukan penanggung jawab di Indonesia, hingga izin atau notifikasi terbit. Portofolio Anda beredar legal di apotek, fasilitas kesehatan, dan kanal daring yang menuntut kepatuhan.",
     ],
     requirements: [
       "NIB, izin usaha & KBLI terkait",
@@ -1026,14 +1026,14 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Lock in the legal rights to the brand you spent years building.",
     description: [
       "Tanpa pendaftaran di DJKI, merek yang Anda bangun bertahun-tahun mudah dirampas pihak lain — di sistem first-to-file, yang mendaftar lebih dululah yang menang. Kegagalan riset keterdaftaran awal, klasifikasi kelas yang tidak strategis, dan respons yang terlambat atas perlawanan pihak ketiga adalah tiga penyebab merek hilang paling umum.",
-      "TOP melakukan riset keterdaftaran sebelum biaya Anda terbuang, menyusun klasifikasi yang mencakup rencana ekspansi, dan mengajukan pendaftaran melalui PDKI dengan pemantauan hingga sertifikat terbit. Perlindungan Anda berlaku 10 tahun dan dapat diperpanjang terus-menerus — aset yang terus tumbuh di neraca.",
+      "GUNARA melakukan riset keterdaftaran sebelum biaya Anda terbuang, menyusun klasifikasi yang mencakup rencana ekspansi, dan mengajukan pendaftaran melalui PDKI dengan pemantauan hingga sertifikat terbit. Perlindungan Anda berlaku 10 tahun dan dapat diperpanjang terus-menerus — aset yang terus tumbuh di neraca.",
     ],
     requirements: [
       "Logo/nama merek (berkas gambar)",
       "Daftar produk/jasa dan kelas yang dituju",
       "KTP/NPWP pemohon (perorangan) atau akta & NIB (badan usaha)",
       "Alamat korespondensi & email aktif",
-      "Surat kuasa kepada TOP",
+      "Surat kuasa kepada GUNARA",
     ],
     process: [
       { step: "01", text: "Merek Anda ditelusuri terhadap pendaftar yang sudah ada untuk menekan risiko penolakan." },
@@ -1058,7 +1058,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Secure your innovation before the market copies it.",
     description: [
       "Paten melindungi invensi teknologi, desain industri menjaga wajah visual produk, dan hak cipta mengikat setiap karya — namun kekuatan pembuktian hanya lahir dari pendaftaran yang strategis. Penundaan pengajuan paten sebulan pun dapat menghancurkan kebaruan (novitas) karena terpapar pengumuman teknologi.",
-      "Pakar kekayaan intelektual TOP menyusun klaim paten yang kuat bersama konsultan paten mitra, mendaftarkan desain industri, serta mencatatkan hak cipta Anda secara strategis. Inovasi Anda berubah dari ide di laboratorium menjadi aset intelektual yang dapat dilisensikan dan dijaminkan.",
+      "Pakar kekayaan intelektual GUNARA menyusun klaim paten yang kuat bersama konsultan paten mitra, mendaftarkan desain industri, serta mencatatkan hak cipta Anda secara strategis. Inovasi Anda berubah dari ide di laboratorium menjadi aset intelektual yang dapat dilisensikan dan dijaminkan.",
     ],
     requirements: [
       "Deskripsi teknis/gambar karya atau invensi",
@@ -1090,7 +1090,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Mandatory for every digital platform serving Indonesia — no exceptions.",
     description: [
       "Penyelenggara Sistem Elektronik Lingkup Privat wajib mendaftar sesuai Permenkominfo 5/2020 yang kini dijalankan Kementerian Komunikasi dan Digital — mencakup e-commerce, aplikasi, fintech, hingga layanan asing yang melayani pengguna Indonesia. Tanpa Tanda Daftar PSE (TDPSE), platform berisiko pemblokiran akses, sanksi administratif, dan hambatan kemitraan besar.",
-      "TOP menyusun seluruh isi pendaftaran — profil sistem elektronik, kebijakan perlindungan data, dan komitmen kepatuhan — lalu mengawal proses daring hingga TDPSE terbit. Platform Anda mendapat payung hukum penuh untuk beroperasi, dipasarkan, dan dipercaya regulator.",
+      "GUNARA menyusun seluruh isi pendaftaran — profil sistem elektronik, kebijakan perlindungan data, dan komitmen kepatuhan — lalu mengawal proses daring hingga TDPSE terbit. Platform Anda mendapat payung hukum penuh untuk beroperasi, dipasarkan, dan dipercaya regulator.",
     ],
     requirements: [
       "Akta & NIB badan usaha (domisili RI atau perwakilan)",
@@ -1117,12 +1117,12 @@ export const PERIZINAN: PerizinanItem[] = [
     name: "Kepatuhan UU Perlindungan Data Pribadi",
     enName: "Personal Data Protection Law (PDP) Compliance",
     categoryId: "kekayaan-intelektual",
-    agency: "Audit PDP TOP",
+    agency: "Audit PDP GUNARA",
     tagline: "Dari pemetaan data hingga kebijakan yang bisa dibuktikan — kepatuhan PDP menyeluruh.",
     enTagline: "From data mapping to provable policies — end-to-end PDP compliance.",
     description: [
       "UU Perlindungan Data Pribadi mengancam pelanggar dengan sanksi administratif yang signifikan hingga jalur pidana bagi pelanggaran berat — dan tenggat kepatuhannya telah berlaku. Mayoritas perusahaan belum memetakan aliran data pribadinya, belum memformalkan dasar hukum setiap pemrosesan, dan belum siap menanggapi insiden.",
-      "TOP menjalankan audit PDP menyeluruh: pemetaan aliran data, pemformalan dasar hukum dan kontrak pemrosesan, penyusunan kebijakan privasi serta prosedur respons insiden, hingga pelatihan penanggung jawab dan staf. Anda menerima matriks kepatuhan yang dapat dibuktikan di hadapan regulator, mitra, dan pelanggan.",
+      "GUNARA menjalankan audit PDP menyeluruh: pemetaan aliran data, pemformalan dasar hukum dan kontrak pemrosesan, penyusunan kebijakan privasi serta prosedur respons insiden, hingga pelatihan penanggung jawab dan staf. Anda menerima matriks kepatuhan yang dapat dibuktikan di hadapan regulator, mitra, dan pelanggan.",
     ],
     requirements: [
       "Inventarisasi sistem & pemrosesan data pribadi",
@@ -1156,7 +1156,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Financial services licenses built to survive fit-and-proper scrutiny.",
     description: [
       "Industri jasa keuangan — perbankan, pembiayaan, asuransi, sekuritas, hingga penyelenggara jasa sistem pembayaran (PJSP) di bawah Bank Indonesia — menuntut izin dengan standar tata kelola, permodalan, dan uji kelayakan yang paling ketat di Indonesia. Berkas yang dangkal bukan sekadar ditolak: reputasi sponsor dan investor Anda ikut dipertaruhkan.",
-      "TOP merancang struktur pemodal, menyusun rencana bisnis dan SOP tata kelola sesuai peraturan OJK dan BI, serta mewakili Anda dalam proses hingga pemeriksaan kelayakan pemegang saham dan direksi. Izin yang kami kawal menjadi fondasi kemitraan dengan perbankan, investor, dan regulator.",
+      "GUNARA merancang struktur pemodal, menyusun rencana bisnis dan SOP tata kelola sesuai peraturan OJK dan BI, serta mewakili Anda dalam proses hingga pemeriksaan kelayakan pemegang saham dan direksi. Izin yang kami kawal menjadi fondasi kemitraan dengan perbankan, investor, dan regulator.",
     ],
     requirements: [
       "Struktur pemodal & sumber dana (KYC pemegang saham)",
@@ -1188,7 +1188,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Navigating nationally strategic sectors with a team that knows the terrain.",
     description: [
       "Energi dan sumber daya mineral, kehutanan, serta pemanfaatan atom menuntut izin teknis lintas kementerian: keselamatan radiasi di BAPETEN, kelayakan usaha tambang dan pembangkit di ESDM serta Minerba, hingga pemanfaatan kawasan hutan. Setiap sektor memiliki lini masa dan standar teknis yang berbeda — satu langkah keliru dapat membuat proyek bernilai triliunan berhenti di meja administrasi.",
-      "TOP membentuk gugus tugas lintas pakar untuk proyek Anda: menyusun dokumen teknis bersama insinyur berlisensi, mengawal penerbitan izin di setiap kementerian, serta mengelola konsultasi publik dan hubungan pemangku kepentingan. Proyek Anda bergerak sesuai jadwal dengan kepatuhan yang dapat dipertanggungjawabkan di forum mana pun.",
+      "GUNARA membentuk gugus tugas lintas pakar untuk proyek Anda: menyusun dokumen teknis bersama insinyur berlisensi, mengawal penerbitan izin di setiap kementerian, serta mengelola konsultasi publik dan hubungan pemangku kepentingan. Proyek Anda bergerak sesuai jadwal dengan kepatuhan yang dapat dipertanggungjawabkan di forum mana pun.",
     ],
     requirements: [
       "NIB, KKPR, dan Persetujuan Lingkungan",
@@ -1220,7 +1220,7 @@ export const PERIZINAN: PerizinanItem[] = [
     enTagline: "Management systems that truly work — from documentation to certification audit.",
     description: [
       "ISO 9001 membuktikan mutu, 14001 tanggung jawab lingkungan, 27001 keamanan informasi, 45001 keselamatan kerja, dan 22000 keamanan pangan — syarat masuk rantai pasok korporasi global dan tender besar. Kegagalan paling umum adalah sistem dokumentasi yang dibuat semata untuk lolos audit, lalu mati begitu sertifikat terbit.",
-      "TOP membangun sistem manajemen yang hidup: analisis kesenjangan, penyusunan prosedur bersama tim Anda, pelatihan auditor internal, koordinasi dengan lembaga sertifikasi terakreditasi, hingga pendampingan surveilans tahunan. Sertifikat Anda bukan beban tahunan — melainkan mesin efisiensi dan tiket kemitraan global.",
+      "GUNARA membangun sistem manajemen yang hidup: analisis kesenjangan, penyusunan prosedur bersama tim Anda, pelatihan auditor internal, koordinasi dengan lembaga sertifikasi terakreditasi, hingga pendampingan surveilans tahunan. Sertifikat Anda bukan beban tahunan — melainkan mesin efisiensi dan tiket kemitraan global.",
     ],
     requirements: [
       "Profil organisasi & proses bisnis utama",
@@ -1247,12 +1247,12 @@ export const PERIZINAN: PerizinanItem[] = [
     name: "Kepatuhan AML/CFT & KYC",
     enName: "AML/CFT & KYC Compliance",
     categoryId: "sektor-khusus",
-    agency: "PPATK Readiness TOP",
+    agency: "PPATK Readiness GUNARA",
     tagline: "Sistem antipencucian uang yang siap diperiksa — sebelum pemeriksa datang.",
     enTagline: "An inspection-ready AML system — built before the examiner arrives.",
     description: [
       "Entitas pelapor — mulai dari penyedia jasa keuangan hingga sektor properti dan barang mewah — wajib menerapkan program AML/CFT, prosedur KYC, dan pelaporan kepada PPATK. Satu klien dengan dana gelap dapat memicu sanksi, pemutusan hubungan korespondensi perbankan, dan kerusakan reputasi yang sulit dipulihkan.",
-      "TOP membangun kesiapan kepatuhan Anda: kebijakan dan SOP AML/CFT, prosedur KYC berbasis risiko, pelatihan analis pelaporan dan penanggung jawab kepatuhan, serta simulasi pelaporan transaksi yang patut diduga. Ketika auditor internal, bank, atau regulator datang — Anda menunjukkan sistem, bukan sekadar janji.",
+      "GUNARA membangun kesiapan kepatuhan Anda: kebijakan dan SOP AML/CFT, prosedur KYC berbasis risiko, pelatihan analis pelaporan dan penanggung jawab kepatuhan, serta simulasi pelaporan transaksi yang patut diduga. Ketika auditor internal, bank, atau regulator datang — Anda menunjukkan sistem, bukan sekadar janji.",
     ],
     requirements: [
       "Struktur organisasi & penunjukan analis pelaporan/pejabat kepatuhan",
@@ -1279,12 +1279,12 @@ export const PERIZINAN: PerizinanItem[] = [
     name: "Ekspansi Global & Market Entry 190 Negara",
     enName: "Global Expansion & Market Entry Across 190 Countries",
     categoryId: "sektor-khusus",
-    agency: "Jejaring TOP Global",
+    agency: "Jejaring GUNARA Global",
     tagline: "Satu pintu menuju 190 yurisdiksi: entitas, pajak, lisensi, dan kemitraan.",
     enTagline: "One door to 190 jurisdictions: entities, taxes, licenses, and partnerships.",
     description: [
       "Ekspansi internasional menumpuk keputusan berlapis: bentuk entitas di tiap yurisdiksi, struktur harga transfer, lisensi sektor, rezim imigrasi, hingga kepatuhan sanksi dan ESG. Perusahaan yang mengarungi sendiri menghabiskan dua tahun dan konsultan di lima kota; yang bermitra dengan jejaring tepat menyelesaikannya dalam dua kuartal.",
-      "Melalui jejaring pakar TOP di lebih dari 190 negara, kami menyusun peta jalan market entry, mendirikan entitas, menuntaskan lisensi dan perizinan lokal, lalu menjahitnya dengan kepatuhan pusat di Indonesia. Satu manajer akun, satu standar mutu, seluruh dunia.",
+      "Melalui jejaring pakar GUNARA di lebih dari 190 negara, kami menyusun peta jalan market entry, mendirikan entitas, menuntaskan lisensi dan perizinan lokal, lalu menjahitnya dengan kepatuhan pusat di Indonesia. Satu manajer akun, satu standar mutu, seluruh dunia.",
     ],
     requirements: [
       "Profil perusahaan & tujuan ekspansi (negara/sektor)",
@@ -1298,7 +1298,7 @@ export const PERIZINAN: PerizinanItem[] = [
       { step: "02", text: "Struktur entitas dan investasi lintas yurisdiksi dirancang efisien pajak dan sah." },
       { step: "03", text: "Entitas, izin, dan kepatuhan lokal dituntaskan bersama pakar yurisdiksi mitra." },
       { step: "04", text: "Seluruh entitas kami jahit dengan kepatuhan induk di Indonesia." },
-      { step: "05", text: "Operasional dimulai dengan dukungan satu manajer akun tunggal dari TOP." },
+      { step: "05", text: "Operasional dimulai dengan dukungan satu manajer akun tunggal dari GUNARA." },
     ],
     timeline: "Peta jalan 2 minggu · market entry 1–6 bulan",
     validity: "Sesuai struktur dan lisensi tiap yurisdiksi",

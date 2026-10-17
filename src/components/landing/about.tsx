@@ -4,7 +4,7 @@ import { Reveal, SectionHeading, TiltCard } from "./motion";
 
 export default function About() {
   return (
-    <section id="about" className="cv-auto relative scroll-mt-20 py-24 sm:py-28" aria-label="Tentang PT TOP Konsultan Internasional">
+    <section id="about" className="cv-auto relative scroll-mt-20 py-24 sm:py-28" aria-label="Tentang Gunara Corporation">
       {/* ambient glow */}
       <div
         className="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-violet-600/[0.07] blur-[130px]"

@@ -155,6 +155,15 @@ export const BENCHMARKS = [
 
 export const STATS: StatItem[] = [
   {
+    icon: Building2,
+    value: 1524,
+    prefix: "",
+    suffix: "",
+    decimals: 0,
+    label: "Perusahaan Ditangani",
+    caption: "Lokal & nasional · global & dalam negeri · daerah & pusat",
+  },
+  {
     icon: Users,
     value: 46,
     prefix: "",
@@ -531,7 +540,7 @@ export const TESTIMONIALS: Testimonial[] = [
     initials: "AC",
   },
   {
-    quote: "Dewan-dewan TOP menemukan US$2,3 miliar nilai tersembunyi di perusahaan yang kami kira sudah kami kenal. Merendahkan sekaligus mendebarkan.",
+    quote: "Dewan-dewan GUNARA menemukan US$2,3 miliar nilai tersembunyi di perusahaan yang kami kira sudah kami kenal. Merendahkan sekaligus mendebarkan.",
     name: "Rafael Okonkwo",
     role: "Managing Partner, Meridian Capital",
     initials: "RO",

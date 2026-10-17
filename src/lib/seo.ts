@@ -1,5 +1,5 @@
 /**
- * TOP SEO Core — single source of truth untuk metadata seluruh situs.
+ * GUNARA SEO Core — single source of truth untuk metadata seluruh situs.
  * ----------------------------------------------------------------------------
  * Dipakai bersama oleh:
  *  - src/app/layout.tsx          (metadata root + default)
@@ -23,12 +23,12 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://topkonsultan.web.id"
 ).replace(/\/+$/, "");
 
-export const SITE_NAME = "TOP Konsultan Internasional";
+export const SITE_NAME = "Gunara Consultan";
 export const SITE_LEGAL = BRAND.legal;
 export const BASE_TITLE = `${SITE_LEGAL} — ${BRAND.tagline}`;
 
 export const BASE_DESCRIPTION =
-  "Satu gerbang konsultasi & perizinan terlengkap di dunia: pendirian PT/PMA, NIB OSS RBA, BPOM, halal, SNI, KITAS, PSE, OJK. 46 Dewan Pakar internasional, 190 negara, respons Partner dalam 48 jam.";
+  "Gunara Corporation (Gunara Consultan) — konsultan perizinan yang telah menangani 1.524 perusahaan: lokal & nasional, global & dalam negeri, daerah & pusat. Pendirian PT/PMA, NIB OSS RBA, BPOM, halal, SNI, KITAS, PSE, OJK. Respons Senior Konsultan dalam 48 jam.";
 
 /** Gambar sosial bermerek — dilayani route handler /opengraph-image. */
 export const OG_IMAGES = [
@@ -55,7 +55,7 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
   "/about": {
     title: `Tentang Kami — ${SITE_NAME}`,
     description:
-      "Kenali PT TOP KONSULTAN INTERNASIONAL — firma konsultasi & perizinan berdiri sejak 2001: 46 Dewan Pakar internasional, 6.900 tahun pengalaman gabungan, satu jawaban menyeluruh.",
+      "Kenali GUNARA CORPORATION (Gunara Consultan) — konsultan perizinan yang telah menangani 1.524 perusahaan sejak 2001: lokal & nasional, global & dalam negeri, daerah & pusat. 46 Dewan Pakar, satu jawaban menyeluruh.",
   },
   "/services": {
     title: `12 Praktik Layanan — ${SITE_NAME}`,
@@ -80,12 +80,12 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
   "/insights": {
     title: `Wawasan — ${SITE_NAME}`,
     description:
-      "Wawasan orisinal pimpinan TOP: strategi, AI, alokasi modal, talenta, kedaulatan, dan longevity — ditulis untuk pemimpin yang berani memutuskan.",
+      "Wawasan orisinal pimpinan GUNARA: strategi, AI, alokasi modal, talenta, kedaulatan, dan longevity — ditulis untuk pemimpin yang berani memutuskan.",
   },
   "/careers": {
     title: `Karier — ${SITE_NAME}`,
     description:
-      "Karier di TOP: bergabung dengan firma konsultan internasional terlengkap. Jalur Partner, Akademi Dewan, dan pengalaman penugasan lintas 190 negara.",
+      "Karier di GUNARA: bergabung dengan firma konsultan internasional terlengkap. Jalur Partner, Akademi Dewan, dan pengalaman penugasan lintas 190 negara.",
   },
   "/method": {
     title: `Metode Oracle — ${SITE_NAME}`,
@@ -95,62 +95,62 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
   "/results": {
     title: `Hasil & Bukti — ${SITE_NAME}`,
     description:
-      "Hasil & bukti TOP: 12.000+ penugasan, tingkat keberhasilan 99,97%, dan kisah nyata dari pendirian PT hingga ekspansi global ke 190 negara.",
+      "Hasil & bukti GUNARA: 1.524 perusahaan ditangani, 12.000+ penugasan, tingkat keberhasilan 99,97% — dari pendirian PT hingga ekspansi global ke 190 negara.",
   },
   "/contact": {
     title: `Kontak — ${SITE_NAME}`,
     description:
-      "Hubungi TOP: WhatsApp +62 811-1116-5165 (24/7), halo@topkonsultan.web.id, 4 kantor resmi Tasikmalaya & Jakarta. Respons Partner-in-Chief dalam 48 jam.",
+      "Hubungi GUNARA: WhatsApp +62 813-1651-6524 (24/7), halo@topkonsultan.web.id, 4 kantor resmi Tasikmalaya & Jakarta. Respons Partner-in-Chief dalam 48 jam.",
   },
   "/faq": {
     title: `Pertanyaan Umum — ${SITE_NAME}`,
     description:
-      "Pertanyaan umum tentang layanan, perizinan, biaya, dan proses kerja TOP KONSULTAN — dijawab lugas dan menyeluruh di satu halaman.",
+      "Pertanyaan umum tentang layanan, perizinan, biaya, dan proses kerja GUNARA CONSULTAN — dijawab lugas dan menyeluruh di satu halaman.",
   },
   "/leadership": {
     title: `Pimpinan & Tata Kelola — ${SITE_NAME}`,
     description:
-      "Pimpinan & tata kelola TOP: pendiri, eksekutif, dan mitra senior — piagam tata kelola empat pilar serta honor yang berpijak pada keberhasilan klien.",
+      "Pimpinan & tata kelola GUNARA: Senior Konsultan Tn. H. Gugun Gunara, MBA beserta jajaran eksekutif — seluruh penagihan atas nama Senior Konsultan, honor berpijak pada keberhasilan klien.",
   },
   "/offices": {
     title: `Kantor Kami — ${SITE_NAME}`,
     description:
-      "4 kantor resmi TOP: Kantor Pusat Tasikmalaya I, Tasikmalaya II, Jakarta PHI Kwitang, dan Perwakilan IPHI Pusat — peta, arah, dan protokol kunjungan.",
+      "4 kantor resmi GUNARA: Kantor Pusat Tasikmalaya I, Tasikmalaya II, Jakarta PHI Kwitang, dan Perwakilan IPHI Pusat — peta, arah, dan protokol kunjungan.",
   },
   "/newsroom": {
     title: `Ruang Media — ${SITE_NAME}`,
     description:
-      "Ruang Media TOP: rilis pers, lembar fakta, media kit resmi, dan kebijakan wawancara — sumber kabar pertama PT TOP KONSULTAN INTERNASIONAL.",
+      "Ruang Media GUNARA: rilis pers, lembar fakta, media kit resmi, dan kebijakan wawancara — sumber kabar pertama GUNARA CORPORATION (Gunara Consultan).",
   },
   "/resources": {
     title: `Pusat Sumber Daya — ${SITE_NAME}`,
     description:
-      "Pusat Sumber Daya TOP: checklist pendirian PT 2026, peta jalan perizinan OSS RBA, pustaka dokumen, dan templat — unduh resmi, gratis, tanpa syarat.",
+      "Pusat Sumber Daya GUNARA: checklist pendirian PT 2026, peta jalan perizinan OSS RBA, pustaka dokumen, dan templat — unduh resmi, gratis, tanpa syarat.",
   },
   "/responsibility": {
     title: `Tanggung Jawab & Dampak — ${SITE_NAME}`,
     description:
-      "Tanggung jawab & dampak TOP: empat pilar integritas, UMKM, pendidikan, dan lingkungan — program Gerbang Sah pro bono serta Jalur Magang Akademi Dewan.",
+      "Tanggung jawab & dampak GUNARA: empat pilar integritas, UMKM, pendidikan, dan lingkungan — program Gerbang Sah pro bono serta Jalur Magang Akademi Dewan.",
   },
   "/sitemap": {
     title: `Peta Situs — ${SITE_NAME}`,
     description:
-      "Peta situs lengkap TOP KONSULTAN: seluruh halaman firma, 12 praktik layanan, 36+ jenis perizinan, dewan pakar, industri, wawasan, dan sumber daya.",
+      "Peta situs lengkap GUNARA CONSULTAN: seluruh halaman firma, 12 praktik layanan, 36+ jenis perizinan, dewan pakar, industri, wawasan, dan sumber daya.",
   },
   "/privacy": {
     title: `Kebijakan Privasi — ${SITE_NAME}`,
     description:
-      "Kebijakan Privasi TOP: bagaimana kami mengumpulkan, memakai, dan melindungi data pribadi Anda — selaras dengan UU PDP Indonesia.",
+      "Kebijakan Privasi GUNARA: bagaimana kami mengumpulkan, memakai, dan melindungi data pribadi Anda — selaras dengan UU PDP Indonesia.",
   },
   "/terms": {
     title: `Syarat & Ketentuan — ${SITE_NAME}`,
     description:
-      "Syarat & Ketentuan penggunaan layanan PT TOP KONSULTAN INTERNASIONAL: lingkup penugasan, kewajiban klien, kerahasiaan, dan batasan tanggung jawab.",
+      "Syarat & Ketentuan penggunaan layanan GUNARA CORPORATION: lingkup penugasan, kewajiban klien, kerahasiaan, dan batasan tanggung jawab.",
   },
   "/cookies": {
     title: `Kebijakan Cookie — ${SITE_NAME}`,
     description:
-      "Kebijakan Cookie TOP: jenis cookie yang dipakai situs, tujuan pemakaiannya, dan cara Anda mengendalikannya sepenuhnya.",
+      "Kebijakan Cookie GUNARA: jenis cookie yang dipakai situs, tujuan pemakaiannya, dan cara Anda mengendalikannya sepenuhnya.",
   },
 };
 
@@ -247,7 +247,7 @@ export function buildRouteMeta(slug: string[]): Metadata {
   if (seg1 === "perizinan" && seg2) {
     const p = PERIZINAN.find((x) => x.slug === seg2);
     if (p) {
-      const description = `${p.tagline} ${p.name} (${p.enName}) ditangani penuh oleh TOP: penyusunan dokumen, pengurusan, hingga terbit. Konsultasi via WhatsApp 24/7.`;
+      const description = `${p.tagline} ${p.name} (${p.enName}) ditangani penuh oleh GUNARA: penyusunan dokumen, pengurusan, hingga terbit. Konsultasi via WhatsApp 24/7.`;
       return {
         title: { absolute: perizinanTitle(p) },
         description,
@@ -319,7 +319,7 @@ export function buildRouteMeta(slug: string[]): Metadata {
       return {
         title: { absolute: insightTitle(i) },
         description,
-        keywords: [i.title, i.enTitle ?? "", i.category, "wawasan TOP"],
+        keywords: [i.title, i.enTitle ?? "", i.category, "wawasan GUNARA"],
         alternates: { canonical: path },
         openGraph: {
           title: insightTitle(i),

@@ -1,4 +1,4 @@
-# Panduan Deploy ke Vercel — PT TOP KONSULTAN INTERNASIONAL
+# Panduan Deploy ke Vercel — GUNARA CORPORATION
 
 Ditulis untuk pemula. Tidak perlu latar belakang IT — cukup ikuti langkahnya dari atas ke bawah. Semua yang tertulis di sini adalah kondisi nyata, tanpa janji palsu.
 
@@ -10,9 +10,9 @@ Ditulis untuk pemula. Tidak perlu latar belakang IT — cukup ikuti langkahnya d
 |---|---|
 | Seluruh situs (124 tampilan, katalog perizinan, galeri akreditasi, 23 logo instansi) | ✅ Otomatis jalan |
 | Tema ungu-biru, animasi, responsif mobile | ✅ Otomatis jalan |
-| Form kontak dengan nomor tiket (TOP-XXXX) | ✅ Jalan — tersimpan di memori server |
+| Form kontak dengan nomor tiket (GUNARA-XXXX) | ✅ Jalan — tersimpan di memori server |
 | Newsletter | ✅ Jalan — tersimpan di memori server |
-| Tombol WhatsApp mengapung (wa.me/6281111165165) | ✅ Otomatis jalan |
+| Tombol WhatsApp mengapung (wa.me/6281316516524) | ✅ Otomatis jalan |
 | Chat Oracle AI | 💎 **Eksklusif Member VVIP** — tidak tampil di situs publik. Hanya bisa dibuka di `alamat-situs/#/vvip` dengan kode akses. Untuk AI penuh, isi 1 environment variable (bagian 4) |
 
 **Kejujuran soal database:** Vercel memakai filesystem yang tidak permanen (serverless). Karena itu pesan form kontak tidak tersimpan permanen seperti di komputer lokal. Tiket tetap terbit dan situs tetap berfungsi 100%, tetapi jika Anda ingin pesan tersimpan permanen, ikuti bagian 6 (opsional, ±10 menit).
@@ -30,7 +30,7 @@ Cara cepat dari terminal (di folder proyek):
 ```bash
 git init
 git add .
-git commit -m "Situs TOP KONSULTAN siap deploy Vercel"
+git commit -m "Situs GUNARA CONSULTAN siap deploy Vercel"
 git branch -M main
 git remote add origin https://github.com/USERNAME/topkonsultan.git
 git push -u origin main
@@ -78,12 +78,12 @@ Oracle AI **tidak lagi tampil di website depan** — ia kini menjadi layanan eks
 | Hal | Keterangan |
 |---|---|
 | Alamat lounge VVIP | `alamat-situs-anda.com/#/vvip` (tidak ada di menu — bagikan hanya ke member) |
-| Kode akses bawaan | `TOP-VVIP-2026` |
+| Kode akses bawaan | `GUNARA-VVIP-2026` |
 | Mengganti kode | Vercel → Environment Variables → ubah `VVIP_ACCESS_CODE` → Redeploy. Kode lama langsung mati |
 | Keamanan | Kode diverifikasi **di server** (API menolak dengan 403). Sesi member berakhir otomatis saat tab ditutup |
 | Cara memberi akses | Kirim WhatsApp pribadi ke member: "Berikut alamat lounge VIP kami + kode akses Anda" |
 
-> Simpan kode dengan rapi: selama `VVIP_ACCESS_CODE` tidak diisi di Vercel, kode bawaan `TOP-VVIP-2026` yang dipakai. Segera ganti bila kode bocor.
+> Simpan kode dengan rapi: selama `VVIP_ACCESS_CODE` tidak diisi di Vercel, kode bawaan `GUNARA-VVIP-2026` yang dipakai. Segera ganti bila kode bocor.
 
 ## 4c. Panel CEO & Dashboard Member (baru)
 
@@ -91,7 +91,7 @@ Situs ini punya dua ruang privat lagi — keduanya tidak ada di menu publik:
 
 | Ruang | Alamat | Untuk siapa | Cara masuk |
 |---|---|---|---|
-| **Panel CEO** | `alamat-situs.com/#/admin` | Anda (pemilik) | Kata sandi — bawaan `TOP-CEO-2026`, ganti lewat env `ADMIN_PASSWORD` |
+| **Panel CEO** | `alamat-situs.com/#/admin` | Anda (pemilik) | Kata sandi — bawaan `GUNARA-CEO-2026`, ganti lewat env `ADMIN_PASSWORD` |
 | **Dashboard Member** | `alamat-situs.com/#/member` | Setiap member VVIP | Kode personal dari Panel CEO |
 
 **Yang bisa dilakukan dari Panel CEO:**

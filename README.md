@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/readme/banner.svg" alt="PT TOP KONSULTAN INTERNASIONAL" width="100%"/>
+<img src="assets/readme/banner.svg" alt="GUNARA CORPORATION" width="100%"/>
 
 **Konsultan & Perizinan Terlengkap di Dunia — Melebihi McKinsey, Melebihi Google**
 
@@ -37,7 +37,7 @@
 
 > ❝ *Satu Gerbang untuk Segala Izin dan Kejayaan Bisnis — dari pendirian PT hingga penguasaan pasar di 190 negara.* ❞
 
-Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibangun dengan teknologi web paling modern: **Next.js 16 + React 19 + TypeScript + Tailwind CSS 4**, ditenagai kecerdasan buatan **Z.AI GLM**, siap deploy **zero-config** di Vercel.
+Website resmi **GUNARA CORPORATION** (Gunara Consultan) — dibangun dengan teknologi web paling modern: **Next.js 16 + React 19 + TypeScript + Tailwind CSS 4**, ditenagai kecerdasan buatan **Z.AI GLM**, siap deploy **zero-config** di Vercel.
 
 <div align="center">
 <img src="assets/readme/oracle-architecture.svg" alt="Arsitektur Oracle AI" width="100%"/>
@@ -54,8 +54,8 @@ Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibang
 | ◈ | **Halaman Standar Internasional** | Pimpinan & Tata Kelola `#/leadership`, Kantor Kami `#/offices` (peta & protokol kunjungan), Ruang Media `#/newsroom`, Pusat Sumber Daya `#/resources` (+2 PDF resmi), Tanggung Jawab & Dampak `#/responsibility`, Peta Situs `#/sitemap` |
 | ◈ | **23 Logo Instansi Resmi** | Kemenkumham, BKPM, Kemenkeu, Kemendag, BPOM, OJK, dan lainnya — instansi yang kami hadapi langsung setiap hari |
 | ◈ | **Galeri Akreditasi** | Foto asli penyerahan sertifikat & kartu indikasi PUSAT PERIZINAN.ID |
-| ◈ | **Form Kontak Bertiket** | Setiap brief terbit nomor tiket unik `TOP-XXXXXX` — tidak ada pesan yang hilang |
-| ◈ | **WhatsApp Mengapung 24/7** | Satu ketukan langsung tersambung ke +62 811-1116-5165 |
+| ◈ | **Form Kontak Bertiket** | Setiap brief terbit nomor tiket unik `GUNARA-XXXXXX` — tidak ada pesan yang hilang |
+| ◈ | **WhatsApp Mengapung 24/7** | Satu ketukan langsung tersambung ke +62 813-1651-6524 |
 | ◈ | **Tema Ungu-Biru Futuristik** | Animasi premium, responsif penuh di mobile & desktop, mode animasi-dimatikan untuk aksesibilitas |
 | ◈ | **Mode Cadangan Cerdas** | Jika mesin AI tidak tersedia, chat otomatis mengarahkan tamu ke tim manusia — pengunjung tidak pernah melihat error |
 
@@ -75,8 +75,8 @@ Website resmi **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — dibang
 | `AI_API_KEY` | Opsional | Mengaktifkan Oracle AI penuh di production — [dapatkan di Z.AI](https://z.ai) |
 | `AI_BASE_URL` | Opsional | Default `https://api.z.ai/api/paas/v4` — kompatibel semua penyedia OpenAI-compatible |
 | `AI_MODEL` | Opsional | Default `glm-4.6` — alternatif hemat: `glm-4.5-flash` |
-| `VVIP_ACCESS_CODE` | Opsional | Kode gerbang lounge `#/vvip` (Oracle). Bawaan: `TOP-VVIP-2026` — rotasi kapan pun tanpa deploy ulang kode |
-| `ADMIN_PASSWORD` | Opsional | Kata sandi Panel CEO (`#/admin`). Bawaan: `TOP-CEO-2026` — **wajib diganti** di production |
+| `VVIP_ACCESS_CODE` | Opsional | Kode gerbang lounge `#/vvip` (Oracle). Bawaan: `GUNARA-VVIP-2026` — rotasi kapan pun tanpa deploy ulang kode |
+| `ADMIN_PASSWORD` | Opsional | Kata sandi Panel CEO (`#/admin`). Bawaan: `GUNARA-CEO-2026` — **wajib diganti** di production |
 | `DATABASE_URL` | Opsional | Tanpa variabel ini, form, member & log berjalan dengan fallback memori (hilang saat cold-start Vercel) |
 | `NEXT_PUBLIC_SITE_URL` | Opsional | Domain produksi untuk canonical, sitemap & JSON-LD. Bawaan: `https://topkonsultan.web.id` |
 | `GOOGLE_SITE_VERIFICATION` | Opsional | Kode verifikasi Google Search Console (metode *HTML tag*) — kosong = meta dilewati |
@@ -135,7 +135,7 @@ topkonsultan/
 
 | Saluran | Detail |
 |---|---|
-| 📱 WhatsApp / Telepon | **+62 811-1116-5165** |
+| 📱 WhatsApp / Telepon | **+62 813-1651-6524** |
 | ✉️ Email | **halo@topkonsultan.web.id** |
 | 🏛️ Kantor Pusat | Perumahan Arjamukti Kencana Raya Blok B7 No.2, Leuwisari, Arjasari, Tasikmalaya |
 | 🏢 Cabang Tasikmalaya | Perumahan Andalusia Garden Cluster Granada No 11, Mangkubumi, Tasikmalaya, Jawa Barat |
@@ -150,7 +150,7 @@ topkonsultan/
 
 > ❝ *One Gateway for Every License and Business Glory — from company establishment to market domination across 190 countries.* ❞
 
-The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) — engineered on the most modern web stack: **Next.js 16 + React 19 + TypeScript + Tailwind CSS 4**, powered by **Z.AI GLM** intelligence, and ready for **zero-config** deployment on Vercel.
+The official website of **GUNARA CORPORATION** (Gunara Consultan) — engineered on the most modern web stack: **Next.js 16 + React 19 + TypeScript + Tailwind CSS 4**, powered by **Z.AI GLM** intelligence, and ready for **zero-config** deployment on Vercel.
 
 <div align="center">
 <img src="assets/readme/oracle-architecture.svg" alt="Oracle AI Architecture" width="100%"/>
@@ -167,8 +167,8 @@ The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) 
 | ◈ | **International-Standard Pages** | Leadership & Governance `#/leadership`, Offices `#/offices` (maps & visit protocol), Newsroom `#/newsroom`, Resource Center `#/resources` (+2 official PDFs), Responsibility & Impact `#/responsibility`, Sitemap `#/sitemap` |
 | ◈ | **23 Official Agency Logos** | Kemenkumham, BKPM, Ministry of Finance, Ministry of Trade, BPOM, OJK and more — the agencies we face directly, every day |
 | ◈ | **Accreditation Gallery** | Real photos of certificate handovers and PUSAT PERIZINAN.ID credentials |
-| ◈ | **Ticketed Contact Form** | Every brief receives a unique `TOP-XXXXXX` ticket number — no message is ever lost |
-| ◈ | **Floating WhatsApp 24/7** | One tap connects visitors straight to +62 811-1116-5165 |
+| ◈ | **Ticketed Contact Form** | Every brief receives a unique `GUNARA-XXXXXX` ticket number — no message is ever lost |
+| ◈ | **Floating WhatsApp 24/7** | One tap connects visitors straight to +62 813-1651-6524 |
 | ◈ | **Futuristic Violet-Blue Theme** | Premium motion, fully responsive, reduced-motion support for accessibility |
 | ◈ | **Smart Fallback Mode** | If the AI engine is unavailable, chat gracefully routes visitors to the human team — users never see an error |
 
@@ -188,8 +188,8 @@ The official website of **PT TOP KONSULTAN INTERNASIONAL** (PUSAT PERIZINAN.ID) 
 | `AI_API_KEY` | Optional | Enables full Oracle AI in production — [get one at Z.AI](https://z.ai) |
 | `AI_BASE_URL` | Optional | Defaults to `https://api.z.ai/api/paas/v4` — works with any OpenAI-compatible provider |
 | `AI_MODEL` | Optional | Defaults to `glm-4.6` — budget option: `glm-4.5-flash` |
-| `VVIP_ACCESS_CODE` | Optional | Gate code for the `#/vvip` Oracle lounge. Default: `TOP-VVIP-2026` — rotate anytime without redeploying code |
-| `ADMIN_PASSWORD` | Optional | Password for the CEO Panel (`#/admin`). Default: `TOP-CEO-2026` — **must be changed** in production |
+| `VVIP_ACCESS_CODE` | Optional | Gate code for the `#/vvip` Oracle lounge. Default: `GUNARA-VVIP-2026` — rotate anytime without redeploying code |
+| `ADMIN_PASSWORD` | Optional | Password for the CEO Panel (`#/admin`). Default: `GUNARA-CEO-2026` — **must be changed** in production |
 | `DATABASE_URL` | Optional | Without it, forms, members & logs run on the in-memory fallback (lost on Vercel cold-start) |
 | `NEXT_PUBLIC_SITE_URL` | Optional | Production domain for canonical, sitemap & JSON-LD. Default: `https://topkonsultan.web.id` |
 | `GOOGLE_SITE_VERIFICATION` | Optional | Google Search Console verification code (*HTML tag* method) — empty = meta skipped |
@@ -248,7 +248,7 @@ topkonsultan/
 
 | Channel | Details |
 |---|---|
-| 📱 WhatsApp / Phone | **+62 811-1116-5165** |
+| 📱 WhatsApp / Phone | **+62 813-1651-6524** |
 | ✉️ Email | **halo@topkonsultan.web.id** |
 | 🏛️ Headquarters | Perumahan Arjamukti Kencana Raya Blok B7 No.2, Leuwisari, Arjasari, Tasikmalaya, Indonesia |
 | 🏢 Tasikmalaya Branch | Perumahan Andalusia Garden Cluster Granada No 11, Mangkubumi, Tasikmalaya, West Java |
@@ -259,10 +259,10 @@ topkonsultan/
 
 <div align="center">
 
-**◈ PT TOP KONSULTAN INTERNASIONAL ◈**
+**◈ GUNARA CORPORATION ◈**
 
 *Est. 2001 — Tasikmalaya · Jakarta · Melayani 190 Negara / Serving 190 Countries*
 
-<sub>© PT TOP KONSULTAN INTERNASIONAL. Seluruh hak cipta / All rights reserved.</sub>
+<sub>© GUNARA CORPORATION. Seluruh hak cipta / All rights reserved.</sub>
 
 </div>

@@ -28,7 +28,7 @@ export interface CouncilProfile {
   enChairTitle?: string;
   /** Physical seat of the council, e.g. "Jakarta" */
   seat: string;
-  /** 2–3 sentence mastery narrative, written in the TOP voice */
+  /** 2–3 sentence mastery narrative, written in the GUNARA voice */
   mastery: string;
   /** Exactly 6 capability statements (short, punchy, ≤ 9 words each) */
   capabilities: string[];
@@ -78,7 +78,7 @@ export interface Industry {
   description: string[];
   /** Exactly 4 hard challenges the industry faces */
   challenges: { title: string; text: string }[];
-  /** Exactly 4 approach bullets (how TOP attacks it) */
+  /** Exactly 4 approach bullets (how GUNARA attacks it) */
   approach: string[];
   /** Exactly 3 proof stats */
   stats: { value: string; label: string }[];

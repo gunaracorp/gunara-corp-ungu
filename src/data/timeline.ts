@@ -1,11 +1,11 @@
 import type { TimelineEvent } from "@/data/extended-types";
 
-/** Dua dekade lebih, delapan titik balik — kisah PT TOP KONSULTAN INTERNASIONAL. */
+/** Dua dekade lebih, delapan titik balik — kisah GUNARA CORPORATION. */
 export const TIMELINE: TimelineEvent[] = [
   {
     year: "2001",
     title: "Gerbang Pertama di Jakarta",
-    text: "Di tengah guncangan krisis, PT TOP KONSULTAN INTERNASIONAL didirikan dengan satu keyakinan: bisnis Indonesia layak mendapat penasihat kelas dunia yang berdiri di sisi mereka.",
+    text: "Di tengah guncangan krisis, GUNARA CORPORATION didirikan dengan satu keyakinan: bisnis Indonesia layak mendapat penasihat kelas dunia yang berdiri di sisi mereka.",
   },
   {
     year: "2004",

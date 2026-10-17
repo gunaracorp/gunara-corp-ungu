@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * TOP Hash Router
+ * GUNARA Hash Router
  * ----------------------------------------------------------------------------
  * - Routes are hash paths starting with "/", e.g. "#/councils/quantum-strategy"
  * - Works on ANY static host (shared hosting friendly) — no server rewrites

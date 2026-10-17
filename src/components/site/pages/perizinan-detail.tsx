@@ -182,7 +182,7 @@ export default function PerizinanDetailPage({ slug }: { slug: string }) {
           {/* Proses */}
           <section aria-label="Proses pengurusan">
             <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">
-              Protokol <span className="text-gradient-gold">5 Langkah TOP</span>
+              Protokol <span className="text-gradient-gold">5 Langkah GUNARA</span>
             </h2>
             <ol className="relative mt-7 flex flex-col gap-0 border-l border-slate-200 pl-8">
               {item.process.map((step, i) => (
@@ -250,7 +250,7 @@ export default function PerizinanDetailPage({ slug }: { slug: string }) {
           <div className="rounded-2xl border border-slate-200 bg-white/60 p-6">
             <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-[0.18em] text-slate-500">
               <BadgeCheck className="h-4 w-4 text-violet-600" aria-hidden="true" />
-              Jaminan TOP
+              Jaminan GUNARA
             </h3>
             <ul className="mt-4 flex flex-col gap-3 text-sm text-slate-500">
               <li className="flex items-start gap-2.5">

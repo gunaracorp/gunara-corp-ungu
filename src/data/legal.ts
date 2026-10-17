@@ -6,7 +6,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
     title: "Kebijakan Privasi",
     updated: "1 December 2025",
     intro:
-      "PT TOP KONSULTAN INTERNASIONAL ('TOP'), beralamat di Perumahan Arjamukti Kencana Raya Blok B7 No. 2, Leuwisari, Arjasari, Kab. Tasikmalaya, Jawa Barat, menghormati dan melindungi setiap data pribadi yang Anda percayakan. Kebijakan ini — disusun sesuai Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP), Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik sebagaimana telah diubah dengan Undang-Undang Nomor 19 Tahun 2016 (UU ITE), serta Peraturan Pemerintah Nomor 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PP PSTE) — menjelaskan dengan bahasa lugas data apa yang kami kumpulkan, untuk apa, dan seberapa jauh kami menjaganya.",
+      "GUNARA CORPORATION ('GUNARA'), beralamat di Perumahan Arjamukti Kencana Raya Blok B7 No. 2, Leuwisari, Arjasari, Kab. Tasikmalaya, Jawa Barat, menghormati dan melindungi setiap data pribadi yang Anda percayakan. Kebijakan ini — disusun sesuai Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP), Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik sebagaimana telah diubah dengan Undang-Undang Nomor 19 Tahun 2016 (UU ITE), serta Peraturan Pemerintah Nomor 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik (PP PSTE) — menjelaskan dengan bahasa lugas data apa yang kami kumpulkan, untuk apa, dan seberapa jauh kami menjaganya.",
     sections: [
       {
         heading: "Data yang Kami Kumpulkan",
@@ -49,7 +49,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
     title: "Syarat & Ketentuan",
     updated: "1 December 2025",
     intro:
-      "Perjanjian kerja antara Anda dan PT TOP KONSULTAN INTERNASIONAL ('TOP') dalam menggunakan situs dan layanan digital kami. Ringkas, jujur, dan mengikat secara lahir maupun batin.",
+      "Perjanjian kerja antara Anda dan GUNARA CORPORATION ('GUNARA') dalam menggunakan situs dan layanan digital kami. Ringkas, jujur, dan mengikat secara lahir maupun batin.",
     sections: [
       {
         heading: "Hukum 48 Jam",
@@ -74,13 +74,20 @@ export const LEGAL_DOCS: LegalDoc[] = [
       {
         heading: "Kekayaan Intelektual",
         text: [
-          "Nama TOP, monogram Menara TOP, kanon 46 Dewan Pakar, serta seluruh insight yang kami terbitkan tetap menjadi milik PT TOP KONSULTAN INTERNASIONAL. Anda boleh mengutip dengan atribusi; Anda tidak boleh mengaku kecerdasan kami sebagai milik Anda.",
+          "Nama GUNARA, monogram Gerbang GUNARA, kanon 46 Dewan Pakar, serta seluruh insight yang kami terbitkan tetap menjadi milik GUNARA CORPORATION. Anda boleh mengutip dengan atribusi; Anda tidak boleh mengaku kecerdasan kami sebagai milik Anda.",
         ],
       },
       {
         heading: "Penugasan Resmi",
         text: [
           "Penugasan formal diatur oleh surat mandat terpisah yang ditandatangani oleh Partner-in-Chief dan pihak berwenang dari organisasi Anda. Apabila halaman ini dan surat mandat berbeda, surat mandat yang berlaku.",
+        ],
+      },
+      {
+        heading: "Penagihan & Pembayaran",
+        text: [
+          "Seluruh penawaran, invoice, dan penagihan biaya jasa diterbitkan atas nama Senior Konsultan, Tn. H. Gugun Gunara, MBA — satu pintu pertanggungjawaban penuh, tanpa perantara. Pembayaran hanya sah ke rekening yang tercantum pada invoice resmi yang diterbitkan langsung oleh beliau atau tim penagihan yang ditunjuk.",
+          "Apabila Anda menerima permintaan pembayaran yang tidak sesuai ketentuan ini, hentikan transaksi dan konfirmasikan melalui WhatsApp resmi kami sebelum melanjutkan. GUNARA CORPORATION tidak bertanggung jawab atas pembayaran yang dilakukan di luar kanal resmi tersebut.",
         ],
       },
     ],
@@ -117,12 +124,12 @@ export const LEGAL_DOCS: LegalDoc[] = [
 
 export const FAQS: FaqItem[] = [
   {
-    q: "Apa sebenarnya PT TOP KONSULTAN INTERNASIONAL?",
+    q: "Apa sebenarnya GUNARA CORPORATION?",
     a: "Satu firma, 46 Dewan Pakar — strategi, AI, energi, modal, kota, longevity, dan lainnya — masing-masing membawa 150 tahun penguasaan terdistilasi. Di tempat firma lain menyerahkan slide, kami menyerahkan lintasan: satu Partner-in-Chief, satu jawaban menyeluruh, dari strategi hulu hingga eksekusi hilir — termasuk Gerbang Perizinan dengan katalog 36 izin terlengkap di dunia.",
   },
   {
     q: "Bagaimana mungkin satu dewan memiliki 150 tahun pengalaman?",
-    a: "Dewan tidak mengakumulasi — dewan mendistilasi. Setiap dewan adalah silsilah yang hidup: metode, war-game, post-mortem, dan penilaian yang diwariskan dari guru ke murid sejak TOP didirikan di Jakarta pada 2001. Anda dilayani para ahli hari ini yang membawa 150 tahun kerajinan matang — bukan ingatan satu orang.",
+    a: "Dewan tidak mengakumulasi — dewan mendistilasi. Setiap dewan adalah silsilah yang hidup: metode, war-game, post-mortem, dan penilaian yang diwariskan dari guru ke murid sejak GUNARA didirikan di Jakarta pada 2001. Anda dilayani para ahli hari ini yang membawa 150 tahun kerajinan matang — bukan ingatan satu orang.",
   },
   {
     q: "Apa itu wawasan pertama 48 jam?",

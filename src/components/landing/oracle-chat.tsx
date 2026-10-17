@@ -19,7 +19,7 @@ const WELCOME: Msg = {
 /** Kode VVIP disimpan di sessionStorage saat member lolos gerbang #/vvip. */
 export function getVvipCode(): string {
   if (typeof window === "undefined") return "";
-  return window.sessionStorage.getItem("topkonsultan_vvip_code") ?? "";
+  return window.sessionStorage.getItem("gunara_vvip_code") ?? "";
 }
 
 interface OracleChatProps {
@@ -72,7 +72,7 @@ export default function OracleChat({ embedded = false }: OracleChatProps) {
           {
             role: "assistant",
             content:
-              "Kode akses VVIP tidak valid atau telah diperbarui. Muat ulang halaman ini lalu masukkan kode terbaru dari tim TOP.",
+              "Kode akses VVIP tidak valid atau telah diperbarui. Muat ulang halaman ini lalu masukkan kode terbaru dari tim GUNARA.",
           },
         ]);
         return;

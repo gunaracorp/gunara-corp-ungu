@@ -69,11 +69,11 @@ export function tierPrefix(tier: string): string {
   return "VVIP";
 }
 
-/** Kode personal member, contoh: TOP-VVIP-7K2M-Q4XR */
+/** Kode personal member, contoh: GUNARA-VVIP-7K2M-Q4XR */
 export function generateMemberCode(tier: string): string {
   const pick = (n: number) =>
     Array.from({ length: n }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join("");
-  return `TOP-${tierPrefix(tier)}-${pick(4)}-${pick(4)}`;
+  return `GUNARA-${tierPrefix(tier)}-${pick(4)}-${pick(4)}`;
 }
 
 export async function generateUniqueCode(tier: string): Promise<string> {
@@ -90,7 +90,7 @@ export async function generateUniqueCode(tier: string): Promise<string> {
     if (!taken) return candidate;
   }
   // Praktis mustahil sampai sini; fallback angka waktu.
-  return `TOP-${tierPrefix(tier)}-${Date.now().toString(36).toUpperCase().slice(-8)}`;
+  return `GUNARA-${tierPrefix(tier)}-${Date.now().toString(36).toUpperCase().slice(-8)}`;
 }
 
 export function maskCode(code: string): string {

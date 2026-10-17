@@ -60,6 +60,13 @@ export function Counter({
   const numRef = useRef<HTMLSpanElement>(null);
   const inView = useInView(wrapRef, { once: true, margin: "-40px" });
 
+  /** Format id-ID: 1524 → "1.524", 99.97 → "99,97" — selaras tipografi Indonesia. */
+  const fmt = (v: number) =>
+    v.toLocaleString("id-ID", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
+
   useEffect(() => {
     if (!inView) return;
     const controls = animate(0, to, {
@@ -67,7 +74,7 @@ export function Counter({
       ease: [0.16, 1, 0.3, 1],
       onUpdate: (v) => {
         if (numRef.current) {
-          numRef.current.textContent = `${prefix}${v.toFixed(decimals)}${suffix}`;
+          numRef.current.textContent = `${prefix}${fmt(v)}${suffix}`;
         }
       },
     });
@@ -76,7 +83,7 @@ export function Counter({
 
   return (
     <span ref={wrapRef} className={className}>
-      <span ref={numRef}>{`${prefix}0${suffix}`}</span>
+      <span ref={numRef}>{`${prefix}${fmt(0)}${suffix}`}</span>
     </span>
   );
 }

@@ -44,7 +44,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
   const next = INSIGHTS[(idx + 1) % INSIGHTS.length];
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  const shareText = encodeURIComponent(`${insight.title} — PT TOP KONSULTAN INTERNASIONAL`);
+  const shareText = encodeURIComponent(`${insight.title} — GUNARA CORPORATION`);
 
   return (
     <>
@@ -221,7 +221,7 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
           <p className="text-[13px] text-slate-900">{insight.author.role}</p>
           <p className="mt-3 text-sm leading-relaxed text-slate-500">
             Diterbitkan di bawah doktrin transparansi ruang dewan — penilaian yang berani
-            mencantumkan nama, dalam tradisi Piagam TOP sejak 2001.
+            mencantumkan nama, dalam tradisi Piagam GUNARA sejak 2001.
           </p>
         </div>
       </article>

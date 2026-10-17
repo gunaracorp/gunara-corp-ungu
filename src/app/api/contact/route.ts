@@ -60,7 +60,7 @@ export async function POST(req: Request) {
     // Ceremonial deliberation pause (feels deliberate, dampens spam bursts)
     await new Promise((r) => setTimeout(r, 500));
 
-    const refCode = `TOP-${Date.now().toString(36).toUpperCase()}`;
+    const refCode = `GUNARA-${Date.now().toString(36).toUpperCase()}`;
 
     try {
       await db.contactMessage.create({

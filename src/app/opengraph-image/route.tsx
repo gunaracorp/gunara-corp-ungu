@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { SITE_URL } from "@/lib/seo";
 
 /**
  * GET /opengraph-image — gambar sosial bermerek (1200×630), dirender on-demand
@@ -43,14 +44,14 @@ export function GET() {
               letterSpacing: 2,
             }}
           >
-            TOP
+            GC
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 34, fontWeight: 700, letterSpacing: 6 }}>
-              TOP KONSULTAN
+              GUNARA CONSULTAN
             </div>
             <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: 14, color: "#c4b5fd" }}>
-              INTERNASIONAL
+              CORPORATION
             </div>
           </div>
         </div>
@@ -64,7 +65,7 @@ export function GET() {
             Izin &amp; Strategi
           </div>
           <div style={{ fontSize: 28, color: "#ddd6fe", marginTop: 6 }}>
-            Konsultasi &amp; Perizinan Terlengkap di Dunia — sejak 2001
+            1.524 perusahaan ditangani — Konsultasi &amp; Perizinan Terlengkap di Dunia, sejak 2001
           </div>
         </div>
 
@@ -78,14 +79,18 @@ export function GET() {
             paddingTop: 28,
           }}
         >
-          <div style={{ display: "flex", gap: 44 }}>
+          <div style={{ display: "flex", gap: 40 }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div style={{ fontSize: 40, fontWeight: 800 }}>46</div>
-              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Dewan Pakar</div>
+              <div style={{ fontSize: 40, fontWeight: 800 }}>1.524</div>
+              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Perusahaan</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>36+</div>
               <div style={{ fontSize: 20, color: "#c4b5fd" }}>Jenis Izin</div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div style={{ fontSize: 40, fontWeight: 800 }}>46</div>
+              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Dewan Pakar</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>190</div>
@@ -97,7 +102,7 @@ export function GET() {
             </div>
           </div>
           <div style={{ fontSize: 26, fontWeight: 600, color: "#fbbf24" }}>
-            topkonsultan.web.id
+            {new URL(SITE_URL).host}
           </div>
         </div>
       </div>

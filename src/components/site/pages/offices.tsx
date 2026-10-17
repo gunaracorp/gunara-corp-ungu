@@ -56,7 +56,7 @@ export default function OfficesPage() {
           Jadwalkan briefing
         </LinkButton>
         <a
-          href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo TOP Konsultan, saya ingin menjadwalkan kunjungan ke kantor Anda.")}`}
+          href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo Gunara Consultan, saya ingin menjadwalkan kunjungan ke kantor Anda.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full border border-emerald-300 bg-emerald-50 px-7 py-3 text-sm font-bold text-emerald-600 transition-all duration-300 hover:border-emerald-500/60 hover:bg-emerald-100"

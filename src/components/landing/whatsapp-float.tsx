@@ -15,7 +15,7 @@ const WA_GLYPH = (
 
 export default function WhatsAppFloat() {
   const text = encodeURIComponent(
-    "Halo TOP Konsultan, saya ingin konsultasi perizinan bisnis.",
+    "Halo Gunara Consultan, saya ingin konsultasi perizinan bisnis.",
   );
   const href = `${BRAND.whatsappHref}?text=${text}`;
 

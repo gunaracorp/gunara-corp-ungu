@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Panel CEO — dashboard admin PT TOP KONSULTAN INTERNASIONAL (#/admin).
+ * Panel CEO — dashboard admin GUNARA CORPORATION (#/admin).
  * Satu tempat untuk mengelola: tiket brief, member VVIP + kode akses,
  * pelanggan newsletter, dan log akses. URL tidak ditautkan dari navigasi publik.
  */
@@ -177,7 +177,7 @@ export default function AdminPage() {
                 Panel CEO
               </h1>
               <p className="text-[12.5px] text-slate-500">
-                PT TOP KONSULTAN INTERNASIONAL ·{" "}
+                GUNARA CORPORATION ·{" "}
                 <span className={data?.source === "db" ? "text-emerald-600" : "text-amber-600"}>
                   {data?.source === "db" ? "database persisten" : "mode memori"}
                 </span>
@@ -497,7 +497,7 @@ function TicketsTab({
       ))}
       {data && data.contacts.length === 0 && (
         <Card title="Belum ada tiket" icon={Inbox}>
-          <Empty text="Setiap brief dari situs akan muncul di sini dengan nomor tiket TOP-XXXX." />
+          <Empty text="Setiap brief dari situs akan muncul di sini dengan nomor tiket GUNARA-XXXX." />
         </Card>
       )}
     </div>

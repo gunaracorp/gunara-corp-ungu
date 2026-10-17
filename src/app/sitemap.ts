@@ -9,7 +9,7 @@ import { allPublicPaths, abs } from "@/lib/seo";
 
 type Entry = MetadataRoute.Sitemap[number];
 
-const TOP: [string, number, Entry["changeFrequency"]][] = [
+const GUNARA: [string, number, Entry["changeFrequency"]][] = [
   ["/", 1.0, "weekly"],
   ["/services", 0.9, "monthly"],
   ["/perizinan", 0.9, "weekly"],
@@ -50,12 +50,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   });
 
-  const entries: Entry[] = TOP.map(([p, pr, cf]) => entry(p, pr, cf));
+  const entries: Entry[] = GUNARA.map(([p, pr, cf]) => entry(p, pr, cf));
 
   for (const path of allPublicPaths()) {
     const [seg1] = path.slice(1).split("/");
     const cfg = DETAIL[seg1];
-    // Hanya rute detail (bersub-segmen) — rute indeks sudah tercakup di TOP.
+    // Hanya rute detail (bersub-segmen) — rute indeks sudah tercakup di GUNARA.
     if (cfg && path.split("/").length > 2) entries.push(entry(path, cfg[0], cfg[1]));
   }
 

@@ -255,7 +255,7 @@ export default function LeadershipPage() {
               Empat pilar yang <span className="text-gradient-gold">tidak bisa ditawar.</span>
             </>
           }
-          sub="Tata kelola bukan halaman etika yang dibaca saat crisis — di TOP ia adalah sistem operasi harian yang menentukan siapa berbicara, siapa memutuskan, dan siapa menanggung akibat."
+          sub="Tata kelola bukan halaman etika yang dibaca saat crisis — di GUNARA ia adalah sistem operasi harian yang menentukan siapa berbicara, siapa memutuskan, dan siapa menanggung akibat."
         />
         <div className="mt-12 grid gap-4 sm:grid-cols-2">
           {GOVERNANCE.map((g, i) => (
@@ -286,7 +286,7 @@ export default function LeadershipPage() {
                 Bagaimana seorang Mitra Utama <span className="text-gradient-gold">ditempa.</span>
               </>
             }
-            sub="Gelar Mitra Utama di TOP bukan promosi karier — ia adalah penugasan yang diperoleh melalui empat gerbang, dan dapat dicabut lewat mekanisme yang sama ketatnya."
+            sub="Gelar Mitra Utama di GUNARA bukan promosi karier — ia adalah penugasan yang diperoleh melalui empat gerbang, dan dapat dicabut lewat mekanisme yang sama ketatnya."
           />
           <ol className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {APPOINTMENT.map((a, i) => (
@@ -365,7 +365,7 @@ export default function LeadershipPage() {
             <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-slate-500">
               Ingin memastikan siapa yang duduk di meja Anda? Tanyakan langsung saat briefing —{" "}
               <a
-                href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo TOP Konsultan, saya ingin mengetahui Mitra Utama yang akan mengawal penugasan saya.")}`}
+                href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo Gunara Consultan, saya ingin mengetahui Mitra Utama yang akan mengawal penugasan saya.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-violet-700 underline decoration-violet-400/40 underline-offset-2 transition-colors hover:text-violet-600"

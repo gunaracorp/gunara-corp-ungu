@@ -4,7 +4,7 @@ import { Reveal, SectionHeading } from "./motion";
 
 /* ----------------------------------------------------------------------------
  * Galeri Akreditasi & Penyerahan Sertifikat — bukti nyata di lapangan.
- * Potret proses akreditasi & penyerahan dokumen resmi kepada klien TOP.
+ * Potret proses akreditasi & penyerahan dokumen resmi kepada klien GUNARA.
  * -------------------------------------------------------------------------- */
 
 type Proof = {
@@ -47,16 +47,16 @@ const PROOFS: Proof[] = [
   },
   {
     src: "/images/akreditasi-ppiu-ashanty.jpg",
-    alt: "Tim gabungan TOP Konsultan Nusantara dan Ashanty merayakan akreditasi PPIU",
+    alt: "Tim gabungan Gunara Consultan Nusantara dan Ashanty merayakan akreditasi PPIU",
     title: "Akreditasi PPIU — Ashanty Perdana Pratiwi",
-    desc: "Tim gabungan TOP Konsultan Nusantara & Ashanty menutup proses akreditasi dengan dua ibu jari — dan dokumen yang sah.",
+    desc: "Tim gabungan Gunara Consultan Nusantara & Ashanty menutup proses akreditasi dengan dua ibu jari — dan dokumen yang sah.",
     tag: "Akreditasi",
     width: 1280,
     height: 850,
   },
   {
     src: "/images/akreditasi-ppiu-riff.jpg",
-    alt: "Riffy Group resmi terakreditasi PPIU bersama TOP Konsultan Nusantara",
+    alt: "Riffy Group resmi terakreditasi PPIU bersama Gunara Consultan Nusantara",
     title: "Akreditasi PPIU — Riff Religi Travelindo",
     desc: "Riffy Group menuntaskan akreditasi PPIU layanan religi — travel umrah yang berangkat dengan payung hukum penuh.",
     tag: "Akreditasi",

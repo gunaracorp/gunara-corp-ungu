@@ -89,21 +89,22 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Brand + Dispatch + Kontak */}
           <div className="flex flex-col gap-5">
-            <Link to="/" className="flex items-center gap-3" ariaLabel="PT TOP KONSULTAN INTERNASIONAL — beranda">
+            <Link to="/" className="flex items-center gap-3" ariaLabel="GUNARA CORPORATION — beranda">
               <LogoMark className="h-10 w-10" />
               <span className="leading-none">
                 <span className="block font-display text-sm font-bold tracking-[0.28em] text-slate-900">
-                  TOP KONSULTAN
+                  GUNARA CONSULTAN
                 </span>
                 <span className="mt-1 block text-[9px] font-semibold tracking-[0.5em] text-violet-600">
-                  INTERNASIONAL
+                  CORPORATION
                 </span>
               </span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed text-slate-900">
-              Konsultan &amp; perizinan terlengkap di dunia — 46 Dewan Pakar internasional dengan
-              6.900 tahun pengalaman gabungan. Dari strategi hulu hingga eksekusi hilir, dari NIB
-              hingga ekspansi 190 negara.
+              Konsultan &amp; perizinan terlengkap di dunia — 1.524 perusahaan
+              ditangani, lokal maupun nasional, global maupun dalam negeri, daerah
+              maupun pusat. 46 Dewan Pakar internasional; dari NIB hingga ekspansi
+              190 negara.
             </p>
 
             <address className="flex flex-col gap-2 text-sm not-italic text-slate-900">

@@ -27,9 +27,9 @@ const RELEASES: Release[] = [
     date: "2026-01-08",
     dateLabel: "8 Januari 2026",
     category: "Produk & Teknologi",
-    title: "TOP resmikan Oracle — kecerdasan kolektif 46 Dewan Pakar yang kini eksklusif untuk Member VVIP",
+    title: "GUNARA resmikan Oracle — kecerdasan kolektif 46 Dewan Pakar yang kini eksklusif untuk Member VVIP",
     excerpt:
-      "Setelah delapan belas bulan uji coba tertutup, TOP membuka Oracle: mesin konsultasi yang menyatukan pengalaman gabungan 6.900 tahun lintas 46 Dewan Pakar, tersedia 24/7. Layanan langsung diposisikan sebagai ruang eksklusif Member VVIP — jajaran klien prioritas firma.",
+      "Setelah delapan belas bulan uji coba tertutup, GUNARA membuka Oracle: mesin konsultasi yang menyatukan pengalaman gabungan 6.900 tahun lintas 46 Dewan Pakar, tersedia 24/7. Layanan langsung diposisikan sebagai ruang eksklusif Member VVIP — jajaran klien prioritas firma.",
     image: "/images/menara-top.jpg",
     featured: true,
   },
@@ -37,9 +37,9 @@ const RELEASES: Release[] = [
     date: "2025-12-12",
     dateLabel: "12 Desember 2025",
     category: "Akreditasi",
-    title: "Akreditasi PPIU baru memperluas layanan travel umrah & haji TOP",
+    title: "Akreditasi PPIU baru memperluas layanan travel umrah & haji GUNARA",
     excerpt:
-      "Pijat kemitraan dengan lembaga penyelenggara travel umrah menambah kapasitas akreditasi TOP pada lini jasa keagamaan — dari legalitas PPIU hingga pendampingan regulasi Kemenag, memperkuat posisi firma pada perizinan sektor keagamaan.",
+      "Pijat kemitraan dengan lembaga penyelenggara travel umrah menambah kapasitas akreditasi GUNARA pada lini jasa keagamaan — dari legalitas PPIU hingga pendampingan regulasi Kemenag, memperkuat posisi firma pada perizinan sektor keagamaan.",
     image: "/images/akreditasi-ppiu-ashanty.jpg",
   },
   {
@@ -48,45 +48,50 @@ const RELEASES: Release[] = [
     category: "Kemitraan",
     title: "Penyerahan izin BPW — gerbang bisnis wisata klien dituntaskan dalam hitungan minggu",
     excerpt:
-      "Proses akreditasi Bi Perjalanan Wisata (BPW) untuk klien korporat selesai dan diserahkan langsung — menjadi contoh kerja antara tim perizinan TOP, Kemenparekraf, dan jaringan asosiasi terkait.",
+      "Proses akreditasi Bi Perjalanan Wisata (BPW) untuk klien korporat selesai dan diserahkan langsung — menjadi contoh kerja antara tim perizinan GUNARA, Kemenparekraf, dan jaringan asosiasi terkait.",
     image: "/images/penyerahan-bpw-ashanty.jpg",
   },
   {
     date: "2025-10-30",
     dateLabel: "30 Oktober 2025",
     category: "Ekspansi",
-    title: "Kantor Jakarta TOP kini melayani dari PHI Kwitang, Jakarta Pusat",
+    title: "Kantor Jakarta GUNARA kini melayani dari PHI Kwitang, Jakarta Pusat",
     excerpt:
-      "Untuk mendekatkan Dewan-dewan strategi dan perizinan pada klien korporat & kedutaan, TOP memperkuat kehadirannya di ibu kota melalui kantor resmi di kawasan PHI Kwitang, Senen — melengkapi dua kantor pusat layanan di Tasikmalaya.",
+      "Untuk mendekatkan Dewan-dewan strategi dan perizinan pada klien korporat & kedutaan, GUNARA memperkuat kehadirannya di ibu kota melalui kantor resmi di kawasan PHI Kwitang, Senen — melengkapi dua kantor pusat layanan di Tasikmalaya.",
     image: "/images/hq.png",
   },
   {
     date: "2025-09-25",
     dateLabel: "25 September 2025",
     category: "Akreditasi",
-    title: "Akreditasi kanwil memperkuat jaringan lembaga mitra TOP di Jawa Timur",
+    title: "Akreditasi kanwil memperkuat jaringan lembaga mitra GUNARA di Jawa Timur",
     excerpt:
-      "Kemitraan akreditasi tingkat kanwil membuka layanan pengurusan dokumen dan sertifikasi klien Jawa Timur langsung dari jaringan TOP — memangkas rantai perantara yang selama ini memperlambat proses.",
+      "Kemitraan akreditasi tingkat kanwil membuka layanan pengurusan dokumen dan sertifikasi klien Jawa Timur langsung dari jaringan GUNARA — memangkas rantai perantara yang selama ini memperlambat proses.",
     image: "/images/akreditasi-kanwil-jatim.jpg",
   },
 ];
 
 const FACTS = [
-  { k: "Nama legal", v: "PT TOP KONSULTAN INTERNASIONAL" },
+  { k: "Nama resmi", v: "GUNARA CORPORATION (Gunara Consultan)" },
   { k: "Berdiri", v: "2001 — Tasikmalaya, Jawa Barat" },
+  { k: "Perusahaan ditangani", v: "1.524 perusahaan — lokal & nasional, global & dalam negeri, daerah & pusat" },
   { k: "Kantor resmi", v: "4 lokasi (Tasikmalaya I & II, Jakarta, IPHI Pusat)" },
   { k: "Praktik layanan", v: "12 praktik; 36+ jenis perizinan" },
   { k: "Dewan Pakar", v: "46 dewan internasional, 6.900 tahun pengalaman gabungan" },
   { k: "Penugasan", v: "12.000+ dituntaskan, tingkat keberhasilan 99,97%" },
   { k: "Jangkauan", v: "Klien di 190 negara, layanan 40+ bahasa" },
-  { k: "Kontak resmi", v: "WhatsApp & telepon +62 811-1116-5165 · halo@topkonsultan.web.id" },
+  {
+    k: "Pimpinan & penagihan",
+    v: "Senior Konsultan Tn. H. Gugun Gunara, MBA — seluruh pembayaran atas nama beliau",
+  },
+  { k: "Kontak resmi", v: "WhatsApp & telepon +62 813-1651-6524 · halo@topkonsultan.web.id" },
 ];
 
 const MEDIA_ASSETS = [
   {
     icon: Download,
     title: "Logo resmi (SVG)",
-    desc: "Logogram vektor TOP — siap pakai untuk media digital dan cetak, latar terang maupun gelap.",
+    desc: "Logogram vektor GUNARA — siap pakai untuk media digital dan cetak, latar terang maupun gelap.",
     action: "Unduh logo",
     href: "/logo.svg",
     download: true,
@@ -118,7 +123,7 @@ const PRESS_POLICY = [
   {
     icon: BadgeCheck,
     title: "Kerahasiaan klien",
-    desc: "TOP tidak mengungkap identitas klien tanpa persetujuan tertulis. Studi kasus yang beredar telah dianonimkan atau diloloskan klien — prinsip yang sama berlaku untuk wawancara.",
+    desc: "GUNARA tidak mengungkap identitas klien tanpa persetujuan tertulis. Studi kasus yang beredar telah dianonimkan atau diloloskan klien — prinsip yang sama berlaku untuk wawancara.",
   },
   {
     icon: Newspaper,
@@ -148,7 +153,7 @@ export default function NewsroomPage() {
             Kabar resmi, <span className="text-gradient-gold">tuntas dan terverifikasi.</span>
           </>
         }
-        sub="Rilis pers, lembar fakta, dan perangkat media resmi PT TOP KONSULTAN INTERNASIONAL. Seluruh angka dan kutipan di halaman ini boleh dikutip — kami menjamin konsistensinya."
+        sub="Rilis pers, lembar fakta, dan perangkat media resmi GUNARA CORPORATION. Seluruh angka dan kutipan di halaman ini boleh dikutip — kami menjamin konsistensinya."
         crumbs={[{ label: "Beranda", to: "/" }, { label: "Ruang Media" }]}
         meta={["Rilis pers resmi", "Lembar fakta firma", "Aset media siap unduh", "Respons pers ≤ 1×24 jam"]}
       >

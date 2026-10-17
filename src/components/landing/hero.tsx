@@ -172,7 +172,7 @@ export default function Hero() {
       ref={ref}
       id="top"
       className="noise-overlay relative flex min-h-[100svh] items-center justify-center overflow-hidden pb-24 pt-28"
-      aria-label="PT TOP Konsultan Internasional — konsultan dan perizinan terlengkap di dunia"
+      aria-label="Gunara Corporation — konsultan dan perizinan terlengkap di dunia"
     >
       {/* Grid backdrop */}
       <div
@@ -227,9 +227,10 @@ export default function Hero() {
           className="intro-rise mx-auto mt-6 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg"
           style={{ animationDelay: "0.3s" }}
         >
-          Konsultan &amp; perizinan terlengkap di dunia — 46 Dewan Pakar internasional
-          dengan 6.900 tahun pengalaman gabungan menuntaskan semua kebutuhan bisnis
-          Anda,{" "}
+          Konsultan &amp; perizinan yang telah menangani 1.524 perusahaan —
+          lokal maupun nasional, global maupun dalam negeri, daerah maupun
+          pusat. 46 Dewan Pakar internasional menuntaskan semua kebutuhan
+          bisnis Anda,{" "}
           <span className="font-semibold text-slate-700">
             dari pendirian PT hingga penguasaan pasar di 190 negara.
           </span>
@@ -259,7 +260,7 @@ export default function Hero() {
             Mulai Konsultasi
           </a>
           <a
-            href={`https://wa.me/${BRAND.whatsappIntl}?text=${encodeURIComponent("Halo TOP Konsultan, saya ingin konsultasi perizinan bisnis.")}`}
+            href={`https://wa.me/${BRAND.whatsappIntl}?text=${encodeURIComponent("Halo Gunara Consultan, saya ingin konsultasi perizinan bisnis.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex min-h-12 items-center gap-2.5 rounded-full border border-emerald-300 bg-emerald-50 px-8 py-3.5 text-sm font-bold text-emerald-600 backdrop-blur transition-all duration-300 hover:border-emerald-500/60 hover:bg-emerald-100"

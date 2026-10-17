@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate branded downloadable resource PDFs for the TOP public resources page.
+Generate branded downloadable resource PDFs for the GUNARA public resources page.
 Output: /home/z/my-project/public/downloads/*.pdf
 Language: Indonesian (Latin script — Helvetica family is safe).
 """
@@ -27,8 +27,8 @@ MIST = HexColor("#f5f3ff")
 LINE = HexColor("#ddd6fe")
 WHITE = HexColor("#ffffff")
 
-BRAND = "PT TOP KONSULTAN INTERNASIONAL"
-WA = "+62 811-1116-5165"
+BRAND = "GUNARA CORPORATION (Gunara Consultan)"
+WA = "+62 813-1651-6524"
 MAIL = "halo@topkonsultan.web.id"
 
 S_TITLE = ParagraphStyle("t", fontName="Helvetica-Bold", fontSize=20, leading=25, textColor=INK)
@@ -208,12 +208,12 @@ c1.append(KeepTogether([
     Paragraph(
         "Pendirian PT jarang gagal karena formulir — ia gagal karena struktur: KBLI yang salah membuat insentif hangus, "
         "anggaran dasar yang mengunci pemidanaan modal, atau komitmen berizin yang tidak pernah dilaporkan. "
-        f"TOP mengawal seluruh rantai di atas sebagai satu penugasan, dengan satu Mitra Utama yang menjawab dengan nama. "
+        f"GUNARA mengawal seluruh rantai di atas sebagai satu penugasan, dengan satu Mitra Utama yang menjawab dengan nama. "
         f"Mulai lewat WhatsApp {WA} — briefing hari ini, kejelasan dalam 48 jam.",
         S_BODY,
     ),
     Spacer(1, 6),
-    Paragraph("Edisi Januari 2026 — disusun oleh Tim Perizinan & Regulasi TOP. Diperbarui berkala mengikuti regulasi OSS RBA terkini.", S_NOTE),
+    Paragraph("Edisi Januari 2026 — disusun oleh Tim Perizinan & Regulasi GUNARA. Diperbarui berkala mengikuti regulasi OSS RBA terkini.", S_NOTE),
 ]))
 build(os.path.join(OUT_DIR, "checklist-pendirian-pt-2026.pdf"),
       "Checklist Pendirian PT 2026", "Panduan kerja 26 titik krusial — dari nama badan hukum hingga LKPM pertama",
@@ -292,9 +292,9 @@ c2.append(Paragraph("4. LKPM diabaikan — akses insentif dan pembaruan izin ter
 c2.append(Paragraph("5. Perubahan saham/pengurus tidak dilaporkan ke OSS — data usaha tidak konsisten saat audit.", S_LI, bulletText="•"))
 
 c2.append(KeepTogether([
-    Paragraph("Bagaimana TOP menuntaskannya", S_H2),
+    Paragraph("Bagaimana GUNARA menuntaskannya", S_H2),
     Paragraph(
-        "Tim Perizinan & Regulasi TOP mengawal enam tahap di atas sebagai satu penugasan terintegrasi — satu Mitra Utama, "
+        "Tim Perizinan & Regulasi GUNARA mengawal enam tahap di atas sebagai satu penugasan terintegrasi — satu Mitra Utama, "
         "satu titik akuntabilitas, satu kalender kewajiban. Katalog lengkap 36+ jenis izin kami, dari NIB hingga AMDAL dan "
         f"KITAS, berada di situs resmi kami. Konsultasi awal via WhatsApp {WA}: briefing hari ini, kejelasan jalur terbaik dalam 48 jam.",
         S_BODY,

@@ -41,7 +41,7 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-3xl border border-violet-200">
               <Image
                 src="/images/menara-top.jpg"
-                alt="Kantor pusat PT TOP KONSULTAN INTERNASIONAL — kantor PHI Kwitang, Jakarta"
+                alt="Kantor pusat GUNARA CORPORATION — kantor PHI Kwitang, Jakarta"
                 width={1344}
                 height={768}
                 className="h-auto w-full object-cover"

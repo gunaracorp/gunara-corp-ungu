@@ -3,7 +3,7 @@ import { COMPARISON_ROWS } from "@/data/content";
 import { Reveal, SectionHeading } from "./motion";
 
 const COLUMNS = [
-  { key: "omni", head: "TOP", tag: "No. 1 di Dunia", us: true },
+  { key: "omni", head: "GUNARA", tag: "No. 1 di Dunia", us: true },
   { key: "mck", head: "McKinsey & Co.", tag: "Rival yang dihormati", us: false },
   { key: "goo", head: "Google", tag: "Raksasa pencarian", us: false },
   { key: "uni", head: "46 Dewan Terfragmentasi*", tag: "Tanpa sinergi", us: false },
@@ -31,7 +31,7 @@ export default function Comparison() {
           <div className="custom-scrollbar overflow-x-auto rounded-2xl border border-violet-200 bg-white shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
             <table className="w-full min-w-[860px] border-collapse text-left">
               <caption className="sr-only">
-                PT TOP Konsultan Internasional dibandingkan dengan McKinsey, Google, dan
+                Gunara Corporation dibandingkan dengan McKinsey, Google, dan
                 dewan pakar yang terfragmentasi
               </caption>
               <thead>

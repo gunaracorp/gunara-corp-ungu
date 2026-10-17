@@ -15,7 +15,7 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { LogoMark } from "./logo";
 
-const SEEN_KEY = "topkonsultan_preloader_seen";
+const SEEN_KEY = "gunara_preloader_seen";
 
 export default function Preloader() {
   const [gone, setGone] = useState(false);
@@ -55,7 +55,7 @@ export default function Preloader() {
       </div>
 
       <p className="intro-fade-up font-display text-lg font-bold tracking-[0.4em] text-slate-900">
-        TOP KONSULTAN
+        GUNARA CONSULTAN
       </p>
 
       <div className="flex w-60 flex-col items-center gap-3">

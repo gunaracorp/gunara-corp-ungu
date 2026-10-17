@@ -109,7 +109,7 @@ export default function MemberPage() {
         if (kind === "member") setPhase("member");
         else if (kind === "primary") setPhase("primary");
         else {
-          window.sessionStorage.removeItem("topkonsultan_vvip_code");
+          window.sessionStorage.removeItem("gunara_vvip_code");
           setPhase("login");
         }
       });
@@ -118,7 +118,7 @@ export default function MemberPage() {
   }, [fetchProfile]);
 
   function lock() {
-    window.sessionStorage.removeItem("topkonsultan_vvip_code");
+    window.sessionStorage.removeItem("gunara_vvip_code");
     setProfile(null);
     setTickets([]);
     setPhase("login");
@@ -320,7 +320,7 @@ function MemberLogin({ onVerified }: { onVerified: () => void }) {
       });
       const json = (await res.json()) as { ok: boolean; message?: string };
       if (res.ok && json.ok) {
-        window.sessionStorage.setItem("topkonsultan_vvip_code", code.trim().toUpperCase());
+        window.sessionStorage.setItem("gunara_vvip_code", code.trim().toUpperCase());
         onVerified();
         return;
       }
@@ -365,7 +365,7 @@ function MemberLogin({ onVerified }: { onVerified: () => void }) {
           <input
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            placeholder="TOP-VVIP-XXXX-XXXX"
+            placeholder="GUNARA-VVIP-XXXX-XXXX"
             aria-label="Kode akses member"
             autoComplete="off"
             spellCheck={false}

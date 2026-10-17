@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 # ensure-server.sh — pastikan server produksi standalone Next.js hidup di port 3000.
 # Dipakai karena sandbox dapat mematikan background process antar tool call.
+#
+# PENTING: setelah `bun run build:standalone`, JALANKAN DENGAN --restart.
+# Tanpa flag itu, server LAMA yang masih menjawab di port akan dianggap "OK"
+# padahal ia menyajikan HTML/manifes build lama → chunk baru 404/500
+# (jebakan terdokumentasi di worklog Task 12).
 set -u
 PORT="${PORT:-3000}"
 BASE="http://localhost:${PORT}"
+RESTART="${1:-}"
 
-# 1. Sudah hidup?
-if curl -s -o /dev/null --max-time 3 "$BASE"; then
+# 1. Sudah hidup? (lewati bila --restart diminta)
+if [ "$RESTART" != "--restart" ] && curl -s -o /dev/null --max-time 3 "$BASE"; then
   echo "server OK on :$PORT"
   exit 0
 fi
@@ -15,6 +21,12 @@ fi
 pkill -f "standalone/server.js" 2>/dev/null
 fuser -k "${PORT}/tcp" 2>/dev/null
 sleep 1.5
+# Verifikasi port benar-benar bebas; kalau masih ada penyusup, bunuh lagi.
+if curl -s -o /dev/null --max-time 2 "$BASE"; then
+  pkill -9 -f "standalone/server.js" 2>/dev/null
+  fuser -k -9 "${PORT}/tcp" 2>/dev/null
+  sleep 1.5
+fi
 
 # 3. Start standalone server
 cd /home/z/my-project

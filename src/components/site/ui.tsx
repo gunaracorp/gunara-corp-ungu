@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * TOP shared page primitives — used by every inner page so the whole
+ * GUNARA shared page primitives — used by every inner page so the whole
  * site feels like one hand-crafted object.
  */
 
@@ -251,7 +251,7 @@ export function CTABand({
               Mulai Konsultasi
             </LinkButton>
             <a
-              href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo TOP Konsultan, saya ingin konsultasi perizinan bisnis.")}`}
+              href={`${BRAND.whatsappHref}?text=${encodeURIComponent("Halo Gunara Consultan, saya ingin konsultasi perizinan bisnis.")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center gap-2.5 rounded-full border border-emerald-300 bg-emerald-50 px-8 py-3.5 text-sm font-bold text-emerald-600 backdrop-blur transition-all duration-300 hover:border-emerald-500/60 hover:bg-emerald-100"

@@ -44,8 +44,8 @@ export async function GET(req: Request) {
         error: "membership_inactive",
         message:
           member.status === "suspended"
-            ? "Keanggotaan Anda sedang ditangguhkan. Hubungi tim TOP untuk pemulihan."
-            : "Masa keanggotaan Anda telah berakhir. Perpanjang via WhatsApp +62 811-1116-5165.",
+            ? "Keanggotaan Anda sedang ditangguhkan. Hubungi tim GUNARA untuk pemulihan."
+            : "Masa keanggotaan Anda telah berakhir. Perpanjang via WhatsApp +62 813-1651-6524.",
       },
       { status: 403 }
     );

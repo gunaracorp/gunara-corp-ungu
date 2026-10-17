@@ -2,7 +2,7 @@
 
 /**
  * /resources — Pusat Sumber Daya.
- * Unduhan resmi (PDF bermerek TOP), pustaka panduan per kategori,
+ * Unduhan resmi (PDF bermerek GUNARA), pustaka panduan per kategori,
  * dan kanal permintaan dokumen khusus.
  */
 
@@ -45,7 +45,7 @@ const LIBRARY = [
     icon: Boxes,
     category: "Strategi & Operasi",
     items: [
-      "Kerangka war-game TOP: uji strategi Anda terhadap 10.000 skenario sebelum dieksekusi",
+      "Kerangka war-game GUNARA: uji strategi Anda terhadap 10.000 skenario sebelum dieksekusi",
       "Templat kalender kepatuhan tahunan untuk badan usaha (pajak, izin, ketenagakerjaan)",
       "Panduan struktur modal & porsi saham untuk pendiri dengan investor",
       "Playbook ekspansi lintas negara: urutan keputusan dari riset pasar hingga entitas pertama",
@@ -82,7 +82,7 @@ const REQUEST_STEPS = [
 ] as const;
 
 export default function ResourcesPage() {
-  const waUrl = `${BRAND.whatsappHref}?text=${encodeURIComponent("Halo TOP Konsultan, saya ingin meminta salinan dokumen dari Pusat Sumber Daya.")}`;
+  const waUrl = `${BRAND.whatsappHref}?text=${encodeURIComponent("Halo Gunara Consultan, saya ingin meminta salinan dokumen dari Pusat Sumber Daya.")}`;
 
   return (
     <>
@@ -93,7 +93,7 @@ export default function ResourcesPage() {
             Pengetahuan yang <span className="text-gradient-gold">kami tulis sendiri.</span>
           </>
         }
-        sub="Panduan, checklist, dan peta jalan yang disusun tim Perizinan & Regulasi TOP dari praktik 12.000+ penugasan — bukan ringkasan peraturan yang bisa Anda temukan di mana pun."
+        sub="Panduan, checklist, dan peta jalan yang disusun tim Perizinan & Regulasi GUNARA dari praktik 12.000+ penugasan — bukan ringkasan peraturan yang bisa Anda temukan di mana pun."
         crumbs={[{ label: "Beranda", to: "/" }, { label: "Pusat Sumber Daya" }]}
         meta={["Unduhan resmi PDF", "Diperbarui berkala", "Gratis, tanpa registrasi"]}
       >
@@ -192,7 +192,7 @@ export default function ResourcesPage() {
                       </ul>
                     </div>
                     <a
-                      href={`${BRAND.whatsappHref}?text=${encodeURIComponent(`Halo TOP Konsultan, saya ingin meminta dokumen dari rak "${lib.category}".`)}`}
+                      href={`${BRAND.whatsappHref}?text=${encodeURIComponent(`Halo Gunara Consultan, saya ingin meminta dokumen dari rak "${lib.category}".`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-auto inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-violet-500/60 hover:text-violet-600"

@@ -1,17 +1,17 @@
 import type { Leader } from "@/data/extended-types";
 
 /**
- * Jajaran pimpinan PT TOP KONSULTAN INTERNASIONAL.
+ * Jajaran pimpinan GUNARA CORPORATION.
  * Leader pertama (featured) dirender sebagai kartu Pendiri full-width
  * di bagian atas grid kepemimpinan pada halaman /about.
  */
 export const LEADERS: Leader[] = [
   {
-    name: "Gugun Gunara",
-    role: "Pendiri & Direktur Utama",
-    enRole: "Founder & Chief Executive Officer",
+    name: "Tn. H. Gugun Gunara, MBA",
+    role: "Senior Konsultan & Pendiri",
+    enRole: "Senior Consultant & Founder",
     council: "Kantor Pusat — Tasikmalaya & Kantor PHI Kwitang, Jakarta",
-    bio: "Berakar dari Tasikmalaya, Jawa Barat, Gugun Gunara membangun karier tiga dekade dari lantai usaha keluarga hingga ruang direksi korporasi global. Pengusaha sekaligus konsultan bisnis senior yang pernah berpartner dan bekerja bersama McKinsey, ia mendirikan TOP di atas satu keyakinan: anak negeri berhak mendapat nasihat kelas dunia — dan dunia berhak merasakan standar kerja Indonesia. Hari ini ia memimpin 46 Dewan Pakar dengan 6.900 tahun penguasaan gabungan, melayani klien di 190 negara dari Tasikmalaya & Jakarta.",
+    bio: "Berakar dari Tasikmalaya, Jawa Barat, Tn. H. Gugun Gunara, MBA membangun karier tiga dekade dari lantai usaha keluarga hingga ruang direksi korporasi global. Pengusaha sekaligus konsultan bisnis senior yang pernah berpartner dan bekerja bersama McKinsey, ia mendirikan GUNARA di atas satu keyakinan: anak negeri berhak mendapat nasihat kelas dunia — dan dunia berhak merasakan standar kerja Indonesia. Sebagai Senior Konsultan, ia memimpin langsung 1.524 perusahaan yang telah ditangani — lokal maupun nasional, global maupun dalam negeri, daerah maupun pusat — dan seluruh penugasan ditagihkan atas namanya: satu pintu pertanggungjawaban, tanpa perantara.",
     image: "/images/founder-gugun-gunara.jpg",
     initials: "GG",
     featured: true,
@@ -21,7 +21,7 @@ export const LEADERS: Leader[] = [
     role: "Wakil Direktur Utama",
     enRole: "Deputy Chief Executive Officer",
     council: "Kantor Pusat — Jakarta",
-    bio: "Mengawal TOP sejak masa formatifnya hingga menjadi konsultan dan perizinan terlengkap di dunia. Di bawah kepemimpinan Gugun Gunara, Bimo mengepalai operasi harian 12.000+ penugasan dengan tingkat keberhasilan 99,97% — dengan satu keyakinan yang tak pernah goyah: nasihat kelas dunia harus berdiri di sisi klien, bukan di seberang mejanya.",
+    bio: "Mengawal GUNARA sejak masa formatifnya hingga menjadi konsultan dan perizinan terlengkap di dunia. Di bawah kepemimpinan Gugun Gunara, Bimo mengepalai operasi harian 12.000+ penugasan dengan tingkat keberhasilan 99,97% — dengan satu keyakinan yang tak pernah goyah: nasihat kelas dunia harus berdiri di sisi klien, bukan di seberang mejanya.",
     image: "/images/leadership-7.png",
     initials: "BAW",
   },
@@ -30,7 +30,7 @@ export const LEADERS: Leader[] = [
     role: "Direktur Perizinan & Regulasi",
     enRole: "Director of Licensing & Regulatory Affairs",
     council: "Society & Governance — Singapore",
-    bio: "Menerajangi Gerbang Perizinan TOP — katalog 36 izin, dari NIB dan pendirian PT/PMA hingga BPOM, OJK, dan KITAS, yang menjadi acuan industri. Sri Ayu membangun kerja langsung dengan OSS RBA dan lembaga lepas, sehingga izin yang di tempat lain menjadi drama, di meja kami menjadi prosedur.",
+    bio: "Menerajangi Gerbang Perizinan GUNARA — katalog 36 izin, dari NIB dan pendirian PT/PMA hingga BPOM, OJK, dan KITAS, yang menjadi acuan industri. Sri Ayu membangun kerja langsung dengan OSS RBA dan lembaga lepas, sehingga izin yang di tempat lain menjadi drama, di meja kami menjadi prosedur.",
     image: "/images/leadership-8.png",
     initials: "SAK",
   },
@@ -48,7 +48,7 @@ export const LEADERS: Leader[] = [
     role: "Kepala Oracle & Teknologi",
     enRole: "Head of Oracle & Technology",
     council: "Technology & AI — London",
-    bio: "Mengetuai pengembangan Oracle — kecerdasan kolektif 46 Dewan Pakar yang dibuka bagi klien 24/7. Maya mengawasi platform digital TOP di 10 hub global dan memastikan setiap algoritma tunduk pada disiplin etika serta kerahasiaan klien.",
+    bio: "Mengetuai pengembangan Oracle — kecerdasan kolektif 46 Dewan Pakar yang dibuka bagi klien 24/7. Maya mengawasi platform digital GUNARA di 10 hub global dan memastikan setiap algoritma tunduk pada disiplin etika serta kerahasiaan klien.",
     image: "/images/leadership-10.png",
     initials: "MA",
   },
@@ -57,7 +57,7 @@ export const LEADERS: Leader[] = [
     role: "Direktur Keuangan",
     enRole: "Chief Financial Officer",
     council: "Finance & Risk — Tokyo",
-    bio: "Menjaga disiplin modal yang membuat TOP tumbuh teguh sejak 2001. Arif merancang struktur honor berbasis hasil yang mengikat kepentingan firma pada keberhasilan klien — tidak ada putusan, tidak ada fee.",
+    bio: "Menjaga disiplin modal yang membuat GUNARA tumbuh teguh sejak 2001. Arif merancang struktur honor berbasis hasil yang mengikat kepentingan firma pada keberhasilan klien — tidak ada putusan, tidak ada fee.",
     image: "/images/leadership-11.png",
     initials: "AN",
   },
@@ -66,7 +66,7 @@ export const LEADERS: Leader[] = [
     role: "Kepala Sumber Daya Manusia",
     enRole: "Head of Human Resources",
     council: "Health & Human Potential — Dubai",
-    bio: "Mengelola akademi dan jalur magang dewan yang melahirkan generasi polymath TOP. Bagi Dewi, budaya adalah sistem yang diukur, bukan poster di dinding — dan ia memiliki datanya untuk membuktikannya.",
+    bio: "Mengelola akademi dan jalur magang dewan yang melahirkan generasi polymath GUNARA. Bagi Dewi, budaya adalah sistem yang diukur, bukan poster di dinding — dan ia memiliki datanya untuk membuktikannya.",
     image: "/images/leadership-12.png",
     initials: "DS",
   },
@@ -75,7 +75,7 @@ export const LEADERS: Leader[] = [
     role: "Managing Partner & Ketua Dewan Pakar",
     enRole: "Managing Partner & Chairman of the Expert Councils",
     council: "Dewan Penasihat Global — Jakarta",
-    bio: "Voss memimpin 46 Dewan Pakar TOP di atas satu prinsip tunggal: satu jawaban, tanpa ego. Ia memimpin secara pribadi setiap penunjukan Partner-in-Chief dan belum pernah kalah dalam satu pun perang klien.",
+    bio: "Voss memimpin 46 Dewan Pakar GUNARA di atas satu prinsip tunggal: satu jawaban, tanpa ego. Ia memimpin secara pribadi setiap penunjukan Partner-in-Chief dan belum pernah kalah dalam satu pun perang klien.",
     image: "/images/leadership-1.png",
     initials: "AV",
   },

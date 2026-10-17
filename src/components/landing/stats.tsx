@@ -15,7 +15,7 @@ export default function Stats() {
           sub="Angka yang ditanggung langsung oleh 46 Dewan Pakar — total 6.900 tahun pengalaman gabungan."
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-5">
           {STATS.map((s, i) => (
             <Reveal key={s.label} delay={i * 0.08}>
               <div className="group glass h-full rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:gold-ring sm:p-7">
