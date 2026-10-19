@@ -68,6 +68,8 @@ const SitemapPage = dyn(() => import("@/components/site/pages/sitemap"));
 const VvipPage = dyn(() => import("@/components/site/pages/vvip"));
 const AdminPage = dyn(() => import("@/components/site/pages/admin"));
 const MemberPage = dyn(() => import("@/components/site/pages/member"));
+const KaryawanPage = dyn(() => import("@/components/site/pages/karyawan"));
+const ClientPage = dyn(() => import("@/components/site/pages/client"));
 
 const BASE_TITLE = "GUNARA CORPORATION — Konsultasi & Perizinan Terlengkap di Dunia";
 
@@ -208,6 +210,14 @@ export default function SiteApp({ initialPath }: { initialPath?: string }) {
       case "admin":
         view = <AdminPage />;
         title = `Panel CEO — ${SITE_NAME}`;
+        break;
+      case "karyawan":
+        view = <KaryawanPage />;
+        title = `Portal Karyawan — ${SITE_NAME}`;
+        break;
+      case "client":
+        view = <ClientPage />;
+        title = `Portal Client — ${SITE_NAME}`;
         break;
       default: {
         view = <NotFoundPage />;

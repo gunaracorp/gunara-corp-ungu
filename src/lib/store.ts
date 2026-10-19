@@ -52,11 +52,77 @@ export interface MemLog {
   createdAt: string;
 }
 
+export interface MemEmployee {
+  id: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  position: string;
+  department: string;
+  code: string;
+  status: string;
+  notes: string | null;
+  lastAccessAt: string | null;
+  createdAt: string;
+}
+
+export interface MemClient {
+  id: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  company: string | null;
+  industry: string | null;
+  code: string;
+  status: string;
+  notes: string | null;
+  lastAccessAt: string | null;
+  createdAt: string;
+}
+
+export interface MemProject {
+  id: string;
+  refCode: string;
+  title: string;
+  description: string;
+  clientId: string | null;
+  clientName: string;
+  employeeId: string | null;
+  status: string;
+  priority: string;
+  progress: number;
+  dueDate: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface MemProjectUpdate {
+  id: string;
+  projectId: string;
+  author: string;
+  authorRole: string;
+  message: string;
+  createdAt: string;
+}
+
+export interface MemAnnouncement {
+  id: string;
+  title: string;
+  body: string;
+  audience: string;
+  createdAt: string;
+}
+
 export const mem = {
   contacts: [] as MemContact[],
   subscribers: [] as MemSubscriber[],
   members: [] as MemMember[],
   logs: [] as MemLog[],
+  employees: [] as MemEmployee[],
+  clients: [] as MemClient[],
+  projects: [] as MemProject[],
+  projectUpdates: [] as MemProjectUpdate[],
+  announcements: [] as MemAnnouncement[],
 };
 
 const CODE_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // tanpa I,O,0,1 agar tidak tertukar
@@ -74,6 +140,27 @@ export function generateMemberCode(tier: string): string {
   const pick = (n: number) =>
     Array.from({ length: n }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join("");
   return `GUNARA-${tierPrefix(tier)}-${pick(4)}-${pick(4)}`;
+}
+
+/** Kode login karyawan, contoh: GUNARA-EMP-7K2M-Q4XR */
+export function generateEmployeeCode(): string {
+  const pick = (n: number) =>
+    Array.from({ length: n }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join("");
+  return `GUNARA-EMP-${pick(4)}-${pick(4)}`;
+}
+
+/** Kode login client, contoh: GUNARA-CLI-7K2M-Q4XR */
+export function generateClientCode(): string {
+  const pick = (n: number) =>
+    Array.from({ length: n }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join("");
+  return `GUNARA-CLI-${pick(4)}-${pick(4)}`;
+}
+
+/** Kode referensi proyek, contoh: PRJ-7K2M-Q4XR */
+export function generateProjectRef(): string {
+  const pick = (n: number) =>
+    Array.from({ length: n }, () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)]).join("");
+  return `PRJ-${pick(4)}-${pick(4)}`;
 }
 
 export async function generateUniqueCode(tier: string): Promise<string> {

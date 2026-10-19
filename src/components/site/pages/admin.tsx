@@ -9,25 +9,42 @@
 import { motion } from "framer-motion";
 import {
   AlertTriangle,
+  BadgeDollarSign,
+  Boxes,
   Building2,
   Check,
   Copy,
   Crown,
+  FolderKanban,
   Gem,
+  Handshake,
   Inbox,
   LayoutDashboard,
+  LifeBuoy,
   Lock,
   LogOut,
   Mail,
+  Megaphone,
   Plus,
   RefreshCw,
   ScrollText,
   ShieldCheck,
   Ticket,
   Trash2,
+  Users,
   XCircle,
 } from "lucide-react";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
+import {
+  PRIORITAS as PRIORITAS_PROYEK,
+  ProgressBar,
+  STATUS_PROYEK,
+  PriorityBadge,
+  StatusBadge,
+} from "@/components/site/portal-ui";
+import { AdminEkosistemTab } from "@/components/site/admin-extras";
+import { AdminAuditTab, AdminDukunganTab, AdminInvoiceTab } from "@/components/site/admin-more";
+import type { AdminAuditItem, AdminInvoice, AdminTicket } from "@/components/site/admin-more";
 
 const fmtDate = new Intl.DateTimeFormat("id-ID", {
   day: "numeric",
@@ -96,12 +113,31 @@ interface AdminData {
   logs: AdminLog[];
 }
 
-type Tab = "overview" | "tickets" | "members" | "newsletter" | "logs";
+type Tab =
+  | "overview"
+  | "tickets"
+  | "projects"
+  | "team"
+  | "ekosistem"
+  | "dukungan"
+  | "invoice"
+  | "audit"
+  | "members"
+  | "newsletter"
+  | "announcements"
+  | "logs";
 
 const TABS: { id: Tab; label: string; icon: typeof LayoutDashboard }[] = [
   { id: "overview", label: "Ringkasan", icon: LayoutDashboard },
   { id: "tickets", label: "Tiket Brief", icon: Ticket },
+  { id: "projects", label: "Proyek", icon: FolderKanban },
+  { id: "team", label: "Tim & Client", icon: Users },
+  { id: "dukungan", label: "Dukungan", icon: LifeBuoy },
+  { id: "invoice", label: "Invoice", icon: BadgeDollarSign },
+  { id: "ekosistem", label: "Ekosistem", icon: Boxes },
+  { id: "audit", label: "Audit & Ekspor", icon: ShieldCheck },
   { id: "members", label: "Member VVIP", icon: Gem },
+  { id: "announcements", label: "Pengumuman", icon: Megaphone },
   { id: "newsletter", label: "Newsletter", icon: Mail },
   { id: "logs", label: "Log Akses", icon: ScrollText },
 ];
@@ -112,9 +148,131 @@ const TIER_BADGE: Record<string, string> = {
   PLATINUM: "bg-slate-600/10 text-slate-700 border-slate-300",
 };
 
+/* ── Tipe data manajemen tim (Tab Proyek / Tim & Client / Pengumuman) ─── */
+
+interface TeamEmployee {
+  id: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  position: string;
+  department: string;
+  code: string;
+  tier: string;
+  status: string;
+  notes: string | null;
+  lastAccessAt: string | null;
+  createdAt: string;
+}
+interface TeamClient {
+  id: string;
+  name: string;
+  email: string | null;
+  phone: string | null;
+  company: string | null;
+  industry: string | null;
+  code: string;
+  tier: string;
+  status: string;
+  notes: string | null;
+  lastAccessAt: string | null;
+  createdAt: string;
+}
+interface TeamProject {
+  id: string;
+  refCode: string;
+  title: string;
+  description: string;
+  clientId: string | null;
+  clientName: string;
+  employeeId: string | null;
+  status: string;
+  priority: string;
+  progress: number;
+  dueDate: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+interface TeamAnnouncement {
+  id: string;
+  title: string;
+  body: string;
+  audience: string;
+  createdAt: string;
+}
+interface TeamTierCode {
+  id: string;
+  code: string;
+  tier: string;
+  targetRole: string;
+  note: string | null;
+  usedById: string | null;
+  usedByName: string | null;
+  usedAt: string | null;
+  createdAt: string;
+}
+interface TeamWaItem {
+  id: string;
+  toPhone: string | null;
+  toName: string | null;
+  toRole: string;
+  event: string;
+  message: string;
+  status: string;
+  channel: string;
+  relatedRef: string | null;
+  createdAt: string;
+  sentAt: string | null;
+}
+interface TeamDocument {
+  id: string;
+  originalName: string;
+  size: number;
+  projectRef: string | null;
+  uploaderName: string;
+  uploaderRole: string;
+  visibility: string;
+  createdAt: string;
+}
+interface TeamData {
+  ok: true;
+  source?: string;
+  employees: TeamEmployee[];
+  clients: TeamClient[];
+  projects: TeamProject[];
+  announcements: TeamAnnouncement[];
+  tierCodes: TeamTierCode[];
+  waItems: TeamWaItem[];
+  documents: TeamDocument[];
+  tickets: AdminTicket[];
+  invoices: AdminInvoice[];
+  audit: AdminAuditItem[];
+  stats: {
+    employees: number;
+    activeEmployees: number;
+    clients: number;
+    projects: number;
+    proyekBerjalan: number;
+    proyekBaru: number;
+    proyekSelesai: number;
+    announcements: number;
+    tierCodesAktif: number;
+    godAccounts: number;
+    waQueued: number;
+    waSent: number;
+    documents: number;
+    tiketOpen: number;
+    tiketDiproses: number;
+    invoiceTerkirim: number;
+    invoiceNilaiTerkirim: number;
+    invoiceDibayar: number;
+  };
+}
+
 export default function AdminPage() {
   const [phase, setPhase] = useState<"checking" | "login" | "ready">("checking");
   const [data, setData] = useState<AdminData | null>(null);
+  const [team, setTeam] = useState<TeamData | null>(null);
   const [tab, setTab] = useState<Tab>("overview");
   const [flash, setFlash] = useState<string | null>(null);
 
@@ -135,13 +293,29 @@ export default function AdminPage() {
     }
   }, []);
 
+  const loadTeam = useCallback(async (): Promise<boolean> => {
+    try {
+      const res = await fetch("/api/admin/team", { cache: "no-store" });
+      if (res.status === 403) {
+        setPhase("login");
+        return false;
+      }
+      const json = (await res.json()) as TeamData;
+      setTeam(json);
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
   useEffect(() => {
     // Defer satu tick agar setState tidak sinkron di badan effect.
     const t = window.setTimeout(() => {
       void load();
+      void loadTeam();
     }, 0);
     return () => window.clearTimeout(t);
-  }, [load]);
+  }, [load, loadTeam]);
 
   function notify(msg: string) {
     setFlash(msg);
@@ -160,7 +334,14 @@ export default function AdminPage() {
   }
 
   if (phase === "login") {
-    return <LoginGate onSuccess={() => void load()} />;
+    return (
+      <LoginGate
+        onSuccess={() => {
+          void load();
+          void loadTeam();
+        }}
+      />
+    );
   }
 
   return (
@@ -241,6 +422,16 @@ export default function AdminPage() {
                   {data?.stats.newContacts}
                 </span>
               )}
+              {id === "projects" && (team?.stats.proyekBaru ?? 0) > 0 && (
+                <span className="ml-0.5 rounded-full bg-rose-500 px-1.5 py-0.5 text-[10px] font-black text-white">
+                  {team?.stats.proyekBaru}
+                </span>
+              )}
+              {id === "dukungan" && ((team?.stats.tiketOpen ?? 0) + (team?.stats.tiketDiproses ?? 0)) > 0 && (
+                <span className="ml-0.5 rounded-full bg-rose-500 px-1.5 py-0.5 text-[10px] font-black text-white">
+                  {(team?.stats.tiketOpen ?? 0) + (team?.stats.tiketDiproses ?? 0)}
+                </span>
+              )}
             </button>
           ))}
         </nav>
@@ -259,7 +450,60 @@ export default function AdminPage() {
         <div className="mt-6">
           {tab === "overview" && <OverviewTab data={data} onGoto={setTab} />}
           {tab === "tickets" && <TicketsTab data={data} reload={load} notify={notify} />}
+          {tab === "projects" && <ProjectsTab team={team} reload={loadTeam} notify={notify} />}
+          {tab === "team" && <TeamTab team={team} reload={loadTeam} notify={notify} />}
+          {tab === "dukungan" && team && (
+            <AdminDukunganTab
+              tickets={team.tickets ?? []}
+              employees={team.employees.map((e) => ({ id: e.id, name: e.name, position: e.position }))}
+              reload={loadTeam}
+              notify={notify}
+            />
+          )}
+          {tab === "invoice" && team && (
+            <AdminInvoiceTab
+              invoices={team.invoices ?? []}
+              clients={team.clients.map((c) => ({ id: c.id, name: c.name, company: c.company }))}
+              projects={team.projects.map((p) => ({ id: p.id, refCode: p.refCode, title: p.title }))}
+              reload={loadTeam}
+              notify={notify}
+            />
+          )}
+          {tab === "audit" && team && <AdminAuditTab audit={team.audit ?? []} />}
+          {tab === "ekosistem" && team && (
+            <AdminEkosistemTab
+              tierCodes={team.tierCodes ?? []}
+              waItems={team.waItems ?? []}
+              documents={team.documents ?? []}
+              employees={[
+                ...team.employees.map((e) => ({
+                  id: e.id,
+                  name: e.name,
+                  tier: e.tier ?? "STANDARD",
+                  role: "karyawan" as const,
+                  label: `${e.name} · ${e.position}`,
+                })),
+                ...team.clients.map((c) => ({
+                  id: c.id,
+                  name: c.name,
+                  tier: c.tier ?? "STANDARD",
+                  role: "client" as const,
+                  label: `${c.name}${c.company ? ` · ${c.company}` : ""}`,
+                })),
+              ]}
+              stats={{
+                tierCodesAktif: team.stats.tierCodesAktif ?? 0,
+                godAccounts: team.stats.godAccounts ?? 0,
+                waQueued: team.stats.waQueued ?? 0,
+                waSent: team.stats.waSent ?? 0,
+                documents: team.stats.documents ?? 0,
+              }}
+              reload={loadTeam}
+              notify={notify}
+            />
+          )}
           {tab === "members" && <MembersTab data={data} reload={load} notify={notify} />}
+          {tab === "announcements" && <AnnouncementsTab team={team} reload={loadTeam} notify={notify} />}
           {tab === "newsletter" && <NewsletterTab data={data} reload={load} notify={notify} />}
           {tab === "logs" && <LogsTab data={data} />}
         </div>
@@ -813,5 +1057,675 @@ function ActionBtn({
       <Icon className="h-3.5 w-3.5" aria-hidden="true" />
       {label}
     </button>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Ekstensi Panel CEO — Tab Proyek, Tim & Client, Pengumuman.
+   Mengelola Portal Karyawan (/#/karyawan) dan Portal Client (/#/client):
+   pendaftaran akun + kode akses, penugasan proyek, dan pengumuman internal.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+const fieldCls =
+  "h-11 w-full rounded-xl border border-slate-300 bg-white px-3.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-all focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20";
+const fieldClsArea = `${fieldCls} h-auto py-3`;
+
+type MutationResult = { ok: boolean; error?: string; refCode?: string };
+
+async function teamMutation(payload: Record<string, unknown>): Promise<MutationResult> {
+  try {
+    const res = await fetch("/api/admin/team", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    return (await res.json()) as MutationResult;
+  } catch {
+    return { ok: false, error: "Sinyal terputus. Coba sekali lagi." };
+  }
+}
+
+function CodeChip({ code, onCopied }: { code: string; onCopied: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        void navigator.clipboard
+          ?.writeText(code)
+          .then(onCopied)
+          .catch(() => undefined);
+      }}
+      title="Salin kode akses"
+      aria-label={`Salin kode akses ${code}`}
+      className="inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2 py-1 font-mono text-[11px] font-bold text-slate-600 transition-colors hover:bg-violet-100 hover:text-violet-700"
+    >
+      {code}
+      <Copy className="h-3 w-3" aria-hidden="true" />
+    </button>
+  );
+}
+
+function StatusAccountBadge({ status }: { status: string }) {
+  return (
+    <span
+      className={`rounded-full border px-2.5 py-1 text-[10.5px] font-bold ${
+        status === "active"
+          ? "border-emerald-300 bg-emerald-50 text-emerald-700"
+          : "border-rose-300 bg-rose-50 text-rose-600"
+      }`}
+    >
+      {status === "active" ? "AKTIF" : "DITANGGUHKAN"}
+    </span>
+  );
+}
+
+function AudienceBadge({ audience }: { audience: string }) {
+  const map: Record<string, string> = {
+    semua: "border-violet-300 bg-violet-50 text-violet-700",
+    karyawan: "border-sky-300 bg-sky-50 text-sky-700",
+    client: "border-emerald-300 bg-emerald-50 text-emerald-700",
+  };
+  const label: Record<string, string> = { semua: "SEMUA", karyawan: "KARYAWAN", client: "CLIENT" };
+  return (
+    <span className={`rounded-full border px-2.5 py-1 text-[10.5px] font-bold ${map[audience] ?? map.semua}`}>
+      {label[audience] ?? audience.toUpperCase()}
+    </span>
+  );
+}
+
+/* ── Tab Tim & Client ─────────────────────────────────────────────────── */
+
+function TeamTab({
+  team,
+  reload,
+  notify,
+}: {
+  team: TeamData | null;
+  reload: () => Promise<boolean>;
+  notify: (m: string) => void;
+}) {
+  return (
+    <div className="space-y-6">
+      <EmployeeSection team={team} reload={reload} notify={notify} />
+      <ClientSection team={team} reload={reload} notify={notify} />
+    </div>
+  );
+}
+
+function AddToggleBtn({ open, onClick }: { open: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-blue-600 px-4 text-[12px] font-bold text-white shadow-[0_8px_22px_-8px_rgba(139,92,246,0.5)] transition-transform hover:scale-[1.03] active:scale-95"
+    >
+      <Plus className="h-3.5 w-3.5" aria-hidden="true" />
+      {open ? "Tutup Form" : "Tambah"}
+    </button>
+  );
+}
+
+function EmployeeSection({
+  team,
+  reload,
+  notify,
+}: {
+  team: TeamData | null;
+  reload: () => Promise<boolean>;
+  notify: (m: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", position: "", department: "", email: "", phone: "" });
+  const [busy, setBusy] = useState(false);
+
+  async function create() {
+    if (busy || !form.name.trim()) return;
+    setBusy(true);
+    const json = await teamMutation({ kind: "karyawan", action: "create", data: form });
+    setBusy(false);
+    if (json.ok) {
+      notify(`Karyawan "${form.name}" terdaftar — kode akses siap dibagikan.`);
+      setForm({ name: "", position: "", department: "", email: "", phone: "" });
+      setOpen(false);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menambahkan karyawan.");
+    }
+  }
+
+  async function patch(id: string, data: Record<string, unknown>, msg: string) {
+    const json = await teamMutation({ kind: "karyawan", action: "update", data: { id, ...data } });
+    if (json.ok) {
+      notify(msg);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal memperbarui karyawan.");
+    }
+  }
+
+  async function remove(id: string, name: string) {
+    if (!window.confirm(`Hapus karyawan "${name}"? Proyek yang ditugaskan kepadanya otomatis lepas.`)) return;
+    const json = await teamMutation({ kind: "karyawan", action: "delete", data: { id } });
+    if (json.ok) {
+      notify("Karyawan dihapus.");
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menghapus karyawan.");
+    }
+  }
+
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4">
+        <h3 className="flex items-center gap-2 text-[15px] font-black text-slate-900">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-600/10 text-violet-600">
+            <Users className="h-4 w-4" aria-hidden="true" />
+          </span>
+          Karyawan
+          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-500">
+            {team?.stats.employees ?? 0} orang · {team?.stats.activeEmployees ?? 0} aktif
+          </span>
+        </h3>
+        <AddToggleBtn open={open} onClick={() => setOpen((v) => !v)} />
+      </div>
+
+      {open && (
+        <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="border-b border-slate-100 bg-slate-50/60 p-5">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Nama lengkap *" aria-label="Nama karyawan" className={fieldCls} />
+            <input type="text" value={form.position} onChange={(e) => setForm({ ...form, position: e.target.value })} placeholder="Jabatan (cth: Konsultan Senior)" aria-label="Jabatan" className={fieldCls} />
+            <input type="text" value={form.department} onChange={(e) => setForm({ ...form, department: e.target.value })} placeholder="Divisi (cth: Perizinan)" aria-label="Divisi" className={fieldCls} />
+            <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Email (opsional)" aria-label="Email karyawan" className={fieldCls} />
+            <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Telepon (opsional)" aria-label="Telepon karyawan" className={fieldCls} />
+            <button
+              type="button"
+              onClick={() => void create()}
+              disabled={busy || !form.name.trim()}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 text-[13px] font-bold text-white transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+            >
+              <UserPlusAlt />
+              {busy ? "Menyimpan…" : "Daftarkan & Terbitkan Kode"}
+            </button>
+          </div>
+        </motion.div>
+      )}
+
+      <div className="custom-scrollbar max-h-[52svh] divide-y divide-slate-100 overflow-y-auto">
+        {team?.employees.map((e) => (
+          <div key={e.id} className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
+            <div className="min-w-0">
+              <p className="flex flex-wrap items-center gap-2 text-[13.5px] font-bold text-slate-800">
+                {e.name}
+                <span className="text-[11.5px] font-semibold text-slate-400">
+                  {e.position} · {e.department}
+                </span>
+                <StatusAccountBadge status={e.status} />
+              </p>
+              <p className="mt-0.5 truncate text-[12px] text-slate-500">
+                {[e.email, e.phone].filter(Boolean).join(" · ") || "kontak belum diisi"}
+              </p>
+              <div className="mt-1.5 flex items-center gap-2">
+                <CodeChip code={e.code} onCopied={() => notify("Kode akses disalin — bagikan ke karyawan.")} />
+                {e.lastAccessAt && (
+                  <span className="text-[11px] text-slate-400">
+                    masuk terakhir {fmtDate.format(new Date(e.lastAccessAt))}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              {e.status === "active" ? (
+                <ActionBtn onClick={() => void patch(e.id, { status: "suspended" }, `"${e.name}" ditangguhkan.`)} icon={XCircle} label="Tangguhkan" tone="rose" />
+              ) : (
+                <ActionBtn onClick={() => void patch(e.id, { status: "active" }, `"${e.name}" diaktifkan.`)} icon={ShieldCheck} label="Aktifkan" tone="emerald" />
+              )}
+              <ActionBtn onClick={() => void remove(e.id, e.name)} icon={Trash2} label="Hapus" tone="rose" />
+            </div>
+          </div>
+        ))}
+        {team && team.employees.length === 0 && (
+          <Empty text="Belum ada karyawan. Tambahkan tim pertama Anda — kode login GUNARA-EMP-… otomatis diterbitkan." />
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ClientSection({
+  team,
+  reload,
+  notify,
+}: {
+  team: TeamData | null;
+  reload: () => Promise<boolean>;
+  notify: (m: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", company: "", industry: "", email: "", phone: "" });
+  const [busy, setBusy] = useState(false);
+
+  async function create() {
+    if (busy || !form.name.trim()) return;
+    setBusy(true);
+    const json = await teamMutation({ kind: "client", action: "create", data: form });
+    setBusy(false);
+    if (json.ok) {
+      notify(`Client "${form.name}" terdaftar — kode akses siap dibagikan.`);
+      setForm({ name: "", company: "", industry: "", email: "", phone: "" });
+      setOpen(false);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menambahkan client.");
+    }
+  }
+
+  async function patch(id: string, data: Record<string, unknown>, msg: string) {
+    const json = await teamMutation({ kind: "client", action: "update", data: { id, ...data } });
+    if (json.ok) {
+      notify(msg);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal memperbarui client.");
+    }
+  }
+
+  async function remove(id: string, name: string) {
+    if (!window.confirm(`Hapus client "${name}"? Proyek miliknya akan terlepas dari akun ini.`)) return;
+    const json = await teamMutation({ kind: "client", action: "delete", data: { id } });
+    if (json.ok) {
+      notify("Client dihapus.");
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menghapus client.");
+    }
+  }
+
+  return (
+    <div className="rounded-2xl border border-slate-200 bg-white shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 px-5 py-4">
+        <h3 className="flex items-center gap-2 text-[15px] font-black text-slate-900">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-600/10 text-violet-600">
+            <Handshake className="h-4 w-4" aria-hidden="true" />
+          </span>
+          Client
+          <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-bold text-slate-500">
+            {team?.stats.clients ?? 0} akun
+          </span>
+        </h3>
+        <AddToggleBtn open={open} onClick={() => setOpen((v) => !v)} />
+      </div>
+
+      {open && (
+        <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="border-b border-slate-100 bg-slate-50/60 p-5">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Nama pic client *" aria-label="Nama client" className={fieldCls} />
+            <input type="text" value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Perusahaan" aria-label="Perusahaan client" className={fieldCls} />
+            <input type="text" value={form.industry} onChange={(e) => setForm({ ...form, industry: e.target.value })} placeholder="Industri (cth: Manufaktur)" aria-label="Industri client" className={fieldCls} />
+            <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="Email (opsional)" aria-label="Email client" className={fieldCls} />
+            <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Telepon (opsional)" aria-label="Telepon client" className={fieldCls} />
+            <button
+              type="button"
+              onClick={() => void create()}
+              disabled={busy || !form.name.trim()}
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 text-[13px] font-bold text-white transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+            >
+              <UserPlusAlt />
+              {busy ? "Menyimpan…" : "Daftarkan & Terbitkan Kode"}
+            </button>
+          </div>
+        </motion.div>
+      )}
+
+      <div className="custom-scrollbar max-h-[52svh] divide-y divide-slate-100 overflow-y-auto">
+        {team?.clients.map((c) => (
+          <div key={c.id} className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
+            <div className="min-w-0">
+              <p className="flex flex-wrap items-center gap-2 text-[13.5px] font-bold text-slate-800">
+                {c.name}
+                {c.company && <span className="text-[11.5px] font-semibold text-slate-400">{c.company}</span>}
+                <StatusAccountBadge status={c.status} />
+              </p>
+              <p className="mt-0.5 truncate text-[12px] text-slate-500">
+                {[c.industry, c.email, c.phone].filter(Boolean).join(" · ") || "detail belum diisi"}
+              </p>
+              <div className="mt-1.5 flex items-center gap-2">
+                <CodeChip code={c.code} onCopied={() => notify("Kode akses disalin — bagikan ke client.")} />
+                {c.lastAccessAt && (
+                  <span className="text-[11px] text-slate-400">
+                    masuk terakhir {fmtDate.format(new Date(c.lastAccessAt))}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              {c.status === "active" ? (
+                <ActionBtn onClick={() => void patch(c.id, { status: "suspended" }, `"${c.name}" ditangguhkan.`)} icon={XCircle} label="Tangguhkan" tone="rose" />
+              ) : (
+                <ActionBtn onClick={() => void patch(c.id, { status: "active" }, `"${c.name}" diaktifkan.`)} icon={ShieldCheck} label="Aktifkan" tone="emerald" />
+              )}
+              <ActionBtn onClick={() => void remove(c.id, c.name)} icon={Trash2} label="Hapus" tone="rose" />
+            </div>
+          </div>
+        ))}
+        {team && team.clients.length === 0 && (
+          <Empty text="Belum ada client terdaftar. Kode login GUNARA-CLI-… diterbitkan otomatis saat pendaftaran." />
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Ikon kecil tambah-akun (tanpa import baru). */
+function UserPlusAlt() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <line x1="19" x2="19" y1="8" y2="14" />
+      <line x1="22" x2="16" y1="11" y2="11" />
+    </svg>
+  );
+}
+
+/* ── Tab Proyek ───────────────────────────────────────────────────────── */
+
+function ProjectsTab({
+  team,
+  reload,
+  notify,
+}: {
+  team: TeamData | null;
+  reload: () => Promise<boolean>;
+  notify: (m: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [form, setForm] = useState({
+    title: "",
+    description: "",
+    clientId: "",
+    employeeId: "",
+    priority: "normal",
+    dueDate: "",
+  });
+
+  async function create() {
+    if (busy || !form.title.trim() || !form.description.trim()) return;
+    setBusy(true);
+    const json = await teamMutation({ kind: "proyek", action: "create", data: form });
+    setBusy(false);
+    if (json.ok) {
+      notify(`Proyek dibuat${json.refCode ? ` (${json.refCode})` : ""} — tampil di portal client & karyawan.`);
+      setForm({ title: "", description: "", clientId: "", employeeId: "", priority: "normal", dueDate: "" });
+      setOpen(false);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal membuat proyek.");
+    }
+  }
+
+  async function patch(id: string, data: Record<string, unknown>, msg: string) {
+    const json = await teamMutation({ kind: "proyek", action: "update", data: { id, ...data } });
+    if (json.ok) {
+      notify(msg);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal memperbarui proyek.");
+    }
+  }
+
+  async function remove(id: string, title: string) {
+    if (!window.confirm(`Hapus proyek "${title}" beserta seluruh riwayatnya?`)) return;
+    const json = await teamMutation({ kind: "proyek", action: "delete", data: { id } });
+    if (json.ok) {
+      notify("Proyek dihapus.");
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menghapus proyek.");
+    }
+  }
+
+  return (
+    <div className="space-y-5">
+      {/* Ringkas + tombol buat */}
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+        <p className="text-[13px] font-bold text-slate-700">
+          {team?.stats.projects ?? 0} proyek ·{" "}
+          <span className="text-violet-600">{team?.stats.proyekBaru ?? 0} baru</span> ·{" "}
+          <span className="text-slate-500">{team?.stats.proyekBerjalan ?? 0} berjalan</span> ·{" "}
+          <span className="text-emerald-600">{team?.stats.proyekSelesai ?? 0} selesai</span>
+        </p>
+        <AddToggleBtn open={open} onClick={() => setOpen((v) => !v)} />
+      </div>
+
+      {open && (
+        <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+          <h3 className="text-[15px] font-black text-slate-900">Proyek Baru</h3>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <input type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="Judul proyek *" aria-label="Judul proyek" className={fieldCls} />
+            <select value={form.priority} onChange={(e) => setForm({ ...form, priority: e.target.value })} aria-label="Prioritas proyek" className={fieldCls}>
+              {Object.entries(PRIORITAS_PROYEK).map(([k, v]) => (
+                <option key={k} value={k}>
+                  Prioritas: {v.label}
+                </option>
+              ))}
+            </select>
+            <select value={form.clientId} onChange={(e) => setForm({ ...form, clientId: e.target.value })} aria-label="Client pemesan" className={fieldCls}>
+              <option value="">Tanpa akun client</option>
+              {team?.clients.map((c) => (
+                <option key={c.id} value={c.id}>
+                  Client: {c.company ? `${c.name} · ${c.company}` : c.name}
+                </option>
+              ))}
+            </select>
+            <select value={form.employeeId} onChange={(e) => setForm({ ...form, employeeId: e.target.value })} aria-label="Penanggung jawab" className={fieldCls}>
+              <option value="">Belum ditugaskan</option>
+              {team?.employees
+                .filter((e) => e.status === "active")
+                .map((e) => (
+                  <option key={e.id} value={e.id}>
+                    PJ: {e.name} ({e.position})
+                  </option>
+                ))}
+            </select>
+            <input
+              type="date"
+              value={form.dueDate}
+              onChange={(e) => setForm({ ...form, dueDate: e.target.value })}
+              aria-label="Tenggat waktu"
+              className={fieldCls}
+            />
+            <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Uraian pekerjaan, ruang lingkup, catatan untuk tim & client… *" aria-label="Uraian proyek" rows={3} className={fieldClsArea} />
+          </div>
+          <button
+            type="button"
+            onClick={() => void create()}
+            disabled={busy || !form.title.trim() || !form.description.trim()}
+            className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-[13px] font-bold text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+          >
+            <FolderKanban className="h-4 w-4" aria-hidden="true" />
+            {busy ? "Menyimpan…" : "Buat Proyek"}
+          </button>
+        </motion.div>
+      )}
+
+      {/* Daftar proyek */}
+      {team?.projects.map((p) => (
+        <article key={p.id} className="rounded-2xl border border-slate-200 bg-white shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+          <div className="border-b border-slate-100 px-5 py-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <code className="rounded-md bg-slate-100 px-2 py-0.5 font-mono text-[11px] font-bold text-slate-600">{p.refCode}</code>
+              <StatusBadge status={p.status} />
+              <PriorityBadge priority={p.priority} />
+              {p.employeeId === null && <span className="rounded-full border border-amber-300 bg-amber-50 px-2.5 py-1 text-[10.5px] font-bold text-amber-700">BELUM ADA PJ</span>}
+            </div>
+            <h3 className="mt-2 text-[15px] font-black tracking-tight text-slate-900">{p.title}</h3>
+            <p className="text-[12px] text-slate-500">
+              {p.clientName} · dibuat {fmtDate.format(new Date(p.createdAt))}
+              {p.dueDate ? ` · tenggat ${fmtDate.format(new Date(p.dueDate))}` : ""}
+            </p>
+          </div>
+          <div className="space-y-3 p-5">
+            <p className="line-clamp-2 text-[13px] leading-relaxed text-slate-600">{p.description}</p>
+            <ProgressBar value={p.status === "selesai" ? 100 : p.progress} />
+            <div className="grid gap-3 sm:grid-cols-3">
+              <label className="block">
+                <span className="mb-1 block text-[11px] font-black uppercase tracking-wide text-slate-400">Status</span>
+                <select
+                  value={p.status}
+                  onChange={(e) => void patch(p.id, { status: e.target.value }, `Status ${p.refCode} diperbarui.`)}
+                  aria-label={`Status proyek ${p.refCode}`}
+                  className={fieldCls}
+                >
+                  {Object.entries(STATUS_PROYEK).map(([k, v]) => (
+                    <option key={k} value={k}>
+                      {v.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="block">
+                <span className="mb-1 block text-[11px] font-black uppercase tracking-wide text-slate-400">Penanggung Jawab</span>
+                <select
+                  value={p.employeeId ?? ""}
+                  onChange={(e) => void patch(p.id, { employeeId: e.target.value }, `PJ ${p.refCode} diperbarui.`)}
+                  aria-label={`Penanggung jawab ${p.refCode}`}
+                  className={fieldCls}
+                >
+                  <option value="">Belum ditugaskan</option>
+                  {team?.employees.filter((e) => e.status === "active").map((e) => (
+                    <option key={e.id} value={e.id}>
+                      {e.name} ({e.department})
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label className="block">
+                <span className="mb-1 block text-[11px] font-black uppercase tracking-wide text-slate-400">Prioritas</span>
+                <select
+                  value={p.priority}
+                  onChange={(e) => void patch(p.id, { priority: e.target.value }, `Prioritas ${p.refCode} diperbarui.`)}
+                  aria-label={`Prioritas ${p.refCode}`}
+                  className={fieldCls}
+                >
+                  {Object.entries(PRIORITAS_PROYEK).map(([k, v]) => (
+                    <option key={k} value={k}>
+                      {v.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <div className="flex justify-end">
+              <ActionBtn onClick={() => void remove(p.id, p.title)} icon={Trash2} label="Hapus Proyek" tone="rose" />
+            </div>
+          </div>
+        </article>
+      ))}
+      {team && team.projects.length === 0 && (
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+          <Empty text="Belum ada proyek. Buat proyek pertama, tugaskan ke karyawan, lalu pantau lewat portal masing-masing." />
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── Tab Pengumuman ───────────────────────────────────────────────────── */
+
+function AnnouncementsTab({
+  team,
+  reload,
+  notify,
+}: {
+  team: TeamData | null;
+  reload: () => Promise<boolean>;
+  notify: (m: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [form, setForm] = useState({ title: "", body: "", audience: "semua" });
+
+  async function create() {
+    if (busy || !form.title.trim() || !form.body.trim()) return;
+    setBusy(true);
+    const json = await teamMutation({ kind: "pengumuman", action: "create", data: form });
+    setBusy(false);
+    if (json.ok) {
+      notify("Pengumuman terbit — muncul di portal terkait.");
+      setForm({ title: "", body: "", audience: "semua" });
+      setOpen(false);
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menerbitkan pengumuman.");
+    }
+  }
+
+  async function remove(id: string, title: string) {
+    if (!window.confirm(`Hapus pengumuman "${title}"?`)) return;
+    const json = await teamMutation({ kind: "pengumuman", action: "delete", data: { id } });
+    if (json.ok) {
+      notify("Pengumuman dihapus.");
+      await reload();
+    } else {
+      notify(json.error ?? "Gagal menghapus pengumuman.");
+    }
+  }
+
+  return (
+    <div className="space-y-5">
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+        <p className="text-[13px] font-bold text-slate-700">
+          {team?.stats.announcements ?? 0} pengumuman aktif
+        </p>
+        <AddToggleBtn open={open} onClick={() => setOpen((v) => !v)} />
+      </div>
+
+      {open && (
+        <motion.div initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+          <div className="grid gap-3">
+            <input type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="Judul pengumuman *" aria-label="Judul pengumuman" className={fieldCls} />
+            <textarea value={form.body} onChange={(e) => setForm({ ...form, body: e.target.value })} placeholder="Isi pengumuman… *" aria-label="Isi pengumuman" rows={4} className={fieldClsArea} />
+            <div className="flex flex-wrap items-center gap-3">
+              <select value={form.audience} onChange={(e) => setForm({ ...form, audience: e.target.value })} aria-label="Audiens pengumuman" className={`${fieldCls} max-w-xs`}>
+                <option value="semua">Audiens: Semua (karyawan + client)</option>
+                <option value="karyawan">Audiens: Karyawan saja</option>
+                <option value="client">Audiens: Client saja</option>
+              </select>
+              <button
+                type="button"
+                onClick={() => void create()}
+                disabled={busy || !form.title.trim() || !form.body.trim()}
+                className="inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-[13px] font-bold text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+              >
+                <Megaphone className="h-4 w-4" aria-hidden="true" />
+                {busy ? "Menerbitkan…" : "Terbitkan"}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {team?.announcements.map((a) => (
+        <div key={a.id} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <AudienceBadge audience={a.audience} />
+                <span className="text-[11.5px] text-slate-400">{fmtDate.format(new Date(a.createdAt))}</span>
+              </div>
+              <h3 className="mt-1.5 text-[14.5px] font-black text-slate-900">{a.title}</h3>
+              <p className="mt-1 whitespace-pre-line text-[13px] leading-relaxed text-slate-600">{a.body}</p>
+            </div>
+            <ActionBtn onClick={() => void remove(a.id, a.title)} icon={Trash2} label="Hapus" tone="rose" />
+          </div>
+        </div>
+      ))}
+      {team && team.announcements.length === 0 && (
+        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_2px_16px_-8px_rgba(15,23,42,0.12)]">
+          <Empty text="Belum ada pengumuman. Terbitkan informasi penting untuk karyawan dan client Anda." />
+        </div>
+      )}
+    </div>
   );
 }
