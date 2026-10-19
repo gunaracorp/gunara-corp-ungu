@@ -33,11 +33,19 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { usePageTitle } from "@/lib/router";
+<<<<<<< HEAD
+=======
+import { tr, useLang } from "@/lib/i18n";
+>>>>>>> 0d391b0 (updatesterbaru)
 import {
   ActionBtn,
   CheckingScreen,
   Field,
   Flash,
+<<<<<<< HEAD
+=======
+  LangToggle,
+>>>>>>> 0d391b0 (updatesterbaru)
   PortalCard,
   PortalTabs,
   PriorityBadge,
@@ -105,6 +113,10 @@ export default function ClientPage() {
   const [data, setData] = useState<PortalData | null>(null);
   const [tab, setTab] = useState<Tab>("proyek");
   const [flash, setFlash] = useState<string | null>(null);
+<<<<<<< HEAD
+=======
+  const [lang, setLang] = useLang();
+>>>>>>> 0d391b0 (updatesterbaru)
 
   const load = useCallback(async (): Promise<boolean> => {
     try {
@@ -153,7 +165,11 @@ export default function ClientPage() {
             </span>
             <div>
               <h1 className="font-display text-2xl font-black tracking-tight text-slate-900">
+<<<<<<< HEAD
                 Portal Client
+=======
+                {tr(lang, "portal.client.title")}
+>>>>>>> 0d391b0 (updatesterbaru)
               </h1>
               <p className="flex flex-wrap items-center gap-2 text-[12.5px] text-slate-500">
                 {data?.profile.name}
@@ -163,13 +179,21 @@ export default function ClientPage() {
             </div>
           </div>
           <div className="flex items-center gap-2">
+<<<<<<< HEAD
+=======
+            <LangToggle lang={lang} onChange={setLang} />
+>>>>>>> 0d391b0 (updatesterbaru)
             <button
               type="button"
               onClick={() => void load()}
               className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-[13px] font-semibold text-slate-600 transition-colors hover:border-violet-400 hover:text-violet-600"
             >
               <RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />
+<<<<<<< HEAD
               Muat ulang
+=======
+              {tr(lang, "ui.reload")}
+>>>>>>> 0d391b0 (updatesterbaru)
             </button>
             <button
               type="button"
@@ -181,7 +205,11 @@ export default function ClientPage() {
               className="inline-flex h-10 items-center gap-2 rounded-full bg-slate-900 px-4 text-[13px] font-bold text-white transition-transform hover:scale-[1.03] active:scale-95"
             >
               <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
+<<<<<<< HEAD
               Keluar
+=======
+              {tr(lang, "ui.logout")}
+>>>>>>> 0d391b0 (updatesterbaru)
             </button>
           </div>
         </div>
@@ -203,6 +231,7 @@ export default function ClientPage() {
           <PortalTabs<Tab>
             ariaLabel="Bagian portal client"
             tabs={[
+<<<<<<< HEAD
               { id: "proyek", label: "Proyek Saya", icon: ClipboardList },
               { id: "baru", label: "Permintaan Baru", icon: FilePlus2 },
               { id: "tagihan", label: "Tagihan", icon: ReceiptText },
@@ -211,6 +240,16 @@ export default function ClientPage() {
               { id: "laporan", label: "Laporan & WA", icon: FileText },
               { id: "pengumuman", label: "Pengumuman", icon: Bell },
               { id: "profil", label: "Profil & Tier", icon: UserRound },
+=======
+              { id: "proyek", label: tr(lang, "tab.proyekSaya"), icon: ClipboardList },
+              { id: "baru", label: tr(lang, "tab.baru"), icon: FilePlus2 },
+              { id: "tagihan", label: tr(lang, "tab.tagihan"), icon: ReceiptText },
+              { id: "dukungan", label: tr(lang, "tab.dukungan"), icon: LifeBuoy },
+              { id: "dokumen", label: tr(lang, "tab.dokumen"), icon: FolderOpen },
+              { id: "laporan", label: tr(lang, "tab.laporan"), icon: FileText },
+              { id: "pengumuman", label: tr(lang, "tab.announcements"), icon: Bell },
+              { id: "profil", label: tr(lang, "tab.profil"), icon: UserRound },
+>>>>>>> 0d391b0 (updatesterbaru)
             ]}
             active={tab}
             onChange={setTab}
@@ -576,6 +615,10 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tick, setTick] = useState(0);
+<<<<<<< HEAD
+=======
+  const [lang, setLang] = useLang();
+>>>>>>> 0d391b0 (updatesterbaru)
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -615,6 +658,12 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
         className="relative w-full max-w-md rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl"
       >
         <div className="flex flex-col items-center text-center">
+<<<<<<< HEAD
+=======
+          <div className="absolute right-6 top-6">
+            <LangToggle lang={lang} onChange={setLang} dark />
+          </div>
+>>>>>>> 0d391b0 (updatesterbaru)
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">
             <Briefcase className="h-6 w-6" aria-hidden="true" />
           </span>
@@ -622,7 +671,11 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
             <KeyRound className="h-3 w-3" aria-hidden="true" />
             Klien Terhormat
           </span>
+<<<<<<< HEAD
           <h1 className="mt-3 font-display text-2xl font-black tracking-tight">Portal Client</h1>
+=======
+          <h1 className="mt-3 font-display text-2xl font-black tracking-tight">{tr(lang, "portal.client.title")}</h1>
+>>>>>>> 0d391b0 (updatesterbaru)
           <p className="mt-2 text-[13px] leading-relaxed text-zinc-400">
             Masuk dengan kode akses personal dari tim GUNARA Anda, berformat{" "}
             <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[11.5px]">GUNARA-CLI-XXXX-XXXX</code>.

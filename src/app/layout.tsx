@@ -7,6 +7,10 @@ import { JsonLd } from "@/components/seo/json-ld";
 import {
   localBusinessLd,
   organizationLd,
+<<<<<<< HEAD
+=======
+  personLd,
+>>>>>>> 0d391b0 (updatesterbaru)
   websiteLd,
 } from "@/lib/seo-ld";
 import {
@@ -16,6 +20,10 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "@/lib/seo";
+<<<<<<< HEAD
+=======
+import { OWNER } from "@/data/brand";
+>>>>>>> 0d391b0 (updatesterbaru)
 
 const inter = Inter({
   variable: "--font-sans",
@@ -43,9 +51,19 @@ export const metadata: Metadata = {
   description: BASE_DESCRIPTION,
   applicationName: SITE_LEGAL,
   category: "Business Consulting",
+<<<<<<< HEAD
   creator: SITE_LEGAL,
   publisher: SITE_LEGAL,
   authors: [{ name: SITE_LEGAL, url: SITE_URL }],
+=======
+  creator: `${OWNER.name} (${OWNER.fullName} — ${OWNER.alias})`,
+  publisher: `${SITE_LEGAL} · ${OWNER.entities[0].name} · ${OWNER.entities[1].name}`,
+  authors: [
+    { name: OWNER.name, url: `${SITE_URL}/kredit` },
+    { name: OWNER.fullName, url: `${SITE_URL}/kredit` },
+    { name: SITE_LEGAL, url: SITE_URL },
+  ],
+>>>>>>> 0d391b0 (updatesterbaru)
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
   keywords: [
@@ -76,6 +94,18 @@ export const metadata: Metadata = {
     "konsultan perizinan terpercaya",
     "perusahaan 1524 izin",
     "senior konsultan Gugun Gunara",
+<<<<<<< HEAD
+=======
+    "Gugun Gunara",
+    "Muhammad Lutfi Azmi",
+    "prabudanling",
+    "santri angon",
+    "PT Top Konsultan Internasional",
+    "topkonsultan.web.id",
+    "PT Digital Bisnis Manajemen",
+    "digiman.id",
+    "master polymath",
+>>>>>>> 0d391b0 (updatesterbaru)
     "management consulting Indonesia",
     "market entry Indonesia",
     "company registration Indonesia",
@@ -140,6 +170,11 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "ID-JB",
     "geo.placename": "Tasikmalaya, Jakarta",
+<<<<<<< HEAD
+=======
+    "profile:username": OWNER.alias,
+    "og:profile:username": OWNER.alias,
+>>>>>>> 0d391b0 (updatesterbaru)
   },
 };
 
@@ -160,8 +195,19 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-background text-foreground`}
       >
+<<<<<<< HEAD
         <JsonLd
           data={[organizationLd(), websiteLd(), ...localBusinessLd()]}
+=======
+        {/* Verifikasi identitas lintas-kanal — React 19 memindahkan <link> ini ke <head> */}
+        {OWNER.socials.map((s) => (
+          <link key={s.url} rel="me" href={s.url} />
+        ))}
+        <link rel="me" href={OWNER.entities[0].url} />
+        <link rel="me" href={OWNER.entities[1].url} />
+        <JsonLd
+          data={[organizationLd(), personLd(), websiteLd(), ...localBusinessLd()]}
+>>>>>>> 0d391b0 (updatesterbaru)
         />
         {children}
         <Analytics />

@@ -17,12 +17,20 @@ import {
   Check,
   Copy,
   Crown,
+<<<<<<< HEAD
+=======
+  DatabaseBackup,
+>>>>>>> 0d391b0 (updatesterbaru)
   Download,
   FileText,
   FileUp,
   Loader2,
   MessageCircle,
   Plus,
+<<<<<<< HEAD
+=======
+  RefreshCw,
+>>>>>>> 0d391b0 (updatesterbaru)
   Send,
   Sparkles,
   Trash2,
@@ -127,12 +135,20 @@ export function AdminEkosistemTab({
   reload,
   notify,
 }: EkosistemProps) {
+<<<<<<< HEAD
   const [sub, setSub] = useState<"wa" | "tier" | "dokumen" | "laporan">("wa");
+=======
+  const [sub, setSub] = useState<"wa" | "tier" | "dokumen" | "laporan" | "backup">("wa");
+>>>>>>> 0d391b0 (updatesterbaru)
   const subs: { id: typeof sub; label: string; icon: typeof MessageCircle }[] = [
     { id: "wa", label: "WA Center", icon: MessageCircle },
     { id: "tier", label: "Kode Tier & GOD MODE", icon: Zap },
     { id: "dokumen", label: "Dokumen", icon: FileUp },
     { id: "laporan", label: "Laporan PDF", icon: FileText },
+<<<<<<< HEAD
+=======
+    { id: "backup", label: "Backup", icon: DatabaseBackup },
+>>>>>>> 0d391b0 (updatesterbaru)
   ];
 
   return (
@@ -169,6 +185,10 @@ export function AdminEkosistemTab({
       {sub === "tier" && <TierCenter tierCodes={tierCodes} employees={employees} reload={reload} notify={notify} />}
       {sub === "dokumen" && <DocCenter documents={documents} reload={reload} notify={notify} />}
       {sub === "laporan" && <LaporanCenter notify={notify} />}
+<<<<<<< HEAD
+=======
+      {sub === "backup" && <BackupCenter notify={notify} />}
+>>>>>>> 0d391b0 (updatesterbaru)
     </div>
   );
 }
@@ -743,3 +763,198 @@ function LaporanCenter({ notify }: { notify: (m: string) => void }) {
     </PortalCard>
   );
 }
+<<<<<<< HEAD
+=======
+
+/* ── Backup otomatis ────────────────────────────────────────────────────── */
+
+interface BackupInfoUi {
+  id: string;
+  size: number;
+  createdAt: string;
+}
+interface BackupStatusUi {
+  enabled: boolean;
+  intervalHours: number;
+  keep: number;
+  dir: string;
+  count: number;
+  lastRunAt: string | null;
+  nextRunAt: string | null;
+  lastError: string | null;
+}
+
+function ukuranBackup(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+}
+
+export function BackupCenter({ notify }: { notify: (m: string) => void }) {
+  const [status, setStatus] = useState<BackupStatusUi | null>(null);
+  const [list, setList] = useState<BackupInfoUi[]>([]);
+  const [busy, setBusy] = useState(false);
+
+  const load = useCallback(async () => {
+    try {
+      const res = await fetch("/api/admin/backup", { cache: "no-store" });
+      const json = (await res.json()) as { ok: boolean; status?: BackupStatusUi; backups?: BackupInfoUi[] };
+      if (json.ok && json.status) {
+        setStatus(json.status);
+        setList(json.backups ?? []);
+      }
+    } catch {
+      /* senyap */
+    }
+  }, []);
+
+  useEffect(() => {
+    void load();
+  }, [load]);
+
+  async function buat() {
+    setBusy(true);
+    try {
+      const res = await fetch("/api/admin/backup", { method: "POST" });
+      const json = (await res.json()) as { ok: boolean; error?: string; backup?: BackupInfoUi };
+      if (json.ok && json.backup) {
+        notify(`Backup dibuat: ${json.backup.id}`);
+        await load();
+      } else notify(json.error ?? "Backup gagal.");
+    } catch {
+      notify("Sinyal terputus. Coba sekali lagi.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function hapus(id: string) {
+    if (!window.confirm(`Hapus arsip ${id}?`)) return;
+    try {
+      const res = await fetch(`/api/admin/backup?id=${encodeURIComponent(id)}`, { method: "DELETE" });
+      const json = (await res.json()) as { ok: boolean; error?: string };
+      if (json.ok) {
+        notify("Arsip dihapus.");
+        await load();
+      } else notify(json.error ?? "Hapus gagal.");
+    } catch {
+      notify("Sinyal terputus. Coba sekali lagi.");
+    }
+  }
+
+  async function unduh(id: string) {
+    try {
+      const res = await fetch(`/api/admin/backup?id=${encodeURIComponent(id)}`);
+      if (!res.ok) throw new Error();
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = id;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      notify("Arsip backup diunduh.");
+    } catch {
+      notify("Unduhan gagal. Coba sekali lagi.");
+    }
+  }
+
+  return (
+    <PortalCard title="Backup Otomatis" icon={DatabaseBackup}>
+      <div className="grid gap-4 lg:grid-cols-[1fr_1.2fr]">
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-[15px] font-black text-slate-900">Status Scheduler</p>
+          <dl className="mt-3 space-y-2 text-[12.5px]">
+            <div className="flex items-center justify-between gap-3">
+              <dt className="text-slate-500">Kondisi</dt>
+              <dd className={`rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${status?.enabled ? "border-emerald-300 bg-emerald-50 text-emerald-700" : "border-slate-300 bg-white text-slate-500"}`}>
+                {status ? (status.enabled ? `AKTIF · tiap ${status.intervalHours} jam` : "MATI") : "—"}
+              </dd>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <dt className="text-slate-500">Retensi</dt>
+              <dd className="font-bold text-slate-800">{status ? `${status.keep} arsip` : "—"}</dd>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <dt className="text-slate-500">Terakhir</dt>
+              <dd className="font-bold text-slate-800">{status?.lastRunAt ? fmtDateTime.format(new Date(status.lastRunAt)) : "belum ada"}</dd>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <dt className="text-slate-500">Berikutnya</dt>
+              <dd className="font-bold text-slate-800">{status?.nextRunAt ? fmtDateTime.format(new Date(status.nextRunAt)) : "—"}</dd>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <dt className="text-slate-500">Isi arsip</dt>
+              <dd className="font-bold text-slate-800">database + uploads</dd>
+            </div>
+          </dl>
+          {status?.lastError && (
+            <p className="mt-3 rounded-lg border border-rose-200 bg-rose-50 p-2.5 text-[12px] font-semibold text-rose-700">
+              Error terakhir: {status.lastError}
+            </p>
+          )}
+          <button
+            type="button"
+            onClick={() => void buat()}
+            disabled={busy}
+            className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+          >
+            {busy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <DatabaseBackup className="h-4 w-4" aria-hidden="true" />}
+            {busy ? "Menyusun arsip…" : "Buat Backup Sekarang"}
+          </button>
+          <p className="mt-3 text-[11.5px] leading-relaxed text-slate-500">
+            Jadwal & retensi diatur lewat environment <code className="rounded bg-white px-1 py-0.5 font-mono text-[11px]">BACKUP_INTERVAL_HOURS</code> dan{" "}
+            <code className="rounded bg-white px-1 py-0.5 font-mono text-[11px]">BACKUP_KEEP</code>.
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-5">
+          <div className="flex items-center justify-between">
+            <p className="text-[13px] font-black text-slate-900">Arsip ({list.length})</p>
+            <button
+              type="button"
+              onClick={() => void load()}
+              className="inline-flex h-8 items-center gap-1.5 rounded-full border border-slate-300 px-3 text-[11.5px] font-semibold text-slate-600 transition-colors hover:border-violet-400 hover:text-violet-600"
+            >
+              <RefreshCw className="h-3 w-3" aria-hidden="true" /> Segarkan
+            </button>
+          </div>
+          <div className="mt-3 max-h-72 space-y-2 overflow-y-auto pr-1">
+            {list.length === 0 && (
+              <p className="py-8 text-center text-[12.5px] text-slate-500">Belum ada arsip backup.</p>
+            )}
+            {list.map((b) => (
+              <div key={b.id} className="flex flex-wrap items-center justify-between gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5">
+                <div className="min-w-0">
+                  <p className="truncate font-mono text-[12px] font-bold text-slate-800">{b.id}</p>
+                  <p className="text-[11px] text-slate-500">
+                    {ukuranBackup(b.size)} · {fmtDateTime.format(new Date(b.createdAt))}
+                  </p>
+                </div>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => void unduh(b.id)}
+                    className="inline-flex h-8 items-center gap-1 rounded-full border border-slate-300 bg-white px-3 text-[11.5px] font-semibold text-slate-700 transition-colors hover:border-violet-400 hover:text-violet-600"
+                  >
+                    <Download className="h-3 w-3" aria-hidden="true" /> Unduh
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => void hapus(b.id)}
+                    className="inline-flex h-8 items-center gap-1 rounded-full border border-rose-200 bg-white px-3 text-[11.5px] font-semibold text-rose-600 transition-colors hover:bg-rose-50"
+                  >
+                    <Trash2 className="h-3 w-3" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </PortalCard>
+  );
+}
+>>>>>>> 0d391b0 (updatesterbaru)

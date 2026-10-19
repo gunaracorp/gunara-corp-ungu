@@ -7,8 +7,55 @@
  */
 
 import { motion } from "framer-motion";
+<<<<<<< HEAD
 import { RefreshCw, type LucideIcon } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
+=======
+import { ChevronsUpDown, Globe, RefreshCw, type LucideIcon } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import { type Lang } from "@/lib/i18n";
+import { langMeta } from "@/lib/i18n/languages";
+import { LanguagePicker } from "@/components/site/language-picker";
+
+/**
+ * Saklar bahasa — membuka LanguagePicker 195 bahasa.
+ * API prop tetap sama (lang, onChange, dark) agar seluruh pemakaian lama bekerja.
+ */
+export function LangToggle({ lang, onChange, dark = false }: { lang: Lang; onChange: (l: Lang) => void; dark?: boolean }) {
+  const [open, setOpen] = useState(false);
+  const meta = langMeta(lang) ?? langMeta("id")!;
+  void onChange; // dipertahankan demi kompatibilitas API lama; pembaruan lewat store global useLang().
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-label="Language / Bahasa"
+        className={`inline-flex h-9 items-center gap-1.5 rounded-full border px-3 text-[12px] font-bold transition-all ${
+          dark
+            ? "border-white/15 bg-white/5 text-zinc-300 hover:border-violet-400/60 hover:text-white"
+            : "border-slate-200 bg-white text-slate-600 hover:border-violet-400 hover:text-violet-700"
+        }`}
+      >
+        <Globe className="h-3.5 w-3.5 text-violet-500" aria-hidden="true" />
+        <span aria-hidden="true">{meta.flag}</span>
+        <span className="hidden max-w-[140px] truncate sm:inline">{meta.native}</span>
+        <span className={`rounded px-1 text-[10px] font-black uppercase ${dark ? "bg-white/10" : "bg-violet-600/10 text-violet-700"}`}>
+          {meta.code}
+        </span>
+        <ChevronsUpDown className="h-3 w-3 opacity-60" aria-hidden="true" />
+      </button>
+      <LanguagePicker
+        open={open}
+        onClose={() => setOpen(false)}
+        dark={dark}
+      />
+    </>
+  );
+}
+>>>>>>> 0d391b0 (updatesterbaru)
 
 export const fmtDateTime = new Intl.DateTimeFormat("id-ID", {
   day: "numeric",

@@ -1,8 +1,15 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+<<<<<<< HEAD
 import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
+=======
+import { Download, Menu, Sparkles, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useLang } from "@/lib/i18n";
+import { LangToggle } from "@/components/site/portal-ui";
+>>>>>>> 0d391b0 (updatesterbaru)
 import { Link, useRoute } from "@/lib/router";
 import { LogoMark, Wordmark } from "./logo";
 import { EASE } from "./motion";
@@ -29,6 +36,10 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const route = useRoute();
   const activeSeg = route.segments[0] ?? "";
+<<<<<<< HEAD
+=======
+  const [lang] = useLang();
+>>>>>>> 0d391b0 (updatesterbaru)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 28);
@@ -83,7 +94,20 @@ export default function Navbar() {
           ))}
         </ul>
 
+<<<<<<< HEAD
         <div className="flex items-center gap-3">
+=======
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LangToggle lang={lang} onChange={() => {}} />
+          <Link
+            to="/unduh"
+            aria-label="Pusat Unduhan — source code & panduan"
+            title="Pusat Unduhan — source code & panduan"
+            className="hidden h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-violet-500/50 hover:text-violet-600 sm:inline-flex"
+          >
+            <Download className="h-4 w-4" aria-hidden="true" />
+          </Link>
+>>>>>>> 0d391b0 (updatesterbaru)
           <Link
             to="/contact"
             className="shine hidden items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_8px_30px_-8px_rgba(139,92,246,0.42)] transition-transform duration-300 hover:scale-[1.04] active:scale-95 sm:inline-flex"
@@ -134,6 +158,22 @@ export default function Navbar() {
                   </Link>
                 </motion.li>
               ))}
+<<<<<<< HEAD
+=======
+              <li className="flex justify-center pt-1">
+                <LangToggle lang={lang} onChange={() => {}} />
+              </li>
+              <li className="pt-1">
+                <Link
+                  to="/unduh"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center justify-center gap-2 rounded-xl border border-violet-200 bg-white px-4 py-3 text-sm font-bold text-violet-700 transition-colors hover:bg-violet-50"
+                >
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                  Unduh Source Code
+                </Link>
+              </li>
+>>>>>>> 0d391b0 (updatesterbaru)
               <li className="pt-1">
                 <Link
                   to="/contact"

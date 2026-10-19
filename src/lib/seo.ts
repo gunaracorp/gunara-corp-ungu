@@ -171,6 +171,19 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
     description:
       "Kebijakan Cookie GUNARA: jenis cookie yang dipakai situs, tujuan pemakaiannya, dan cara Anda mengendalikannya sepenuhnya.",
   },
+<<<<<<< HEAD
+=======
+  "/unduh": {
+    title: `Pusat Unduhan — ${SITE_NAME}`,
+    description:
+      "Pusat Unduhan GUNARA: source code lengkap siap jalan, panduan super lengkap PDF, suplemen tutorial, dan panduan HTML interaktif.",
+  },
+  "/kredit": {
+    title: `Kredit & Kepemilikan — Gugun Gunara`,
+    description:
+      "Sistem GUNARA oleh Gugun Gunara (Muhammad Lutfi Azmi — prabudanling, Santri Angon): master polymath, sage universal, the ultimate problem solver. Support system PT Top Konsultan Internasional (topkonsultan.web.id) & PT Digital Bisnis Manajemen (digiman.id) — plus enam kanal sosial resmi.",
+  },
+>>>>>>> 0d391b0 (updatesterbaru)
 };
 
 /** Judul SPA untuk tiap rute — diambil dari ROUTE_META agar selalu paritas SSR. */
@@ -200,6 +213,11 @@ export const TOP_PUBLIC_SEGMENTS = [
   "privacy",
   "terms",
   "cookies",
+<<<<<<< HEAD
+=======
+  "unduh",
+  "kredit",
+>>>>>>> 0d391b0 (updatesterbaru)
 ] as const;
 
 /** Semua kombinasi rute publik — untuk generateStaticParams & sitemap. */

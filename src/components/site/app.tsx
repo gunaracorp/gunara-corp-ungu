@@ -70,6 +70,11 @@ const AdminPage = dyn(() => import("@/components/site/pages/admin"));
 const MemberPage = dyn(() => import("@/components/site/pages/member"));
 const KaryawanPage = dyn(() => import("@/components/site/pages/karyawan"));
 const ClientPage = dyn(() => import("@/components/site/pages/client"));
+<<<<<<< HEAD
+=======
+const UnduhPage = dyn(() => import("@/components/site/pages/unduh"));
+const KreditPage = dyn(() => import("@/components/site/pages/kredit"));
+>>>>>>> 0d391b0 (updatesterbaru)
 
 const BASE_TITLE = "GUNARA CORPORATION — Konsultasi & Perizinan Terlengkap di Dunia";
 
@@ -219,6 +224,17 @@ export default function SiteApp({ initialPath }: { initialPath?: string }) {
         view = <ClientPage />;
         title = `Portal Client — ${SITE_NAME}`;
         break;
+<<<<<<< HEAD
+=======
+      case "unduh":
+        view = <UnduhPage />;
+        title = `Pusat Unduhan — ${SITE_NAME}`;
+        break;
+      case "kredit":
+        view = <KreditPage />;
+        title = `Kredit & Kepemilikan — ${SITE_NAME}`;
+        break;
+>>>>>>> 0d391b0 (updatesterbaru)
       default: {
         view = <NotFoundPage />;
         title = `Halaman Tidak Ditemukan — ${SITE_NAME}`;

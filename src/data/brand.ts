@@ -86,4 +86,84 @@ export const BRAND = {
   firstInsightHours: 48,
 } as const;
 
+<<<<<<< HEAD
 export type Brand = typeof BRAND;
+=======
+/**
+ * OWNER — identitas pribadi pencipta & pemilik sistem (single source of truth).
+ * Dipakai oleh: JSON-LD (Person/ProfilePage), metadata layout, footer credit,
+ * halaman /kredit, dan README. Nama naik di Google lewat entitas terhubung.
+ */
+export const OWNER = {
+  /** Nama publik / persona utama */
+  name: "Gugun Gunara",
+  /** Nama lengkap asli */
+  fullName: "Muhammad Lutfi Azmi",
+  /** Handle / jejak digital utama */
+  alias: "prabudanling",
+  /** Komunitas / marka jejak */
+  community: "Santri Angon",
+  /** Semua nama yang dipakai Google untuk mengaitkan entitas */
+  alternateNames: [
+    "Muhammad Lutfi Azmi",
+    "prabudanling",
+    "Santri Angon",
+    "H. Gugun Gunara MBA",
+    "Gunzz Krenzz",
+    "bossdanling",
+    "gunaracorp",
+  ],
+  /** Gelar personal — dari sosok master polymath itu sendiri */
+  titles: [
+    "Master Polymath",
+    "Sage Universal",
+    "The Ultimate Problem Solver",
+  ],
+  role: "Pencipta & Pemilik Sistem GUNARA CORPORATION",
+  roleEn: "Creator & Owner of the GUNARA CORPORATION System",
+  about:
+    "Gugun Gunara (Muhammad Lutfi Azmi — prabudanling) adalah master polymath, sage universal, dan the ultimate problem solver: arsitek di balik GUNARA CORPORATION, PT Top Konsultan Internasional, dan PT Digital Bisnis Manajemen.",
+  aboutEn:
+    "Gugun Gunara (Muhammad Lutfi Azmi — prabudanling) is a master polymath, sage universal and the ultimate problem solver: the architect behind GUNARA CORPORATION, PT Top Konsultan Internasional, and PT Digital Bisnis Manajemen.",
+
+  /** Enam kanal sosial resmi — sameAs JSON-LD + footer + halaman kredit */
+  socials: [
+    { name: "Facebook", handle: "bossdanling", url: "https://www.facebook.com/bossdanling" },
+    { name: "X (Twitter)", handle: "gunzz_krenzz", url: "https://x.com/gunzz_krenzz" },
+    { name: "Instagram", handle: "prabudanling", url: "https://www.instagram.com/prabudanling" },
+    { name: "TikTok", handle: "gunaracorp", url: "https://www.tiktok.com/@gunaracorp" },
+    { name: "Threads", handle: "prabudanling", url: "https://www.threads.com/@prabudanling" },
+    { name: "Reddit", handle: "prabudanling", url: "https://www.reddit.com/user/prabudanling/" },
+  ] as const,
+
+  /** Entitas & jaringan perusahaan pendukung sistem */
+  entities: [
+    {
+      name: "PT Top Konsultan Internasional",
+      site: "topkonsultan.web.id",
+      url: "https://topkonsultan.web.id",
+      role: "Support system utama — induk GUNARA CORPORATION",
+    },
+    {
+      name: "PT Digital Bisnis Manajemen",
+      site: "digiman.id",
+      url: "https://digiman.id",
+      role: "Support system digital & manajemen bisnis",
+    },
+    {
+      name: "Santri Angon",
+      site: "",
+      url: "",
+      role: "Marka & komunitas jejak digital",
+    },
+  ] as const,
+
+  /** Baris kredit siap pakai */
+  creditLine:
+    "by Gugun Gunara — Muhammad Lutfi Azmi · prabudanling · Santri Angon",
+  supportLine:
+    "Support system: PT Top Konsultan Internasional (topkonsultan.web.id) · PT Digital Bisnis Manajemen (digiman.id)",
+} as const;
+
+export type Owner = typeof OWNER;
+>>>>>>> 0d391b0 (updatesterbaru)

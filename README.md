@@ -59,6 +59,27 @@ Website resmi **GUNARA CORPORATION** (Gunara Consultan) — dibangun dengan tekn
 | ◈ | **Tema Ungu-Biru Futuristik** | Animasi premium, responsif penuh di mobile & desktop, mode animasi-dimatikan untuk aksesibilitas |
 | ◈ | **Mode Cadangan Cerdas** | Jika mesin AI tidak tersedia, chat otomatis mengarahkan tamu ke tim manusia — pengunjung tidak pernah melihat error |
 
+<<<<<<< HEAD
+=======
+### ✦ 🚀 Ekosistem Dashboard v7 — God Mode Tier Max
+
+Lapisan bisnis lengkap di atas website: tiga dashboard berperan, otomasi WhatsApp, dokumen, laporan PDF, sistem tier GOD MODE, dan **195 bahasa** — semuanya hidup dan teruji end-to-end.
+
+| | Fitur | Keterangan |
+|---|---|---|
+| 🌐 | **195 Bahasa (default Bahasa Indonesia)** | Mesin i18n sendiri: 14 kamus kurasi native (ID, EN, Jawa, Sunda, Melayu, Arab, Mandarin, Spanyol, Prancis, Jerman, Jepang, Korea, Portugis, Rusia) + 181 bahasa lain terisi otomatis oleh AI (GLM-4.6). Tombol 🌐 ada di navbar publik, footer, Panel CEO & kedua portal. 13 bahasa RTL (Arab, Ibrani, Urdu…) otomatis membalik seluruh layout. Koneksi fallback elegan: bahasa aktif → EN → ID. Pilihan tersimpan di localStorage + cookie, sinkron antar-tab, bisa dipicu via `?lang=xx` |
+| 🏛️ | **Studio Multi-Bahasa** (`#/admin` → tab Multi-Bahasa) | Kendali penuh CEO atas 195 bahasa: statistik cakupan, **Isi otomatis (AI)** per bahasa, antrean massal "isi semua yang belum lengkap", penyuntingan manual per kunci (override live tanpa deploy), ekspor JSON |
+| 👥 | **Tiga Dashboard Multi-Role** | Panel CEO `#/admin` (14 tab), Portal Karyawan `#/karyawan`, Portal Client `#/client` — login kode personal, sesi HMAC 8 jam, audit setiap aksi |
+| 💬 | **Notifikasi WhatsApp** | Template pesan 7+ event (proyek, dokumen, tiket, invoice…), blast massal per tier, gateway cloud opsional (`WA_GATEWAY_URL`) atau tautan wa.me siap klik |
+| 📄 | **Upload Dokumen + Laporan PDF** | Kuota per tier (5→∞), unduh terlindungi, 4 jenis laporan PDF zero-dependency berkop GUNARA (ringkasan eksekutif, penugasan, layanan client, invoice) |
+| 👑 | **Role Activation GOD MODE** | Tier STANDARD → PRO → ELITE → GOD via kode sekali pakai `GUNARA-TIER-XXXX-XXXX`: kuota dokumen, gate laporan, blast WA, seksi eksekutif khusus GOD |
+| 🎫 | **Tiket, Invoice & Ekspor CSV** | Thread tiket 3 peran + auto-assign, invoice multi-item (draft→terkirim→dibayar) dengan PDF resmi, ekspor CSV 8 dataset siap Excel (BOM UTF-8) |
+| 📊 | **Grafik Recharts + Backup Otomatis** | Dashboard analitik 4 grafik (aktivitas 14 hari, nilai invoice, distribusi tier, proyek) + backup terjadwal `tar.gz` (default 24 jam, retensi 10) yang dikelola dari Panel CEO |
+| ⬇️ | **Pusat Unduhan** `#/unduh` | Gerbang satu klik: source code zip siap jalan, panduan super lengkap PDF (20 bab), suplemen v1.1, dan panduan HTML interaktif — link tersedia juga di navbar & footer publik |
+
+**Akun demo bawaan:** CEO `GUNARA-CEO-2026` · kode personal karyawan/client diterbitkan dari Panel CEO (contoh uji: `GUNARA-EMP-3ATE-HHHT`, `GUNARA-CLI-99A9-J27A`).
+
+>>>>>>> 0d391b0 (updatesterbaru)
 ### ✦ Deploy ke Vercel dalam 60 Detik
 
 1. Klik tombol **Deploy with Vercel** di atas — atau import repository ini di [vercel.com/new](https://vercel.com/new)
@@ -128,6 +149,11 @@ bun run dev        # buka http://localhost:3000
 bun run build      # build produksi (identik dengan Vercel)
 ```
 
+<<<<<<< HEAD
+=======
+> ⬇️ Tidak mau repot clone? Buka **`#/unduh`** di situs yang berjalan — arsip source code lengkap (zip), panduan PDF, dan panduan HTML tersedia satu klik di Pusat Unduhan.
+
+>>>>>>> 0d391b0 (updatesterbaru)
 ### ✦ Struktur Proyek
 
 ```
@@ -146,6 +172,23 @@ topkonsultan/
 └── DEPLOY.md                 # Panduan deploy bahasa Indonesia
 ```
 
+<<<<<<< HEAD
+=======
+### ✦ 👑 Kredit & Kepemilikan — by Gugun Gunara
+
+Seluruh sistem GUNARA diciptakan, dimiliki, dan didukung oleh:
+
+| | Entitas | Peran |
+|---|---|---|
+| 👤 | **Gugun Gunara** (Muhammad Lutfi Azmi · @prabudanling · Santri Angon) | Pencipta & pemilik sistem — *Master Polymath · Sage Universal · The Ultimate Problem Solver* |
+| 🏛️ | **PT Top Konsultan Internasional** — [topkonsultan.web.id](https://topkonsultan.web.id) | Support system utama — induk GUNARA CORPORATION |
+| 💼 | **PT Digital Bisnis Manajemen** — [digiman.id](https://digiman.id) | Support system digital & manajemen bisnis |
+
+**Kanal sosial resmi:** [Facebook @bossdanling](https://www.facebook.com/bossdanling) · [X @gunzz_krenzz](https://x.com/gunzz_krenzz) · [Instagram @prabudanling](https://www.instagram.com/prabudanling) · [TikTok @gunaracorp](https://www.tiktok.com/@gunaracorp) · [Threads @prabudanling](https://www.threads.com/@prabudanling) · [Reddit u/prabudanling](https://www.reddit.com/user/prabudanling/)
+
+> Halaman [`#/kredit`](https://topkonsultan.web.id/kredit) adalah sumber kebenaran identitas — Person JSON-LD + ProfilePage schema.org + `rel="me"` mengikat seluruh kanal agar nama naik di Google.
+
+>>>>>>> 0d391b0 (updatesterbaru)
 ### ✦ Kontak Resmi
 
 | Saluran | Detail |
@@ -187,6 +230,27 @@ The official website of **GUNARA CORPORATION** (Gunara Consultan) — engineered
 | ◈ | **Futuristic Violet-Blue Theme** | Premium motion, fully responsive, reduced-motion support for accessibility |
 | ◈ | **Smart Fallback Mode** | If the AI engine is unavailable, chat gracefully routes visitors to the human team — users never see an error |
 
+<<<<<<< HEAD
+=======
+### ✦ 🚀 Dashboard Ecosystem v7 — God Mode Tier Max
+
+A complete business layer on top of the website: three role-based dashboards, WhatsApp automation, documents, PDF reports, the GOD MODE tier system, and **195 languages** — all live and tested end-to-end.
+
+| | Feature | Description |
+|---|---|---|
+| 🌐 | **195 Languages (default: Bahasa Indonesia)** | A hand-rolled i18n engine: 14 natively curated dictionaries (ID, EN, Javanese, Sundanese, Malay, Arabic, Chinese, Spanish, French, German, Japanese, Korean, Portuguese, Russian) + the remaining 181 auto-filled by AI (GLM-4.6). The 🌐 button lives in the public navbar, footer, CEO Panel and both portals. 13 RTL languages (Arabic, Hebrew, Urdu…) mirror the entire layout automatically. Graceful fallback: active language → EN → ID. Preference stored in localStorage + cookie, synced across tabs, triggerable via `?lang=xx` |
+| 🏛️ | **Multi-Language Studio** (`#/admin` → Multi-Language tab) | Full CEO control over 195 languages: coverage stats, per-language **AI auto-fill**, a bulk "fill all incomplete" queue, manual per-key editing (live overrides, no redeploy), JSON export |
+| 👥 | **Three Multi-Role Dashboards** | CEO Panel `#/admin` (14 tabs), Employee Portal `#/karyawan`, Client Portal `#/client` — personal-code login, 8-hour HMAC sessions, every action audited |
+| 💬 | **WhatsApp Notifications** | Message templates for 7+ events (project, document, ticket, invoice…), tier-gated bulk blast, optional cloud gateway (`WA_GATEWAY_URL`) or one-tap wa.me links |
+| 📄 | **Document Upload + PDF Reports** | Per-tier quotas (5→∞), protected downloads, 4 zero-dependency GUNARA-branded PDF report types (executive summary, assignments, client services, invoice) |
+| 👑 | **GOD MODE Role Activation** | STANDARD → PRO → ELITE → GOD tiers via one-time codes `GUNARA-TIER-XXXX-XXXX`: document quotas, report gates, WA blasts, GOD-only executive sections |
+| 🎫 | **Tickets, Invoices & CSV Export** | 3-role ticket threads + auto-assignment, multi-item invoices (draft→sent→paid) with official PDFs, Excel-ready CSV export for 8 datasets (UTF-8 BOM) |
+| 📊 | **Recharts Analytics + Auto Backup** | 4-chart analytics dashboard (14-day activity, invoice value, tier distribution, projects) + scheduled `tar.gz` backups (default every 24h, keep 10) managed from the CEO Panel |
+| ⬇️ | **Download Center** `#/unduh` | One-click gateway: ready-to-run source zip, the 20-chapter complete handbook PDF, v1.1 supplement, and the interactive HTML handbook — linked from the public navbar & footer |
+
+**Built-in demo accounts:** CEO `GUNARA-CEO-2026` · employee/client personal codes are issued from the CEO Panel (test examples: `GUNARA-EMP-3ATE-HHHT`, `GUNARA-CLI-99A9-J27A`).
+
+>>>>>>> 0d391b0 (updatesterbaru)
 ### ✦ Deploy to Vercel in 60 Seconds
 
 1. Click the **Deploy with Vercel** button above — or import this repository at [vercel.com/new](https://vercel.com/new)
@@ -241,6 +305,11 @@ bun run dev        # open http://localhost:3000
 bun run build      # production build (identical to Vercel)
 ```
 
+<<<<<<< HEAD
+=======
+> ⬇️ No git clone? Open **`#/unduh`** on the running site — the full source zip, handbook PDF and interactive HTML handbook are one click away in the Download Center.
+
+>>>>>>> 0d391b0 (updatesterbaru)
 ### ✦ Project Structure
 
 ```
@@ -259,6 +328,23 @@ topkonsultan/
 └── DEPLOY.md                 # Step-by-step deploy guide (Indonesian)
 ```
 
+<<<<<<< HEAD
+=======
+### ✦ 👑 Credits & Ownership — by Gugun Gunara
+
+The entire GUNARA system is created, owned, and supported by:
+
+| | Entity | Role |
+|---|---|---|
+| 👤 | **Gugun Gunara** (Muhammad Lutfi Azmi · @prabudanling · Santri Angon) | Creator & system owner — *Master Polymath · Sage Universal · The Ultimate Problem Solver* |
+| 🏛️ | **PT Top Konsultan Internasional** — [topkonsultan.web.id](https://topkonsultan.web.id) | Primary support system — parent of GUNARA CORPORATION |
+| 💼 | **PT Digital Bisnis Manajemen** — [digiman.id](https://digiman.id) | Digital & business-management support system |
+
+**Official social channels:** [Facebook @bossdanling](https://www.facebook.com/bossdanling) · [X @gunzz_krenzz](https://x.com/gunzz_krenzz) · [Instagram @prabudanling](https://www.instagram.com/prabudanling) · [TikTok @gunaracorp](https://www.tiktok.com/@gunaracorp) · [Threads @prabudanling](https://www.threads.com/@prabudanling) · [Reddit u/prabudanling](https://www.reddit.com/user/prabudanling/)
+
+> The [`#/kredit`](https://topkonsultan.web.id/kredit) page is the identity source of truth — Person JSON-LD + ProfilePage schema.org + `rel="me"` bind every channel so the name ranks on Google.
+
+>>>>>>> 0d391b0 (updatesterbaru)
 ### ✦ Official Contact
 
 | Channel | Details |

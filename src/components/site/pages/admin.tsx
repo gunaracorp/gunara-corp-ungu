@@ -10,6 +10,10 @@ import { motion } from "framer-motion";
 import {
   AlertTriangle,
   BadgeDollarSign,
+<<<<<<< HEAD
+=======
+  BarChart3,
+>>>>>>> 0d391b0 (updatesterbaru)
   Boxes,
   Building2,
   Check,
@@ -20,6 +24,10 @@ import {
   Handshake,
   Inbox,
   LayoutDashboard,
+<<<<<<< HEAD
+=======
+  Languages,
+>>>>>>> 0d391b0 (updatesterbaru)
   LifeBuoy,
   Lock,
   LogOut,
@@ -41,10 +49,21 @@ import {
   STATUS_PROYEK,
   PriorityBadge,
   StatusBadge,
+<<<<<<< HEAD
 } from "@/components/site/portal-ui";
 import { AdminEkosistemTab } from "@/components/site/admin-extras";
 import { AdminAuditTab, AdminDukunganTab, AdminInvoiceTab } from "@/components/site/admin-more";
 import type { AdminAuditItem, AdminInvoice, AdminTicket } from "@/components/site/admin-more";
+=======
+  LangToggle,
+} from "@/components/site/portal-ui";
+import { AdminEkosistemTab } from "@/components/site/admin-extras";
+import { AdminChartsTab } from "@/components/site/admin-charts";
+import { AdminAuditTab, AdminDukunganTab, AdminInvoiceTab } from "@/components/site/admin-more";
+import { AdminBahasaTab } from "@/components/site/admin-i18n";
+import type { AdminAuditItem, AdminInvoice, AdminTicket } from "@/components/site/admin-more";
+import { tr, useLang } from "@/lib/i18n";
+>>>>>>> 0d391b0 (updatesterbaru)
 
 const fmtDate = new Intl.DateTimeFormat("id-ID", {
   day: "numeric",
@@ -115,6 +134,10 @@ interface AdminData {
 
 type Tab =
   | "overview"
+<<<<<<< HEAD
+=======
+  | "grafik"
+>>>>>>> 0d391b0 (updatesterbaru)
   | "tickets"
   | "projects"
   | "team"
@@ -122,12 +145,17 @@ type Tab =
   | "dukungan"
   | "invoice"
   | "audit"
+<<<<<<< HEAD
+=======
+  | "bahasa"
+>>>>>>> 0d391b0 (updatesterbaru)
   | "members"
   | "newsletter"
   | "announcements"
   | "logs";
 
 const TABS: { id: Tab; label: string; icon: typeof LayoutDashboard }[] = [
+<<<<<<< HEAD
   { id: "overview", label: "Ringkasan", icon: LayoutDashboard },
   { id: "tickets", label: "Tiket Brief", icon: Ticket },
   { id: "projects", label: "Proyek", icon: FolderKanban },
@@ -140,6 +168,22 @@ const TABS: { id: Tab; label: string; icon: typeof LayoutDashboard }[] = [
   { id: "announcements", label: "Pengumuman", icon: Megaphone },
   { id: "newsletter", label: "Newsletter", icon: Mail },
   { id: "logs", label: "Log Akses", icon: ScrollText },
+=======
+  { id: "overview", label: "tab.overview", icon: LayoutDashboard },
+  { id: "grafik", label: "tab.grafik", icon: BarChart3 },
+  { id: "tickets", label: "tab.tickets", icon: Ticket },
+  { id: "projects", label: "tab.projects", icon: FolderKanban },
+  { id: "team", label: "tab.team", icon: Users },
+  { id: "dukungan", label: "tab.dukungan", icon: LifeBuoy },
+  { id: "invoice", label: "tab.invoice", icon: BadgeDollarSign },
+  { id: "ekosistem", label: "tab.ekosistem", icon: Boxes },
+  { id: "audit", label: "tab.audit", icon: ShieldCheck },
+  { id: "bahasa", label: "tab.bahasa", icon: Languages },
+  { id: "members", label: "tab.members", icon: Gem },
+  { id: "announcements", label: "tab.announcements", icon: Megaphone },
+  { id: "newsletter", label: "tab.newsletter", icon: Mail },
+  { id: "logs", label: "tab.logs", icon: ScrollText },
+>>>>>>> 0d391b0 (updatesterbaru)
 ];
 
 const TIER_BADGE: Record<string, string> = {
@@ -275,6 +319,10 @@ export default function AdminPage() {
   const [team, setTeam] = useState<TeamData | null>(null);
   const [tab, setTab] = useState<Tab>("overview");
   const [flash, setFlash] = useState<string | null>(null);
+<<<<<<< HEAD
+=======
+  const [lang, setLang] = useLang();
+>>>>>>> 0d391b0 (updatesterbaru)
 
   const load = useCallback(async (): Promise<boolean> => {
     try {
@@ -355,24 +403,40 @@ export default function AdminPage() {
             </span>
             <div>
               <h1 className="font-display text-2xl font-black tracking-tight text-slate-900">
+<<<<<<< HEAD
                 Panel CEO
+=======
+                {tr(lang, "admin.title")}
+>>>>>>> 0d391b0 (updatesterbaru)
               </h1>
               <p className="text-[12.5px] text-slate-500">
                 GUNARA CORPORATION ·{" "}
                 <span className={data?.source === "db" ? "text-emerald-600" : "text-amber-600"}>
+<<<<<<< HEAD
                   {data?.source === "db" ? "database persisten" : "mode memori"}
+=======
+                  {data?.source === "db" ? tr(lang, "admin.tagline.db") : tr(lang, "admin.tagline.memory")}
+>>>>>>> 0d391b0 (updatesterbaru)
                 </span>
               </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
+<<<<<<< HEAD
+=======
+            <LangToggle lang={lang} onChange={setLang} />
+>>>>>>> 0d391b0 (updatesterbaru)
             <button
               type="button"
               onClick={() => void load()}
               className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-300 bg-white px-4 text-[13px] font-semibold text-slate-600 transition-colors hover:border-violet-400 hover:text-violet-600"
             >
               <RefreshCw className="h-3.5 w-3.5" aria-hidden="true" />
+<<<<<<< HEAD
               Muat ulang
+=======
+              {tr(lang, "ui.reload")}
+>>>>>>> 0d391b0 (updatesterbaru)
             </button>
             <button
               type="button"
@@ -384,7 +448,11 @@ export default function AdminPage() {
               className="inline-flex h-10 items-center gap-2 rounded-full bg-slate-900 px-4 text-[13px] font-bold text-white transition-transform hover:scale-[1.03] active:scale-95"
             >
               <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
+<<<<<<< HEAD
               Keluar
+=======
+              {tr(lang, "ui.logout")}
+>>>>>>> 0d391b0 (updatesterbaru)
             </button>
           </div>
         </div>
@@ -416,7 +484,11 @@ export default function AdminPage() {
               }`}
             >
               <Icon className="h-4 w-4" aria-hidden="true" />
+<<<<<<< HEAD
               {label}
+=======
+              {tr(lang, label)}
+>>>>>>> 0d391b0 (updatesterbaru)
               {id === "tickets" && (data?.stats.newContacts ?? 0) > 0 && (
                 <span className="ml-0.5 rounded-full bg-rose-500 px-1.5 py-0.5 text-[10px] font-black text-white">
                   {data?.stats.newContacts}
@@ -449,6 +521,10 @@ export default function AdminPage() {
 
         <div className="mt-6">
           {tab === "overview" && <OverviewTab data={data} onGoto={setTab} />}
+<<<<<<< HEAD
+=======
+          {tab === "grafik" && <AdminChartsTab team={team} />}
+>>>>>>> 0d391b0 (updatesterbaru)
           {tab === "tickets" && <TicketsTab data={data} reload={load} notify={notify} />}
           {tab === "projects" && <ProjectsTab team={team} reload={loadTeam} notify={notify} />}
           {tab === "team" && <TeamTab team={team} reload={loadTeam} notify={notify} />}
@@ -470,6 +546,10 @@ export default function AdminPage() {
             />
           )}
           {tab === "audit" && team && <AdminAuditTab audit={team.audit ?? []} />}
+<<<<<<< HEAD
+=======
+          {tab === "bahasa" && <AdminBahasaTab />}
+>>>>>>> 0d391b0 (updatesterbaru)
           {tab === "ekosistem" && team && (
             <AdminEkosistemTab
               tierCodes={team.tierCodes ?? []}
@@ -519,6 +599,10 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tick, setTick] = useState(0);
+<<<<<<< HEAD
+=======
+  const [lang, setLang] = useLang();
+>>>>>>> 0d391b0 (updatesterbaru)
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -558,6 +642,12 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
         className="relative w-full max-w-md rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl"
       >
         <div className="flex flex-col items-center text-center">
+<<<<<<< HEAD
+=======
+          <div className="absolute right-6 top-6">
+            <LangToggle lang={lang} onChange={setLang} dark />
+          </div>
+>>>>>>> 0d391b0 (updatesterbaru)
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">
             <Lock className="h-6 w-6" aria-hidden="true" />
           </span>
@@ -565,10 +655,16 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
             <Crown className="h-3 w-3" aria-hidden="true" />
             Khusus CEO
           </span>
+<<<<<<< HEAD
           <h1 className="mt-3 font-display text-2xl font-black tracking-tight">Panel CEO</h1>
           <p className="mt-2 text-[13px] leading-relaxed text-zinc-400">
             Pusat kendali tiket, member VVIP, dan log akses. Kata sandi diatur
             lewat environment variable{" "}
+=======
+          <h1 className="mt-3 font-display text-2xl font-black tracking-tight">{tr(lang, "admin.login.title")}</h1>
+          <p className="mt-2 text-[13px] leading-relaxed text-zinc-400">
+            {tr(lang, "admin.login.subtitle")}{" "}
+>>>>>>> 0d391b0 (updatesterbaru)
             <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[11.5px]">ADMIN_PASSWORD</code>.
           </p>
         </div>
@@ -577,7 +673,11 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+<<<<<<< HEAD
             placeholder="Kata sandi CEO"
+=======
+            placeholder={tr(lang, "admin.login.placeholder")}
+>>>>>>> 0d391b0 (updatesterbaru)
             aria-label="Kata sandi CEO"
             autoComplete="current-password"
             className="h-12 w-full rounded-xl border border-white/10 bg-zinc-900/80 px-4 text-sm text-white placeholder:text-zinc-600 outline-none transition-all focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/25"

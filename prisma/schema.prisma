@@ -238,6 +238,20 @@ model Invoice {
   updatedAt  DateTime  @updatedAt
 }
 
+<<<<<<< HEAD
+=======
+/// Suntingan manual terjemahan (Studio Multi-Bahasa) — menimpa nilai berkas locale.
+model TranslationOverride {
+  id        String   @id @default(cuid())
+  lang      String   // kode bahasa registry (id, en, jv, … 195 kode)
+  key       String   // kunci terjemahan (tab.overview, …)
+  value     String   // nilai hasil suntingan manual
+  updatedAt DateTime @updatedAt
+
+  @@unique([lang, key])
+}
+
+>>>>>>> 0d391b0 (updatesterbaru)
 model Post {
   id        String   @id @default(cuid())
   title     String

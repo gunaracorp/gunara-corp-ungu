@@ -1,11 +1,22 @@
 "use client";
 
+<<<<<<< HEAD
 import { ArrowRight, Instagram, Linkedin, Loader2, Mail, MapPin, MessageCircle, Phone, Twitter, Youtube } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { COUNCIL_CATEGORIES, SERVICES } from "@/data/content";
 import { PERIZINAN_CATEGORIES } from "@/data/perizinan";
 import { BRAND } from "@/data/brand";
 import { useToast } from "@/hooks/use-toast";
+=======
+import { ArrowRight, AtSign, Download, Facebook, Globe, Instagram, Loader2, Mail, MapPin, MessageCircle, Music2, Phone, Twitter, type LucideIcon } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { COUNCIL_CATEGORIES, SERVICES } from "@/data/content";
+import { PERIZINAN_CATEGORIES } from "@/data/perizinan";
+import { BRAND, OWNER } from "@/data/brand";
+import { useToast } from "@/hooks/use-toast";
+import { useLang } from "@/lib/i18n";
+import { LangToggle } from "@/components/site/portal-ui";
+>>>>>>> 0d391b0 (updatesterbaru)
 import { Link } from "@/lib/router";
 import { LogoMark } from "./logo";
 
@@ -31,18 +42,38 @@ const LEGAL_LINKS = [
   { to: "/sitemap", label: "Peta Situs" },
 ];
 
+<<<<<<< HEAD
 const SOCIALS = [
   { label: "LinkedIn", Icon: Linkedin },
   { label: "Twitter / X", Icon: Twitter },
   { label: "YouTube", Icon: Youtube },
   { label: "Instagram", Icon: Instagram },
 ];
+=======
+/** Enam kanal sosial resmi pemilik — diambil dari OWNER (data/brand.ts). */
+const SOCIAL_ICONS: Record<string, LucideIcon> = {
+  Facebook,
+  "X (Twitter)": Twitter,
+  Instagram,
+  TikTok: Music2,
+  Threads: AtSign,
+  Reddit: MessageCircle,
+};
+const SOCIALS = OWNER.socials.map((s) => ({
+  ...s,
+  Icon: (SOCIAL_ICONS[s.name] ?? Globe) as LucideIcon,
+}));
+>>>>>>> 0d391b0 (updatesterbaru)
 
 export default function Footer() {
   const year = new Date().getFullYear();
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [sending, setSending] = useState(false);
+<<<<<<< HEAD
+=======
+  const [lang] = useLang();
+>>>>>>> 0d391b0 (updatesterbaru)
 
   async function onSubscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -76,6 +107,7 @@ export default function Footer() {
     }
   }
 
+<<<<<<< HEAD
   function onSocial(label: string) {
     toast({
       title: `${label} — segera diluncurkan`,
@@ -83,6 +115,8 @@ export default function Footer() {
     });
   }
 
+=======
+>>>>>>> 0d391b0 (updatesterbaru)
   return (
     <footer className="mt-auto border-t border-violet-200 bg-white">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -188,6 +222,7 @@ export default function Footer() {
               </p>
             </form>
 
+<<<<<<< HEAD
             <div className="flex gap-3">
               {SOCIALS.map(({ label, Icon }) => (
                 <button
@@ -199,6 +234,21 @@ export default function Footer() {
                 >
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </button>
+=======
+            <div className="flex flex-wrap gap-3">
+              {SOCIALS.map(({ name, handle, url, Icon }) => (
+                <a
+                  key={url}
+                  href={url}
+                  target="_blank"
+                  rel="me noopener noreferrer"
+                  aria-label={`${name} — @${handle}`}
+                  title={`${name} — @${handle}`}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:text-violet-600"
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </a>
+>>>>>>> 0d391b0 (updatesterbaru)
               ))}
             </div>
           </div>
@@ -311,16 +361,57 @@ export default function Footer() {
         </div>
       </div>
 
+<<<<<<< HEAD
+=======
+      {/* Kredit & kepemilikan — entitas pribadi pemilik sistem */}
+      <div className="border-t border-slate-200 bg-gradient-to-r from-violet-50 via-white to-indigo-50">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-1.5 px-4 py-5 text-center sm:px-6 lg:px-8">
+          <p className="text-[13.5px] font-black tracking-tight text-slate-900">
+            {OWNER.creditLine}
+          </p>
+          <p className="text-[11.5px] font-semibold text-slate-600">
+            {OWNER.titles.join(" · ")} — {OWNER.supportLine}
+          </p>
+          <Link
+            to="/kredit"
+            className="text-[11.5px] font-bold text-violet-700 transition-colors hover:text-violet-600"
+          >
+            Kredit & Kepemilikan lengkap →
+          </Link>
+        </div>
+      </div>
+
+>>>>>>> 0d391b0 (updatesterbaru)
       <div className="border-t border-slate-200">
         <div
           className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-slate-600 sm:flex-row sm:px-6 lg:px-8"
           style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}
         >
+<<<<<<< HEAD
           <p>© {year} {BRAND.legal}. Seluruh masa depan dilindungi.</p>
           <p className="flex items-center gap-2">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" aria-hidden="true" />
             Semua 46 Dewan Pakar sedang online — respons ≤ 48 jam
           </p>
+=======
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            <p>© {year} {BRAND.legal}. Seluruh masa depan dilindungi.</p>
+            <Link
+              to="/unduh"
+              className="inline-flex items-center gap-1.5 font-bold text-violet-700 transition-colors hover:text-violet-600"
+            >
+              <Download className="h-3.5 w-3.5" aria-hidden="true" />
+              Pusat Unduhan
+            </Link>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <LangToggle lang={lang} onChange={() => {}} />
+            <p className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" aria-hidden="true" />
+              Semua 46 Dewan Pakar sedang online — respons ≤ 48 jam
+            </p>
+          </div>
+>>>>>>> 0d391b0 (updatesterbaru)
         </div>
       </div>
     </footer>

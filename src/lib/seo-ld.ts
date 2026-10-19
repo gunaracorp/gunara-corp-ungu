@@ -8,7 +8,11 @@
  * Per rute:         BreadcrumbList (detail), Service, Article, FAQPage
  */
 
+<<<<<<< HEAD
 import { BRAND } from "@/data/brand";
+=======
+import { BRAND, OWNER } from "@/data/brand";
+>>>>>>> 0d391b0 (updatesterbaru)
 import { COUNCILS, SERVICES } from "@/data/content";
 import { slugify } from "@/data/extended-types";
 import { INDUSTRIES } from "@/data/industries";
@@ -21,6 +25,59 @@ type LdObject = Record<string, unknown>;
 
 const PHONE_INTL = BRAND.phoneHref.replace(/^tel:/, ""); // +6281316516524
 
+<<<<<<< HEAD
+=======
+/** Entitas Person pemilik sistem — dirujuk Organization, WebSite, dan /kredit. */
+export function personLd(): LdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${SITE_URL}/#owner`,
+    name: OWNER.name,
+    alternateName: [...OWNER.alternateNames],
+    givenName: "Muhammad Lutfi",
+    familyName: "Azmi",
+    honorificPrefix: "H.",
+    jobTitle: OWNER.role,
+    description: OWNER.about,
+    knowsAbout: [
+      "konsultan perizinan",
+      "perizinan usaha Indonesia",
+      "manajemen bisnis",
+      "strategi ekspansi pasar",
+      "digital business management",
+    ],
+    url: abs("/kredit"),
+    mainEntityOfPage: abs("/kredit"),
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+    founderOf: { "@id": `${SITE_URL}/#organization` },
+    knowsLanguage: ["id", "en"],
+    sameAs: [
+      ...OWNER.socials.map((s) => s.url),
+      ...OWNER.entities.filter((e) => e.url).map((e) => e.url),
+    ],
+  };
+}
+
+/**
+ * ProfilePage — HANYA di halaman /kredit: halaman indeksabel yang didedikasikan
+ * untuk identitas pemilik, mengikat semua sosial & entitas pendukung.
+ */
+export function profilePageLd(): LdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "@id": `${SITE_URL}/kredit#profilepage`,
+    url: abs("/kredit"),
+    name: `Kredit & Kepemilikan — ${OWNER.name}`,
+    inLanguage: "id-ID",
+    mainEntity: { "@id": `${SITE_URL}/#owner` },
+    about: { "@id": `${SITE_URL}/#owner` },
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+  };
+}
+
+>>>>>>> 0d391b0 (updatesterbaru)
 /** Organisasi induk — muncul di seluruh halaman (logo & NAP terlihat di footer). */
 export function organizationLd(): LdObject {
   return {
@@ -62,6 +119,19 @@ export function organizationLd(): LdObject {
       { "@type": "Place", name: "190 negara (jaringan global)" },
     ],
     knowsLanguage: ["id", "en"],
+<<<<<<< HEAD
+=======
+    founder: { "@id": `${SITE_URL}/#owner` },
+    sameAs: [
+      ...OWNER.socials.map((s) => s.url),
+      ...OWNER.entities.filter((e) => e.url).map((e) => e.url),
+    ],
+    subOrganization: OWNER.entities.map((e) => ({
+      "@type": "Organization",
+      name: e.name,
+      url: e.url || undefined,
+    })),
+>>>>>>> 0d391b0 (updatesterbaru)
   };
 }
 
@@ -76,6 +146,11 @@ export function websiteLd(): LdObject {
     alternateName: SITE_NAME,
     inLanguage: "id-ID",
     publisher: { "@id": `${SITE_URL}/#organization` },
+<<<<<<< HEAD
+=======
+    creator: { "@id": `${SITE_URL}/#owner` },
+    author: { "@id": `${SITE_URL}/#owner` },
+>>>>>>> 0d391b0 (updatesterbaru)
     description: BRAND.promise,
   };
 }

@@ -57,6 +57,11 @@ export const AUDIT_LABEL: Record<string, string> = {
   ekspor_csv: "Ekspor data CSV",
   akun_buat: "Buat akun",
   akun_hapus: "Hapus akun",
+<<<<<<< HEAD
+=======
+  i18n_generate: "Terjemahan AI dibuat",
+  i18n_override: "Sunting terjemahan (override)",
+>>>>>>> 0d391b0 (updatesterbaru)
 };
 
 export function auditLabel(action: string): string {
