@@ -14,6 +14,11 @@ import { slugify } from "@/data/extended-types";
 import { INDUSTRIES } from "@/data/industries";
 import { INSIGHTS } from "@/data/insights";
 import { PERIZINAN, PERIZINAN_CATEGORIES } from "@/data/perizinan";
+import {
+  COMPETITOR_SITES,
+  PRICE_COMPARISONS,
+  PRICE_RESEARCH_DATE,
+} from "@/data/price-comparison";
 import { FAQS } from "@/data/legal";
 import {
   CATALOG_CATEGORIES,
@@ -502,6 +507,82 @@ export function industryCatalogLd(): LdObject {
 }
 
 /**
+ * FAQ halaman /harga — sumber tunggal UI (harga.tsx) dan JSON-LD FAQPage.
+ */
+export function hargaFaqItems(): { q: string; a: string[] }[] {
+  return [
+    {
+      q: "Bagaimana GUNARA memastikan harganya paling kompetitif?",
+      a: [
+        `Kami melakukan riset harga berkala terhadap ${COMPETITOR_SITES.length} platform jasa pendirian & perizinan sejenis (per ${PRICE_RESEARCH_DATE}): Legalitas.org, Izin Kilat, Infiniti.id, Kontrak Hukum, dan MitraIzin. Harga yang dibandingkan adalah harga mulai yang mereka publikasikan sendiri untuk paket setara — bukan angka tidak resmi.`,
+        `Hasilnya dipublikasikan terbuka di halaman ini: untuk ${PRICE_COMPARISONS.length} layanan kunci, harga mulai GUNARA berada di bawah harga mulai termurah lima situs tersebut, dengan cakupan pekerjaan yang lebih lengkap.`,
+      ],
+    },
+    {
+      q: "Apakah harga di katalog adalah harga final?",
+      a: [
+        "Harga yang tampil adalah harga mulai (starting price) — titik masuk paket dasar untuk setiap layanan. Rincian final selalu disampaikan dalam proposal tertulis sebelum penugasan, tanpa biaya tersembunyi.",
+        "Kompleksitas seperti jumlah pemegang saham, KBLI tambahan, atau jumlah produk dapat menggeser harga ke atas dari angka mulai — dan itu kami sampaikan di awal, bukan di tengah jalan.",
+      ],
+    },
+    {
+      q: "Apakah biaya resmi negara sudah termasuk?",
+      a: [
+        "Tidak — dan kami selalu jujur soal itu. Biaya resmi negara (misalnya tarif pendaftaran merek DJKI Rp 2,8 juta/kelas untuk pemohon umum atau Rp 500 ribu/kelas untuk UMK, tarif BLU BPJPH, atau biaya notaris) dipungut pihak ketiga dan dirinci apa adanya dengan bukti setoran resmi.",
+        "Yang kami janjikan: jasa profesional kami tidak pernah menimbun biaya resmi negara. Anda membayar tarif negara sebagaimana adanya — sepeser pun tidak kami tambahi.",
+      ],
+    },
+    {
+      q: "Bagaimana cara klaim Garansi Harga Terbaik?",
+      a: [
+        "Kirimkan tautan atau penawaran resmi kompetitor yang lebih murah untuk paket setara melalui WhatsApp resmi kami. Paket setara berarti lingkup pekerjaan serupa dengan masa proses yang banding.",
+        "Tim kami memverifikasi maksimal 1×24 jam. Bila klaim sah, harga kami disamakan dan Anda menerima potongan tambahan 5% — sebagai permintaan maaf atas waktu yang Anda habiskan.",
+      ],
+    },
+    {
+      q: "Seberapa sering harga ini ditinjau?",
+      a: [
+        "Tinjauan harga dilakukan setiap kuartal, dan segera kapan pun tarif resmi negara berubah — misalnya penyesuaian tarif pendaftaran merek DJKI terbaru. Setiap perubahan harga kami langsung tercermin di katalog 120+ layanan tanpa menunggu siklus tinjauan.",
+        "Tanggal riset terakhir selalu tercantum di halaman ini supaya Anda bisa memverifikasi kesegaran data.",
+      ],
+    },
+  ];
+}
+
+/** JSON-LD halaman /harga — Breadcrumb + FAQPage + ItemList perbandingan. */
+export function hargaPageLd(): LdObject[] {
+  return [
+    breadcrumbLd([
+      { name: "Beranda", path: "/" },
+      { name: "Harga Terbaik", path: "/harga" },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/harga#faqpage`,
+      mainEntity: hargaFaqItems().map((x) => ({
+        "@type": "Question",
+        name: x.q,
+        acceptedAnswer: { "@type": "Answer", text: x.a.join(" ") },
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Perbandingan Harga GUNARA vs 5 Situs Sejenis",
+      description: `Harga mulai GUNARA vs harga mulai termurah lima platform sejenis, riset per ${PRICE_RESEARCH_DATE}.`,
+      numberOfItems: PRICE_COMPARISONS.length,
+      itemListElement: PRICE_COMPARISONS.map((c, idx) => ({
+        "@type": "ListItem",
+        position: idx + 1,
+        name: `${c.name} — GUNARA mulai ${c.ours} (termurah kompetitor: ${c.competitorLowest.price})`,
+        url: abs(`/layanan/${c.slug}`),
+      })),
+    },
+  ];
+}
+
+/**
  * JSON-LD lengkap untuk satu rute SSR — breadcrumb + entitas utama.
  * Dipakai src/app/[...slug]/page.tsx.
  */
@@ -553,6 +634,7 @@ export function pageLd(slug: string[]): LdObject[] {
 
   // Rute tingkat atas — FAQ mendapat FAQPage (kontennya SSR terlihat penuh).
   if (seg1 === "faq" && !seg2) return [faqPageLd()];
+  if (seg1 === "harga" && !seg2) return hargaPageLd();
   if (seg1 === "layanan" && !seg2) return [layananCatalogLd()];
   if (seg1 === "perizinan" && !seg2) return [perizinanCatalogLd()];
   if (seg1 === "councils" && !seg2) return [councilCatalogLd()];

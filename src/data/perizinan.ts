@@ -169,7 +169,7 @@ export const PERIZINAN: PerizinanItem[] = [
     timeline: "3–7 hari kerja",
     validity: "Berlaku selama perseroan berdiri",
     complexity: "Menengah",
-    priceNote: "Biaya notaris & resmi negara variatif — pendampingan pakar mulai Rp3 juta",
+    priceNote: "Biaya notaris & resmi negara variatif — pendampingan pakar mulai Rp1,9 juta",
     icon: FileSignature,
   },
   {
@@ -201,7 +201,7 @@ export const PERIZINAN: PerizinanItem[] = [
     timeline: "1–3 minggu",
     validity: "Selama perseroan aktif memenuhi kewajiban investasi",
     complexity: "Kompleks",
-    priceNote: "Biaya resmi negara Rp0 — pendampingan pakar mulai Rp15 juta",
+    priceNote: "Biaya resmi negara Rp0 — pendampingan pakar mulai Rp8,5 juta",
     icon: Globe2,
   },
   {
@@ -233,7 +233,7 @@ export const PERIZINAN: PerizinanItem[] = [
     timeline: "3–10 hari kerja",
     validity: "Selama persekutuan atau koperasi aktif",
     complexity: "Menengah",
-    priceNote: "Biaya notaris & resmi negara variatif — pendampingan pakar mulai Rp2,5 juta",
+    priceNote: "Biaya notaris & resmi negara variatif — pendampingan pakar mulai Rp950 ribu",
     icon: Handshake,
   },
   {

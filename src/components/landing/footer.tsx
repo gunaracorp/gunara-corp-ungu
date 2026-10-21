@@ -15,6 +15,7 @@ import { LogoMark } from "./logo";
 const FIRM_LINKS = [
   { to: "/about", label: "Tentang Perusahaan" },
   { to: "/leadership", label: "Pimpinan & Tata Kelola" },
+  { to: "/harga", label: "Harga Terbaik" },
   { to: "/method", label: "Metode Oracle" },
   { to: "/results", label: "Hasil & Bukti" },
   { to: "/responsibility", label: "Tanggung Jawab & Dampak" },

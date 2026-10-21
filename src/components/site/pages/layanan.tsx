@@ -15,6 +15,7 @@
 
 import {
   ArrowUpRight,
+  BadgeCheck,
   Clock,
   Search,
   SearchX,
@@ -26,6 +27,7 @@ import { useMemo, useState } from "react";
 import { Reveal } from "@/components/landing/motion";
 import { CTABand, PageHero, StatBand } from "@/components/site/ui";
 import { BRAND } from "@/data/brand";
+import { isBestPriceService } from "@/data/price-comparison";
 import {
   CATALOG_CATEGORIES,
   SERVICES_CATALOG,
@@ -283,6 +285,12 @@ export default function CatalogPage({
                         <Wallet className="h-3 w-3 text-violet-600" aria-hidden="true" />
                         Mulai {s.priceFrom}
                       </span>
+                      {isBestPriceService(s.slug) ? (
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-300 bg-violet-50 px-2.5 py-1 text-[11px] font-bold text-violet-700">
+                          <BadgeCheck className="h-3 w-3" aria-hidden="true" />
+                          Harga Terbaik
+                        </span>
+                      ) : null}
                     </div>
 
                     <span className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.18em] text-violet-700">

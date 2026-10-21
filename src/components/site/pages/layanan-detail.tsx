@@ -10,6 +10,7 @@
 
 import {
   ArrowUpRight,
+  BadgeCheck,
   CheckCircle2,
   FileText,
   ListChecks,
@@ -24,6 +25,11 @@ import {
 } from "@/components/ui/accordion";
 import { CTABand, LinkButton, PageHero } from "@/components/site/ui";
 import { BRAND } from "@/data/brand";
+import {
+  competitorSite,
+  isBestPriceService,
+  priceComparisonFor,
+} from "@/data/price-comparison";
 import {
   catalogByCategory,
   catalogCategoryById,
@@ -70,6 +76,7 @@ export default function CatalogServiceDetailPage({ slug }: { slug: string }) {
   const idx = siblings.findIndex((x) => x.slug === s.slug);
   const prev = siblings[(idx - 1 + siblings.length) % siblings.length];
   const next = siblings[(idx + 1) % siblings.length];
+  const bestPrice = isBestPriceService(s.slug) ? priceComparisonFor(s.slug) : undefined;
 
   // 1–2 kata terakhir nama layanan diangkat ke gradien emas.
   const nameWords = s.name.split(" ");
@@ -125,6 +132,40 @@ export default function CatalogServiceDetailPage({ slug }: { slug: string }) {
           {cat ? `Praktik induk ${cat.practiceNum}` : "Praktik Induk"}
         </LinkButton>
       </PageHero>
+
+      {/* Pita perbandingan harga — harga terbaik di kelasnya */}
+      {bestPrice ? (
+        <section className="mx-auto max-w-4xl px-4 pb-4 sm:px-6" aria-label="Perbandingan harga">
+          <Reveal>
+            <a
+              href="#/harga"
+              className="group flex flex-col gap-4 rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-600/[0.06] via-white to-violet-600/[0.03] p-5 transition-all duration-300 hover:border-violet-400/60 sm:flex-row sm:items-center"
+            >
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-600 text-white">
+                <BadgeCheck className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <span className="flex-1 text-sm leading-relaxed text-slate-500">
+                <strong className="font-semibold text-slate-900">
+                  Harga terbaik di kelasnya:
+                </strong>{" "}
+                kami mulai {bestPrice.ours} — termurah kompetitor sejenis{" "}
+                <span className="line-through decoration-slate-400/70">
+                  {bestPrice.competitorLowest.price}
+                </span>{" "}
+                ({competitorSite(bestPrice.competitorLowest.siteId)?.name ?? ""}).{" "}
+                {bestPrice.savings}.
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.18em] text-violet-700">
+                Lihat bukti
+                <ArrowUpRight
+                  className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </span>
+            </a>
+          </Reveal>
+        </section>
+      ) : null}
 
       {/* Ikhtisar */}
       <section className="mx-auto max-w-4xl px-4 pb-6 sm:px-6" aria-label="Ikhtisar">

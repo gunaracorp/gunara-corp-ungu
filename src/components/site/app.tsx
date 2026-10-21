@@ -44,6 +44,7 @@ const dyn = (loader: () => Promise<{ default: React.ComponentType<any> }>) =>
   dynamic(loader, { loading: DynamicLoading });
 
 const NotFoundPage = dyn(() => import("@/components/site/pages/not-found"));
+const HargaPage = dyn(() => import("@/components/site/pages/harga"));
 const AboutPage = dyn(() => import("@/components/site/pages/about"));
 const ServicesPage = dyn(() => import("@/components/site/pages/services"));
 const ServiceDetailPage = dyn(() => import("@/components/site/pages/service-detail"));
@@ -133,6 +134,9 @@ export default function SiteApp({ initialPath }: { initialPath?: string }) {
         if (service) title = layananTitle(service);
         break;
       }
+      case "harga":
+        view = <HargaPage />;
+        break;
       case "councils": {
         const council = seg2
           ? COUNCILS.find((c) => slugify(c.name) === seg2)

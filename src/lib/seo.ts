@@ -190,6 +190,11 @@ export const ROUTE_META: Record<string, { title: string; description: string }> 
     description:
       "Katalog layanan GUNARA CORPORATION: 120+ layanan konkret dalam 12 kategori — perizinan, pajak, SDM, teknologi, kekayaan intelektual, sertifikasi, ekspansi, strategi, pemasaran, operasional, ESG, dan hukum. Harga transparan, penanggung jawab bernama, respons 48 jam.",
   },
+  "/harga": {
+    title: `Harga Terbaik — Perbandingan Harga vs 5 Situs Sejenis — ${SITE_NAME}`,
+    description:
+      `Garansi Harga Terbaik ${SITE_NAME}: perbandingan terbuka harga pendirian PT, CV, PMA, NIB OSS RBA, KITAS, merek, halal, dan virtual office kami vs 5 platform sejenis — Legalitas.org, Izin Kilat, Infiniti, Kontrak Hukum, MitraIzin. Ketemu lebih murah? Kami samakan + potongan 5%.`,
+  },
   "/kredit": {
     title: `Kredit & Kepemilikan — Gugun Gunara`,
     description:
@@ -227,6 +232,7 @@ export const TOP_PUBLIC_SEGMENTS = [
   "unduh",
   "kredit",
   "layanan",
+  "harga",
 ] as const;
 
 /** Semua kombinasi rute publik — untuk generateStaticParams & sitemap. */

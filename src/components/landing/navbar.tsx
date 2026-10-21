@@ -20,6 +20,7 @@ const NAV_LINKS = [
 ];
 
 const MENU_EXTRA = [
+  { to: "/harga", label: "Harga Terbaik" },
   { to: "/method", label: "Metode Oracle" },
   { to: "/results", label: "Hasil & Bukti" },
   { to: "/careers", label: "Karier" },

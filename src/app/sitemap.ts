@@ -16,6 +16,7 @@ type Entry = MetadataRoute.Sitemap[number];
 const GUNARA: [string, number, Entry["changeFrequency"]][] = [
   ["/", 1.0, "weekly"],
   ["/layanan", 0.9, "weekly"],
+  ["/harga", 0.8, "weekly"],
   ["/services", 0.9, "monthly"],
   ["/perizinan", 0.9, "weekly"],
   ["/about", 0.8, "monthly"],

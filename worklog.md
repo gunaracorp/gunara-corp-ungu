@@ -663,3 +663,27 @@ Stage Summary:
 - Situs kini 254 URL terindeks sitemap (sebelumnya ~114): 21 halaman firma + 12 praktik + 120 katalog layanan + 36 perizinan + 46 dewan + 12 industri + 6 wawasan + beranda.
 - Semua halaman katalog: SSR metadata unik (title/description/canonical/OG per-layanan), JSON-LD Service+FAQ, URL kanonik /layanan/<slug> berfungsi di deployment produksi.
 - Database SQLite kini benar-benar persist (bug lama repo tersembunyi di balik fallback memori).
+
+---
+Task ID: 4 (harga terbaik — riset kompetitor & penyesuaian harga)
+Agent: Z.ai Code (main orchestrator)
+Task: Riset 5 situs kompetitor sekategori (jasa pendirian & perizinan usaha Indonesia), bandingkan harga, pastikan harga GUNARA paling kompetitif, dan publikasikan perbandingannya di situs.
+
+Work Log:
+- Riset via z-ai-web-dev-sdk `web_search` (7 kueri) + `page_reader` (12 halaman). Skrip: scripts/price-research-search.ts, price-research-pages.ts, price-research-pages2.ts (hasil di notes/competitor-*.json).
+- 5 situs acuan terpilih (harga publik): legalitas.org (PT+izin Rp 4,5 jt promo; VO Rp 2,3 jt/thn; NIB Rp 1,8 jt; paket KITAS Rp 48 jt), izinkilat.id (PT Reguler Rp 2,95 jt tanpa NPWP/NIB, Lengkap Rp 4,95 jt, PMA ±Rp 8,9 jt, VO Rp 2 jt/thn), infiniti.id (OSS&NIB promo Rp 2,5 jt; add-on PKP Rp 2 jt; VO Rp 2,3 jt/thn), kontrakhukum.com (jasa PT mulai Rp 2 jt; CV Rp 2,99 jt), mitraizin.co.id (CV promo Rp 2,8 jt; VO Rp 2 jt/thn). Pendukung: sribu NIB Rp 99 rb, kolegal NIB Rp 2 jt, easybiz merek Rp 2,25 jt, halalmui halal menengah Rp 5–12 jt.
+- Penyesuaian harga (service-catalog.ts): pendirian-pt 3,5jt→Rp 1,9 jt; pendirian-cv 1,5jt→Rp 950 rb; pendirian-pma 10jt→Rp 8,5 jt; kitas-rptka 8jt→Rp 7,5 jt; pendaftaran-merek-djki 1,8jt→Rp 1,5 jt; sertifikasi-halal-bpjph 5jt→Rp 3 jt; payroll-outsourcing →"Rp 15 rb/karyawan". Semua ≤ harga mulai termurah lima situs untuk paket setara.
+- Selaraskan priceNote di perizinan.ts (3 item): pendirian-pt→Rp1,9 juta; pendirian-pma→Rp8,5 juta; CV/firma/koperasi→Rp950 ribu.
+- File baru src/data/price-comparison.ts: COMPETITOR_SITES (5), PRICE_COMPARISONS (10 layanan: slug, ours, competitorLowest, range, coverage, savings), helper isBestPriceService/priceComparisonFor/competitorSite, PRICE_RESEARCH_DATE "20 November 2025".
+- Halaman baru /harga (site/pages/harga.tsx): PageHero + meta riset, StatBand dari data, 10 kartu head-to-head (harga kita vs termurah kompetitor + rentang + cakupan), garansi "Ketemu lebih murah? Kami samakan + potongan 5%" (klaim via WhatsApp, verifikasi 1×24 jam), 5 situs acuan + catatan metodologi, FAQ 5 item, CTA. Mobile 390px tanpa horizontal scroll.
+- SEO: ROUTE_META["/harga"] (judul+deskripsi unik), TOP_PUBLIC_SEGMENTS += harga, sitemap.xml += /harga (weekly 0.8), seo-ld.ts hargaPageLd (Breadcrumb+FAQPage+ItemList 10 entri) & hargaFaqItems (satu sumber UI+LD), pageLd case /harga. Total URL sitemap kini 255.
+- Navigasi: navbar MENU_EXTRA "Harga Terbaik", footer FIRM_LINKS "Harga Terbaik", peta situs group katalog + baris /harga.
+- Badge "Harga Terbaik" (BadgeCheck) di 10 kartu /layanan + pita perbandingan mini di /layanan/<slug> untuk 10 layanan (klik → /harga).
+- Fix: harga.tsx variant="primary"→"gold" (LinkButton API), pageLd return hargaPageLd() tanpa double-array, 3 skrip riset Bun.write→node:fs (tsc), komentar doc seo-ld.
+- Verifikasi: tsc 0 error (src/), lint bersih, konsistensi data bun-run (10/10 ours === priceFrom katalog), curl SSR (harga/detail/perizinan 200 + harga baru tampil), JSON-LD /harga (FAQPage 10 Q&A + ItemList), sitemap berisi /harga, browser E2E: hero→cards→garansi→situs acuan→FAQ (details open)→klik kartu PT→detail dengan pita perbandingan→badge katalog 10×→footer#/harga→mobile 390px. Kontak API persist OK (GUNARA-MVIIL1BW) lalu data uji dihapus dari DB.
+
+Stage Summary:
+- Harga 7 layanan kunci diturunkan agar GUNARA ≤ termurah di antara 5 situs acuan untuk paket setara; garansi "samakan harga + 5%" menutup celah pasar.
+- Halaman /harga = alat konversi + SEO (FAQ rich result, ItemList, internal link 10 layanan) dengan metodologi terbuka & tanggal riset.
+- Satu sumber kebenaran: price-comparison.ts — badge katalog, pita detail, halaman /harga, dan JSON-LD semuanya dari file yang sama; entri baru cukup ditambah di sana.
+- Riset berulang kuartalan: cukup jalankan ulang skrip di scripts/ lalu perbarui price-comparison.ts.

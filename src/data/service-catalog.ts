@@ -198,7 +198,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Checklist kewajiban lapor tahunan & jadwal pajak PT",
     ],
     duration: "5–10 hari kerja",
-    priceFrom: "Rp 3,5 jt",
+    priceFrom: "Rp 1,9 jt",
     requirements: [
       "KTP, NPWP, dan foto para pemegang saham & direksi",
       "Tiga alternatif nama PT serta KBLI rencana usaha",
@@ -224,7 +224,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Panduan pembukuan & pajak khusus CV",
     ],
     duration: "3–7 hari kerja",
-    priceFrom: "Rp 1,5 jt",
+    priceFrom: "Rp 950 rb",
     requirements: [
       "KTP & NPWP para sekutu",
       "Nama CV dan KBLI usaha",
@@ -249,7 +249,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Timeline modal disetor + panduan perbankan korporat",
     ],
     duration: "10–15 hari kerja",
-    priceFrom: "Rp 10 jt",
+    priceFrom: "Rp 8,5 jt",
     requirements: [
       "Paspor & alamat para pemegang saham asing",
       "Business plan ringkas dan rencana investasi",
@@ -326,7 +326,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Kalender kewajiban perpanjangan ekspatriat",
     ],
     duration: "14–30 hari kerja",
-    priceFrom: "Rp 8 jt",
+    priceFrom: "Rp 7,5 jt",
     requirements: [
       "Paspor ekspatriat & ijazah/pengalaman kerja",
       "Posisi jabatan & struktur organisasi PT",
@@ -733,7 +733,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Jurnal akuntansi payroll siap posting",
     ],
     duration: "Setup 5 hari kerja; siklus bulanan",
-    priceFrom: "Rp 15 rb",
+    priceFrom: "Rp 15 rb/karyawan",
     requirements: [
       "Struktur gaji & komponen tunjangan",
       "Data karyawan aktif & absensi",
@@ -1215,7 +1215,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Konsultasi strategi perlindungan kelas tambahan",
     ],
     duration: "8–12 bulan hingga terbit",
-    priceFrom: "Rp 1,8 jt",
+    priceFrom: "Rp 1,5 jt",
     requirements: [
       "Nama merek & logo (file vektor bila ada)",
       "KBLI/kelas barang atau jasa target",
@@ -1468,7 +1468,7 @@ export const SERVICES_CATALOG: CatalogService[] = [
       "Sertifikat halal & label SIHALAL aktif",
     ],
     duration: "30–90 hari kerja",
-    priceFrom: "Rp 5 jt",
+    priceFrom: "Rp 3 jt",
     requirements: [
       "Daftar produk & komposisi bahan",
       "Data supplier bahan & sertifikatnya",

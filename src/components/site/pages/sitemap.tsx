@@ -54,6 +54,7 @@ export default function SitemapPage() {
       desc: "120 layanan siap jalan dalam 12 kategori — harga transparan, penanggung jawab bernama.",
       links: [
         { to: "/layanan", label: "Semua layanan katalog", note: "Pencarian & filter 12 kategori" },
+        { to: "/harga", label: "Harga Terbaik — Perbandingan vs 5 Situs", note: "Garansi samakan harga + 5%" },
         ...CATALOG_CATEGORIES.map((c) => ({
           to: `/layanan?kategori=${c.id}`,
           label: c.name,
