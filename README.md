@@ -12,9 +12,11 @@
 [![Tailwind](https://img.shields.io/badge/Tailwind_4-09090b?style=for-the-badge&logo=tailwindcss&logoColor=38bdf8)](https://tailwindcss.com)
 
 [![Prisma](https://img.shields.io/badge/Prisma-19_model-09090b?style=flat-square&logo=prisma&logoColor=8b5cf6)](https://prisma.io)
-[![API](https://img.shields.io/badge/API_26_endpoint-09090b?style=flat-square&logo=vercel&logoColor=white)](#-referensi-api)
+[![API](https://img.shields.io/badge/API_27_endpoint-09090b?style=flat-square&logo=vercel&logoColor=white)](#-referensi-api)
 [![SEO](https://img.shields.io/badge/SEO_255_URL_SSG-09090b?style=flat-square&logo=google&logoColor=ea4335)](#-seo-terpasang-otomatis)
-[![Status](https://img.shields.io/badge/Status-Production_Ready-6d28d9?style=flat-square)](#)
+[![Status](https://img.shields.io/badge/Status-Production_Ready-047857?style=flat-square)](#)
+[![Release](https://img.shields.io/badge/Release-v1.4.0_·_Kronika-047857?style=flat-square)](./CHANGELOG.md)
+[![SemVer](https://img.shields.io/badge/SemVer-2.0.0-0f766e?style=flat-square)](./CHANGELOG.md#-versioning-rules)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fprabudanling%2Ftopkonsultan&env=AI_API_KEY&project-name=topkonsultan&repository-name=topkonsultan)
 
@@ -52,7 +54,7 @@ GUNARA adalah **super app**: situs marketing publik dan ruang kerja internal (ko
 │                        GUNARA CORPORATION — SATU APP                      │
 ├───────────────────────────────────────┬──────────────────────────────────┤
 │   🌐 SITUS PUBLIK (shell terang)      │   🔐 GUNARA CONSOLE (shell gelap) │
-│   tema putih-ungu · navbar publik     │   tema zinc-950 · topbar konsol   │
+│   tema putih-zamrud · navbar publik   │   tema zinc-950 · topbar konsol   │
 │   footer · preloader · WhatsApp float │   switcher 5 portal · i18n        │
 │   255 URL terindeks Google            │   noindex · robots Disallow       │
 ├───────────────────────────────────────┼──────────────────────────────────┤
@@ -105,7 +107,7 @@ GUNARA adalah **super app**: situs marketing publik dan ruang kerja internal (ko
 | ◈ | **Form Kontak Bertiket** | Setiap brief terbit nomor tiket unik `GUNARA-XXXXXX` — tersimpan SQLite (fallback memori) |
 | ◈ | **WhatsApp Mengapung 24/7** | Satu ketukan langsung tersambung ke +62 813-1651-6524 |
 | ◈ | **195 Bahasa** | Mesin i18n sendiri: 14 kamus kurasi native + 181 bahasa lain terisi otomatis AI; 13 bahasa RTL membalik layout; fallback aktif → EN → ID |
-| ◈ | **Pusat Unduhan** `/unduh` | Source code zip, panduan super lengkap PDF (20 bab), suplemen, panduan HTML interaktif |
+| ◈ | **Pusat Unduhan** `/unduh` | Source code zip, panduan super lengkap PDF (20 bab), suplemen, panduan HTML interaktif — **khusus internal**: tanpa pintu masuk dari navbar/footer publik |
 | ◈ | **Kredit & Kepemilikan** `/kredit` | Person JSON-LD + ProfilePage schema.org + `rel="me"` mengikat seluruh kanal sosial |
 
 ### ✦ Fitur Konsol Internal (Admin & Portal)
@@ -146,6 +148,7 @@ Semua endpoint berada di bawah `/api` dan diblokir dari crawler (`robots.txt Dis
 | `/api/i18n/*` | GET/POST/PUT | Internal | Studio multi-bahasa: status, generate AI, override |
 | `/api/og` | GET | Publik | Kartu OG dinamis 1200×630 per halaman |
 | `/api/indexnow` | GET/POST | Publik | Ping IndexNow ke Bing/Yandex/Naver/Seznam/Yep |
+| `/api/version` | GET | Publik | Metadata rilis machine-readable — versi aktif + kode nama + registri SemVer lengkap |
 
 ### ✦ Deploy ke Vercel dalam 60 Detik
 
@@ -234,7 +237,7 @@ gunara-corp/
 ├── src/
 │   ├── app/
 │   │   ├── [...slug]/          # SSR semua halaman publik + konsol (noindex)
-│   │   ├── api/                # 26 endpoint (admin, portal, oracle, wa, i18n…)
+│   │   ├── api/                # 27 endpoint (admin, portal, oracle, wa, i18n, version…)
 │   │   ├── sitemap.ts robots.ts feed.xml manifest.ts opengraph-image/
 │   │   └── layout.tsx          # Metadata root + font + GA4 kondisional
 │   ├── components/
@@ -253,14 +256,41 @@ gunara-corp/
 │       ├── portal-auth.ts      # Sesi HMAC karyawan/client
 │       ├── seo.ts · seo-ld.ts  # Mesin metadata + JSON-LD
 │       ├── i18n.ts             # Mesin 195 bahasa
-│       └── db.ts               # Prisma client resilien
+│       ├── db.ts               # Prisma client resilien
+│       └── version.ts          # 🏷️ Registri versi — SemVer satu sumber (APP_VERSION, RELEASES)
 ├── prisma/schema.prisma        # 19 model (Contact, Member, Employee, Project…)
 ├── public/images/              # Aset branding + 23 logo instansi
 ├── assets/readme/              # Banner & diagram SVG
+├── CHANGELOG.md                # 🏷️ Riwayat versi (Keep a Changelog + SemVer)
+├── worklog.md                  # 🛠️ Log kerja operasional + registri rilis
 ├── scripts/                    # lh-audit, indexnow, rebrand, make-download-pdfs…
 ├── vercel.json                 # Konfigurasi deploy otomatis
 └── DEPLOY.md                   # Panduan deploy bahasa Indonesia
 ```
+
+### ✦ Versioning & Riwayat Rilis — GunaraCorp v1.4.0 "Kronika"
+
+Setiap perintah dan perubahan pada proyek ini **wajib memiliki versi** — Semantic Versioning 2.0.0, format `MAJOR.MINOR.PATCH`:
+
+| Segmen | Naik ketika |
+|---|---|
+| **MAJOR** | Perubahan era identitas merek / struktur yang memutus kompatibilitas |
+| **MINOR** | Fitur, halaman, atau integrasi baru yang kompatibel ke belakang |
+| **PATCH** | Perbaikan bug, kebersihan permukaan publik, perbaikan dokumen |
+
+> 🏷️ **Versi aktif: `v1.4.0 — Kronika`** (rilis 2026-10-22 · kanal `stable`) — setiap rilis membawa satu nama kode satu-kata. Versi dihapus dari `src/lib/version.ts` (satu sumber kebenaran) lalu disalurkan ke `package.json`, `GET /api/version`, chip footer publik, badge atas README, dan registri ringkas di bawah ini.
+
+| Versi | Kode | Tanggal | Sorotan |
+|---|---|---|---|
+| **1.4.0** | Kronika | 2026-10-22 | Tata kelola versi: CHANGELOG, API versi, chip footer, README v3, rename paket `gunaracorp` |
+| **1.3.0** | Zamrud Keberangkatan | 2026-10 | Sistem warna v2 zamrud `#047857` — uji kontras WCAG 2.2 numerik, alias token @theme |
+| **1.2.1** | Gerbang Bersih | 2026-10 | Pintu unduh internal dibersihkan dari permukaan publik (navbar + footer) |
+| **1.2.0** | Dunia Dua | 2026-10 | Pemisahan tegas Situs Publik vs Gunara Console (5 portal) + audit penuh |
+| **1.1.0** | Katalog Raksasa | 2026-10 | Rebrand GUNARA CORPORATION, katalog 120 layanan, garansi harga terbaik |
+| **1.0.0** | Summit | 2026-10 | **Rilis stabil pertama** — paket SEO 255 URL + audit Lighthouse |
+| **0.1.0 → 0.9.0** | Genesis → Gerbang Terpilih | 2026-10 | Era fondasi: build, ekspansi multi-halaman, katalog perizinan, tema terang, konsol awal |
+
+Riwayat lengkap per rilis (Added / Changed / Fixed / Verified): **[CHANGELOG.md](./CHANGELOG.md)** · Metadata machine-readable: **`GET /api/version`** · Log kerja operasional: **[worklog.md](./worklog.md)**
 
 ### ✦ 👑 Kredit & Kepemilikan — by Gugun Gunara
 
@@ -310,7 +340,7 @@ GUNARA is a **super app**: the public marketing site and the internal workspace 
 │                       GUNARA CORPORATION — ONE APP                        │
 ├───────────────────────────────────────┬──────────────────────────────────┤
 │   🌐 PUBLIC SITE (light shell)        │   🔐 GUNARA CONSOLE (dark shell)  │
-│   white-violet theme · public navbar  │   zinc-950 theme · console topbar │
+│   white-emerald theme · public navbar │   zinc-950 theme · console topbar │
 │   footer · preloader · WhatsApp float │   5-portal switcher · i18n        │
 │   255 Google-indexed URLs             │   noindex · robots Disallow       │
 ├───────────────────────────────────────┼──────────────────────────────────┤
@@ -397,6 +427,7 @@ All endpoints live under `/api` and are crawler-blocked (`robots.txt Disallow /a
 | `/api/i18n/*` | GET/POST/PUT | Internal | Multi-language studio: status, AI generate, overrides |
 | `/api/og` | GET | Public | Dynamic 1200×630 OG card per page |
 | `/api/indexnow` | GET/POST | Public | IndexNow ping to the Bing/Yandex/Naver alliance |
+| `/api/version` | GET | Public | Machine-readable release metadata — active version + codename + full SemVer registry |
 
 ### ✦ Deploy to Vercel in 60 Seconds
 
@@ -465,7 +496,7 @@ gunara-corp/
 ├── src/
 │   ├── app/
 │   │   ├── [...slug]/          # SSR for all public pages + console (noindex)
-│   │   ├── api/                # 26 endpoints (admin, portal, oracle, wa, i18n…)
+│   │   ├── api/                # 27 endpoints (admin, portal, oracle, wa, i18n, version…)
 │   │   ├── sitemap.ts robots.ts feed.xml manifest.ts opengraph-image/
 │   │   └── layout.tsx          # Root metadata + fonts + conditional GA4
 │   ├── components/
@@ -484,14 +515,41 @@ gunara-corp/
 │       ├── portal-auth.ts      # Employee/client HMAC sessions
 │       ├── seo.ts · seo-ld.ts  # Metadata + JSON-LD engines
 │       ├── i18n.ts             # 195-language engine
-│       └── db.ts               # Resilient Prisma client
+│       ├── db.ts               # Resilient Prisma client
+│       └── version.ts          # 🏷️ Version registry — SemVer single source (APP_VERSION, RELEASES)
 ├── prisma/schema.prisma        # 19 models (Contact, Member, Employee, Project…)
 ├── public/images/              # Brand assets + 23 agency logos
 ├── assets/readme/              # SVG banner & diagrams
+├── CHANGELOG.md                # 🏷️ Version history (Keep a Changelog + SemVer)
+├── worklog.md                  # 🛠️ Operational worklog + release registry
 ├── scripts/                    # lh-audit, indexnow, rebrand, make-download-pdfs…
 ├── vercel.json                 # Auto-deploy configuration
 └── DEPLOY.md                   # Step-by-step deploy guide (Indonesian)
 ```
+
+### ✦ Versioning & Release History — GunaraCorp v1.4.0 "Kronika"
+
+Every command and change in this project **must carry a version** — Semantic Versioning 2.0.0, format `MAJOR.MINOR.PATCH`:
+
+| Segment | Bumped when |
+|---|---|
+| **MAJOR** | Brand-identity era change / breaking structural change |
+| **MINOR** | New backward-compatible features, pages, or integrations |
+| **PATCH** | Bug fixes, public-surface hygiene, documentation repairs |
+
+> 🏷️ **Active version: `v1.4.0 — Kronika`** (released 2026-10-22 · channel `stable`) — every release carries a one-word codename. The version lives in `src/lib/version.ts` (single source of truth) and is mirrored to `package.json`, `GET /api/version`, the public footer chip, the README badge above, and the registry below.
+
+| Version | Codename | Date | Highlights |
+|---|---|---|---|
+| **1.4.0** | Kronika | 2026-10-22 | Version governance: CHANGELOG, version API, footer chip, README v3, package renamed `gunaracorp` |
+| **1.3.0** | Zamrud Keberangkatan | 2026-10 | Color system v2 emerald `#047857` — numeric WCAG 2.2 contrast gate, @theme token aliasing |
+| **1.2.1** | Gerbang Bersih | 2026-10 | Internal download gates cleared from the public surface (navbar + footer) |
+| **1.2.0** | Dunia Dua | 2026-10 | Hard split: Public Site vs Gunara Console (5 portals) + full site audit |
+| **1.1.0** | Katalog Raksasa | 2026-10 | GUNARA CORPORATION rebrand, 120-service catalog, best-price guarantee |
+| **1.0.0** | Summit | 2026-10 | **First stable release** — 255-URL SEO package + Lighthouse audit |
+| **0.1.0 → 0.9.0** | Genesis → Gerbang Terpilih | 2026-10 | Founding era: initial build, multi-page expansion, licensing catalog, bright theme, early console |
+
+Full per-release history (Added / Changed / Fixed / Verified): **[CHANGELOG.md](./CHANGELOG.md)** · Machine-readable metadata: **`GET /api/version`** · Operational worklog: **[worklog.md](./worklog.md)**
 
 ### ✦ 👑 Credits & Ownership — by Gugun Gunara
 

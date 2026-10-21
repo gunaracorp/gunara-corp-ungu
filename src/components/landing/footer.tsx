@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useLang } from "@/lib/i18n";
 import { LangToggle } from "@/components/site/portal-ui";
 import { Link } from "@/lib/router";
+import { formatVersion, VERSION_META } from "@/lib/version";
 import { LogoMark } from "./logo";
 
 const FIRM_LINKS = [
@@ -366,6 +367,13 @@ export default function Footer() {
         >
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <p>© {year} {BRAND.legal}. Seluruh masa depan dilindungi.</p>
+            <span
+              className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-700"
+              title={`Rilis stabil ${formatVersion()} — ${VERSION_META.releasedAt} · Riwayat lengkap: CHANGELOG.md`}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" aria-hidden="true" />
+              GunaraCorp {formatVersion()}
+            </span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <LangToggle lang={lang} onChange={() => {}} />

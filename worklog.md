@@ -1,7 +1,70 @@
-# Worklog — Proyek Omniprime Global Advisory
+# GUNARACORP — Engineering Worklog & Version Registry
+
+> 🏷️ **Release aktif: v1.4.0 "Kronika" — 2026-10-22** · kanal `stable` · SemVer 2.0.0
+> Berkas ini adalah **log kerja operasional multi-agent** (kronologis, append-only). Riwayat versi yang rapi untuk publik: **CHANGELOG.md** · Identitas versi programatik: **src/lib/version.ts** (`APP_VERSION`, `RELEASES`) · Metadata machine: **GET /api/version**.
+
+---
+
+## §0 Aturan Versi (SemVer Governance) — WAJIB dipatuhi semua agent
+
+| Segmen | Naik ketika | Contoh nyata |
+|---|---|---|
+| **MAJOR** | Perubahan era identitas merek / struktur yang memutus kompatibilitas | (belum terpakai sejak v1.0.0) |
+| **MINOR** | Fitur, halaman, atau integrasi baru yang kompatibel ke belakang | v1.1.0 katalog · v1.2.0 konsol · v1.3.0 warna · v1.4.0 tata kelola |
+| **PATCH** | Perbaikan bug, kebersihan permukaan publik, perbaikan dokumen | v1.2.1 hotfix gerbang unduh |
+
+**Alur rilis 6 langkah** (satu perubahan = satu versi, tanpa kecuali):
+
+```text
+ubah kode → pilih tipe bump (MAJOR/MINOR/PATCH)
+          → naikkan APP_VERSION + package.json + entri RELEASES (src/lib/version.ts)
+          → tulis entri CHANGELOG.md (Added/Changed/Fixed/Verified)
+          → tag `Release: vX.Y.Z "Kode"` pada entri worklog ini
+          → bun run lint 0 error + verifikasi browser → rilis sah
+```
+
+**Kebijakan nama kode**: satu kata per rilis, nuansa Nusantara/kitab, urutan kronologis —
+Genesis, Ekspansi, Gerbang Perizinan, Kepemimpinan, Restorasi, Identitas Ungu-Biru, Skybridge,
+Bright Executive, Gerbang Terpilih, Summit, Katalog Raksasa, Dunia Dua, Gerbang Bersih,
+Zamrud Keberangkatan, Kronika.
+
+## §1 Registri Rilis (rekonstruksi historis — tanggal pra-v1.4.0 presisi bulan)
+
+| Versi | Kode | Tanggal | Babak | Sorotan | Task IDs |
+|---|---|---|---|---|---|
+| **1.4.0** | Kronika | 2026-10-22 | III | Tata kelola versi: CHANGELOG, API versi, chip footer, README v3, rename `gunaracorp` | 9 |
+| **1.3.0** | Zamrud Keberangkatan | 2026-10 | III | Sistem warna v2 zamrud #047857 — uji kontras WCAG 2.2 numerik, alias token @theme | 9 |
+| **1.2.1** | Gerbang Bersih | 2026-10 | III | Pintu unduh internal dibersihkan dari permukaan publik (navbar + footer) | 8 |
+| **1.2.0** | Dunia Dua | 2026-10 | II–III | Pemisahan tegas Publik vs Console, README rewrite, audit penuh semua halaman | 15 |
+| **1.1.0** | Katalog Raksasa | 2026-10 | II | Rebrand GUNARA CORPORATION, 120 layanan + /layanan, riset harga 5 kompetitor, SEO maksimal | 13, 14, 7-a, 5-a, 3-int, 4-harga |
+| **1.0.0** | Summit | 2026-10 | II | **RILIS STABIL PERTAMA** — paket SEO 255 URL + perbaikan performa Lighthouse | 11, 12 |
+| **0.9.0** | Gerbang Terpilih | 2026-10 | II | Oracle lounge VVIP, dashboard CEO + member, 6 halaman internasional | 8, 9, 10 |
+| **0.8.0** | Bright Executive | 2026-10 | II | Rebrand tema gelap → terang | 7 |
+| **0.7.0** | Skybridge | 2026-10 | II | Deploy produksi Vercel, anti no-deploy, README bilingual | 4, 5, 6 |
+| **0.6.0** | Identitas Ungu-Biru | 2026-10 | II | Kontak resmi, rebrand ungu-biru, logo mitra instansi | 3 |
+| **0.5.0** | Restorasi | 2026-10 | II | Pasang repo + branding 8 foto asli + logo instansi RI | 1, 2, 3 |
+| **0.4.0** | Kepemimpinan | 2026-10 | I | Gugun Gunara pimpinan perusahaan + README kelas dunia pertama | 4-leadership-readme |
+| **0.3.0** | Gerbang Perizinan | 2026-10 | I | Katalog 36 izin, terjemahan Indonesia penuh, rebrand PT TOP KONSULTAN | 3-a…3-g, 3-core |
+| **0.2.0** | Ekspansi | 2026-10 | I | One-pager → website multi-halaman penuh | 2 |
+| **0.1.0** | Genesis | 2026-10 | I | Build pertama "Omniprime Global Advisory" (46 Council, Oracle AI) | 1 |
+
+> **Babak** — I: fondasi (sandbox pertama) · II: produksi (repo topkonsultan → GUNARA CORPORATION) · III: operasi berjalan.
+
+## §2 Kontrak Penulisan Entri (untuk semua agent, tanpa kecuali)
+
+1. Entri baru di-*append* di akhir berkas, dipisah baris `---`.
+2. Tepat di bawah baris `Task ID: …` WAJIB ada baris `Release: vX.Y.Z "KodeNama"`.
+3. Entri wajib memuat: Agent, Task, Work Log (langkah konkret), Stage Summary (hasil/keputusan/artefak).
+4. Perubahan yang menaikkan versi WAJIB memperbarui `src/lib/version.ts` + `package.json` + `CHANGELOG.md` pada rilis yang sama.
+5. Dilarang menghapus/menulis-ulang entri historis — koreksi dilakukan lewat entri baru.
+
+---
+
+# Log Kerja Kronologis (entri tertua → terbaru; setiap entri diberi tag rilis)
 
 ---
 Task ID: 1
+Release: v0.1.0 "Genesis"
 Agent: Z.ai Code (main orchestrator — "master polymath spectrum mode")
 Task: Membangun website konsultan #1 dunia "Omniprime Global Advisory" — full animasi, 46 Council of Experts, melebihi McKinsey/Google, siap shared hosting.
 
@@ -23,6 +86,7 @@ Stage Summary:
 
 ---
 Task ID: 2 (multi-page expansion)
+Release: v0.2.0 "Ekspansi"
 Agent: Z.ai Code (main orchestrator)
 Task: Memenuhi permintaan user — "lengkapi detail setiap halaman, setiap page, setiap link pastikan hidup semua" — mengubah situs one-pager menjadi website multi-halaman penuh.
 
@@ -47,6 +111,7 @@ Stage Summary:
 
 ---
 Task ID: 3-a
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: perizina-forge
 Task: Membuat file data /home/z/my-project/src/data/perizinan.ts (katalog "Gerbang Perizinan" PT TOP KONSULTAN INTERNASIONAL) sesuai spesifikasi notes/perizinan-spec.md — 8 kategori, 36 item, lolos tsc.
 
@@ -69,6 +134,7 @@ Stage Summary:
 
 ---
 Task ID: 3-c
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: terjemah-data
 Task: Menerjemahkan/me-rewrite 8 file data situs ke Bahasa Indonesia premium dengan rebrand "Omniprime Global Advisory" → PT TOP KONSULTAN INTERNASIONAL (Jakarta 2001, 46 Dewan Pakar, 6.900 tahun pengalaman, 190 negara, 12.000+ penugasan, 99,97%, 10 hub): service-details.ts, industries.ts, insights.ts, leadership.ts, careers.ts, legal.ts, offices.ts, timeline.ts — plus mengisi field bilingual wajib di extended-types.ts (enName, enTagline, enTitle, enExcerpt, enRole, enTitle).
 
@@ -93,6 +159,7 @@ Stage Summary:
 
 ---
 Task ID: 3-f
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: terjemah-page-1
 Task: Translasi (write code) 10 file halaman/komponen ke Bahasa Indonesia premium untuk rebrand PT TOP KONSULTAN INTERNASIONAL — about, method, results, careers, faq, legal, not-found, contact (site pages) + landing/contact + oracle-chat. Hanya salinan milik halaman; data (LEGAL_DOCS, FAQS, ROLES, PERKS, TIMELINE, LEADERS, dsb.) tidak disentuh.
 
@@ -120,6 +187,7 @@ Stage Summary:
 
 ---
 Task ID: 3-d
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: terjemah-ui-1
 Task: Translasi copy komponen landing milik sendiri (hero.tsx, marquee.tsx, stats.tsx, about.tsx, services.tsx) ke Bahasa Indonesia premium untuk rebrand PT TOP KONSULTAN INTERNASIONAL — tanpa mengubah animasi, struktur, class, maupun aksesibilitas.
 
@@ -141,6 +209,7 @@ Stage Summary:
 
 ---
 Task ID: 3-e
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: terjemah-ui-2
 Task: Terjemahan komponen landing (write code) — councils.tsx, methodology.tsx, comparison.tsx, results.tsx, testimonials.tsx, global.tsx ke Bahasa Indonesia premium untuk rebrand PT TOP KONSULTAN INTERNASIONAL.
 
@@ -162,6 +231,7 @@ Stage Summary:
 
 ---
 Task ID: 3-g
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: terjemah-page-2
 Task: Menerjemahkan 8 halaman situs (services, service-detail, councils, council-detail, industries, industry-detail, insights, insight-detail) ke Indonesia premium untuk rebrand PT TOP KONSULTAN INTERNASIONAL + render bilingual kickline EN.
 
@@ -185,6 +255,7 @@ Stage Summary:
 
 ---
 Task ID: 3-b
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: terjemah-core
 Task: Menerjemahkan seluruh string user-facing di src/data/content.ts dan src/data/council-profiles.ts ke Bahasa Indonesia premium (rebrand PT TOP KONSULTAN INTERNASIONAL) — tanpa mengubah join key, struktur, icon, atau angka.
 
@@ -205,6 +276,7 @@ Stage Summary:
 
 ---
 Task ID: 3-core (rebrand + perizinan + integrasi)
+Release: v0.3.0 "Gerbang Perizinan"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user — rebrand menjadi PT TOP KONSULTAN INTERNASIONAL, fokus konsultasi + perizinan terlengkap di dunia (OSS/NIB/BPOM/halal/dll), Bahasa Indonesia utama dengan kesiapan terjemahan global, semua negara maju masuk jangkauan.
 
@@ -230,6 +302,7 @@ Stage Summary:
 
 ---
 Task ID: 4-leadership-readme
+Release: v0.4.0 "Kepemimpinan"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user — (1) buat README terbaik dengan full design & full version; (2) masukkan Gugun Gunara (pengusaha asal Tasikmalaya, konsultan bisnis senior, pernah berpartner dengan McKinsey) sebagai pimpinan perusahaan.
 
@@ -248,6 +321,7 @@ Stage Summary:
 
 ---
 Task ID: 1
+Release: v0.5.0 "Restorasi"
 Agent: Super Z (main agent)
 Task: Clone & install repositori https://github.com/prabudanling/topkonsultan
 
@@ -268,6 +342,7 @@ Stage Summary:
 
 ---
 Task ID: 2
+Release: v0.5.0 "Restorasi"
 Agent: Super Z (main agent)
 Task: Branding situs dengan foto asli upload (logo master, foto Pendiri, foto Menara, 5 foto akreditasi/sertifikat)
 
@@ -287,6 +362,7 @@ Stage Summary:
 
 ---
 Task ID: 3
+Release: v0.5.0 "Restorasi"
 Agent: Super Z (main agent)
 Task: Tambah logo resmi kementerian/lembaga RI sebagai section "Jaringan Instansi" di beranda
 
@@ -304,6 +380,7 @@ Stage Summary:
 
 ---
 Task ID: 3
+Release: v0.6.0 "Identitas Ungu-Biru"
 Agent: Z.ai Code (main orchestrator)
 Task: Kontak resmi (+6281111165165 / halo@topkonsultan.web.id / 4 alamat: Arjamukti, Andalusia, PHI Kwitang, IPHI Pusat), rebrand ungu-biru, maksimalkan layanan + logo mitra instansi resmi.
 
@@ -328,6 +405,7 @@ Stage Summary:
 
 ---
 Task ID: 4
+Release: v0.7.0 "Skybridge"
 Agent: Super Z (main agent)
 Task: Aktifkan AI di Vercel production — setup deploy otomatis, env-based AI provider, fallback anti-rusak, panduan deploy non-IT.
 
@@ -353,6 +431,7 @@ Stage Summary:
 
 ---
 Task ID: 5
+Release: v0.7.0 "Skybridge"
 Agent: Super Z (main agent)
 Task: Anti "No Production Deployment" di Vercel — repo tinggal import, bukan kosongan/manual.
 
@@ -372,6 +451,7 @@ Stage Summary:
 
 ---
 Task ID: 6
+Release: v0.7.0 "Skybridge"
 Agent: Super Z (main agent)
 Task: README kelas dunia bilingual (ID+EN) full futuristik + pembersihan final repo.
 
@@ -388,6 +468,7 @@ Stage Summary:
 
 ---
 Task ID: 7
+Release: v0.8.0 "Bright Executive"
 Agent: Super Z (main agent)
 Task: Rebrand seluruh situs gelap -> tema CERAH (Bright Executive) yang enak dipandang, identitas ungu-biru dipertahankan sebagai aksen.
 
@@ -408,6 +489,7 @@ Stage Summary:
 
 ---
 Task ID: 8
+Release: v0.9.0 "Gerbang Terpilih"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user — "Oracle hanya untuk VVIP member, jangan tampilkan di website depan" — sembunyikan Oracle dari situs publik, jadikan lounge eksklusif dengan kode akses.
 
@@ -433,6 +515,7 @@ Stage Summary:
 
 ---
 Task ID: 9
+Release: v0.9.0 "Gerbang Terpilih"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user (CEO TOP Konsultan) — buat admin dashboard untuk CEO dan dashboard untuk member-member.
 
@@ -462,6 +545,7 @@ Stage Summary:
 
 ---
 Task ID: 10
+Release: v0.9.0 "Gerbang Terpilih"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user — "buatkan halaman yang belum ada halamannya, dan buatkan berstandard internasional" — audit tautan vs rute, identifikasi 6 halaman yang hilang dibanding situs firma konsultan internasional, bangun semuanya.
 
@@ -488,6 +572,7 @@ Stage Summary:
 
 ---
 Task ID: 11
+Release: v1.0.0 "Summit"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user — "tolong maksimalkan search optimize engine google" — paket SEO standar internasional menyeluruh.
 
@@ -522,6 +607,7 @@ Stage Summary:
 
 ---
 Task ID: 12
+Release: v1.0.0 "Summit"
 Agent: Z.ai Code (main orchestrator)
 Task: Verifikasi Lighthouse/Performance terhadap build produksi — temukan akar masalah metrik buruk, perbaiki, dan audit ulang.
 
@@ -555,6 +641,7 @@ Stage Summary:
 
 ---
 Task ID: 13
+Release: v1.1.0 "Katalog Raksasa"
 Agent: Z.ai Code (main orchestrator)
 Task: Rebranding menyeluruh TOP KONSULTAN → GUNARA CORPORATION / GUNARA CONSULTAN — telepon baru +62 813-1651-6524, pimpinan Senior Konsultan Tn. H. Gugun Gunara, MBA, 1.524 perusahaan ditangani, sembunyikan PT TOP KONSULTAN INTERNASIONAL (penagihan ke senior konsultan), full SEO.
 
@@ -577,6 +664,7 @@ Stage Summary:
 
 ---
 Task ID: 14
+Release: v1.1.0 "Katalog Raksasa"
 Agent: Z.ai Code (main orchestrator)
 Task: Maksimalkan SEO Google & mesin pencari lain — permintaan eksplisit user untuk dorongan SEO jangka panjang (konteks: butuh orderan).
 
@@ -599,6 +687,7 @@ Stage Summary:
 - Komit e3163d1. Push GitHub tetap menunggu kredensial user.
 ---
 Task ID: 7-a
+Release: v1.1.0 "Katalog Raksasa"
 Agent: full-stack-developer (halaman katalog)
 Task: Membangun halaman /layanan (indeks katalog) & /layanan/<slug> (detail) — 2 file baru, pola design language services.tsx + service-detail.tsx + perizinan.tsx, tema ungu/violet di atas putih.
 
@@ -622,6 +711,7 @@ Stage Summary:
 
 ---
 Task ID: 5-a
+Release: v1.1.0 "Katalog Raksasa"
 Agent: general-purpose (katalog layanan)
 Task: Mengisi SERVICES_CATALOG dengan 120 layanan (12 kategori × 10) di src/data/service-catalog.ts — mengganti baris `export const SERVICES_CATALOG: CatalogService[] = [];` dengan 120 entri lengkap sesuai interface CatalogService (slug permanen, tagline 8–16 kata unik, description 2–3 kalimat unik, 5 deliverables spesifik, 3–4 requirements, duration & priceFrom realistis pasar Indonesia, tags 3–5).
 Work Log:
@@ -644,6 +734,7 @@ Stage Summary:
 
 ---
 Task ID: 3 (integrasi & penyempurnaan)
+Release: v1.1.0 "Katalog Raksasa"
 Agent: Z.ai Code (main orchestrator)
 Task: Install repo github.com/prabudanling/gunara-corp-ungu ke sandbox, resolve merge conflict, tambahkan katalog 120+ layanan (ratusan halaman SEO), dan perbaiki bug runtime.
 
@@ -666,6 +757,7 @@ Stage Summary:
 
 ---
 Task ID: 4 (harga terbaik — riset kompetitor & penyesuaian harga)
+Release: v1.1.0 "Katalog Raksasa"
 Agent: Z.ai Code (main orchestrator)
 Task: Riset 5 situs kompetitor sekategori (jasa pendirian & perizinan usaha Indonesia), bandingkan harga, pastikan harga GUNARA paling kompetitif, dan publikasikan perbandingannya di situs.
 
@@ -690,6 +782,7 @@ Stage Summary:
 
 ---
 Task ID: 15
+Release: v1.2.0 "Dunia Dua"
 Agent: Z.ai Code (main orchestrator)
 Task: Permintaan user — "pisahkan mana yang untuk admin, mana untuk publik, pisahkan keduanya, lalu update worklog dan readme terbaik yang pernah ada, lalu audit semua halaman" — pemisahan tegas Situs Publik vs Gunara Console (internal), rewrite README, audit penuh seluruh halaman.
 
@@ -723,6 +816,7 @@ Audit lanjutan Task 15 (temuan & perbaikan tambahan):
 
 ---
 Task ID: 8
+Release: v1.2.1 "Gerbang Bersih"
 Agent: Z.ai Code (main)
 Task: Hilangkan tombol unduhan dari beranda (navbar desktop + mobile) dan footer — area publik dibersihkan dari akses internal
 
@@ -740,6 +834,7 @@ Stage Summary:
 
 ---
 Task ID: 9
+Release: v1.3.0 "Zamrud Keberangkatan"
 Agent: Z.ai Code (main) — peran Omnibrand Color Architect
 Task: Rombak sistem warna situs (pengguna: warna lama "terasa tidak sesuai") — audit, strategi, 3 konsep, uji kontras WCAG numerik, implementasi penuh, verifikasi browser
 
@@ -756,3 +851,26 @@ Stage Summary:
 - Sistem warna baru "Zamrud Keberangkatan": primer #047857, hover #065f46, sekunder teal #0f766e, aksen emas #b45309/#d97706, bg gading #faf9f4, teks #1e293b/#334155/#475569, error #be123c, info #0e7490, warning #b45309, success #047857.
 - Mekanisme alias token (violet-*→zamrud) membuat seluruh 255+ halaman & portal internal berubah konsisten tanpa menyentuh 1.100+ kelas; skrip QA kontras tersimpan di scripts/contrast-check.ts.
 - Logo: geometri gerbang dipertahankan, warna diganti zamrud→teal + permata emas (perubahan dijelaskan di laporan).
+
+---
+Task ID: 9
+Release: v1.4.0 "Kronika"
+Agent: Z.ai Code (main) — Version Governance Engineer
+Task: Permintaan user — "rename dan update seluruh worklog dan situs web app readme, setiap perintah dan perubahan harus ada versinya, aktifkan semua versi (mis. gunaracorp v1.2.3), buat berstandard internasional" — sistem versioning SemVer menyeluruh + dokumentasi kelas dunia.
+
+Work Log:
+- REKONSTRUKSI RIWAYAT: membaca seluruh worklog (33 entri kerja lintas 3 babak) + README + package.json → merancang aturan SemVer (MAJOR=era merek/struktur, MINOR=fitur baru, PATCH=fix/dokumen) → memetakan seluruh sejarah ke 15 versi berkode nama (v0.1.0 "Genesis" → v1.4.0 "Kronika").
+- MODUL VERSI (satu sumber kebenaran): src/lib/version.ts BARU — APP_VERSION "1.4.0", VERSION_META (kode nama "Kronika", tanggal, kanal stable, makna kode), RELEASES (15 entri, highlight bilingual ID/EN), formatVersion(), getRelease().
+- API VERSI: src/app/api/version/route.ts BARU — GET /api/version mengembalikan metadata rilis machine-readable (versi, kode nama, kanal, registri lengkap, penunjuk CHANGELOG/README). Zona publik, tetap diblokir crawler (robots Disallow /api/).
+- VERSI HIDUP DI SITUS: footer publik kini menampilkan chip "GunaraCorp v1.4.0 — Kronika" (token violet-* yang ter-alias Zamrud, tooltip tanggal rilis) — src/components/landing/footer.tsx.
+- RENAME PAKET: package.json name "nextjs_tailwind_shadcn_ts" → "gunaracorp"; version 0.2.1 (warisan scaffold basi) → "1.4.0" (sinkron APP_VERSION).
+- CHANGELOG.md BARU: format "Keep a Changelog" + SemVer 2.0.0 + badge — aturan versi, kebijakan nama kode, tabel single-source-of-truth (5 konsumen versi), alur rilis 6 langkah, catatan presisi tanggal (pra-v1.4.0 = presisi bulan, tidak mengarang tanggal), 15 rilis lengkap Added/Changed/Fixed/Verified.
+- README.md v3 (14 titik sunting presisi): badge Release v1.4.0 · Kronika + badge SemVer; badge Status di-warna zamrud; API 26→27 endpoint (tabel ID+EN + badge + pohon struktur); Pusat Unduhan ditandai khusus internal; "tema putih-ungu/white-violet" → "putih-zamrud/white-emerald" (selaras Zamrud Keberangkatan v1.3.0); pohon proyek + CHANGELOG.md + worklog.md + version.ts; DUA seksi baru "Versioning & Riwayat Rilis" (ID) & "Versioning & Release History" (EN) dengan tabel registri versi.
+- WORKLOG RESTRUKTURISASI: scripts/tag-worklog-versions.ts (migrasi idempoten) — header baru "GUNARACORP — Engineering Worklog & Version Registry" (§0 aturan SemVer, §1 registri 15 rilis, §2 kontrak penulisan entri), 33 baris `Release: vX.Y.Z "Kode"` disuntikkan tepat di bawah tiap Task ID (validasi dulu: semua baris yang dipetakan benar-benar "Task ID:", sisip dari bawah ke atas agar nomor baris tetap valid). Judul lama "Proyek Omniprime" yang basi diganti identitas GunaraCorp.
+- LINT: bun run lint → 0 error. Verifikasi browser: chip versi tampil di footer, GET /api/version 200 JSON lengkap, 0 console error (detail di laporan akhir).
+
+Stage Summary:
+- GUNARACORP kini resmi **v1.4.0 "Kronika"** — setiap perintah & perubahan terikat satu versi SemVer dengan nama kode satu kata.
+- Versi HIDUP di 5 tempat serentak: package.json (gunaracorp@1.4.0), src/lib/version.ts (APP_VERSION+RELEASES), GET /api/version (JSON machine-readable), chip footer publik, badge README — ditambah CHANGELOG.md (manusia) & worklog.md §1 (operasional).
+- Seluruh 33 entri historis kini bertag rilis; kontrak §2 menjamin semua agent masa depan menandai entri dengan versi.
+- Dokumen berstandar internasional: CHANGELOG (Keep a Changelog 1.1.0), SemVer 2.0.0, README bilingual dengan seksi versioning ID+EN.
