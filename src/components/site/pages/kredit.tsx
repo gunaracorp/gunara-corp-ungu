@@ -43,7 +43,7 @@ export default function KreditPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 text-white shadow-[0_12px_40px_-10px_rgba(139,92,246,0.5)]"
+          className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 text-white shadow-[0_12px_40px_-10px_rgba(13,148,136,0.5)]"
         >
           <Crown className="h-7 w-7" aria-hidden="true" />
         </motion.div>
@@ -74,7 +74,7 @@ export default function KreditPage() {
         <div className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-start sm:text-left">
           <span
             aria-hidden="true"
-            className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-600 via-indigo-500 to-blue-600 text-2xl font-black text-white shadow-[0_16px_50px_-12px_rgba(139,92,246,0.55)]"
+            className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-600 via-indigo-500 to-blue-600 text-2xl font-black text-white shadow-[0_16px_50px_-12px_rgba(13,148,136,0.55)]"
           >
             GG
           </span>
@@ -134,7 +134,7 @@ export default function KreditPage() {
               href={s.url}
               target="_blank"
               rel="me noopener noreferrer"
-              className="group flex items-center gap-3.5 rounded-2xl border border-slate-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400 hover:shadow-[0_16px_40px_-18px_rgba(139,92,246,0.4)]"
+              className="group flex items-center gap-3.5 rounded-2xl border border-slate-200 bg-white p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400 hover:shadow-[0_16px_40px_-18px_rgba(13,148,136,0.4)]"
             >
               <span
                 aria-hidden="true"
@@ -196,7 +196,7 @@ export default function KreditPage() {
                 href={e.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400 hover:shadow-[0_16px_40px_-18px_rgba(139,92,246,0.4)]"
+                className="rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400 hover:shadow-[0_16px_40px_-18px_rgba(13,148,136,0.4)]"
               >
                 {inner}
               </a>

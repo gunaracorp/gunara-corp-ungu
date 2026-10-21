@@ -22,7 +22,7 @@ export function GET() {
           justifyContent: "space-between",
           padding: "72px 80px",
           background:
-            "linear-gradient(135deg, #2e1065 0%, #5b21b6 46%, #1e3a8a 100%)",
+            "linear-gradient(135deg, #03301f 0%, #065f46 46%, #0f766e 100%)",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
@@ -38,7 +38,7 @@ export function GET() {
               height: 96,
               borderRadius: 24,
               background: "#ffffff",
-              color: "#4c1d95",
+              color: "#065f46",
               fontSize: 40,
               fontWeight: 800,
               letterSpacing: 2,
@@ -50,7 +50,7 @@ export function GET() {
             <div style={{ fontSize: 34, fontWeight: 700, letterSpacing: 6 }}>
               GUNARA CONSULTAN
             </div>
-            <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: 14, color: "#c4b5fd" }}>
+            <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: 14, color: "#99f6e4" }}>
               CORPORATION
             </div>
           </div>
@@ -64,7 +64,7 @@ export function GET() {
           <div style={{ fontSize: 58, fontWeight: 800, lineHeight: 1.15, color: "#fbbf24" }}>
             Izin &amp; Strategi
           </div>
-          <div style={{ fontSize: 28, color: "#ddd6fe", marginTop: 6 }}>
+          <div style={{ fontSize: 28, color: "#ccfbf1", marginTop: 6 }}>
             1.524 perusahaan ditangani — Konsultasi &amp; Perizinan Terlengkap di Dunia, sejak 2001
           </div>
         </div>
@@ -82,23 +82,23 @@ export function GET() {
           <div style={{ display: "flex", gap: 40 }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>1.524</div>
-              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Perusahaan</div>
+              <div style={{ fontSize: 20, color: "#99f6e4" }}>Perusahaan</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>36+</div>
-              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Jenis Izin</div>
+              <div style={{ fontSize: 20, color: "#99f6e4" }}>Jenis Izin</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>46</div>
-              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Dewan Pakar</div>
+              <div style={{ fontSize: 20, color: "#99f6e4" }}>Dewan Pakar</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>190</div>
-              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Negara</div>
+              <div style={{ fontSize: 20, color: "#99f6e4" }}>Negara</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ fontSize: 40, fontWeight: 800 }}>99,97%</div>
-              <div style={{ fontSize: 20, color: "#c4b5fd" }}>Keberhasilan</div>
+              <div style={{ fontSize: 20, color: "#99f6e4" }}>Keberhasilan</div>
             </div>
           </div>
           <div style={{ fontSize: 26, fontWeight: 600, color: "#fbbf24" }}>

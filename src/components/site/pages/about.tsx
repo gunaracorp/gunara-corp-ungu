@@ -140,7 +140,7 @@ export default function AboutPage() {
                   className="absolute left-[19px] top-7 z-10 -translate-x-1/2 md:left-1/2"
                   aria-hidden="true"
                 >
-                  <span className="block h-3.5 w-3.5 rounded-full border-2 border-violet-500 bg-white shadow-[0_0_12px_rgba(139,92,246,0.9)]" />
+                  <span className="block h-3.5 w-3.5 rounded-full border-2 border-violet-500 bg-white shadow-[0_0_12px_rgba(13,148,136,0.9)]" />
                 </span>
                 <div
                   className={`glass ml-10 w-full rounded-2xl p-6 md:ml-0 md:w-[calc(50%-3rem)] ${
@@ -174,7 +174,7 @@ export default function AboutPage() {
               return (
                 <Reveal key={l.name} delay={0} className="sm:col-span-2 lg:col-span-3">
                   <TiltCard className="h-full">
-                    <article className="group grid h-full overflow-hidden rounded-2xl border border-violet-300 bg-gradient-to-br from-zinc-900/80 via-zinc-900/40 to-transparent transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(139,92,246,0.45)] lg:grid-cols-[340px_1fr]">
+                    <article className="group grid h-full overflow-hidden rounded-2xl border border-violet-300 bg-gradient-to-br from-zinc-900/80 via-zinc-900/40 to-transparent transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(13,148,136,0.45)] lg:grid-cols-[340px_1fr]">
                       <div className="relative h-80 overflow-hidden bg-white lg:h-full">
                         {l.image ? (
                           <Image
@@ -231,7 +231,7 @@ export default function AboutPage() {
             return (
             <Reveal key={l.name} delay={(i % 3) * 0.08} className="h-full">
               <TiltCard className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]">
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]">
                   <div className="relative h-64 overflow-hidden bg-white">
                     {l.image ? (
                       <Image

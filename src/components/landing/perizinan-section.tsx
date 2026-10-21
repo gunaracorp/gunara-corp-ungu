@@ -44,7 +44,7 @@ export default function PerizinanSection() {
               >
                 <Link
                   to={`/perizinan?kategori=${c.id}`}
-                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white/70 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_20px_60px_-24px_rgba(139,92,246,0.28)]"
+                  className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white/70 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_20px_60px_-24px_rgba(13,148,136,0.28)]"
                   ariaLabel={`${c.name} — ${count} jenis izin`}
                 >
                   <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-200 bg-violet-50 text-violet-600 transition-transform duration-500 group-hover:scale-110">

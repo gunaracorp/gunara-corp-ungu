@@ -39,7 +39,7 @@ export default function Methodology() {
           {/* Animated progress */}
           <motion.div
             style={{ scaleY }}
-            className="absolute left-[22px] top-2 h-[calc(100%-16px)] w-px origin-top bg-gradient-to-b from-violet-600 via-indigo-500 to-blue-600 shadow-[0_0_14px_rgba(139,92,246,0.8)] md:left-1/2"
+            className="absolute left-[22px] top-2 h-[calc(100%-16px)] w-px origin-top bg-gradient-to-b from-violet-600 via-indigo-500 to-blue-600 shadow-[0_0_14px_rgba(13,148,136,0.8)] md:left-1/2"
             aria-hidden="true"
           />
 
@@ -58,7 +58,7 @@ export default function Methodology() {
                   aria-hidden="true"
                 >
                   <span className="absolute -inset-1.5 animate-ping-slow rounded-full bg-violet-600/40" />
-                  <span className="relative block h-4 w-4 rounded-full border-2 border-violet-500 bg-white shadow-[0_0_12px_rgba(139,92,246,0.9)]" />
+                  <span className="relative block h-4 w-4 rounded-full border-2 border-violet-500 bg-white shadow-[0_0_12px_rgba(13,148,136,0.9)]" />
                 </span>
 
                 <motion.div

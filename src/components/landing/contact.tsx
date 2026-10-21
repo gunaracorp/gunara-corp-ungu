@@ -282,7 +282,7 @@ export default function Contact({
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="shine mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 py-3.5 text-sm font-bold text-white shadow-[0_12px_44px_-10px_rgba(139,92,246,0.42)] transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="shine mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 py-3.5 text-sm font-bold text-white shadow-[0_12px_44px_-10px_rgba(13,148,136,0.42)] transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === "sending" ? (
                       <>

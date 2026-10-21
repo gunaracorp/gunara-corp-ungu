@@ -161,7 +161,7 @@ export default function MemberPage() {
             <div className="mt-8 flex flex-col items-center gap-3">
               <a
                 href="#/vvip"
-                className="shine inline-flex h-12 items-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-8 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(139,92,246,0.5)] transition-transform hover:scale-[1.02] active:scale-95"
+                className="shine inline-flex h-12 items-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-8 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(13,148,136,0.5)] transition-transform hover:scale-[1.02] active:scale-95"
               >
                 <Sparkles className="h-4 w-4" aria-hidden="true" />
                 Masuk Lounge Oracle
@@ -211,7 +211,7 @@ export default function MemberPage() {
                 href="#/vvip"
                 className="group rounded-2xl border border-violet-400/30 bg-gradient-to-br from-violet-600/25 to-blue-600/10 p-5 transition-transform hover:scale-[1.02]"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_10px_30px_-8px_rgba(139,92,246,0.6)]">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_10px_30px_-8px_rgba(13,148,136,0.6)]">
                   <Sparkles className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <p className="mt-3 text-[15px] font-black">Buka Lounge Oracle</p>
@@ -358,7 +358,7 @@ function MemberLogin({ onVerified }: { onVerified: () => void }) {
       </p>
 
       <div className="mt-9 w-full rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 shadow-[0_14px_44px_-10px_rgba(13,148,136,0.55)]">
           <Lock className="h-6 w-6" aria-hidden="true" />
         </span>
         <form onSubmit={submit} className="mt-5 space-y-3">
@@ -374,7 +374,7 @@ function MemberLogin({ onVerified }: { onVerified: () => void }) {
           <button
             type="submit"
             disabled={!code.trim() || busy}
-            className="shine h-12 w-full rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(139,92,246,0.5)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+            className="shine h-12 w-full rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(13,148,136,0.5)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {busy ? "Memverifikasi…" : "Buka Dashboard"}
           </button>

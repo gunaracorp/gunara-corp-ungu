@@ -37,7 +37,7 @@ export function GET(request: Request) {
           justifyContent: "space-between",
           padding: "64px 80px",
           background:
-            "linear-gradient(135deg, #2e1065 0%, #5b21b6 46%, #1e3a8a 100%)",
+            "linear-gradient(135deg, #03301f 0%, #065f46 46%, #0f766e 100%)",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}
@@ -53,7 +53,7 @@ export function GET(request: Request) {
               height: 76,
               borderRadius: 20,
               background: "#ffffff",
-              color: "#4c1d95",
+              color: "#065f46",
               fontSize: 32,
               fontWeight: 800,
               letterSpacing: 2,
@@ -65,7 +65,7 @@ export function GET(request: Request) {
             <div style={{ fontSize: 26, fontWeight: 700, letterSpacing: 5 }}>
               GUNARA CONSULTAN
             </div>
-            <div style={{ fontSize: 17, fontWeight: 500, letterSpacing: 10, color: "#c4b5fd" }}>
+            <div style={{ fontSize: 17, fontWeight: 500, letterSpacing: 10, color: "#99f6e4" }}>
               {kicker.toUpperCase()}
             </div>
           </div>
@@ -76,7 +76,7 @@ export function GET(request: Request) {
           <div style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.14 }}>
             {title}
           </div>
-          <div style={{ fontSize: 26, color: "#ddd6fe", lineHeight: 1.4 }}>
+          <div style={{ fontSize: 26, color: "#ccfbf1", lineHeight: 1.4 }}>
             {desc}
           </div>
         </div>
@@ -91,7 +91,7 @@ export function GET(request: Request) {
             paddingTop: 24,
           }}
         >
-          <div style={{ fontSize: 22, color: "#c4b5fd" }}>
+          <div style={{ fontSize: 22, color: "#99f6e4" }}>
             1.524 Perusahaan · 36+ Jenis Izin · 46 Dewan Pakar
           </div>
           <div style={{ fontSize: 24, fontWeight: 600, color: "#fbbf24" }}>

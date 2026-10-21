@@ -41,7 +41,7 @@ export default function InsightsPage() {
         <Reveal>
           <a
             href={`#/insights/${featured.slug}`}
-            className="group relative grid overflow-hidden rounded-3xl border border-violet-200 bg-white transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_30px_80px_-30px_rgba(139,92,246,0.28)] lg:grid-cols-2"
+            className="group relative grid overflow-hidden rounded-3xl border border-violet-200 bg-white transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_30px_80px_-30px_rgba(13,148,136,0.28)] lg:grid-cols-2"
             aria-label={`Baca: ${featured.title}`}
           >
             <div className="relative h-64 overflow-hidden lg:h-auto lg:min-h-[380px]">
@@ -99,7 +99,7 @@ export default function InsightsPage() {
             <Reveal key={ins.slug} delay={(i % 3) * 0.08} className="h-full">
               <a
                 href={`#/insights/${ins.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]"
                 aria-label={`Baca: ${ins.title}`}
               >
                 <div className="relative h-44 overflow-hidden">

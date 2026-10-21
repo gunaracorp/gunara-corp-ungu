@@ -335,7 +335,7 @@ export default function AdminPage() {
 
   if (phase === "checking") {
     return (
-      <section className="grid min-h-[70svh] place-items-center bg-[#fafafc]">
+      <section className="grid min-h-[70svh] place-items-center bg-[#faf9f4]">
         <p className="flex items-center gap-3 text-sm font-medium text-slate-500">
           <RefreshCw className="h-4 w-4 animate-spin text-violet-600" aria-hidden="true" />
           Memeriksa sesi CEO…
@@ -356,12 +356,12 @@ export default function AdminPage() {
   }
 
   return (
-    <section className="min-h-[calc(100svh-0px)] bg-[#fafafc] pb-24 pt-28 sm:pt-32">
+    <section className="min-h-[calc(100svh-0px)] bg-[#faf9f4] pb-24 pt-28 sm:pt-32">
       <div className="mx-auto w-full max-w-6xl px-5">
         {/* Header panel */}
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 text-white shadow-[0_10px_30px_-8px_rgba(139,92,246,0.5)]">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 text-white shadow-[0_10px_30px_-8px_rgba(13,148,136,0.5)]">
               <Crown className="h-6 w-6" aria-hidden="true" />
             </span>
             <div>
@@ -423,7 +423,7 @@ export default function AdminPage() {
               aria-current={tab === id}
               className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-[13px] font-bold transition-all ${
                 tab === id
-                  ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)]"
+                  ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_10px_26px_-10px_rgba(13,148,136,0.55)]"
                   : "border border-slate-300 bg-white text-slate-600 hover:border-violet-400 hover:text-violet-600"
               }`}
             >
@@ -576,7 +576,7 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
           <div className="self-end">
             <LangToggle lang={lang} onChange={setLang} dark />
           </div>
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">
+          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(13,148,136,0.55)]">
             <Lock className="h-6 w-6" aria-hidden="true" />
           </span>
           <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.28em] text-violet-300">
@@ -602,7 +602,7 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
           <button
             type="submit"
             disabled={!password.trim() || busy}
-            className="shine h-12 w-full rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(139,92,246,0.5)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+            className="shine h-12 w-full rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(13,148,136,0.5)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {busy ? "Memverifikasi…" : "Masuk Panel"}
           </button>
@@ -1174,7 +1174,7 @@ function AddToggleBtn({ open, onClick }: { open: boolean; onClick: () => void })
     <button
       type="button"
       onClick={onClick}
-      className="inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-blue-600 px-4 text-[12px] font-bold text-white shadow-[0_8px_22px_-8px_rgba(139,92,246,0.5)] transition-transform hover:scale-[1.03] active:scale-95"
+      className="inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-violet-600 to-blue-600 px-4 text-[12px] font-bold text-white shadow-[0_8px_22px_-8px_rgba(13,148,136,0.5)] transition-transform hover:scale-[1.03] active:scale-95"
     >
       <Plus className="h-3.5 w-3.5" aria-hidden="true" />
       {open ? "Tutup Form" : "Tambah"}
@@ -1558,7 +1558,7 @@ function ProjectsTab({
             type="button"
             onClick={() => void create()}
             disabled={busy || !form.title.trim() || !form.description.trim()}
-            className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-[13px] font-bold text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+            className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-[13px] font-bold text-white shadow-[0_10px_26px_-10px_rgba(13,148,136,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
           >
             <FolderKanban className="h-4 w-4" aria-hidden="true" />
             {busy ? "Menyimpan…" : "Buat Proyek"}
@@ -1713,7 +1713,7 @@ function AnnouncementsTab({
                 type="button"
                 onClick={() => void create()}
                 disabled={busy || !form.title.trim() || !form.body.trim()}
-                className="inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-[13px] font-bold text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+                className="inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-[13px] font-bold text-white shadow-[0_10px_26px_-10px_rgba(13,148,136,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
               >
                 <Megaphone className="h-4 w-4" aria-hidden="true" />
                 {busy ? "Menerbitkan…" : "Terbitkan"}

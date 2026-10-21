@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-/** Apple touch icon 180×180 — monogram GC di atas gradasi ungu-biru. */
+/** Apple touch icon 180×180 — monogram GC di atas gradasi zamrud-laut. */
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
@@ -15,7 +15,7 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #2e1065 0%, #5b21b6 50%, #1e3a8a 100%)",
+          background: "linear-gradient(135deg, #03301f 0%, #065f46 50%, #0f766e 100%)",
           color: "#ffffff",
           fontFamily: "sans-serif",
         }}

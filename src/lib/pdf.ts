@@ -42,7 +42,7 @@ const WINANSI_MAP: Record<string, number> = {
 /* ── Palet warna GUNARA ─────────────────────────────────────────────────── */
 
 export const C = {
-  violet: [0.486, 0.227, 0.929] as const, // #7C3AED
+  violet: [0.016, 0.471, 0.341] as const, // #047857
   violetDark: [0.376, 0.145, 0.71] as const, // #602AB5
   dark: [0.059, 0.09, 0.165] as const, // #0F172A
   text: [0.278, 0.335, 0.412] as const, // #475569

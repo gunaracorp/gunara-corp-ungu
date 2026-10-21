@@ -94,7 +94,7 @@ export default function Navbar({ fallbackPath }: { fallbackPath?: string }) {
           <LangToggle lang={lang} onChange={() => {}} />
           <Link
             to="/contact"
-            className="shine hidden items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_8px_30px_-8px_rgba(139,92,246,0.42)] transition-transform duration-300 hover:scale-[1.04] active:scale-95 sm:inline-flex"
+            className="shine hidden items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_8px_30px_-8px_rgba(13,148,136,0.42)] transition-transform duration-300 hover:scale-[1.04] active:scale-95 sm:inline-flex"
           >
             <Sparkles className="h-4 w-4" aria-hidden="true" />
             Konsultasi Sekarang

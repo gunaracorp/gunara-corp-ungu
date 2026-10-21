@@ -91,7 +91,7 @@ export default function Accreditation() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {PROOFS.map((p, i) => (
             <Reveal key={p.src} delay={i * 0.08} className="h-full">
-              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]">
+              <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]">
                 <span
                   className="absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-violet-500/80 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   aria-hidden="true"
@@ -128,7 +128,7 @@ export default function Accreditation() {
 
           {/* Kartu segel mitra — logo master emas */}
           <Reveal delay={PROOFS.length * 0.08} className="h-full">
-            <article className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-b from-zinc-900/60 to-zinc-950/80 p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/60 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.45)]">
+            <article className="group relative flex h-full flex-col items-center justify-center overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-b from-zinc-900/60 to-zinc-950/80 p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/60 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.45)]">
               <span
                 className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-500/80 to-transparent"
                 aria-hidden="true"

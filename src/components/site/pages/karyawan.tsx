@@ -141,12 +141,12 @@ export default function KaryawanPage() {
   if (phase === "login") return <LoginGate onSuccess={() => void load()} />;
 
   return (
-    <section className="min-h-screen bg-[#fafafc] pb-24 pt-28 sm:pt-32">
+    <section className="min-h-screen bg-[#faf9f4] pb-24 pt-28 sm:pt-32">
       <div className="mx-auto w-full max-w-6xl px-5">
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 text-white shadow-[0_10px_30px_-8px_rgba(139,92,246,0.5)]">
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 text-white shadow-[0_10px_30px_-8px_rgba(13,148,136,0.5)]">
               <BriefcaseBusiness className="h-6 w-6" aria-hidden="true" />
             </span>
             <div>
@@ -567,7 +567,7 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
           <div className="self-end">
             <LangToggle lang={lang} onChange={setLang} dark />
           </div>
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">
+          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(13,148,136,0.55)]">
             <Building2 className="h-6 w-6" aria-hidden="true" />
           </span>
           <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-violet-400/30 bg-violet-500/10 px-4 py-1.5 text-[10.5px] font-bold uppercase tracking-[0.28em] text-violet-300">
@@ -594,7 +594,7 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
           <button
             type="submit"
             disabled={!code.trim() || busy}
-            className="shine h-12 w-full rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(139,92,246,0.5)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+            className="shine h-12 w-full rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(13,148,136,0.5)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
           >
             {busy ? "Memverifikasi…" : "Masuk Portal"}
           </button>

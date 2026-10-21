@@ -136,7 +136,7 @@ export default function VvipPage() {
               className="mt-10 w-full max-w-md rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl"
             >
               <div className="flex flex-col items-center">
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 shadow-[0_14px_44px_-10px_rgba(13,148,136,0.55)]">
                   <Lock className="h-6 w-6" aria-hidden="true" />
                 </span>
                 <h2 className="mt-4 font-display text-lg font-bold tracking-wide">
@@ -161,7 +161,7 @@ export default function VvipPage() {
                 <button
                   type="submit"
                   disabled={!code.trim() || verifying}
-                  className="shine inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-7 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(139,92,246,0.5)] transition-transform duration-300 hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="shine inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-7 text-sm font-bold text-white shadow-[0_14px_44px_-10px_rgba(13,148,136,0.5)] transition-transform duration-300 hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {verifying ? (
                     "Memverifikasi…"

@@ -55,7 +55,7 @@ export default function Councils() {
                   onClick={() => setFilter(f)}
                   className={`inline-flex min-h-11 items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-300 sm:text-[13px] ${
                     active
-                      ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_8px_28px_-8px_rgba(139,92,246,0.42)]"
+                      ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_8px_28px_-8px_rgba(13,148,136,0.42)]"
                       : "border border-slate-200 bg-white text-slate-500 hover:border-violet-500/50 hover:text-violet-600"
                   }`}
                 >
@@ -90,7 +90,7 @@ export default function Councils() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: Math.min(i * 0.035, 0.5), ease: EASE }}
-              className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/50 hover:bg-slate-50 hover:shadow-[0_16px_44px_-18px_rgba(139,92,246,0.2)]"
+              className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/50 hover:bg-slate-50 hover:shadow-[0_16px_44px_-18px_rgba(13,148,136,0.2)]"
             >
               <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-violet-300 bg-violet-50 text-violet-600 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <c.icon className="h-5 w-5" aria-hidden="true" />

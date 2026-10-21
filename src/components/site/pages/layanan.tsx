@@ -182,7 +182,7 @@ export default function CatalogPage({
                   onClick={() => setCategory(c.id)}
                   className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-[13px] font-semibold transition-all duration-300 ${
                     active
-                      ? "border-violet-500/70 bg-violet-100 text-violet-700 shadow-[0_0_24px_-6px_rgba(139,92,246,0.32)]"
+                      ? "border-violet-500/70 bg-violet-100 text-violet-700 shadow-[0_0_24px_-6px_rgba(13,148,136,0.32)]"
                       : "border-slate-200 bg-white text-slate-500 hover:border-violet-300 hover:text-violet-600"
                   }`}
                 >
@@ -246,7 +246,7 @@ export default function CatalogPage({
                 <Reveal delay={(i % 4) * 0.05} className="h-full">
                   <a
                     href={`#/layanan/${s.slug}`}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]"
                     aria-label={`Buka layanan ${s.name}`}
                   >
                     <span

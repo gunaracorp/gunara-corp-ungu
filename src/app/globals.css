@@ -63,6 +63,60 @@ body {
   --animate-typing-dot: typing-dot 1.2s ease-in-out infinite;
 }
 
+/*
+ * =====================================================================
+ * SISTEM WARNA "ZAMRUD KEBERANGKATAN" — alias token merek GUNARA
+ * ---------------------------------------------------------------------
+ * Kelas violet-* / indigo-* / blue-* di seluruh kode sumber kini
+ * MERENDER skala Zamrud/Teal/Laut milik merek — satu titik kebenaran
+ * tanpa menyentuh 1.100+ pemakaian kelas. Semua pasangan kontras inti
+ * telah diuji numerik WCAG 2.2 (jalankan: bun run scripts/contrast-check.ts):
+ *   teks #047857 di putih = 5,48:1 · putih di #047857 = 5,48:1 (AA)
+ * Migrasi bertahap ke nama skala emerald, teal, dan cyan tetap valid
+ * karena nilai warnanya identik.
+ * =====================================================================
+ */
+@theme {
+  /* ZAMRUD — skala primer (alias violet-*) */
+  --color-violet-50: #ecfdf5;
+  --color-violet-100: #d1fae5;
+  --color-violet-200: #a7f3d0;
+  --color-violet-300: #6ee7b7;
+  --color-violet-400: #34d399;
+  --color-violet-500: #10b981;
+  --color-violet-600: #047857;
+  --color-violet-700: #065f46;
+  --color-violet-800: #064e3b;
+  --color-violet-900: #04372b;
+  --color-violet-950: #03301f;
+
+  /* TEAL — skala sekunder (alias indigo-*) */
+  --color-indigo-50: #f0fdfa;
+  --color-indigo-100: #ccfbf1;
+  --color-indigo-200: #99f6e4;
+  --color-indigo-300: #5eead4;
+  --color-indigo-400: #2dd4bf;
+  --color-indigo-500: #0d9488;
+  --color-indigo-600: #0f766e;
+  --color-indigo-700: #115e59;
+  --color-indigo-800: #134e4a;
+  --color-indigo-900: #113c37;
+  --color-indigo-950: #042f2e;
+
+  /* LAUT — skala tersier (alias blue-*) */
+  --color-blue-50: #ecfeff;
+  --color-blue-100: #cffafe;
+  --color-blue-200: #a5f3fc;
+  --color-blue-300: #67e8f9;
+  --color-blue-400: #22d3ee;
+  --color-blue-500: #06b6d4;
+  --color-blue-600: #0e7490;
+  --color-blue-700: #155e75;
+  --color-blue-800: #164e63;
+  --color-blue-900: #0c3d4d;
+  --color-blue-950: #082f3d;
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -104,37 +158,38 @@ body {
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.985 0.005 286);
-  --foreground: oklch(0.26 0.03 265);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.26 0.03 265);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.26 0.03 265);
-  --primary: oklch(0.541 0.247 293);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.961 0.014 286);
-  --secondary-foreground: oklch(0.26 0.03 265);
-  --muted: oklch(0.961 0.014 286);
-  --muted-foreground: oklch(0.51 0.02 265);
-  --accent: oklch(0.961 0.014 286);
-  --accent-foreground: oklch(0.26 0.03 265);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.55 0.03 286 / 14%);
-  --input: oklch(0.55 0.03 286 / 18%);
-  --ring: oklch(0.541 0.247 293);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.26 0.03 265);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.961 0.014 286);
-  --sidebar-accent-foreground: oklch(0.26 0.03 265);
-  --sidebar-border: oklch(0.55 0.03 286 / 14%);
-  --sidebar-ring: oklch(0.541 0.247 293);
+  /* Zamrud Keberangkatan — gading hangat, teks arang, primer zamrud */
+  --background: #faf9f4;
+  --foreground: #1e293b;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --popover: #ffffff;
+  --popover-foreground: #1e293b;
+  --primary: #047857;
+  --primary-foreground: #ffffff;
+  --secondary: #edf3ee;
+  --secondary-foreground: #1e293b;
+  --muted: #edf3ee;
+  --muted-foreground: #475569;
+  --accent: #e7f3ec;
+  --accent-foreground: #065f46;
+  --destructive: #be123c;
+  --border: oklch(0.55 0.02 165 / 14%);
+  --input: oklch(0.55 0.02 165 / 18%);
+  --ring: #047857;
+  --chart-1: #0f766e;
+  --chart-2: #10b981;
+  --chart-3: #f59e0b;
+  --chart-4: #047857;
+  --chart-5: #f43f5e;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1e293b;
+  --sidebar-primary: #0f766e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #edf3ee;
+  --sidebar-accent-foreground: #1e293b;
+  --sidebar-border: oklch(0.55 0.02 165 / 14%);
+  --sidebar-ring: #047857;
   color-scheme: light;
 }
 
@@ -148,16 +203,16 @@ body {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-    background-color: #fafafc;
+    background-color: #faf9f4;
     color: #1e293b;
     overflow-x: clip;
   }
   ::selection {
-    background: #7c3aed;
+    background: #047857;
     color: #ffffff;
   }
   :focus-visible {
-    outline: 2px solid rgb(124 58 237 / 0.55);
+    outline: 2px solid rgb(4 120 87 / 0.55);
     outline-offset: 2px;
   }
   ::-webkit-scrollbar {
@@ -165,15 +220,15 @@ body {
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #f1f0f8;
+    background: #f0f4f0;
   }
   ::-webkit-scrollbar-thumb {
-    background: #ddd6fe;
+    background: #a7f3d0;
     border-radius: 8px;
-    border: 2px solid #f1f0f8;
+    border: 2px solid #f0f4f0;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(139 92 246 / 0.7);
+    background: rgb(4 120 87 / 0.7);
   }
 }
 
@@ -181,16 +236,17 @@ body {
   .font-display {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   }
-  /* UNGU-BIRU brand gradient — nama kelas historis dipertahankan;
-     nuansa kini violet -> indigo -> blue yang kontras di latar terang. */
+  /* ZAMRUD brand gradient — nama kelas historis dipertahankan;
+     nuansa kini zamrud -> teal -> laut yang kontras di latar terang
+     (setiap ujung >= 4,5:1 di atas putih — lihat scripts/contrast-check.ts). */
   .text-gradient-gold {
-    background-image: linear-gradient(100deg, #6d28d9 0%, #7c3aed 26%, #4f46e5 54%, #2563eb 82%, #6d28d9 100%);
+    background-image: linear-gradient(100deg, #065f46 0%, #047857 26%, #0f766e 54%, #0e7490 82%, #065f46 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .text-gradient-gold-animated {
-    background-image: linear-gradient(90deg, #7c3aed, #6d28d9, #4f46e5, #2563eb, #7c3aed);
+    background-image: linear-gradient(90deg, #047857, #065f46, #0f766e, #0e7490, #047857);
     background-size: 220% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -201,16 +257,16 @@ body {
     background: rgb(255 255 255 / 0.8);
     backdrop-filter: blur(18px) saturate(1.3);
     -webkit-backdrop-filter: blur(18px) saturate(1.3);
-    border: 1px solid rgb(124 58 237 / 0.13);
+    border: 1px solid rgb(4 120 87 / 0.13);
   }
   .gold-ring {
     box-shadow:
-      0 0 0 1px rgb(124 58 237 / 0.22),
-      0 12px 44px -12px rgb(139 92 246 / 0.32);
+      0 0 0 1px rgb(4 120 87 / 0.22),
+      0 12px 44px -12px rgb(13 148 136 / 0.32);
   }
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: rgb(124 58 237 / 0.4) transparent;
+    scrollbar-color: rgb(4 120 87 / 0.4) transparent;
   }
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
@@ -220,17 +276,17 @@ body {
     background: transparent;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: rgb(124 58 237 / 0.35);
+    background: rgb(4 120 87 / 0.35);
     border-radius: 999px;
     border: none;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: rgb(124 58 237 / 0.65);
+    background: rgb(4 120 87 / 0.65);
   }
   .grid-bg {
     background-image:
-      linear-gradient(rgb(124 58 237 / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(124 58 237 / 0.05) 1px, transparent 1px);
+      linear-gradient(rgb(4 120 87 / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(4 120 87 / 0.05) 1px, transparent 1px);
     background-size: 54px 54px;
   }
   .mask-fade-x {

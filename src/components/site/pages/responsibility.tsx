@@ -106,7 +106,7 @@ export default function ResponsibilityPage() {
           {PILLARS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 2) * 0.08} className="h-full">
               <TiltCard className="h-full">
-                <article className="group flex h-full flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)] sm:p-8">
+                <article className="group flex h-full flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)] sm:p-8">
                   <div className="flex items-center gap-4">
                     <span className="inline-flex h-13 w-13 items-center justify-center rounded-2xl border border-violet-300 bg-gradient-to-br from-violet-100 to-indigo-100 p-3 text-violet-600 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                       <p.icon className="h-6 w-6" aria-hidden="true" />

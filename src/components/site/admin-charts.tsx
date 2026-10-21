@@ -30,14 +30,14 @@ import type { AdminInvoice } from "@/components/site/admin-more";
 const WAKTU = new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "short" });
 const RP = new Intl.NumberFormat("id-ID", { maximumFractionDigits: 1 });
 
-/* Palet GUNARA — ungu dominan, aksen hangat */
+/* Palet GUNARA — zamrud dominan, aksen hangat */
 const C = {
-  violet: "#7c3aed",
-  violetMuda: "#a78bfa",
+  violet: "#047857",
+  violetMuda: "#34d399",
   amber: "#f59e0b",
   emerald: "#10b981",
   rose: "#f43f5e",
-  sky: "#0ea5e9",
+  sky: "#0d9488",
   slate: "#94a3b8",
 };
 

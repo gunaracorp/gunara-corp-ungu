@@ -26,7 +26,7 @@ export default function IndustriesPage() {
             <Reveal key={ind.slug} delay={(i % 3) * 0.07} className="h-full">
               <a
                 href={`#/industries/${ind.slug}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]"
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]"
                 aria-label={`Lihat karya GUNARA di ${ind.name}`}
               >
                 <span

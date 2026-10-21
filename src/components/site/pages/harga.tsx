@@ -118,7 +118,7 @@ export default function HargaPage() {
             const site = competitorSite(c.competitorLowest.siteId);
             return (
               <Reveal key={c.slug} delay={(i % 2) * 0.05}>
-                <li className="h-full rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_18px_45px_-20px_rgba(124,58,237,0.35)]">
+                <li className="h-full rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_18px_45px_-20px_rgba(4,120,87,0.35)]">
                   <div className="flex items-start justify-between gap-3">
                     <a
                       href={`#/layanan/${c.slug}`}

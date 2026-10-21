@@ -238,7 +238,7 @@ export default function OracleChat({ embedded = false }: OracleChatProps) {
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Tutup Oracle" : "Buka Oracle"}
           aria-expanded={open}
-          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-violet-600 to-indigo-500 text-white shadow-[0_10px_40px_-8px_rgba(139,92,246,0.5)] transition-transform duration-300 hover:scale-105 active:scale-95"
+          className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-violet-600 to-indigo-500 text-white shadow-[0_10px_40px_-8px_rgba(13,148,136,0.5)] transition-transform duration-300 hover:scale-105 active:scale-95"
         >
           {!open && (
             <span

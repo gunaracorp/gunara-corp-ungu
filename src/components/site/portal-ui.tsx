@@ -285,7 +285,7 @@ export function PortalTabs<T extends string>({
           aria-current={active === id}
           className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-[13px] font-bold transition-all ${
             active === id
-              ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)]"
+              ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_10px_26px_-10px_rgba(13,148,136,0.55)]"
               : "border border-slate-300 bg-white text-slate-600 hover:border-violet-400 hover:text-violet-600"
           }`}
         >
@@ -331,7 +331,7 @@ export function CheckingScreen({ label }: { label: string }) {
     return () => window.clearTimeout(t);
   }, []);
   return (
-    <section className="grid min-h-[70svh] place-items-center bg-[#fafafc]">
+    <section className="grid min-h-[70svh] place-items-center bg-[#faf9f4]">
       <p className="flex items-center gap-3 text-sm font-medium text-slate-500">
         <RefreshCw className="h-4 w-4 animate-spin text-violet-600" aria-hidden="true" />
         {show ? label : "Memeriksa sesi…"}

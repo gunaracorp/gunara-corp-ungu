@@ -70,7 +70,7 @@ export default function OfficesPage() {
       <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8" aria-label="Kantor pusat">
         <Reveal>
           <TiltCard>
-            <article className="overflow-hidden rounded-3xl border border-violet-300 bg-gradient-to-br from-violet-600/[0.08] via-white to-white transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(139,92,246,0.4)]">
+            <article className="overflow-hidden rounded-3xl border border-violet-300 bg-gradient-to-br from-violet-600/[0.08] via-white to-white transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(13,148,136,0.4)]">
               <div className="grid lg:grid-cols-[1fr_340px]">
                 <div className="flex flex-col justify-center gap-5 p-6 sm:p-10">
                   <div className="flex flex-wrap items-center gap-2.5">
@@ -155,7 +155,7 @@ export default function OfficesPage() {
           {others.map((o, i) => (
             <Reveal key={o.city} delay={i * 0.08} className="h-full">
               <TiltCard className="h-full">
-                <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)] sm:p-7">
+                <article className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)] sm:p-7">
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-violet-300 bg-gradient-to-br from-violet-100 to-indigo-100 text-violet-600 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                     <Building2 className="h-5 w-5" aria-hidden="true" />
                   </span>

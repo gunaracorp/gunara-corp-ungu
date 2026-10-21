@@ -173,7 +173,7 @@ export default function NewsroomPage() {
       <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8" aria-label="Rilis pers utama">
         <Reveal>
           <TiltCard>
-            <article className="group grid overflow-hidden rounded-3xl border border-violet-300 bg-white transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(139,92,246,0.4)] lg:grid-cols-[480px_1fr]">
+            <article className="group grid overflow-hidden rounded-3xl border border-violet-300 bg-white transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(13,148,136,0.4)] lg:grid-cols-[480px_1fr]">
               <div className="relative h-64 overflow-hidden lg:h-full">
                 <Image
                   src={featured.image}
@@ -224,7 +224,7 @@ export default function NewsroomPage() {
           {rest.map((r, i) => (
             <Reveal key={r.title} delay={(i % 3) * 0.08} className="h-full">
               <TiltCard className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]">
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]">
                   <div className="relative h-44 overflow-hidden">
                     <Image
                       src={r.image}

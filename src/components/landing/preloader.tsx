@@ -51,7 +51,7 @@ export default function Preloader() {
       aria-hidden="true"
     >
       <div className="preloader-mark">
-        <LogoMark className="h-20 w-20 drop-shadow-[0_0_30px_rgba(139,92,246,0.45)]" />
+        <LogoMark className="h-20 w-20 drop-shadow-[0_0_30px_rgba(13,148,136,0.45)]" />
       </div>
 
       <p className="intro-fade-up font-display text-lg font-bold tracking-[0.4em] text-slate-900">

@@ -6,8 +6,8 @@
   <circle cx="24" cy="28" r="4.5" fill="url(#g)"/>
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="48" y2="48">
-      <stop stop-color="#ddd6fe"/>
-      <stop offset="1" stop-color="#7c3aed"/>
+      <stop stop-color="#d1fae5"/>
+      <stop offset="1" stop-color="#047857"/>
     </linearGradient>
   </defs>
 </svg>

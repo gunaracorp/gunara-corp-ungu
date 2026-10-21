@@ -208,7 +208,7 @@ export default function SitemapPage() {
                 <section
                   id={g.id}
                   aria-label={g.title}
-                  className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)] sm:p-7"
+                  className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)] sm:p-7"
                 >
                   <div className="flex items-center gap-3.5">
                     <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-violet-300 bg-gradient-to-br from-violet-100 to-indigo-100 text-violet-600">

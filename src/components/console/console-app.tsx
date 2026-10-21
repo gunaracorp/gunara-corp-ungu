@@ -47,7 +47,7 @@ export default function ConsoleShell({
             className="flex shrink-0 items-center gap-2.5"
             aria-label="GUNARA Corporation — kembali ke beranda publik"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 font-display text-[13px] font-black tracking-tight text-white shadow-[0_8px_24px_-6px_rgba(139,92,246,0.6)]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-blue-600 font-display text-[13px] font-black tracking-tight text-white shadow-[0_8px_24px_-6px_rgba(13,148,136,0.6)]">
               GC
             </span>
             <span className="hidden flex-col leading-tight sm:flex">

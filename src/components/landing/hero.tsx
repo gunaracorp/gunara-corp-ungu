@@ -85,9 +85,9 @@ function Mandala() {
     <svg viewBox="0 0 400 400" className="h-full w-full" aria-hidden="true">
       <defs>
         <radialGradient id="core-gold" cx="50%" cy="50%" r="65%">
-          <stop offset="0%" stopColor="#ede9fe" />
-          <stop offset="55%" stopColor="#a78bfa" />
-          <stop offset="100%" stopColor="#5b21b6" />
+          <stop offset="0%" stopColor="#ccfbf1" />
+          <stop offset="55%" stopColor="#34d399" />
+          <stop offset="100%" stopColor="#065f46" />
         </radialGradient>
       </defs>
 
@@ -98,7 +98,7 @@ function Mandala() {
           cy="200"
           r={ring.r}
           fill="none"
-          stroke="rgba(124,58,237,0.16)"
+          stroke="rgba(4,120,87,0.16)"
           strokeWidth="1"
           strokeDasharray="2 7"
         />
@@ -125,7 +125,7 @@ function Mandala() {
                 cx={cx}
                 cy={cy}
                 r={ring.dot}
-                fill="#a78bfa"
+                fill="#34d399"
                 opacity={ring.o}
               />
             );
@@ -138,7 +138,7 @@ function Mandala() {
         cy="200"
         r="34"
         fill="none"
-        stroke="#a78bfa"
+        stroke="#34d399"
         strokeWidth="1"
         opacity="0.5"
         className="animate-[ping-slow_3.2s_ease-out_infinite]"
@@ -254,7 +254,7 @@ export default function Hero() {
         >
           <a
             href="#/contact"
-            className="shine inline-flex min-h-12 items-center gap-2.5 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_44px_-10px_rgba(139,92,246,0.8)] transition-transform duration-300 hover:scale-[1.04] active:scale-95"
+            className="shine inline-flex min-h-12 items-center gap-2.5 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_44px_-10px_rgba(13,148,136,0.8)] transition-transform duration-300 hover:scale-[1.04] active:scale-95"
           >
             <Sparkles className="h-4 w-4" aria-hidden="true" />
             Mulai Konsultasi

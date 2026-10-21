@@ -114,7 +114,7 @@ export default function PerizinanPage({
                   onClick={() => setCategory(c.id)}
                   className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-5 text-[13px] font-semibold transition-all duration-300 ${
                     active
-                      ? "border-violet-500/70 bg-violet-100 text-violet-700 shadow-[0_0_24px_-6px_rgba(139,92,246,0.32)]"
+                      ? "border-violet-500/70 bg-violet-100 text-violet-700 shadow-[0_0_24px_-6px_rgba(13,148,136,0.32)]"
                       : "border-slate-200 bg-white text-slate-500 hover:border-violet-300 hover:text-violet-600"
                   }`}
                 >
@@ -169,7 +169,7 @@ export default function PerizinanPage({
                 >
                   <Link
                     to={`/perizinan/${p.slug}`}
-                    className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white/70 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_20px_60px_-20px_rgba(139,92,246,0.22)]"
+                    className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white/70 p-5 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_20px_60px_-20px_rgba(13,148,136,0.22)]"
                   >
                     <div className="flex items-start justify-between gap-3">
                       <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-violet-200 bg-violet-50 text-violet-600">

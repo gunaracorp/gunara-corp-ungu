@@ -158,7 +158,7 @@ export function AdminEkosistemTab({
             aria-current={sub === id}
             className={`inline-flex h-10 items-center gap-2 rounded-full px-4 text-[13px] font-bold transition-all ${
               sub === id
-                ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_10px_26px_-10px_rgba(139,92,246,0.55)]"
+                ? "bg-gradient-to-r from-violet-600 to-blue-600 text-white shadow-[0_10px_26px_-10px_rgba(13,148,136,0.55)]"
                 : "border border-slate-300 bg-white text-slate-600 hover:border-violet-400 hover:text-violet-600"
             }`}
           >
@@ -722,7 +722,7 @@ function LaporanCenter({ notify }: { notify: (m: string) => void }) {
             type="button"
             onClick={() => void unduh()}
             disabled={busy}
-            className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+            className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(13,148,136,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
           >
             {busy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Download className="h-4 w-4" aria-hidden="true" />}
             {busy ? "Menyusun laporan…" : "Unduh Ringkasan Eksekutif (PDF)"}
@@ -881,7 +881,7 @@ export function BackupCenter({ notify }: { notify: (m: string) => void }) {
             type="button"
             onClick={() => void buat()}
             disabled={busy}
-            className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
+            className="mt-4 inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(13,148,136,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-40"
           >
             {busy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <DatabaseBackup className="h-4 w-4" aria-hidden="true" />}
             {busy ? "Menyusun arsip…" : "Buat Backup Sekarang"}

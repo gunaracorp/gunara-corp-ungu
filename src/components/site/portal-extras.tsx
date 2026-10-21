@@ -447,7 +447,7 @@ export function DokumenTab({
             <button
               type="submit"
               disabled={!file || busy}
-              className="inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(139,92,246,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
+              className="inline-flex h-11 items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-6 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(13,148,136,0.55)] transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {busy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Paperclip className="h-4 w-4" aria-hidden="true" />}
               {busy ? "Mengunggah…" : "Unggah Dokumen"}
@@ -647,7 +647,7 @@ export function LaporanWaTab({
                 className={`inline-flex h-11 items-center gap-2 rounded-xl px-5 text-sm font-bold text-white transition-transform hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-40 ${
                   god
                     ? "bg-gradient-to-r from-rose-500 via-fuchsia-600 to-violet-600 shadow-[0_10px_30px_-10px_rgba(217,70,239,0.6)]"
-                    : "bg-gradient-to-r from-violet-600 to-blue-600 shadow-[0_10px_30px_-10px_rgba(139,92,246,0.55)]"
+                    : "bg-gradient-to-r from-violet-600 to-blue-600 shadow-[0_10px_30px_-10px_rgba(13,148,136,0.55)]"
                 }`}
               >
                 {pdfBusy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Download className="h-4 w-4" aria-hidden="true" />}

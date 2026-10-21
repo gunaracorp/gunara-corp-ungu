@@ -18,7 +18,7 @@ export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
           strokeWidth="2.2"
           strokeDasharray="6 5"
         />
-        <circle cx="24" cy="3" r="3" fill="#7c3aed" />
+        <circle cx="24" cy="3" r="3" fill="#047857" />
       </g>
       {/* Gateway arch — the Gunara gate */}
       <path
@@ -28,11 +28,15 @@ export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
         strokeLinecap="round"
         fill="none"
       />
-      <circle cx="24" cy="27.5" r="4.5" fill="url(#logo-gold)" />
+      <circle cx="24" cy="27.5" r="4.5" fill="url(#logo-jewel)" />
       <defs>
         <linearGradient id="logo-gold" x1="0" y1="0" x2="48" y2="48">
-          <stop stopColor="#7c3aed" />
-          <stop offset="1" stopColor="#2563eb" />
+          <stop stopColor="#047857" />
+          <stop offset="1" stopColor="#0d9488" />
+        </linearGradient>
+        <linearGradient id="logo-jewel" x1="0" y1="0" x2="48" y2="48">
+          <stop stopColor="#d97706" />
+          <stop offset="1" stopColor="#b45309" />
         </linearGradient>
       </defs>
     </svg>

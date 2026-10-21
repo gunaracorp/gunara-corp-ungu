@@ -91,7 +91,7 @@ export default function LeadershipPage() {
       <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8" aria-label="Pendiri">
         <Reveal>
           <TiltCard>
-            <article className="group grid overflow-hidden rounded-3xl border border-violet-300 bg-gradient-to-br from-zinc-900/80 via-zinc-900/40 to-transparent transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(139,92,246,0.45)] lg:grid-cols-[360px_1fr]">
+            <article className="group grid overflow-hidden rounded-3xl border border-violet-300 bg-gradient-to-br from-zinc-900/80 via-zinc-900/40 to-transparent transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(13,148,136,0.45)] lg:grid-cols-[360px_1fr]">
               <div className="relative h-80 overflow-hidden bg-white lg:h-full">
                 <Image
                   src={featured.image ?? "/images/founder-gugun-gunara.jpg"}
@@ -150,7 +150,7 @@ export default function LeadershipPage() {
           {executives.map((l, i) => (
             <Reveal key={l.name} delay={(i % 3) * 0.08} className="h-full">
               <TiltCard className="h-full">
-                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]">
+                <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]">
                   <div className="relative h-64 overflow-hidden bg-white">
                     {l.image ? (
                       <Image
@@ -199,7 +199,7 @@ export default function LeadershipPage() {
             {partners.map((l, i) => (
               <Reveal key={l.name} delay={(i % 3) * 0.08} className="h-full">
                 <TiltCard className="h-full">
-                  <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]">
+                  <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]">
                     <div className="relative h-64 overflow-hidden bg-white">
                       {l.image ? (
                         <Image
@@ -291,7 +291,7 @@ export default function LeadershipPage() {
           <ol className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {APPOINTMENT.map((a, i) => (
               <Reveal key={a.step} delay={i * 0.08} className="h-full">
-                <li className="group relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)]">
+                <li className="group relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)]">
                   <span className="font-display text-4xl font-bold text-violet-600/15 transition-colors duration-300 group-hover:text-violet-600/30" aria-hidden="true">
                     {a.step}
                   </span>

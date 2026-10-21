@@ -737,3 +737,22 @@ Stage Summary:
 - Beranda kini murni situs publik: tidak ada lagi pintu masuk ke Pusat Unduhan (fitur internal) dari navbar maupun footer.
 - Halaman /unduh tetap ada dan dijaga (diakses langsung via URL / admin), hanya titik masuk publiknya yang dibuang.
 - Berkas terubah: src/components/landing/navbar.tsx, src/components/landing/footer.tsx.
+
+---
+Task ID: 9
+Agent: Z.ai Code (main) — peran Omnibrand Color Architect
+Task: Rombak sistem warna situs (pengguna: warna lama "terasa tidak sesuai") — audit, strategi, 3 konsep, uji kontras WCAG numerik, implementasi penuh, verifikasi browser
+
+Work Log:
+- AUDIT: hitung 1.046 pemakaian kelas violet + 68 indigo + 65 blue + 62 rgba violet mentah + 30+ HEX violet/biru; screenshot hero/mid/footer/mobile (desktop 1440 + iPhone 14); baca globals.css, logo.tsx, hero.tsx, og routes, manifest.
+- STRATEGI: Gunara = firma konsultan & perizinan (trust-first, premium, Indonesia+global). Hijau zamrud = "green light izin disetujui" (kategori-truth), cocok budaya Indonesia, selaras emerald WhatsApp/success yang sudah ada; emas = prestise keraton.
+- 3 KONSEP: (A) Zamrud Keberangkatan — emerald #047857 + emas #b45309; (B) Onyx & Emas Keraton — hitam premium; (C) Merah Delima Nusantara — maroon heritage. Pemenang: A.
+- KONTRAS NUMERIK: scripts/contrast-check.ts (bun) — 28 kombinasi WCAG 2.2; 20 pasangan gatekeep LULUS (primer putih/#047857 = 5,48:1; #b45309 di putih = 5,02:1; dst); 4 gagal hanya warna dekoratif non-esensial.
+- IMPLEMENTASI (satu titik kebenaran): globals.css @theme alias violet-*→Zamrud, indigo-*→Teal, blue-*→Laut (1.100+ kelas berubah serentak); token :root (primary #047857, bg gading #faf9f4, muted #edf3ee, destructive #be123c, chart teal/emerald); utility (.text-gradient-gold ramp zamrud-laut, glass, gold-ring, scrollbar, grid-bg, selection, focus ring); logo.tsx (gradasi zamrud + permata emas); hero.tsx (gradasi blob); 39 file rgba mentah → emerald/teal/cyan (sed global); manifest theme_color #047857 + bg #faf9f4; layout themeColor; icon.svg, apple-icon.tsx, 2 route OG, pdf.ts, admin-charts.tsx, bg-[#faf9f4] portal.
+- INSIDEN: komentar CSS "emerald-*/teal-*" mengandung "*/" → parser CSS gagal (HTTP 500); redaksi diperbaiki → 200.
+- VERIFIKASI BROWSER: hero/mid/footer/kontak/admin/mobile terscreenshot — semua serasi zamrud; globe dicek computed style (border #a7f3d0, gradient rgba(52,211,153), stroke rgb(4,120,87)); 0 console error; lint 0 error; sisa hex lama = 0 (rg bersih).
+
+Stage Summary:
+- Sistem warna baru "Zamrud Keberangkatan": primer #047857, hover #065f46, sekunder teal #0f766e, aksen emas #b45309/#d97706, bg gading #faf9f4, teks #1e293b/#334155/#475569, error #be123c, info #0e7490, warning #b45309, success #047857.
+- Mekanisme alias token (violet-*→zamrud) membuat seluruh 255+ halaman & portal internal berubah konsisten tanpa menyentuh 1.100+ kelas; skrip QA kontras tersimpan di scripts/contrast-check.ts.
+- Logo: geometri gerbang dipertahankan, warna diganti zamrud→teal + permata emas (perubahan dijelaskan di laporan).

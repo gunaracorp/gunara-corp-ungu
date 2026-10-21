@@ -126,7 +126,7 @@ export default function ResourcesPage() {
           {FEATURED_DOWNLOADS.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.08} className="h-full">
               <TiltCard className="h-full">
-                <article className="group flex h-full flex-col rounded-3xl border border-violet-300 bg-gradient-to-br from-violet-600/[0.07] via-white to-white p-6 transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(139,92,246,0.4)] sm:p-8">
+                <article className="group flex h-full flex-col rounded-3xl border border-violet-300 bg-gradient-to-br from-violet-600/[0.07] via-white to-white p-6 transition-all duration-300 hover:border-violet-500/60 hover:shadow-[0_32px_80px_-32px_rgba(13,148,136,0.4)] sm:p-8">
                   <div className="flex items-start justify-between gap-4">
                     <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-violet-300 bg-gradient-to-br from-violet-100 to-indigo-100 text-violet-600 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110">
                       <d.icon className="h-6 w-6" aria-hidden="true" />
@@ -222,7 +222,7 @@ export default function ResourcesPage() {
         <ol className="mt-12 grid gap-5 md:grid-cols-3">
           {REQUEST_STEPS.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.08} className="h-full">
-              <li className="group relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(139,92,246,0.22)] sm:p-7">
+              <li className="group relative flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_24px_60px_-24px_rgba(13,148,136,0.22)] sm:p-7">
                 <span className="font-display text-4xl font-bold text-violet-600/15 transition-colors duration-300 group-hover:text-violet-600/30" aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </span>

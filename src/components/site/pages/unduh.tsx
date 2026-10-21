@@ -67,7 +67,7 @@ export default function UnduhPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 text-white shadow-[0_12px_40px_-10px_rgba(139,92,246,0.5)]"
+          className="mx-auto mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-500 text-white shadow-[0_12px_40px_-10px_rgba(13,148,136,0.5)]"
         >
           <Download className="h-7 w-7" aria-hidden="true" />
         </motion.div>
@@ -102,7 +102,7 @@ export default function UnduhPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.45, delay: i * 0.05 }}
-              className={`group relative flex flex-col overflow-hidden rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-20px_rgba(139,92,246,0.35)] ${
+              className={`group relative flex flex-col overflow-hidden rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_-20px_rgba(13,148,136,0.35)] ${
                 f.primary
                   ? "border-violet-300 bg-gradient-to-br from-violet-50 via-white to-indigo-50 ring-1 ring-violet-200"
                   : "border-slate-200 bg-white hover:border-violet-300"
@@ -125,7 +125,7 @@ export default function UnduhPage() {
                 {tr(lang, f.descKey)}
               </p>
               <span
-                className={`mt-5 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_10px_30px_-10px_rgba(139,92,246,0.5)] transition-transform duration-300 group-hover:scale-[1.03] ${
+                className={`mt-5 inline-flex w-fit items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_10px_30px_-10px_rgba(13,148,136,0.5)] transition-transform duration-300 group-hover:scale-[1.03] ${
                   f.primary
                     ? "bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600"
                     : "bg-slate-900 group-hover:bg-violet-600"
