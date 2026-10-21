@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { Download, Menu, Sparkles, X } from "lucide-react";
+import { Menu, Sparkles, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLang } from "@/lib/i18n";
 import { LangToggle } from "@/components/site/portal-ui";
@@ -93,14 +93,6 @@ export default function Navbar({ fallbackPath }: { fallbackPath?: string }) {
         <div className="flex items-center gap-2 sm:gap-3">
           <LangToggle lang={lang} onChange={() => {}} />
           <Link
-            to="/unduh"
-            aria-label="Pusat Unduhan — source code & panduan"
-            title="Pusat Unduhan — source code & panduan"
-            className="hidden h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-violet-500/50 hover:text-violet-600 sm:inline-flex"
-          >
-            <Download className="h-4 w-4" aria-hidden="true" />
-          </Link>
-          <Link
             to="/contact"
             className="shine hidden items-center gap-2 rounded-full bg-gradient-to-r from-violet-600 via-indigo-500 to-blue-600 px-5 py-2.5 text-[13px] font-bold text-white shadow-[0_8px_30px_-8px_rgba(139,92,246,0.42)] transition-transform duration-300 hover:scale-[1.04] active:scale-95 sm:inline-flex"
           >
@@ -152,16 +144,6 @@ export default function Navbar({ fallbackPath }: { fallbackPath?: string }) {
               ))}
               <li className="flex justify-center pt-1">
                 <LangToggle lang={lang} onChange={() => {}} />
-              </li>
-              <li className="pt-1">
-                <Link
-                  to="/unduh"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl border border-violet-200 bg-white px-4 py-3 text-sm font-bold text-violet-700 transition-colors hover:bg-violet-50"
-                >
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Unduh Source Code
-                </Link>
               </li>
               <li className="pt-1">
                 <Link

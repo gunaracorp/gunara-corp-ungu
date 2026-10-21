@@ -720,3 +720,20 @@ Audit lanjutan Task 15 (temuan & perbaikan tambahan):
 - Footer: halaman panjang terdorong natural (bottom footer = scrollHeight); halaman pendek dijamin mt-auto menempel dasar.
 - Insiden operasional: dev server mati di tengah sweep (proses direap, tanpa jejak crash di log) — di-restart dan seluruh verifikasi ulang tetap hijau.
 - Status akhir audit: lint 0 error, tsc src 0 error, dev.log bersih, 255 URL sitemap tanpa rute konsol.
+
+---
+Task ID: 8
+Agent: Z.ai Code (main)
+Task: Hilangkan tombol unduhan dari beranda (navbar desktop + mobile) dan footer — area publik dibersihkan dari akses internal
+
+Work Log:
+- Grep seluruh src/ untuk "Unduh|Download|download" → identifikasi 3 titik di komponen landing publik: navbar.tsx (ikon desktop + tombol mobile "Unduh Source Code"), footer.tsx (link "Pusat Unduhan").
+- Edit src/components/landing/navbar.tsx: hapus Link ikon download ke /unduh (desktop), hapus tombol "Unduh Source Code" di menu mobile, bersihkan import Download.
+- Edit src/components/landing/footer.tsx: hapus link "Pusat Unduhan" di baris copyright, bersihkan import Download.
+- Jalankan bun run lint → 0 error.
+- Verifikasi browser (agent-browser): buka /, snapshot interaktif → 0 elemen "unduh"; eval document.querySelectorAll('a[href="/unduh"]').length → 0 di seluruh DOM beranda; screenshot hero & footer OK; 0 console error.
+
+Stage Summary:
+- Beranda kini murni situs publik: tidak ada lagi pintu masuk ke Pusat Unduhan (fitur internal) dari navbar maupun footer.
+- Halaman /unduh tetap ada dan dijaga (diakses langsung via URL / admin), hanya titik masuk publiknya yang dibuang.
+- Berkas terubah: src/components/landing/navbar.tsx, src/components/landing/footer.tsx.

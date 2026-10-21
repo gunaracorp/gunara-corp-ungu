@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, AtSign, Download, Facebook, Globe, Instagram, Loader2, Mail, MapPin, MessageCircle, Music2, Phone, Twitter, type LucideIcon } from "lucide-react";
+import { ArrowRight, AtSign, Facebook, Globe, Instagram, Loader2, Mail, MapPin, MessageCircle, Music2, Phone, Twitter, type LucideIcon } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { COUNCIL_CATEGORIES, SERVICES } from "@/data/content";
 import { PERIZINAN_CATEGORIES } from "@/data/perizinan";
@@ -366,13 +366,6 @@ export default function Footer() {
         >
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             <p>© {year} {BRAND.legal}. Seluruh masa depan dilindungi.</p>
-            <Link
-              to="/unduh"
-              className="inline-flex items-center gap-1.5 font-bold text-violet-700 transition-colors hover:text-violet-600"
-            >
-              <Download className="h-3.5 w-3.5" aria-hidden="true" />
-              Pusat Unduhan
-            </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <LangToggle lang={lang} onChange={() => {}} />
