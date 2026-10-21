@@ -573,7 +573,7 @@ function LoginGate({ onSuccess }: { onSuccess: () => void }) {
         className="relative w-full max-w-md rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl"
       >
         <div className="flex flex-col items-center text-center">
-          <div className="absolute right-6 top-6">
+          <div className="self-end">
             <LangToggle lang={lang} onChange={setLang} dark />
           </div>
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-blue-600 shadow-[0_14px_44px_-10px_rgba(139,92,246,0.55)]">

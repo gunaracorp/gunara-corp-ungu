@@ -1,4 +1,9 @@
 {
+  "console.zone": "Area Internal",
+  "console.switcher": "Pindah portal",
+  "console.publicSite": "Situs Publik",
+  "console.footer.restricted": "Ruang terbatas — seluruh aktivitas dicatat.",
+  "console.footer.sitemap": "Peta Situs",
   "tab.overview": "Ringkasan",
   "tab.grafik": "Grafik",
   "tab.tickets": "Tiket Brief",

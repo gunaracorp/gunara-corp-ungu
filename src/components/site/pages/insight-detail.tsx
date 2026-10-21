@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, Clock3, KeyRound, Linkedin, Twitte
 import { INSIGHTS } from "@/data/insights";
 import { EASE, Reveal } from "@/components/landing/motion";
 import { CTABand, LinkButton, Ornament } from "@/components/site/ui";
+import { abs } from "@/lib/seo";
 
 function formatDate(iso: string) {
   try {
@@ -43,7 +44,9 @@ export default function InsightDetailPage({ slug }: { slug: string }) {
   const prev = INSIGHTS[(idx - 1 + INSIGHTS.length) % INSIGHTS.length];
   const next = INSIGHTS[(idx + 1) % INSIGHTS.length];
 
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  // URL kanonik deterministik (server = client) — tanpa hydration mismatch
+  // dan share selalu mengarah ke URL kanonik produksi, bukan URL browser.
+  const shareUrl = abs(`/insights/${insight.slug}`);
   const shareText = encodeURIComponent(`${insight.title} — GUNARA CORPORATION`);
 
   return (

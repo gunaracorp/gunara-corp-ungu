@@ -687,3 +687,36 @@ Stage Summary:
 - Halaman /harga = alat konversi + SEO (FAQ rich result, ItemList, internal link 10 layanan) dengan metodologi terbuka & tanggal riset.
 - Satu sumber kebenaran: price-comparison.ts — badge katalog, pita detail, halaman /harga, dan JSON-LD semuanya dari file yang sama; entri baru cukup ditambah di sana.
 - Riset berulang kuartalan: cukup jalankan ulang skrip di scripts/ lalu perbarui price-comparison.ts.
+
+---
+Task ID: 15
+Agent: Z.ai Code (main orchestrator)
+Task: Permintaan user — "pisahkan mana yang untuk admin, mana untuk publik, pisahkan keduanya, lalu update worklog dan readme terbaik yang pernah ada, lalu audit semua halaman" — pemisahan tegas Situs Publik vs Gunara Console (internal), rewrite README, audit penuh seluruh halaman.
+
+Work Log:
+- Audit arsitektur: 5 rute internal (vvip, member, admin, karyawan, client) sebelumnya dirender DI DALAM shell publik (Navbar/Footer/Preloader/WhatsAppFloat) — tidak ada pemisahan visual maupun struktural; path nyata /admin dll. 404 (hanya hidup via hash).
+- src/lib/routes.ts (BARU): satu sumber kebenaran zona — CONSOLE_SEGMENTS (5 segmen), CONSOLE_PORTALS (metadata portal: label ID/EN, deskripsi, audience member|internal), isConsoleSegment(), consolePortal(). Dipakai app.tsx, [...slug]/page.tsx, dan dokumentasi.
+- src/components/console/console-app.tsx (BARU): ConsoleShell — shell internal terpisah total: topbar fixed gelap zinc-950/90 blur (monogram GC gradient, "GUNARA CONSOLE / AREA INTERNAL", switcher 5 portal desktop+chip gulir mobile dengan ikon Lock/ShieldAlert dan aria-current, LangToggle dark, tombol "Situs Publik" sebagai satu-satunya pintu ke dunia marketing), main flex-1, footer konsol mt-auto (©, catatan "ruang terbatas — aktivitas dicatat", deskripsi portal aktif, link peta situs) + safe-area inset atas/bawah. TANPA Navbar/Footer publik, TANPA Preloader, TANPA ScrollProgress, TANPA WhatsAppFloat.
+- src/components/site/app.tsx: setelah resolusi view+title, rute dengan seg1 konsol dirender <ConsoleShell segment>{view}</ConsoleShell> (page-enter tetap); shell publik tak tersentuh. Import ConsoleShell + isConsoleSegment.
+- src/app/[...slug]/page.tsx: path nyata /admin /karyawan /client /member /vvip kini dilayani (bookmarkable) — generateMetadata mengembalikan title absolut "Area Internal — Gunara Corporation" + robots {index:false, follow:false, nocache:true}, tanpa canonical/OG; render SiteApp tanpa JSON-LD publik. Rute publik tak berubah.
+- src/app/robots.ts: Disallow diperluas /admin /karyawan /client /member /vvip (masing-masing + /*) + /api/ — sitemap tetap 255 URL 100% publik.
+- i18n: 5 kunci console.* (zone, switcher, publicSite, footer.restricted, footer.sitemap) di id.json + en.json.
+- FIX visual audit: LangToggle di kartu login admin/karyawan/client tadinya `absolute right-6 top-6` menimpa ikon lock/gembok → diubah `self-end` (alur flex, tidak ada tumpang-tindih).
+- README.md REWRITE penuh (bilingual ID+EN, "terbaik yang pernah ada"): diagram ASCII dua dunia, tabel "bagaimana pemisahan ditegakkan" (6 lapisan + lokasi kode), matriks peran & akses (Tamu/Member VVIP/Karyawan/Client/CEO), fitur publik + fitur konsol, REFERENSI API baru (20+ endpoint: metode, zona, fungsi), env vars terbaru, SEO (255 URL), checklist peringkat, Lighthouse, cara lokal + tabel URL konsol + kredensial demo, struktur proyek baru (console/, routes.ts, 19 model, 26 endpoint), kredit & kontak. Badge baru: Prisma 19 model, 26 endpoint API, 255 URL SSG.
+- Audit penuh semua halaman: lint 0 error, tsc src 0 error; curl SSR — /, /faq, /admin /karyawan /client /member /vvip (semua 200; internal noindex+nofollow+nocache terverifikasi di HTML, judul publik tak berubah); robots.txt menampilkan 11 Disallow; sitemap 255 URL tanpa rute konsol; Agent Browser E2E — /#/admin login CEO GUNARA-CEO-2026 → dashboard 14 tab "database persisten" (statistik 8 tiket/2 member/5 newsletter/6 log), switcher portal aktif per halaman, /#/karyawan /#/client /#/member /#/vvip semua shell konsol, path nyata /admin SSR judul "Area Internal", beranda publik utuh (navbar, WhatsApp float), mobile 390px konsol (chip switcher gulir, layout rapi); screenshot 9 buah di download/audit-*.png; dev.log tanpa error runtime.
+
+Stage Summary:
+- SITUS PUBLIK vs GUNARA CONSOLE kini dua dunia terpisah dalam satu app: shell publik terang (navbar/footer/WhatsApp) untuk 255 URL terindeks; shell konsol gelap dengan switcher 5 portal untuk admin/karyawan/client/member/vvip — noindex+nofollow+nocache, Disallow robots, tanpa sitemap, sesi HMAC terpisah per peran.
+- Path nyata konsol bisa dibookmark (/admin dll.) tanpa risiko SEO (noindex dua lapis: meta + robots).
+- README.md adalah dokumentasi lengkap terbaik proyek ini: arsitektur dua dunia, matriks peran, referensi API, deploy, SEO, struktur — bilingual.
+- Kredensial demo terdokumentasi: CEO GUNARA-CEO-2026, VVIP GUNARA-VVIP-2026, kode karyawan/client diterbitkan dari Panel CEO.
+
+Audit lanjutan Task 15 (temuan & perbaikan tambahan):
+- Hydration mismatch #1 (pre-existing, semua halaman path nyata): Navbar memanggil useRoute() tanpa fallback → SSR menganggap tidak ada item nav aktif, client menganggap aktif → peringatan React "attributes didn't match" pada className Link nav. Fix: Navbar menerima prop fallbackPath; app.tsx meneruskan initialPath SSR. Verifikasi browser: error hilang.
+- Hydration mismatch #2 (halaman wawasan): insight-detail.tsx memakai window.location.href saat render (share X/LinkedIn) → server "" vs client URL. Fix: shareUrl kini abs(`/insights/<slug>`) — deterministik, sekaligus lebih benar untuk share (selalu URL kanonik produksi). Verifikasi: halaman wawasan bersih.
+- FIX visual login gate admin/karyawan/client: LangToggle `absolute right-6 top-6` menimpa ikon gembok → `self-end` (alur flex).
+- Sweep error konsol per halaman (console cleared per kunjungan): 24 halaman publik + 5 portal konsol = 0 error; curl SSR 34 rute = 200 semua (2 awal 404 hanya slug uji salah; slug asli 200) + 404 manual bekerja.
+- Navigasi lintas dunia teruji: /#/admin → tombol "Situs Publik" → kembali ke beranda (h1 hero render).
+- Footer: halaman panjang terdorong natural (bottom footer = scrollHeight); halaman pendek dijamin mt-auto menempel dasar.
+- Insiden operasional: dev server mati di tengah sweep (proses direap, tanpa jejak crash di log) — di-restart dan seluruh verifikasi ulang tetap hijau.
+- Status akhir audit: lint 0 error, tsc src 0 error, dev.log bersih, 255 URL sitemap tanpa rute konsol.

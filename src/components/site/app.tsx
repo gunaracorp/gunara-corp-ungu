@@ -30,6 +30,8 @@ import Footer from "@/components/landing/footer";
 import Preloader from "@/components/landing/preloader";
 import ScrollProgress from "@/components/landing/scroll-progress";
 import WhatsAppFloat from "@/components/landing/whatsapp-float";
+import ConsoleShell from "@/components/console/console-app";
+import { isConsoleSegment } from "@/lib/routes";
 import HomePage from "@/components/site/pages/home";
 
 /*
@@ -260,6 +262,21 @@ export default function SiteApp({ initialPath }: { initialPath?: string }) {
     document.title = title;
   }, [title]);
 
+  /*
+   * Pemisahan shell: ruang internal (vvip/member/admin/karyawan/client)
+   * dirender ConsoleShell — tanpa Navbar/Footer publik, tanpa preloader,
+   * tanpa WhatsApp mengapung. Situs publik memakai shell pemasaran penuh.
+   */
+  if (isConsoleSegment(seg1)) {
+    return (
+      <ConsoleShell segment={seg1}>
+        <div key={route.target ?? "/"} className="page-enter">
+          {view}
+        </div>
+      </ConsoleShell>
+    );
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-white text-slate-900">
       <a
@@ -270,7 +287,7 @@ export default function SiteApp({ initialPath }: { initialPath?: string }) {
       </a>
       <Preloader />
       <ScrollProgress />
-      <Navbar />
+      <Navbar fallbackPath={initialPath} />
       <main id="main" key={route.target ?? "/"} className="page-enter flex-1">
         {view}
       </main>

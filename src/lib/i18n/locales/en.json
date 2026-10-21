@@ -1,4 +1,9 @@
 {
+  "console.zone": "Internal Area",
+  "console.switcher": "Switch portal",
+  "console.publicSite": "Public Site",
+  "console.footer.restricted": "Restricted area — all activity is logged.",
+  "console.footer.sitemap": "Sitemap",
   "tab.overview": "Overview",
   "tab.grafik": "Charts",
   "tab.tickets": "Brief Tickets",

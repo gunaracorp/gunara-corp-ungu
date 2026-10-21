@@ -28,10 +28,12 @@ const MENU_EXTRA = [
   { to: "/contact", label: "Kontak" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ fallbackPath }: { fallbackPath?: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const route = useRoute();
+  // fallbackPath = path nyata dari SSR (app/[...slug]) agar state "active"
+  // item nav identik antara server & client — tanpa hydration mismatch.
+  const route = useRoute(fallbackPath);
   const activeSeg = route.segments[0] ?? "";
   const [lang] = useLang();
 
