@@ -1,0 +1,403 @@
+import type { ServiceDetail } from "@/data/extended-types";
+
+/**
+ * Detail mendalam untuk 12 praktik di content.ts SERVICES, dikunci oleh num.
+ */
+export const SERVICE_DETAILS: ServiceDetail[] = [
+  {
+    num: "01",
+    enName: "Strategy & Transformation",
+    overview: [
+      "Strategi di GUNARA bukan dokumen — melainkan putusan. Praktik Strategi & Transformasi menghimpun dewan Quantum Strategy, Future Foresight, dan Organizational Alchemy untuk memutuskan di mana perusahaan Anda bertaruh, bagaimana cara menang, dan apa yang harus dikorbankan agar bisa hidup. Setiap rekomendasi hadir disertai war-game sepuluh ribu masa depan yang melandasinya.",
+      "Lalu kami tetap tinggal. Transformasi kami instrumenisasi seperti penerbangan: nilai terlacak dengan penanggung jawab yang disebut namanya, hak keputusan digambar ulang, dan satu Partner-in-Chief bertanggung jawab hingga perubahan lintasannya terbukti tak terbantahkan di angka Anda sendiri — bukan di slide kami.",
+    ],
+    capabilities: [
+      "War-game strategi sepuluh ribu masa depan",
+      "Arsitektur transformasi berbasis lintasan nilai (value-track)",
+      "Pemangkasan portofolio dan realokasi modal",
+      "Desain ulang model operasi dan hak keputusan",
+      "Rekayasa narasi untuk dewan direksi dan investor",
+      "Instrumentasi dan audit lintasan kinerja",
+    ],
+    deliverables: [
+      "The Verdict — putusan strategis 40 halaman lengkap dengan analisis masa depan yang melandasinya",
+      "Peta value-track dengan penanggung jawab, metrik, dan langkah kuartal pertama",
+      "Piagam hak keputusan yang dirancang ulang dan ditandatangani tim eksekutif",
+      "Dasbor lintasan kinerja yang dapat dibaca dewan direksi dalam sembilan puluh detik",
+    ],
+    kpis: [
+      { value: "48h", label: "hingga wawasan strategis pertama" },
+      { value: "+24%", label: "pergeseran lintasan nilai perusahaan (median)" },
+      { value: "92%", label: "putusan diadopsi tanpa dilusi" },
+    ],
+    relatedCouncils: ["Quantum Strategy", "Future Foresight", "Organizational Alchemy"],
+    protocol: [
+      "Dewan-dewan berkumpul dalam hitungan jam setelah brief Anda, menginterogasinya dari 46 arah.",
+      "War-game memadatkan ruang keputusan Anda menjadi tiga langkah yang benar-benar menentukan.",
+      "Partner-in-Chief menyampaikan putusan, lalu menempel hingga lintasan itu menjadi milik Anda.",
+    ],
+  },
+  {
+    num: "02",
+    enName: "AI & Data Intelligence",
+    overview: [
+      "Sisa data berubah menjadi ramalan hanya di bawah disiplin. Praktik AI & Kecerdasan Data — didukung dewan Artificial General Intelligence, Data Intelligence, dan Immersive Realities — membangun instrumen keputusan dengan penanggung jawab dan konsekuensi, bukan dasbor berisi laporan cuaca.",
+      "Kami regulation-native: setiap deployment hadir dengan rezim evaluasi, hasil red-team, dan pagar governance yang memuaskan regulator paling ketat sebelum mereka bertanya. Kecepatan adalah produk sampingan dari kepercayaan, bukan musuhnya.",
+    ],
+    capabilities: [
+      "Desain instrumen keputusan, bukan sekadar dasbor",
+      "Transformasi model operasi berbasis AI",
+      "Governance, evaluasi, dan red-teaming model",
+      "Lini produk data dengan kepemilikan P&L",
+      "Konstruksi synthetic twin untuk operasi",
+      "Dokumentasi deployment siap-regulator",
+    ],
+    deliverables: [
+      "Suite Instrumen Keputusan — model dengan penanggung jawab bernama dan loop konsekuensi",
+      "Piagam governance AI yang diterima standar regulator Anda",
+      "Peta jalan produk data dengan unit economics per produk",
+      "Rencana konversi model operasi AI-native 90 hari",
+    ],
+    kpis: [
+      { value: "340%", label: "lonjakan kecepatan rilis, kasus referensi Fortune 100" },
+      { value: "12x", label: "percepatan loop keputusan eksekutif" },
+      { value: "0", label: "deployment yang dibatalkan regulator" },
+    ],
+    relatedCouncils: ["Artificial General Intelligence", "Data Intelligence", "Cyber Defense"],
+    protocol: [
+      "Dewan AGI dan Data Intelligence mengaudit lanskap keputusan Anda di pekan pertama.",
+      "Kami membangun instrumen terkecil yang mengubah satu keputusan nyata, lalu mengompaundkannya.",
+      "Governance dan evaluasi dikirim bersama setiap rilis — tidak pernah menjadi tambalan belakangan.",
+    ],
+  },
+  {
+    num: "03",
+    enName: "Technology & Engineering",
+    overview: [
+      "Arsitektur dari ide hingga hyperscale. Praktik Teknologi & Rekayasa — dewan Cloud & Edge Architecture, Cyber Defense, dan Robotics — merancang platform yang mengangkat ambisi tanpa meruntuhkan faktur: cloud di tempat ia menguntungkan, edge di tempat fisika menuntut, pintu keluar di mana-mana.",
+      "Kami membangun seperti benteng yang memang hendak kami pertahankan: anggap celah selalu ada, minimalkan radius ledakan, dan otomatisasi bagian yang membosankan hingga para insinyur Anda dipersenjatai untuk hal-hal yang menarik.",
+    ],
+    capabilities: [
+      "Rekayasa platform dan golden path",
+      "Rekayasa finansial cloud dan FinOps",
+      "Arsitektur zero-trust dan blast radius minimum",
+      "Penempatan edge untuk beban kerja terikat fisika",
+      "Program strangulasi estate sistem legasi",
+      "Toolchain dan budaya DevSecOps",
+    ],
+    deliverables: [
+      "Arsitektur target dengan rencana migrasi strangler",
+      "Fortress review — laporan ekonomi penyerang dengan perbaikan yang terprioraskan",
+      "Pemasangan platform engineering dengan golden path yang diadopsi tim Anda",
+      "Instrumen FinOps yang memangkas biaya unit tanpa memangkas resiliensi",
+    ],
+    kpis: [
+      { value: "-41%", label: "penurunan biaya unit (median) pada resiliensi setara" },
+      { value: "99.999%", label: "ketersediaan lintas platform yang diamanatkan" },
+      { value: "9 min", label: "median containment atas upaya intrusi" },
+    ],
+    relatedCouncils: ["Cloud & Edge Architecture", "Cyber Defense", "Robotics & Automation"],
+    protocol: [
+      "Fortress review berjalan lebih dulu — tak ada gunanya mempercepat menuju jurang yang salah.",
+      "Arsitektur didaraskan dalam inkremen strangler yang bisa dirilis tim Anda mingguan.",
+      "Kami pergi meninggalkan insinyur Anda lebih kuat daripada saat kami datang.",
+    ],
+  },
+  {
+    num: "04",
+    enName: "Finance & Capital",
+    overview: [
+      "Strategi modal yang mengompaun saat Anda tidur. Praktik Keuangan & Modal — dewan Global Macro, Private Capital, Wealth Architecture, dan Actuarial Science — menempatkan neraca Anda di sisi sejarah yang benar dan menghargai risiko ekor yang diabaikan semua orang.",
+      "Dari penggalangan dana hingga benteng: kami menstrukturkan posisi masuk dengan jalan keluar yang sudah dituliskan, menghedging perubahan rezim yang kami prakirakan, dan menjadikan peristiwa sekali-seabad sebagai pos anggaran berikut kuponnya.",
+    ],
+    capabilities: [
+      "Arsitektur struktur modal dan treasury",
+      "Rekayasa penggalangan dana dan narasi investor",
+      "Tesis M&A, bidding, dan integrasi",
+      "Program penghargaan dan hedging risiko ekor",
+      "Instrumen peringatan dini perubahan rezim",
+      "Arsitektur kekayaan keluarga dan pendiri",
+    ],
+    deliverables: [
+      "Position paper modal dengan prakiraan rezim dan rencana hedging",
+      "Narasi investor dan data room yang menjual ronde sebelum dibuka",
+      "Portofolio instrumen risiko ekor yang telah dihargai dan dipasang",
+      "Kebijakan treasury yang CFO Anda pertahankan di hadapan dewan direksi",
+    ],
+    kpis: [
+      { value: "+8.2%", label: "rata-rata alpha makro tahunan atas mandat" },
+      { value: "3.1x", label: "net MOIC pada dana berpanduan dewan" },
+      { value: "$240B", label: "kewajiban yang dihargai ulang dengan model dewan" },
+    ],
+    relatedCouncils: ["Global Macro", "Private Capital", "Actuarial Science"],
+    protocol: [
+      "Dewan makro dan modal membaca neraca Anda terhadap dekade berikutnya.",
+      "Kami menstrukturkan ulang yang akan dipukul arus, dan membiayai yang akan diangkatnya.",
+      "Setiap struktur dikirim dengan jalan keluar dan hedge-nya — keduanya disebut namanya.",
+    ],
+  },
+  {
+    num: "05",
+    enName: "Operations & Supply Chain",
+    overview: [
+      "Arus dari hulu ke hilir tanpa gesekan. Praktik Operasi & Rantai Pasok — dewan Robotics & Automation, Data Intelligence, dan Deep Ocean Systems — mengubah rantai pasok Anda dari liabilitas yang Anda minta maafkan menjadi parit yang dipelajari para kompetitor.",
+      "Kami menginstrumentasi setiap simpul, mengotomasi yang brutal, dan merancang peran manusia yang membuat mesin mengompaun martabat, bukan dendam.",
+    ],
+    capabilities: [
+      "Instrumentasi rantai pasok ujung-ke-ujung",
+      "Konversi pabrik berbasis automation quotient",
+      "Penemuan ulang S&OP dengan matematika skenario",
+      "Desain ulang jaringan dan koreografi near-shoring",
+      "Pelepasan persediaan dan modal kerja",
+      "Audit kedaulatan pemasok dan resiliensi",
+    ],
+    deliverables: [
+      "Desain ulang jaringan dengan garis batas resiliensi-biaya terpetakan",
+      "Rencana konversi otomasi per pabrik lengkap dengan pakta tenaga kerja",
+      "Program pelepasan modal kerja dengan penanggung jawab bernama",
+      "Instrumen control tower yang melihat setiap simpul secara real time",
+    ],
+    kpis: [
+      { value: "3.8x", label: "throughput pada lini otomatis unggulan" },
+      { value: "-31%", label: "pelepasan modal kerja (median) yang dicapai" },
+      { value: "212", label: "pabrik dikonversi tanpa satu pun mogok" },
+    ],
+    relatedCouncils: ["Robotics & Automation", "Data Intelligence", "Global Macro"],
+    protocol: [
+      "Dewan menginstrumentasi jaringan Anda sebelum menyentuhnya — pengukuran sebelum bedah.",
+      "Kami mengonversi pabrik unggulan lebih dulu, lalu mentemplatkan kemenangannya.",
+      "Pakta tenaga kerja dikirim bersama robotnya; martabat adalah kebutuhan desain.",
+    ],
+  },
+  {
+    num: "06",
+    enName: "People & Culture",
+    overview: [
+      "Tim yang tampil melampaui legendanya sendiri. Praktik Manusia & Budaya — dewan Peak Performance, Peak Psychology, Neuroscience, dan Culture & Anthropology — menyetel tim kepemimpinan seperti kontender juara dan membangun budaya yang bertahan melampaui pendirinya.",
+      "Kami tidak sentimentil soal sentimen: budaya diukur, psikologi dibajai sebelum pengepungan, dan kadensi konfrontasi dipasang agar kebenaran bergerak lebih cepat daripada politik.",
+    ],
+    capabilities: [
+      "Diagnostik dan penyetelan tim eksekutif",
+      "Pengukuran dan desain budaya organisasi",
+      "Suksesi kepemimpinan dan kedalaman cadangan",
+      "Pemasangan kadensi kebenaran dan konfrontasi",
+      "Desain beban kognitif dan arena keputusan",
+      "Pakta transisi tenaga kerja",
+    ],
+    deliverables: [
+      "Diagnostik tim dengan kadensi konfrontasi terpasang",
+      "Instrumen budaya dengan baseline dan pembacaan kuartalan",
+      "Bursa suksesi yang diuji tekan terhadap tiga skenario masa depan",
+      "Desain ulang arena keputusan untuk ruang rapat direksi Anda",
+    ],
+    kpis: [
+      { value: "+27%", label: "throughput keputusan tim setelah satu musim" },
+      { value: "-44%", label: "burnout terlaporkan di organisasi klien" },
+      { value: "84%", label: "tim tersetel yang memenuhi standar di tahun kedua" },
+    ],
+    relatedCouncils: ["Peak Performance", "Peak Psychology", "Culture & Anthropology"],
+    protocol: [
+      "Dewan mendiagnosis tim sebagai unit fisiologis, bukan deretan CV.",
+      "Kadensi dan arena didesain ulang sebelum ada orang yang dicoaching.",
+      "Kami kembali setiap kuartal hingga budaya yang mengaudit kami, bukan sebaliknya.",
+    ],
+  },
+  {
+    num: "07",
+    enName: "Sustainability & ESG",
+    overview: [
+      "Laba dengan nurani planet — dan bukti. Praktik Keberlanjutan & ESG — dewan Climate Engineering, Energy & Fusion, dan Ethics & Philosophy — membangun program net-zero dengan gigi audit dan legitimasi yang menyatu sejak rancangan.",
+      "Greenwash mati di depan pintu kami: setiap klaim dikirim dengan instrumentasi MRV, desain persetujuan komunitas, dan terjemahan neraca yang ditandatangani CFO Anda sekaligus aktivis Anda.",
+    ],
+    capabilities: [
+      "Arsitektur jalur net-zero dengan gigi audit",
+      "Portofolio penghapusan karbon dan sistem MRV",
+      "Pelaporan ESG yang dihormati regulator",
+      "Terjemahan risiko iklim ke bahasa neraca",
+      "Desain sirkularitas dan product passport",
+      "Persetujuan komunitas dan ritual legitimasi",
+    ],
+    deliverables: [
+      "Jalur net-zero dengan penghapusan karbon terkontrak dan MRV berjalan",
+      "Terjemahan risiko iklim untuk paket dewan direksi dan pembiaya",
+      "Suite pelaporan yang memenuhi tiga yurisdiksi tanpa restatement",
+      "Peta legitimasi setiap komunitas yang tersentuh jejak Anda",
+    ],
+    kpis: [
+      { value: "41Mt", label: "penghapusan CO₂ terkontrak di bawah MRV dewan" },
+      { value: "100%", label: "penerimaan regulator atas laporan buatan dewan" },
+      { value: "$9.7B", label: "modal transisi yang diprogramkan" },
+    ],
+    relatedCouncils: ["Climate Engineering", "Energy & Fusion", "Ethics & Philosophy"],
+    protocol: [
+      "Dewan Ethics meninjau ambisi sebelum para insinyur menghitungnya.",
+      "Instrumentasi MRV dikirim bersama jalurnya — klaim diukur, atau dihapus.",
+      "Legitimasi dibangun bersama komunitas sebelum komunikasi menyentuh mereka.",
+    ],
+  },
+  {
+    num: "08",
+    enName: "Legal, Risk & Compliance",
+    overview: [
+      "Perisai dari kertas, setajam bilah. Praktik Hukum, Risiko & Kepatuhan — dewan Forensic Audit, Geopolitical Risk, dan Constitutional Design — membangun tata kelola yang bertahan dari jaksa, rezim sanksi, dan pertumbuhan Anda sendiri.",
+      "Kami membaca catatan kaki sampai mereka mengaku: audit integritas pra-transaksi, jejak bisnis yang tahan sanksi, dan rezim kontrol yang menangkap fraud sebelum pers melakukannya.",
+    ],
+    capabilities: [
+      "Audit integritas dan forensik pra-transaksi",
+      "Navigasi sanksi dan resiliensi jejak bisnis",
+      "Piagam governance dan pembangunan ulang kontrol",
+      "Arsitektur kanal pelapor (whistleblower)",
+      "Koreografi regulasi lintas yurisdiksi",
+      "Integrasi komando krisis hukum",
+    ],
+    deliverables: [
+      "Dosir integritas atas target apa pun sebelum Anda mengirim satu sen pun",
+      "Peta jejak tahan-sanksi dengan rencana pengalihan rute",
+      "Piagam governance dan suite kontrol yang dibangun ulang ke kelas audit",
+      "Strategi pemulihan dengan counterparty bernama dan garis waktu",
+    ],
+    kpis: [
+      { value: "$3.9B", label: "aset yang berhasil dilacak" },
+      { value: "71%", label: "tingkat pemulihan pada restitusi yang diamanatkan" },
+      { value: "58", label: "jejak klien dialihkan lebih dulu dari sanksi" },
+    ],
+    relatedCouncils: ["Forensic Audit", "Geopolitical Risk", "Ethics & Philosophy"],
+    protocol: [
+      "Dewan Forensic membaca segalanya dua kali — termasuk yang Anda dibilang bersih.",
+      "Kontrol dibangun ulang agar membosankan; itulah yang bertahan dari jaksa.",
+      "Dewan Geopolitical menjaga jejak Anda selangkah di depan perpindahan perbatasan berikutnya.",
+    ],
+  },
+  {
+    num: "09",
+    enName: "Growth, Brand & Experience",
+    overview: [
+      "Permintaan yang datang dalam keadaan pre-sold. Praktik Growth, Merek & Pengalaman — dewan Market Creation, Culture & Anthropology, dan Arts & Aesthetics — membangun gravitasi kategori: bahasa, jangkar harga, ritual, dan keindahan yang menjadikan produk Anda titik rujuk.",
+      "Kami tidak mengejar permintaan; kami menuliskannya. Penamaan kategori, sekutu ekosistem, tata bahasa budaya, dan doktrin estetika — tumpukan lengkap alasan orang memilih sebelum membandingkan.",
+    ],
+    capabilities: [
+      "Desain, penamaan, dan doktrin kategori",
+      "Gravitasi harga dan arsitektur jangkar",
+      "Tata bahasa budaya dan mitologi merek",
+      "Sekuensing rekrutmen sekutu ekosistem",
+      "Kurasi pengalaman dan flagship",
+      "Instrumentasi growth dengan rigor kausal",
+    ],
+    deliverables: [
+      "Piagam kategori — bahasa, musuh, ritual, dan peta wilayah pendaratan (beachhead)",
+      "Arsitektur harga dengan desain jangkar dan pagar",
+      "Codex mitologi merek yang ditaati seluruh agensi Anda",
+      "Suite instrumen growth dengan atribusi kausal berjalan",
+    ],
+    kpis: [
+      { value: "4.6x", label: "resonansi peluncuran dibanding kampanye hasil terjemahan" },
+      { value: "4.1x", label: "premium kategori dibanding peniru" },
+      { value: "$1.8B", label: "pendapatan yang dilacak ke langkah growth kelahiran dewan" },
+    ],
+    relatedCouncils: ["Market Creation", "Culture & Anthropology", "Arts & Aesthetics"],
+    protocol: [
+      "Dewan Anthropology memetakan makna produk Anda sebelum kami menamainya.",
+      "Kami meluncurkan kategori di satu pasar hingga bahasanya menyebar sendiri.",
+      "Keindahan dan doktrin diaudit kuartalan; di sini selera adalah urusan governance.",
+    ],
+  },
+  {
+    num: "10",
+    enName: "Innovation & Ventures",
+    overview: [
+      "Bisnis baru digerate seperti embrio para raksasa. Praktik Inovasi & Venture — dewan Market Creation, Creative Intelligence, dan Digital Trust — membangun venture di dalam dinding Anda dengan lapar ala startup dan antibodi neraca Anda.",
+      "Kami menjalankan portofolio seperti ruang sidang: tesis lebih dulu, gerbang kill-cepat, dan insentif setara pendiri sehingga venture memperjuangkan hidupnya, bukan pos anggarannya.",
+    ],
+    capabilities: [
+      "Tesis venture dan arsitektur portofolio",
+      "Gerbang keputusan build-fit-partner-kill",
+      "Desain insentif setara pendiri",
+      "Manajemen antibodi korporat",
+      "Desain ulang portofolio R&D dan stage-gate",
+      "Masuk pasar baru dengan permintaan pre-sold",
+    ],
+    deliverables: [
+      "Tesis portofolio venture dengan tiga build yang dikomisikan",
+      "Instrumen gerbang dengan kriteria kill yang disepakati sebelum peluncuran",
+      "Pakta insentif yang memperkaya pendiri internal lewat hasil",
+      "Rencana manajemen antibodi yang CFO Anda tandatangani secara terbuka",
+    ],
+    kpis: [
+      { value: "7 of 10", label: "venture yang melewati gerbang dua mencapai pasar" },
+      { value: "19 mo", label: "median ide-ke-pendapatan di dalam korporasi" },
+      { value: "9", label: "venture klien kini terjual ke pihak luar" },
+    ],
+    relatedCouncils: ["Market Creation", "Creative Intelligence", "Digital Trust & Blockchain"],
+    protocol: [
+      "Dewan mengomisikan tiga tesis dan membiarkan bukti memilih pemenangnya.",
+      "Venture berjalan dengan metabolisme startup, antibodi korporat dikelola secara eksplisit.",
+      "Keputusan kill dirayakan; zombie tidak.",
+    ],
+  },
+  {
+    num: "11",
+    enName: "Crisis & Turnaround",
+    overview: [
+      "Saat perusahaan terbakar, kami datang dalam keadaan sudah basah. Praktik Krisis & Turnaround — dewan Crisis Command, Forensic Audit, dan Global Macro — mengambil komando perusahaan yang terbakar dan mengembalikannya dalam keadaan membosankan, solven, dan terbela.",
+      "Stabilisasi sembilan puluh hari, pagar kas di sekeliling inti yang layak hidup, koreografi kreditur, dan tulang punggung komunikasi yang menjaga pasar tetap tenang sementara kebenaran diperbaiki di tempat gelap.",
+    ],
+    capabilities: [
+      "Komando stabilisasi 72 jam",
+      "Desain pagar kas di sekeliling inti layak hidup",
+      "Koreografi kreditur dan counterparty",
+      "Penemuan kebenaran forensik di bawah tekanan",
+      "Disiplin pesan untuk pasar dan regulator",
+      "Arsitektur turnaround sembilan puluh hari",
+    ],
+    deliverables: [
+      "Ruang komando stabilisasi dengan keputusan pra-draf yang siap hidup",
+      "Peta pagar kas yang melindungi inti yang diperjuangkan restrukturisasi",
+      "Naskah koreografi kreditur dengan matematika berjalan-dalam-sepatu-mereka",
+      "Rencana sembilan puluh hari dengan gerbang bukti mingguan",
+    ],
+    kpis: [
+      { value: "72h", label: "waktu median dari kepanikan ke rencana stabil" },
+      { value: "91%", label: "entitas klien yang selamat utuh dari krisisnya" },
+      { value: "58", label: "krisis dikomandani di empat benua" },
+    ],
+    relatedCouncils: ["Crisis Command", "Forensic Audit", "Global Macro"],
+    protocol: [
+      "Otoritas komando diberikan secara tertulis sebelum matahari terbit di hari pertama.",
+      "Pagar kas digambar lebih dulu; segala hal lain bernegosiasi dengannya.",
+      "Kami pergi saat dewan direksi — bukan dewan pakar — yang memiliki ketenangan.",
+    ],
+  },
+  {
+    num: "12",
+    enName: "Sovereign & Nation Advisory",
+    overview: [
+      "Program seluruh-negara, dihantarkan dari hulu ke hilir. Praktik Konsultan Kedaulatan & Negara — dewan Megacity Planning, Public Policy, Food & Agriculture, dan Education Systems — mengarsiteki program nasional dari naskah kebijakan hingga kilometer terakhir penyerahan.",
+      "Kami melayani republik dan kerajaan dengan diskresi yang sama: unit penyerahan yang bertahan melewati pemilu, pembiayaan kota yang dibiayai bank, dan program yang diukur dari warga yang terlayani, bukan slide yang dikirim.",
+    ],
+    capabilities: [
+      "Arsitektur program nasional dan unit penyerahan",
+      "Prototyping kebijakan dan piloting langsung",
+      "Strukturasi pembiayaan kota dan kedaulatan",
+      "Logistik dan cadangan skala negara",
+      "Koridor pendidikan dan tenaga kerja",
+      "Nation branding dan narasi FDI",
+    ],
+    deliverables: [
+      "Cetak biru program nasional dengan piagam unit penyerahan",
+      "Struktur pembiayaan yang disetujui bank sekaligus parlemen",
+      "Provinsi percontohan berjalan dalam satu kuartal",
+      "Dasbor hasil bagi warga yang dipublikasikan, bukan disimpan",
+    ],
+    kpis: [
+      { value: "42M", label: "warga terlayani program buatan dewan" },
+      { value: "9", label: "unit penyerahan nasional didirikan" },
+      { value: "76%", label: "percontohan yang naik skala menjadi kebijakan nasional" },
+    ],
+    relatedCouncils: ["Public Policy", "Megacity Planning", "Food & Agriculture"],
+    protocol: [
+      "Siklus politik dipetakan sebelum program digambar.",
+      "Satu provinsi memilotkan sementara parlemen memperdebatkan negara.",
+      "Instrumen penyerahan mempublikasikan hasil bagi warga — legitimasi adalah deliverable-nya.",
+    ],
+  },
+];

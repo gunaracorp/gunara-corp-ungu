@@ -1,0 +1,260 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  refCode   String   @unique
+  name      String
+  email     String
+  company   String?
+  budget    String?
+  role      String?
+  type      String   @default("general")
+  challenge String
+  status    String   @default("new") // new | read | replied
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+/// Member VVIP — dikelola Panel CEO (/#/admin), kode personal untuk Oracle & dashboard.
+model VvipMember {
+  id           String    @id @default(cuid())
+  name         String
+  email        String?
+  phone        String?
+  company      String?
+  tier         String    @default("VVIP") // VVIP | GOLD | PLATINUM
+  code         String    @unique
+  status       String    @default("active") // active | suspended
+  notes        String?
+  validUntil   DateTime?
+  lastAccessAt DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+/// Jejak akses member VVIP (login lounge/dashboard & percobaan ditolak).
+model VvipAccessLog {
+  id         String   @id @default(cuid())
+  memberId   String?
+  name       String?
+  codeMasked String
+  action     String   @default("login") // login | denied
+  detail     String?
+  createdAt  DateTime @default(now())
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// Karyawan internal — dikelola Panel CEO (/#/admin), login Portal Karyawan (/#/karyawan).
+model Employee {
+  id           String    @id @default(cuid())
+  name         String
+  email        String?
+  phone        String?
+  position     String    @default("Staff")
+  department   String    @default("Operasional")
+  code         String    @unique
+  tier         String    @default("STANDARD") // STANDARD | PRO | ELITE | GOD (tier maks)
+  status       String    @default("active") // active | suspended
+  notes        String?
+  lastAccessAt DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+/// Akun client — dikelola Panel CEO (/#/admin), login Portal Client (/#/client).
+model ClientAccount {
+  id           String    @id @default(cuid())
+  name         String
+  email        String?
+  phone        String?
+  company      String?
+  industry     String?
+  code         String    @unique
+  tier         String    @default("STANDARD") // STANDARD | PRO | ELITE | GOD (tier maks)
+  status       String    @default("active") // active | suspended
+  notes        String?
+  lastAccessAt DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+/// Proyek / permintaan layanan — dibuat CEO atau client, dikerjakan karyawan.
+model Project {
+  id          String    @id @default(cuid())
+  refCode     String    @unique
+  title       String
+  description String
+  clientId    String?
+  clientName  String    @default("—")
+  employeeId  String?
+  status      String    @default("baru") // baru | berjalan | review | selesai | dibatalkan
+  priority    String    @default("normal") // rendah | normal | tinggi | urgent
+  progress    Int       @default(0) // 0-100
+  dueDate     DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+/// Riwayat aktivitas / catatan pada satu proyek (feed kolaborasi).
+model ProjectUpdate {
+  id         String   @id @default(cuid())
+  projectId  String
+  author     String
+  authorRole String   @default("admin") // admin | karyawan | client
+  message    String
+  createdAt  DateTime @default(now())
+}
+
+/// Pengumuman internal — untuk karyawan, client, atau keduanya.
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  body      String
+  audience  String   @default("semua") // semua | karyawan | client
+  createdAt DateTime @default(now())
+}
+
+/// Dokumen yang diunggah ke ekosistem (meta; berkas disimpan di folder uploads/).
+model DocumentFile {
+  id           String   @id @default(cuid())
+  storedName   String   // nama berkas di disk (cuid.ext)
+  originalName String
+  mimeType     String
+  size         Int
+  projectId    String?  // terkait proyek tertentu (opsional)
+  projectRef   String?  // kode proyek denormalisasi untuk tampilan
+  visibility   String   @default("semua") // semua | karyawan | client
+  uploaderId   String
+  uploaderName String
+  uploaderRole String   // admin | karyawan | client
+  note         String?
+  createdAt    DateTime @default(now())
+}
+
+/// Antrean/riwayat notifikasi WhatsApp (wa.me deep-link atau gateway cloud).
+model WaNotification {
+  id         String    @id @default(cuid())
+  toPhone    String?   // format internasional tanpa +, contoh 62813…
+  toName     String?
+  toRole     String    @default("admin") // admin | karyawan | client
+  event      String    @default("manual") // proyek_status | proyek_baru | pengumuman | dokumen | tier | laporan | manual
+  message    String
+  status     String    @default("queued") // queued | sent | failed
+  channel    String    @default("wa.me") // wa.me | gateway
+  relatedRef String?   // kode terkait (PRJ-…, GUNARA-…, dst.)
+  createdAt  DateTime  @default(now())
+  sentAt     DateTime?
+}
+
+/// Kode aktivasi tier portal — dibuat CEO, dipakai karyawan/client sekali pakai.
+model TierCode {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  tier       String    // PRO | ELITE | GOD
+  targetRole String    @default("semua") // karyawan | client | semua
+  note       String?
+  createdBy  String    @default("CEO / Admin")
+  usedById   String?
+  usedByName String?
+  usedAt     DateTime?
+  createdAt  DateTime  @default(now())
+}
+
+/// Tiket dukungan — client/karyawan buat, CEO & tim menanggapi.
+model Ticket {
+  id          String    @id @default(cuid())
+  refCode     String    @unique
+  subject     String
+  body        String
+  category    String    @default("umum") // umum | proyek | tagihan | teknis
+  priority    String    @default("normal") // rendah | normal | tinggi | urgent
+  status      String    @default("open") // open | diproses | selesai | ditutup
+  creatorId   String
+  creatorName String
+  creatorRole String    // client | karyawan
+  assigneeId  String?   // karyawan penangan (opsional)
+  assigneeName String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+/// Balasan tiket (thread percakapan).
+model TicketReply {
+  id         String   @id @default(cuid())
+  ticketId   String
+  author     String
+  authorRole String   // admin | karyawan | client
+  message    String
+  createdAt  DateTime @default(now())
+}
+
+/// Jejak aktivitas seluruh sistem — visibilitas penuh hanya untuk Panel CEO (GOD MODE).
+model AuditEvent {
+  id        String   @id @default(cuid())
+  actor     String
+  actorRole String   // admin | karyawan | client | sistem
+  action    String   // login | tiket_buat | tiket_balas | invoice_buat | dst.
+  target    String?  // kode objek (PRJ-…, TIK-…, INV-…, dst.)
+  detail    String?
+  createdAt DateTime @default(now())
+}
+
+/// Invoice/tagihan layanan GUNARA kepada client — PDF siap unduh.
+model Invoice {
+  id         String    @id @default(cuid())
+  refCode    String    @unique
+  clientId   String?
+  clientName String
+  projectId  String?
+  projectRef String?
+  items      String    // JSON: [{desc, qty, price}]
+  amount     Int       // total dalam Rupiah (dihitung server)
+  status     String    @default("draft") // draft | terkirim | dibayar | batal
+  dueDate    DateTime?
+  note       String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+/// Suntingan manual terjemahan (Studio Multi-Bahasa) — menimpa nilai berkas locale.
+model TranslationOverride {
+  id        String   @id @default(cuid())
+  lang      String   // kode bahasa registry (id, en, jv, … 195 kode)
+  key       String   // kunci terjemahan (tab.overview, …)
+  value     String   // nilai hasil suntingan manual
+  updatedAt DateTime @updatedAt
+
+  @@unique([lang, key])
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
